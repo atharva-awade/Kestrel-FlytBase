@@ -1,0 +1,111 @@
+# ── Secrets ──────────────────────────────────────────────────────────────
+# Never commit real credentials. .env.example carries placeholders only.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# ── Python ───────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+.venv/
+venv/
+.uv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# ── Node / Next.js ───────────────────────────────────────────────────────
+node_modules/
+.next/
+.next-check/
+out/
+.turbo/
+*.tsbuildinfo
+.vercel/
+.pnpm-store/
+playwright-report/
+test-results/
+
+# ── Runtime data (regenerable) ───────────────────────────────────────────
+# The SQLite index and derived artefacts are rebuilt by `kestrel ingest`.
+data/*.db
+data/*.db-journal
+data/*.db-wal
+data/*.db-shm
+data/runs/
+data/exports/
+data/frames/
+
+# Large media: footage is fetched by scripts/fetch_footage.py, not committed.
+data/footage/*
+!data/footage/SOURCES.md
+!data/footage/.gitkeep
+
+# Cassettes ARE committed — they make the demo runnable with no API key.
+!data/cassettes/**
+
+# Model weights are downloaded on first use (YOLO from GitHub releases, others
+# from the HF Hub). Committing 18 MB of binaries that a script fetches is waste.
+*.pt
+*.onnx
+*.safetensors
+
+# Scratch databases from the evaluation harness — each scenario runs against an
+# isolated database so state cannot leak between them, and those are disposable.
+data/eval/_*.db
+data/eval/_*.db-*
+data/probe_*.json.bak
+
+# ── LaTeX build intermediates ────────────────────────────────────────────
+report/*.aux
+report/*.log
+report/*.out
+report/*.toc
+report/*.fls
+report/*.fdb_latexmk
+report/*.synctex.gz
+report/*.bbl
+report/*.blg
+report/*.lof
+report/*.lot
+# Generated .tex tables come from eval JSON and are committed for reproducibility.
+!report/generated/*.tex
+
+# ── OS / editor ──────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+*.swp
+
+# Operator-uploaded footage: user data, never committed.
+data/uploads/
+
+# Excluded assignment/claude/report files
+report/*
+!report/*.pdf
+.claude/
+claude.md
+*.claude*
+docs/01-feature-spec.md
+docs/02-architecture.md
+docs/03-testing.md
+docs/04-ai-tooling-log.md
+docs/05-demo-video-script.md
+docs/06-submission.md

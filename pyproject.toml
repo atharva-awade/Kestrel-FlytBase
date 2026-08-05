@@ -1,0 +1,129 @@
+[project]
+name = "kestrel"
+version = "0.1.0"
+description = "KESTREL — autonomous drone security analyst agent"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = { text = "MIT" }
+
+dependencies = [
+    # ── API surface ──────────────────────────────────────────────────────
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.32",
+    "sse-starlette>=2.1",
+    "python-multipart>=0.0.12",
+    # ── Config / models ──────────────────────────────────────────────────
+    "pydantic>=2.9",
+    "pydantic-settings>=2.6",
+    "python-dotenv>=1.0",
+    "pyyaml>=6.0",
+    # ── HTTP ─────────────────────────────────────────────────────────────
+    "httpx>=0.27",
+    "tenacity>=9.0",
+    # ── Vision ───────────────────────────────────────────────────────────
+    "opencv-python-headless>=4.10",
+    "pillow>=11.0",
+    "numpy>=2.1",
+    "supervision>=0.25",          # MIT — ByteTrack, PolygonZone, annotators, mAP
+    "imageio-ffmpeg>=0.5",        # ffmpeg binary without a system install
+    # ── Agent ────────────────────────────────────────────────────────────
+    "langgraph>=0.2.45",
+    "langchain-core>=0.3.15",
+    "langchain-openai>=0.2.9",    # OpenAI-compatible → points at NIM/Groq
+    # ── Storage / retrieval ──────────────────────────────────────────────
+    "sqlite-vec>=0.1.6",
+    "rich>=13.9",
+    "typer>=0.13",
+]
+
+[project.optional-dependencies]
+# Local CUDA detector. Install with: uv sync --extra local-gpu
+# Torch comes from the CUDA index configured in [tool.uv.sources] below.
+local-gpu = [
+    "torch>=2.5",
+    "torchvision>=0.20",
+    # Grounding DINO / RT-DETR. Weights come from the HuggingFace Hub, which is
+    # unreachable on some networks — the detector falls back automatically.
+    "transformers>=4.46",
+    # YOLO11. Weights are served from GitHub releases rather than HF, which makes
+    # this the backend that works when the Hub is blocked.
+    # NOTE: ultralytics is AGPL-3.0. It is an optional extra and never required;
+    # see docs/adr/0002-detector-backend.md for the licence discussion.
+    "ultralytics>=8.3",
+]
+dev = [
+    "pytest>=8.3",
+    "pytest-asyncio>=0.24",
+    "pytest-cov>=6.0",
+    "ruff>=0.8",
+    "mypy>=1.13",
+    "respx>=0.21",                # httpx mocking for cassette tests
+]
+
+[project.scripts]
+kestrel = "kestrel.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/kestrel"]
+
+# ── uv ───────────────────────────────────────────────────────────────────
+[tool.uv]
+# Torch's CUDA wheels are not on PyPI; point the GPU extra at NVIDIA's index.
+# Kept out of the default dependency set so a CPU-only grader is unaffected.
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cu124", extra = "local-gpu" }]
+torchvision = [{ index = "pytorch-cu124", extra = "local-gpu" }]
+
+# ── Tooling ──────────────────────────────────────────────────────────────
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "ASYNC", "RUF"]
+ignore = [
+    "E501",      # line length — handled by the formatter
+    # Prose in this codebase deliberately uses en/em dashes, arrows and × in
+    # docstrings and comments. They are not homoglyph attacks.
+    "RUF001", "RUF002", "RUF003",
+    # `timeout` on an async helper is the correct interface here — these wrap
+    # asyncio.wait_for internally rather than blocking.
+    "ASYNC109",
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Scripts are operator tools: semicolons and top-level imports after a
+# warnings filter are deliberate and readable in that context.
+# ASYNC240: writing a small JSON result file at the end of an async benchmark is
+# not a latency concern worth an async filesystem dependency.
+"scripts/*" = ["E402", "E702", "ASYNC240"]
+"report/*" = ["E402", "E702"]
+# Tests bind values purely to assert on construction succeeding.
+"tests/*" = ["F841", "RUF059"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+markers = [
+    "eval: golden-set regression (metrics asserted against thresholds)",
+    "agent: Ask KESTREL control-plane tests (tool choice, citations, action gate)",
+    "chaos: fault injection — asserts graceful degradation",
+    "live: requires real API keys; skipped by default",
+    "gpu: requires a CUDA device",
+]
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.mypy]
+python_version = "3.12"
+plugins = ["pydantic.mypy"]
+ignore_missing_imports = true
