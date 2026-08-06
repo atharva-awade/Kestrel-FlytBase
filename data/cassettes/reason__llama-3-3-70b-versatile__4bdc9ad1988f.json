@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 250,
+      "messages": [
+        {
+          "content": "You are a security analyst writing a shift report: what happened, who was involved, anything unusual. Be specific and concrete: name entities, zones and times. Do not speculate about motive. If the period was uneventful, say so in one sentence rather than padding.",
+          "role": "system"
+        },
+        {
+          "content": "Period: 2026-08-04 17:02 to 17:04\n\n[17:04-17:04] 17:04:00-17:04:00: 1x vehicle, 1x person in loading-dock. Blue Ford F-150 parked at the loading dock, driver unloading\n[17:02-17:02] 17:02:00-17:02:00: 1x pickup in main-gate. A blue Ford F-150 pickup arrives at the main gate",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-d2290184-9c91-4ee9-ae55-22dc4faab482",
+    "object": "chat.completion",
+    "created": 1785989048,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Shift Report for 2026-08-04 17:02 to 17:04:\n\nDuring the reporting period, a blue Ford F-150 pickup arrived at the main gate at 17:02. Two minutes later, at 17:04, the same vehicle was observed parked at the loading dock with one person unloading cargo. The vehicle and individual were present in the loading dock area for a brief period, approximately 0 seconds, as the observation was made at the exact time of 17:04:00."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.052186391,
+      "prompt_tokens": 203,
+      "prompt_time": 0.009871043,
+      "completion_tokens": 109,
+      "completion_time": 0.400293298,
+      "total_tokens": 312,
+      "total_time": 0.410164341
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzakw9rvecdat0w4tmxg3vg4",
+      "seed": 499748368
+    },
+    "service_tier": "on_demand"
+  }
+}

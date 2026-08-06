@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "retrieve",
+    "payload": {
+      "max_tokens": 380,
+      "messages": [
+        {
+          "content": "sha256:8709b4502f3e577a",
+          "role": "system"
+        },
+        {
+          "content": "Current time: 2026-08-07T05:25:37.943229\nAvailable zone ids: \"main-gate\", \"loading-dock\", \"yard\", \"warehouse-a\", \"warehouse-b\", \"substation\", \"parking\", \"access-road\", \"fence-line\", \"restricted-core\"\n\nQuestion: \"a white pickup\"",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-4f5d3c5e-a06d-4477-a631-0bb33d93c6e2",
+    "object": "chat.completion",
+    "created": 1786060539,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"intent\": \"visual\",\n  \"labels\": [\"pickup\"],\n  \"zones\": [],\n  \"entity_ids\": [],\n  \"relative_hours\": null,\n  \"start_iso\": null,\n  \"end_iso\": null,\n  \"semantic_text\": \"a white pickup\",\n  \"reasoning\": \"The query describes the appearance of an object, which is not covered by the caption, so it's classified as visual.\"\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.049363706,
+      "prompt_tokens": 370,
+      "prompt_time": 0.026047496,
+      "completion_tokens": 89,
+      "completion_time": 0.107188061,
+      "total_tokens": 459,
+      "total_time": 0.133235557
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzcr21w2efprpjgfznqedecj",
+      "seed": 344176932
+    },
+    "service_tier": "on_demand"
+  }
+}

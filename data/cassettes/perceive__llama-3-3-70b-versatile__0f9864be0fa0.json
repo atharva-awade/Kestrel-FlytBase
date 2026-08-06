@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "You convert a security camera frame description into structured JSON. Extract only what the description states. Do not invent detail.",
+          "role": "system"
+        },
+        {
+          "content": "Site: Chakan Industrial Plant\nTime: 2026-08-06 00:02:50\nFrame description: Frame: Person returns to the main gate and stands motionless.\n\nReturn JSON with keys: caption, objects[{label,colour,kind,activity,count,confidence}], activities[], lighting, weather, visibility, anomalies[], confidence.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-d80acd54-9425-4bf4-a6ab-e49c06564821",
+    "object": "chat.completion",
+    "created": 1785983125,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"caption\": \"Person returns to the main gate and stands motionless\",\n  \"objects\": [\n    {\n      \"label\": \"Person\",\n      \"colour\": null,\n      \"kind\": \"Human\",\n      \"activity\": \"Standing\",\n      \"count\": 1,\n      \"confidence\": null\n    }\n  ],\n  \"activities\": [\n    \"Returning\",\n    \"Standing\"\n  ],\n  \"lighting\": null,\n  \"weather\": null,\n  \"visibility\": null,\n  \"anomalies\": [],\n  \"confidence\": null\n}\n```"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.162546824,
+      "prompt_tokens": 129,
+      "prompt_time": 0.00615202,
+      "completion_tokens": 121,
+      "completion_time": 0.220605788,
+      "total_tokens": 250,
+      "total_time": 0.226757808
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_3272ea2d91",
+    "x_groq": {
+      "id": "req_01kzae7hy4ebcshkkp6yvrgh2d",
+      "seed": 452234783
+    },
+    "service_tier": "on_demand"
+  }
+}

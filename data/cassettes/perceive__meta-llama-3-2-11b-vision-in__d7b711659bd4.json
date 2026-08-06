@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:b305c5ed0e5dd210",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:8f7f3d2ea9713adf"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-2bf3e7186ce3466ba505d384d6f1d9a9",
+    "object": "chat.completion",
+    "created": 1785982214,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The image shows a large, empty room with white pillars and a concrete floor. The room is well-lit, with a bright light source coming from the right side of the image. The floor is made of concrete and has a few cracks and stains on it. There are several white pillars scattered throughout the room, some of which have red tape or caution lines around them.\n\nIn the background, there is a doorway leading to another room, as well as a few pieces of furniture and equipment. The overall atmosphere of the image suggests that the room is currently unused or under construction.\n\nHere is a detailed description of the image:\n\n* **Room:** The room is large and empty, with a concrete floor and white pillars.\n* **Lighting:** The room is well-lit, with a bright light source coming from the right side of the image.\n* **Floor:** The floor is made of concrete and has a few cracks and stains on it.\n* **Pillars:** There are several white pillars scattered throughout the room, some of which have red tape or caution lines around them.\n* **Background:** In the background, there is a doorway leading to another room, as well as a few pieces of furniture and equipment.\n\nOverall, the image suggests that the room is currently unused or under construction, and there is no activity or movement in the area.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3640,
+      "total_tokens": 3913,
+      "completion_tokens": 273,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

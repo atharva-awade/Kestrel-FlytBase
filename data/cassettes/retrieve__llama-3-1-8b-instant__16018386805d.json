@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "retrieve",
+    "payload": {
+      "max_tokens": 380,
+      "messages": [
+        {
+          "content": "sha256:8709b4502f3e577a",
+          "role": "system"
+        },
+        {
+          "content": "Current time: 2026-08-07T10:31:26.472320\nAvailable zone ids: \"main-gate\", \"loading-dock\", \"yard\", \"warehouse-a\", \"warehouse-b\", \"substation\", \"parking\", \"access-road\", \"fence-line\", \"restricted-core\"\n\nQuestion: \"gate\"",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-f3a3a544-70a2-4864-9040-84f47391c2b2",
+    "object": "chat.completion",
+    "created": 1786078888,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"intent\": \"structured\",\n  \"labels\": [\"gate\"],\n  \"zones\": [\"main-gate\"],\n  \"entity_ids\": [],\n  \"relative_hours\": null,\n  \"start_iso\": null,\n  \"end_iso\": null,\n  \"semantic_text\": null,\n  \"reasoning\": \"The query is purely a filter for gate events.\"\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.159572846,
+      "prompt_tokens": 368,
+      "prompt_time": 0.020641593,
+      "completion_tokens": 76,
+      "completion_time": 0.074267263,
+      "total_tokens": 444,
+      "total_time": 0.094908856
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_7ccc667439",
+    "x_groq": {
+      "id": "req_01kzd9j0dfe0wbdnz0mbs19213",
+      "seed": 1265442738
+    },
+    "service_tier": "on_demand"
+  }
+}

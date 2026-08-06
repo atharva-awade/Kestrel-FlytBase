@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 60,
+      "messages": [
+        {
+          "content": "You compress security camera observations. Write ONE factual sentence covering what happened across these frames. Name objects, people and places. State only what the observations state — never infer intent. No preamble.",
+          "role": "system"
+        },
+        {
+          "content": "[02:12:10] person in restricted-core: A person in a yellow hard hat and orange safety vest is walking away from the camera in a large, open industrial space.\n[02:12:20] person in restricted-core: A person in a yellow hard hat and orange safety vest is walking in the Restricted Core zone\n[02:12:30] person in restricted-core: A person in a yellow hard hat and orange safety vest is walking in a large warehouse.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-874774b7-c1f3-4e01-83b5-1e21365eecf5",
+    "object": "chat.completion",
+    "created": 1785982453,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "A person in a yellow hard hat and orange safety vest walked in the Restricted Core zone and a large warehouse at the industrial space."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.050516929,
+      "prompt_tokens": 171,
+      "prompt_time": 0.009201783,
+      "completion_tokens": 27,
+      "completion_time": 0.099532997,
+      "total_tokens": 198,
+      "total_time": 0.10873478
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzadk207ezpt87cammdqpfmd",
+      "seed": 1772462771
+    },
+    "service_tier": "on_demand"
+  }
+}

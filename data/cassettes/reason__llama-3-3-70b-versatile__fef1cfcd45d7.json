@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 250,
+      "messages": [
+        {
+          "content": "You are a security analyst writing a shift report: what happened, who was involved, anything unusual. Be specific and concrete: name entities, zones and times. Do not speculate about motive. If the period was uneventful, say so in one sentence rather than padding.",
+          "role": "system"
+        },
+        {
+          "content": "sha256:cc10f779996344f2",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-88776b76-0303-4982-9d2c-b9f20483fc48",
+    "object": "chat.completion",
+    "created": 1785983489,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Shift Report for 2026-08-06 21:14 to 21:16:\n\nDuring the reported period, a white box truck entered the main gate at 21:14:00 and cleared the gate onto the access road by 21:15:00. It was followed by a dark grey sedan, which entered the access road at 21:15:20 and proceeded to the yard, parking at the far end by 21:16:00. The main gate barrier was closed at 21:14:00 and remained so throughout the incident. Two other trucks were present in the main gate area during this time but did not interact with the white box truck or the dark grey sedan."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.16091005,
+      "prompt_tokens": 314,
+      "prompt_time": 0.015991809,
+      "completion_tokens": 145,
+      "completion_time": 0.429879977,
+      "total_tokens": 459,
+      "total_time": 0.445871786
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_45180df409",
+    "x_groq": {
+      "id": "req_01kzaejn24eaqrh7p7xe3rfeh9",
+      "seed": 747103044
+    },
+    "service_tier": "on_demand"
+  }
+}

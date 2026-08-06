@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:1b56d740e0f8da00",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:d060edd9a2cf23c1"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-4e155eb0edea4b3dbf3e43241cba38a4",
+    "object": "chat.completion",
+    "created": 1785986059,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{ \"caption\": \"A large, dark-colored truck is parked in the center of the frame, with a person standing next to it.\", \"objects\": [ {\"label\":\"truck\", \"colour\":\"dark\", \"kind\":\"pickup truck\", \"activity\":\"parked\", \"count\":1, \"confidence\":0.9}, {\"label\":\"person\", \"colour\":\"light\", \"kind\":\"high-visibility worker\", \"activity\":\"standing\", \"count\":1, \"confidence\":0.8} ], \"activities\": [\"a person is standing next to a truck\"], \"lighting\":\"daylight\", \"weather\":null, \"visibility\":\"clear\", \"anomalies\":[], \"confidence\":0.95 }",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 1991,
+      "total_tokens": 2137,
+      "completion_tokens": 146,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

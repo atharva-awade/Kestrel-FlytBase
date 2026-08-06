@@ -1,0 +1,95 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:b6dc24fd7f54e87f",
+          "role": "system"
+        },
+        {
+          "content": "How do you decide what to escalate?",
+          "role": "user"
+        },
+        {
+          "content": "I retrieved the data but could not compose an answer (ProviderError).",
+          "role": "assistant"
+        },
+        {
+          "content": "How does your memory compression work?",
+          "role": "user"
+        },
+        {
+          "content": "I have no specific information on how my memory compression works from the provided tool results. The results describe the overall architecture of KESTREL [describe_architecture], but do not provide details on memory compression.",
+          "role": "assistant"
+        },
+        {
+          "content": "How do you verify a citation?",
+          "role": "user"
+        },
+        {
+          "content": "I could not find a tool that answers that. Try asking about what was seen, an entity, an alert, the rules, the fleet, or how I work.",
+          "role": "assistant"
+        },
+        {
+          "content": "What are your scalability limits?",
+          "role": "user"
+        },
+        {
+          "content": "Called: describe_architecture",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:bb827666dbfa6ebe",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-9f63479498a23da5",
+    "object": "chat.completion",
+    "created": 1786078835,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The tool results do not provide a direct answer to the question about scalability limits. However, they do mention a rate limit of 40 requests per minute for NVIDIA's free tier [describe_architecture]. They also mention that an eight-hour patrol at 2 fps is about 57,600 frames, which is a constraint for the system [describe_architecture].",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 1010,
+      "total_tokens": 1083,
+      "completion_tokens": 73,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

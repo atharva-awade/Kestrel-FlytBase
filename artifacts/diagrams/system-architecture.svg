@@ -1,0 +1,323 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1680 1120" width="1680" height="1120" font-family="Inter, ui-sans-serif, Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">KESTREL system architecture</title>
+  <desc id="d">End-to-end architecture of the KESTREL autonomous drone security analyst: ingest, a five-tier perception cascade, memory, reasoning, action and the conversational control plane, annotated with measured latencies and the two enforcement boundaries.</desc>
+
+  <defs>
+    <!-- Fixed light palette. This diagram is embedded in a light-themed console
+         and printed into a LaTeX report; it deliberately does not follow the OS
+         colour scheme, because a PDF has no OS to follow. -->
+    <linearGradient id="page" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/><stop offset="100%" stop-color="#f5f9fd"/>
+    </linearGradient>
+    <linearGradient id="tierFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/><stop offset="100%" stop-color="#f0f7fe"/>
+    </linearGradient>
+    <linearGradient id="freeFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f3fbf7"/><stop offset="100%" stop-color="#e6f7ee"/>
+    </linearGradient>
+    <linearGradient id="paidFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff8ed"/><stop offset="100%" stop-color="#feefd8"/>
+    </linearGradient>
+    <linearGradient id="gateFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#eefaff"/><stop offset="100%" stop-color="#d9f1fd"/>
+    </linearGradient>
+
+    <filter id="soft" x="-12%" y="-12%" width="124%" height="132%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3.5" flood-color="#0d1526" flood-opacity="0.10"/>
+    </filter>
+    <filter id="lift" x="-12%" y="-14%" width="124%" height="136%">
+      <feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#0369a1" flood-opacity="0.16"/>
+    </filter>
+
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5b6c86"/>
+    </marker>
+    <marker id="arrowA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0284c7"/>
+    </marker>
+    <marker id="arrowG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#be123c"/>
+    </marker>
+
+    <style>
+      .h1   { font-size: 27px; font-weight: 800; fill: #0d1526; letter-spacing: -0.7px; }
+      .sub  { font-size: 13px; fill: #56657f; }
+      .band { font-size: 10.5px; font-weight: 800; fill: #7d8da8; letter-spacing: 1.7px; }
+      .tier { font-size: 14.5px; font-weight: 700; fill: #0d1526; }
+      .body { font-size: 11.5px; fill: #46566e; }
+      .tiny { font-size: 10px; fill: #75859c; }
+      .mono { font-family: "JetBrains Mono", ui-monospace, Consolas, monospace; font-size: 10px; fill: #0369a1; font-weight: 600; }
+      .monod{ font-family: "JetBrains Mono", ui-monospace, Consolas, monospace; font-size: 9.5px; fill: #75859c; }
+      .card { fill: url(#tierFill); stroke: #d3e0ee; stroke-width: 1.2; }
+      .panel{ fill: #ffffff; stroke: #e0e8f2; stroke-width: 1.2; }
+      .wrap { fill: #fbfdff; stroke: #dce7f3; stroke-width: 1.2; stroke-dasharray: 5 4; }
+      .edgeA{ stroke: #0284c7; stroke-width: 2; fill: none; marker-end: url(#arrowA); }
+      .edgeF{ stroke: #94a3b8; stroke-width: 1.4; fill: none; stroke-dasharray: 4 4; marker-end: url(#arrow); }
+      .edgeG{ stroke: #be123c; stroke-width: 2; fill: none; marker-end: url(#arrowG); stroke-dasharray: 6 4; }
+    </style>
+  </defs>
+
+  <rect width="1680" height="1120" fill="url(#page)"/>
+
+  <!-- ══ header ═══════════════════════════════════════════════════════════ -->
+  <text class="h1" x="48" y="56">KESTREL — autonomous drone security analyst</text>
+  <text class="sub" x="48" y="80">One docked drone: ~57,600 frames per shift against a free tier of ~40 model requests per minute. Every decision below follows from that ratio.</text>
+
+  <g transform="translate(1178,30)">
+    <rect class="panel" x="0" y="0" width="454" height="70" rx="10" filter="url(#soft)"/>
+    <text class="band" x="16" y="22">MEASURED ON THIS MACHINE, NOT QUOTED</text>
+    <text class="mono" x="16" y="42">YOLO11s 12–15 ms · VLM 1.28 s · deep tier 57–84 s</text>
+    <text class="monod" x="16" y="58">gate skips 82.5% · 8/8 scenarios · 100 tests · P@k 0.975</text>
+  </g>
+
+  <!-- ══ ingest ═══════════════════════════════════════════════════════════ -->
+  <text class="band" x="48" y="128">INGEST — ONE INTERFACE, FOUR SOURCES</text>
+  <g transform="translate(48,140)">
+    <rect class="wrap" x="0" y="0" width="304" height="212" rx="12"/>
+    <rect class="card" x="14" y="16" width="276" height="42" rx="8"/>
+    <text class="tier" x="26" y="35">Video file</text>
+    <text class="tiny" x="26" y="50">6 CC BY 4.0 clips · 768×432 to 1920×1080</text>
+
+    <rect class="card" x="14" y="64" width="276" height="42" rx="8"/>
+    <text class="tier" x="26" y="83">Uploaded footage</text>
+    <text class="tiny" x="26" y="98">an operator's own clip plus a typed location</text>
+
+    <rect class="card" x="14" y="112" width="276" height="42" rx="8"/>
+    <text class="tier" x="26" y="131">Scripted frames</text>
+    <text class="tiny" x="26" y="146">text descriptions, per the brief's literal spec</text>
+
+    <rect class="card" x="14" y="160" width="276" height="42" rx="8"/>
+    <text class="tier" x="26" y="179">Telemetry simulator</text>
+    <text class="tiny" x="26" y="194">position, altitude, gimbal, battery, wind, light</text>
+  </g>
+
+  <!-- ══ cascade ══════════════════════════════════════════════════════════ -->
+  <text class="band" x="392" y="128">PERCEPTION — FIVE TIERS, EACH EARNS THE NEXT</text>
+  <g transform="translate(392,140)">
+    <rect class="wrap" x="0" y="0" width="700" height="392" rx="12"/>
+
+    <rect x="16" y="16" width="668" height="60" rx="9" fill="url(#gateFill)" stroke="#a9dcf5" stroke-width="1.4" filter="url(#lift)"/>
+    <text class="tier" x="32" y="38">TIER 0 · Gate</text>
+    <text class="body" x="32" y="57">Perceptual hash · pixel delta · embedding novelty — all on CPU</text>
+    <text class="mono" x="556" y="38">free</text>
+    <text class="monod" x="556" y="55">skips 82.5%</text>
+
+    <text class="tiny" x="32" y="94">The gate protects model spend, not GPU time. Local detection costs no API budget, so it runs on every sampled</text>
+    <text class="tiny" x="32" y="108">frame; the gate governs only the hosted tiers.</text>
+
+    <rect x="16" y="120" width="326" height="72" rx="9" fill="url(#freeFill)" stroke="#a8e0c4" stroke-width="1.3"/>
+    <text class="tier" x="32" y="142">TIER 1 · Detect</text>
+    <text class="body" x="32" y="160">YOLO11s (closed-set COCO) on-device</text>
+    <text class="body" x="32" y="176">Grounding DINO when the query is open</text>
+    <text class="mono" x="252" y="142">12–15 ms</text>
+    <text class="monod" x="252" y="159">no API</text>
+
+    <rect x="358" y="120" width="326" height="72" rx="9" fill="url(#freeFill)" stroke="#a8e0c4" stroke-width="1.3"/>
+    <text class="tier" x="374" y="142">TIER 1.5 · Track</text>
+    <text class="body" x="374" y="160">ByteTrack, frame-rate aware</text>
+    <text class="body" x="374" y="176">identity that survives occlusion</text>
+    <text class="mono" x="596" y="142">~free</text>
+    <text class="monod" x="596" y="159">30 s buffer</text>
+
+    <rect x="16" y="202" width="326" height="72" rx="9" fill="url(#freeFill)" stroke="#a8e0c4" stroke-width="1.3"/>
+    <text class="tier" x="32" y="224">TIER 2 · Project</text>
+    <text class="body" x="32" y="242">pixel → world via telemetry homography</text>
+    <text class="body" x="32" y="258">→ named zone + honest accuracy radius</text>
+    <text class="mono" x="252" y="224">&lt;1 ms</text>
+    <text class="monod" x="252" y="241">flat ground</text>
+
+    <rect x="358" y="202" width="326" height="72" rx="9" fill="url(#paidFill)" stroke="#f5cd93" stroke-width="1.3"/>
+    <text class="tier" x="374" y="224">TIER 2.5 · Embed</text>
+    <text class="body" x="374" y="242">joint image/text, 2048-d, one space</text>
+    <text class="body" x="374" y="258">re-identification and appearance search</text>
+    <text class="mono" x="596" y="224">cheap</text>
+    <text class="monod" x="596" y="241">NIM</text>
+
+    <rect x="16" y="284" width="326" height="88" rx="9" fill="url(#paidFill)" stroke="#f5cd93" stroke-width="1.3"/>
+    <text class="tier" x="32" y="306">TIER 3 · Perceive</text>
+    <text class="body" x="32" y="324">VLM returns a structured SceneGraph:</text>
+    <text class="body" x="32" y="340">objects, colour, kind, activity, anomalies</text>
+    <text class="tiny" x="32" y="358">never prose, because prose is unqueryable</text>
+    <text class="mono" x="252" y="306">1.28 s</text>
+    <text class="monod" x="252" y="323">gated only</text>
+
+    <rect x="358" y="284" width="326" height="88" rx="9" fill="url(#paidFill)" stroke="#f5cd93" stroke-width="1.3"/>
+    <text class="tier" x="374" y="306">TIER 4 · Escalate</text>
+    <text class="body" x="374" y="324">90B deep re-look, asynchronous</text>
+    <text class="body" x="374" y="340">upgrades the record after the fact</text>
+    <text class="tiny" x="374" y="358">routed by the kind of doubt</text>
+    <text class="mono" x="596" y="306">57–84 s</text>
+    <text class="monod" x="568" y="323">off critical path</text>
+  </g>
+
+  <!-- ══ memory ═══════════════════════════════════════════════════════════ -->
+  <text class="band" x="1132" y="128">MEMORY — WHY A PATTERN IS VISIBLE AT ALL</text>
+  <g transform="translate(1132,140)">
+    <rect class="wrap" x="0" y="0" width="500" height="392" rx="12"/>
+
+    <rect class="card" x="16" y="16" width="468" height="76" rx="9"/>
+    <text class="tier" x="32" y="38">Entities</text>
+    <text class="body" x="32" y="57">appearance embedding + attribute agreement +</text>
+    <text class="body" x="32" y="73">spatio-temporal plausibility → one subject across days</text>
+    <text class="mono" x="356" y="38">"7th visit"</text>
+
+    <rect class="card" x="16" y="100" width="468" height="88" rx="9"/>
+    <text class="tier" x="32" y="122">Temporal pyramid</text>
+    <text class="body" x="32" y="141">L0 frame → L1 clip → L2 event → L3 shift → L4 day</text>
+    <text class="body" x="32" y="157">salience-weighted, so the unusual survives compression</text>
+    <text class="tiny" x="32" y="175">8 h ≈ 1.7 M tokens → ~12 k queryable</text>
+    <text class="mono" x="356" y="122">140:1</text>
+
+    <rect class="card" x="16" y="196" width="468" height="84" rx="9"/>
+    <text class="tier" x="32" y="218">Normalcy baseline</text>
+    <text class="body" x="32" y="237">counts per (zone, hour, class), z-scored</text>
+    <text class="body" x="32" y="253">abstains below three days of history</text>
+    <text class="tiny" x="32" y="271">"first vehicle at the dock at 03:00 in 14 days"</text>
+    <text class="mono" x="356" y="218">abstains</text>
+
+    <rect class="card" x="16" y="288" width="468" height="84" rx="9"/>
+    <text class="tier" x="32" y="310">Hybrid retrieval</text>
+    <text class="body" x="32" y="329">structured SQL ⊕ caption vectors ⊕ image vectors,</text>
+    <text class="body" x="32" y="345">fused by Reciprocal Rank Fusion</text>
+    <text class="tiny" x="32" y="363">declares when a retriever could not run</text>
+    <text class="mono" x="356" y="310">P@k 0.975</text>
+  </g>
+
+  <!-- ══ reasoning ════════════════════════════════════════════════════════ -->
+  <text class="band" x="48" y="580">REASONING — DECLARATIVE, TEMPORAL, BACKTESTED</text>
+  <g transform="translate(48,592)">
+    <rect class="wrap" x="0" y="0" width="520" height="238" rx="12"/>
+
+    <rect class="card" x="16" y="16" width="488" height="72" rx="9"/>
+    <text class="tier" x="32" y="38">Rule engine — 12 condition types</text>
+    <text class="body" x="32" y="57">dwell · sequence · count_in_window · absence_of_person</text>
+    <text class="body" x="32" y="73">baseline_anomaly · zone · time window · label · confidence</text>
+
+    <rect class="card" x="16" y="96" width="488" height="64" rx="9"/>
+    <text class="tier" x="32" y="118">English → rule compiler</text>
+    <text class="body" x="32" y="137">validated against the site's real zone list, then</text>
+    <text class="body" x="32" y="153">backtested over indexed history before it may fire</text>
+
+    <rect class="card" x="16" y="168" width="488" height="56" rx="9"/>
+    <text class="tier" x="32" y="190">Triage</text>
+    <text class="body" x="32" y="209">contradicting evidence suppresses · mitigating evidence scales</text>
+  </g>
+
+  <!-- ══ action ═══════════════════════════════════════════════════════════ -->
+  <text class="band" x="608" y="580">ACTION — THE CLOSED LOOP</text>
+  <g transform="translate(608,592)">
+    <rect class="wrap" x="0" y="0" width="484" height="238" rx="12"/>
+
+    <rect class="card" x="16" y="16" width="452" height="76" rx="9"/>
+    <text class="tier" x="32" y="38">Dispatchable alert</text>
+    <text class="body" x="32" y="57">coordinates ± accuracy · bearing · ETA from dock</text>
+    <text class="body" x="32" y="73">recommended altitude · geofence verdict</text>
+
+    <rect class="card" x="16" y="100" width="452" height="64" rx="9"/>
+    <text class="tier" x="32" y="122">Mission planner</text>
+    <text class="body" x="32" y="141">waypoints checked against battery reserve,</text>
+    <text class="body" x="32" y="157">wind, altitude ceiling and daylight</text>
+
+    <rect x="16" y="172" width="452" height="52" rx="9" fill="#fff1f4" stroke="#f7b9c6" stroke-width="1.5"/>
+    <text class="tier" x="32" y="194" fill="#9f1239">Human approval — a separate endpoint</text>
+    <text class="tiny" x="32" y="212" fill="#9f1239">the agent may propose; only a person may execute</text>
+  </g>
+
+  <!-- ══ control plane ════════════════════════════════════════════════════ -->
+  <text class="band" x="1132" y="580">CONTROL PLANE — CONVERSATION OVER EVERY CAPABILITY</text>
+  <g transform="translate(1132,592)">
+    <rect class="wrap" x="0" y="0" width="500" height="238" rx="12"/>
+
+    <rect class="card" x="16" y="16" width="468" height="92" rx="9"/>
+    <text class="tier" x="32" y="38">Ask KESTREL</text>
+    <text class="body" x="32" y="57">route → plan → tool loop → verify → respond</text>
+    <text class="body" x="32" y="73">27 tools · 8 classes · 4 gated behind approval</text>
+    <text class="tiny" x="32" y="91">answers render as live UI, not paragraphs</text>
+
+    <rect x="16" y="116" width="468" height="50" rx="9" fill="#f5fbff" stroke="#bae0f5" stroke-width="1.3"/>
+    <text class="tier" x="32" y="138">Scope guard</text>
+    <text class="tiny" x="32" y="156">off-domain questions refused locally, before any tool runs</text>
+
+    <rect x="16" y="174" width="468" height="50" rx="9" fill="#f5fbff" stroke="#bae0f5" stroke-width="1.3"/>
+    <text class="tier" x="32" y="196">Citation check</text>
+    <text class="tiny" x="32" y="214">every cited id must resolve to a real tool result</text>
+  </g>
+
+  <!-- ══ foundations ══════════════════════════════════════════════════════ -->
+  <text class="band" x="48" y="878">FOUNDATIONS — CROSS-CUTTING</text>
+  <g transform="translate(48,890)">
+    <rect class="panel" x="0" y="0" width="386" height="96" rx="10" filter="url(#soft)"/>
+    <text class="tier" x="18" y="27">Storage</text>
+    <text class="body" x="18" y="46">SQLite + sqlite-vec, numpy fallback</text>
+    <text class="body" x="18" y="63">frames, detections, entities, memory, alerts</text>
+    <text class="tiny" x="18" y="81">skipped frames persisted too — the skip rate is the claim</text>
+  </g>
+  <g transform="translate(452,890)">
+    <rect class="panel" x="0" y="0" width="386" height="96" rx="10" filter="url(#soft)"/>
+    <text class="tier" x="18" y="27">Audit ledger</text>
+    <text class="body" x="18" y="46">hash(n) = SHA-256(hash(n−1) ‖ record(n))</text>
+    <text class="body" x="18" y="63">every alert, rule change and approval appended</text>
+    <text class="tiny" x="18" y="81">altering history invalidates every hash after it</text>
+  </g>
+  <g transform="translate(856,890)">
+    <rect class="panel" x="0" y="0" width="386" height="96" rx="10" filter="url(#soft)"/>
+    <text class="tier" x="18" y="27">Providers</text>
+    <text class="body" x="18" y="46">Groq primary · NVIDIA NIM failover</text>
+    <text class="body" x="18" y="63">circuit breaker · rate limiter · cost meter</text>
+    <text class="tiny" x="18" y="81">cassette record/replay — runs with no API key at all</text>
+  </g>
+  <g transform="translate(1260,890)">
+    <rect class="panel" x="0" y="0" width="372" height="96" rx="10" filter="url(#soft)"/>
+    <text class="tier" x="18" y="27">Surfaces</text>
+    <text class="body" x="18" y="46">console · 3D globe · site map · investigate</text>
+    <text class="body" x="18" y="63">entities · rules · evals · architecture</text>
+    <text class="tiny" x="18" y="81">simulated data labelled everywhere it appears</text>
+  </g>
+
+  <!-- ══ edges ════════════════════════════════════════════════════════════ -->
+  <path class="edgeA" d="M352,246 L384,246"/>
+  <path class="edgeA" d="M1092,300 L1124,300"/>
+  <path class="edgeA" d="M308,540 L308,566"/>
+  <path class="edgeA" d="M568,700 L600,700"/>
+  <path class="edgeF" d="M1092,700 L1124,700"/>
+  <path class="edgeG" d="M1148,838 C1120,838 1100,812 1084,792"/>
+  <path class="edgeF" d="M824,830 C824,858 372,862 372,540"/>
+
+  <g>
+    <rect x="906" y="842" width="186" height="16" rx="4" fill="#fbfdff" opacity="0.94"/>
+    <text class="monod" x="912" y="854" fill="#be123c">proposal only, never execution</text>
+  </g>
+  <g>
+    <rect x="386" y="840" width="308" height="16" rx="4" fill="#fbfdff" opacity="0.94"/>
+    <text class="monod" x="392" y="852">the loop closes: a closer vantage re-enters perception</text>
+  </g>
+
+  <!-- ══ legend ═══════════════════════════════════════════════════════════ -->
+  <g transform="translate(48,1012)">
+    <rect class="panel" x="0" y="0" width="1584" height="74" rx="10"/>
+    <text class="band" x="18" y="25">LEGEND</text>
+
+    <rect x="112" y="13" width="16" height="16" rx="4" fill="url(#gateFill)" stroke="#a9dcf5"/>
+    <text class="tiny" x="136" y="25">tier-0 gate (CPU, free)</text>
+
+    <rect x="300" y="13" width="16" height="16" rx="4" fill="url(#freeFill)" stroke="#a8e0c4"/>
+    <text class="tiny" x="324" y="25">on-device (GPU, no API budget)</text>
+
+    <rect x="544" y="13" width="16" height="16" rx="4" fill="url(#paidFill)" stroke="#f5cd93"/>
+    <text class="tiny" x="568" y="25">hosted model (rate-limited, metered)</text>
+
+    <rect x="820" y="13" width="16" height="16" rx="4" fill="#fff1f4" stroke="#f7b9c6"/>
+    <text class="tiny" x="844" y="25">human decision required</text>
+
+    <line x1="1024" y1="21" x2="1068" y2="21" stroke="#0284c7" stroke-width="2" marker-end="url(#arrowA)"/>
+    <text class="tiny" x="1076" y="25">primary data path</text>
+
+    <line x1="1212" y1="21" x2="1256" y2="21" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+    <text class="tiny" x="1264" y="25">feedback / secondary</text>
+
+    <line x1="1408" y1="21" x2="1452" y2="21" stroke="#be123c" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrowG)"/>
+    <text class="tiny" x="1460" y="25">enforcement boundary</text>
+
+    <text class="tiny" x="18" y="54">Latencies are measured on this machine, not quoted from vendors. Telemetry is simulated: there is no aircraft. Only the flagship site carries real footage; every other site is labelled SIMULATED wherever it appears.</text>
+  </g>
+</svg>

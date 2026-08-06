@@ -1,0 +1,59 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:bcd2d8db97ddbfa4",
+          "role": "user"
+        },
+        {
+          "content": "I'm not going to engage in this conversation topic.",
+          "role": "assistant"
+        },
+        {
+          "content": "That was not valid JSON for the required schema. Return ONLY the JSON object — no prose, no code fence.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-f82c0c7e-9357-47ca-a1ba-9b99d8871f93",
+    "object": "chat.completion",
+    "created": 1785982773,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"caption\": \"A cardboard box is present on the access road at the Chakan Industrial Plant\",\n  \"objects\": [\n    {\"label\":\"cardboard box\", \"colour\":\"brown\",\n     \"kind\":\"large cardboard box\", \"activity\":\"stationary\", \"count\":1, \"confidence\":0.8}\n  ],\n  \"activities\": [\"nothing out of the ordinary\"],\n  \"lighting\": \"night\",\n  \"weather\": null,\n  \"visibility\": \"reduced\",\n  \"anomalies\": [],\n  \"confidence\": 0.7\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.331189167,
+      "prompt_tokens": 548,
+      "prompt_time": 0.032019418,
+      "completion_tokens": 119,
+      "completion_time": 0.283356767,
+      "total_tokens": 667,
+      "total_time": 0.315376185
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_f8b414701e",
+    "x_groq": {
+      "id": "req_01kzadws6dexna79p77qbsqmq8",
+      "seed": 1780538895
+    },
+    "service_tier": "on_demand"
+  }
+}

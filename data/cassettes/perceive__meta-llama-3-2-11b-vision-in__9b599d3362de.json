@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:68141bd22d1a96ee",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:da290ad6e27f028d"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-1d5e971c16af4e129a90aee6b69b4bcb",
+    "object": "chat.completion",
+    "created": 1785982792,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The image shows a person walking in an industrial area, wearing a yellow hard hat and an orange safety vest. The person is walking towards the right side of the image, and the background is a large, open space with white walls and pillars.\n\n*   The person is wearing a yellow hard hat and an orange safety vest.\n*   The person is walking towards the right side of the image.\n*   The background is a large, open space with white walls and pillars.\n*   There are several objects in the background, including a blue bin and a stack of wooden pallets.\n*   The floor is made of concrete and has a few cracks and stains.\n*   The overall atmosphere of the image suggests that it was taken during the day, possibly in a warehouse or factory setting.\n\n**Answer:** { \"caption\": \"A person in a yellow hard hat and orange safety vest is walking towards the right side of the image in a large, open industrial space.\", \"objects\": [ {\"label\":\"person\", \"colour\":\"orange\", \"kind\":\"worker\", \"activity\":\"walking\", \"count\":1, \"confidence\":1.0} ], \"activities\": [\"person walking\"], \"lighting\":\"daylight\", \"weather\":null, \"visibility\":\"clear\", \"anomalies\": [], \"confidence\":1.0 }",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3672,
+      "total_tokens": 3941,
+      "completion_tokens": 269,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

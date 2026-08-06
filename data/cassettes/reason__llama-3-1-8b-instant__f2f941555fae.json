@@ -1,0 +1,83 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:28a5d529d909c1bf",
+          "role": "system"
+        },
+        {
+          "content": "How do you verify a citation?",
+          "role": "user"
+        },
+        {
+          "content": "I have no information about how I verify a citation. The tool results [describe_architecture] provide information about the retrieval system, but do not address citation verification.",
+          "role": "assistant"
+        },
+        {
+          "content": "What are your scalability limits?",
+          "role": "user"
+        },
+        {
+          "content": "The tool results [describe_architecture] do not provide information about scalability limits. They describe the architecture of the system, including the five tiers of processing and the escalation process, but do not address scalability limits.",
+          "role": "assistant"
+        },
+        {
+          "content": "Can you approve a mission yourself?",
+          "role": "user"
+        },
+        {
+          "content": "No, I cannot approve a mission myself. According to the tool results [describe_architecture], tools that change state or move an aircraft, such as approving a mission, \"cannot be executed by the agent at all; it may only propose them, and execution requires a separate call carrying an explicit human decision.\"",
+          "role": "assistant"
+        },
+        {
+          "content": "Show me the most recent alerts.",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-78f6f735-05a3-428a-b8e2-59231aef2ed2",
+    "object": "chat.completion",
+    "created": 1786081044,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"list_alerts\",\"arguments\":{\"site_id\":\"plant-01\"}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.051565306,
+      "prompt_tokens": 1359,
+      "prompt_time": 0.100987813,
+      "completion_tokens": 20,
+      "completion_time": 0.027049484,
+      "total_tokens": 1379,
+      "total_time": 0.128037297
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzdbkse2ephb7w8ttb8qen8m",
+      "seed": 1481320807
+    },
+    "service_tier": "on_demand"
+  }
+}

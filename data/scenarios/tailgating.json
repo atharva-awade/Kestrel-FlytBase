@@ -1,0 +1,50 @@
+{
+  "id": "tailgating",
+  "title": "Vehicle tailgates through the gate",
+  "description": "An authorised truck is admitted; an unauthorised car follows through the closing barrier. Requires a sequence rule, 'B within N seconds of A', which a per-frame rule cannot express.",
+  "expect_alerts": [
+    "tailgating",
+    "after-hours-vehicle"
+  ],
+  "expect_no_alerts": [],
+  "expect_entities": [
+    "white box truck",
+    "dark grey sedan"
+  ],
+  "tags": [
+    "alert",
+    "sequence-rule",
+    "evening",
+    "true-positive"
+  ],
+  "frames": [
+    {
+      "at": "2026-08-06T21:14:00",
+      "text": "Frame: Main gate barrier closed; a white box truck waits at the reader."
+    },
+    {
+      "at": "2026-08-06T21:14:20",
+      "text": "Frame: Barrier rises; the white box truck moves forward through the gate."
+    },
+    {
+      "at": "2026-08-06T21:14:40",
+      "text": "Frame: White box truck clears the gate onto the access road."
+    },
+    {
+      "at": "2026-08-06T21:15:00",
+      "text": "Frame: A dark grey sedan accelerates through the gate behind the truck before the barrier lowers."
+    },
+    {
+      "at": "2026-08-06T21:15:20",
+      "text": "Frame: Dark grey sedan on the access road following the white box truck."
+    },
+    {
+      "at": "2026-08-06T21:15:40",
+      "text": "Frame: Barrier lowered; dark grey sedan continues towards the yard."
+    },
+    {
+      "at": "2026-08-06T21:16:00",
+      "text": "Frame: Dark grey sedan parked at the far end of the yard, lights off."
+    }
+  ]
+}

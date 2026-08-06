@@ -1,0 +1,95 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:c2130e226ad21c3a",
+          "role": "system"
+        },
+        {
+          "content": "What are your scalability limits?",
+          "role": "user"
+        },
+        {
+          "content": "The tool results do not directly address scalability limits. The results describe the architecture of the system, including the five tiers of processing and the escalation process [describe_architecture]. However, they do not provide information on the scalability limits of the system.",
+          "role": "assistant"
+        },
+        {
+          "content": "Can you approve a mission yourself?",
+          "role": "user"
+        },
+        {
+          "content": "No, I cannot approve a mission myself. According to the tool results, tools that change state or move an aircraft cannot be executed by the agent at all; it may only propose them, and execution requires a separate call carrying an explicit human decision [describe_architecture].",
+          "role": "assistant"
+        },
+        {
+          "content": "Show me the most recent alerts.",
+          "role": "user"
+        },
+        {
+          "content": "I retrieved the data but could not compose an answer (ProviderError).",
+          "role": "assistant"
+        },
+        {
+          "content": "What are your scalability limits?",
+          "role": "user"
+        },
+        {
+          "content": "Called: describe_architecture",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:f5167e604fbfbc30",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-9a683c35f4d0f65c",
+    "object": "chat.completion",
+    "created": 1786081600,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 1723,
+      "total_tokens": 1728,
+      "completion_tokens": 5,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

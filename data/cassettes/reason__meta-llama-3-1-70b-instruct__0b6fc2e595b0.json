@@ -1,0 +1,59 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 380,
+      "messages": [
+        {
+          "content": "sha256:ca191ac045c0cef3",
+          "role": "system"
+        },
+        {
+          "content": "sha256:471d6576dcd02c7e",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-b0c655e9efb1d413",
+    "object": "chat.completion",
+    "created": 1786063423,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "**Open Alerts:**\n\n1. Presence in a restricted area: yellow person at Restricted Core (alr_27d99d75733f, 2026-08-06 02:12:10)\n2. Presence in a restricted area: orange person at Electrical Substation (alr_d8a9d2ef4dcc, 2026-08-06 02:11:40)\n3. Loitering at a sensitive location: person at Main Gate (alr_8a88b73a2fe6, 2026-08-06 00:04:00)\n4. Unusual gathering outside working hours: person at Main Gate (alr_dc7cc1af0801, 2026-08-06 00:02:50)\n\n**Summary of Night's Activity:**\n\nThe night was marked by several alerts, including presence in restricted areas and loitering at sensitive locations. A person in a yellow hard hat and orange safety vest was seen walking in the Restricted Core zone (ENT-0a15-0001).",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 2452,
+      "total_tokens": 2676,
+      "completion_tokens": 224,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

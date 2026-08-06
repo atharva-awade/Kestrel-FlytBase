@@ -1,0 +1,83 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:5f1bac7bb9eedbec",
+          "role": "system"
+        },
+        {
+          "content": "What are your scalability limits?",
+          "role": "user"
+        },
+        {
+          "content": "The scalability limit is that sending every frame to a vision model is arithmetically impossible due to the free model tier's request limit [describe_architecture]. The system is designed to ration model calls, with a goal of reducing the number of frames that reach the model [describe_architecture]. The actual limit is that a busier site spends more, and a site busy enough that most frames are novel would exhaust the budget [describe_architecture].",
+          "role": "assistant"
+        },
+        {
+          "content": "Can you approve a mission yourself?",
+          "role": "user"
+        },
+        {
+          "content": "No, I cannot approve a mission myself. Tools that change state or move an aircraft, such as approving a mission, require a separate call carrying an explicit human decision [describe_architecture].",
+          "role": "assistant"
+        },
+        {
+          "content": "Show me the most recent alerts.",
+          "role": "user"
+        },
+        {
+          "content": "sha256:8d978a2f5dcc20ab",
+          "role": "assistant"
+        },
+        {
+          "content": "What alerts are open?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-c6d5e035-09b3-4134-9bc4-c152e9bfa25e",
+    "object": "chat.completion",
+    "created": 1786082451,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"list_alerts\",\"arguments\":{\"status\":\"open\"}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.161122772,
+      "prompt_tokens": 1635,
+      "prompt_time": 0.091006017,
+      "completion_tokens": 17,
+      "completion_time": 0.025302352,
+      "total_tokens": 1652,
+      "total_time": 0.116308369
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_7ccc667439",
+    "x_groq": {
+      "id": "req_01kzdcyqeae4cvjxbz7fxj4qbp",
+      "seed": 1941470891
+    },
+    "service_tier": "on_demand"
+  }
+}

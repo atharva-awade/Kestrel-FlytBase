@@ -1,0 +1,99 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:c16f6955bf9e96e6",
+          "role": "system"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "I could not find a tool that answers that. Try asking about what was seen, an entity, an alert, the rules, the fleet, or how I work.",
+          "role": "assistant"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "I could not find a tool that answers that. Try asking about what was seen, an entity, an alert, the rules, the fleet, or how I work.",
+          "role": "assistant"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "I could not find a tool that answers that. Try asking about what was seen, an entity, an alert, the rules, the fleet, or how I work.",
+          "role": "assistant"
+        },
+        {
+          "content": "What happened last night?",
+          "role": "user"
+        },
+        {
+          "content": "Called: summarize_window",
+          "role": "assistant"
+        },
+        {
+          "content": "Tool results:\n[{\"tool\":\"summarize_window\",\"arguments\":{\"start_time\":\"2026-08-05 00:00:00\",\"end_time\":\"2026-08-06 00:00:00\"},\"result\":{\"ok\":false,\"error\":\"bad arguments for 'summarize_window': build_registry.<locals>.summarize_window() got an unexpected keyword argument 'start_time'\",\"expected\":{\"type\":\"object\",\"properties\":{\"site_id\":{\"type\":\"string\"},\"hours\":{\"type\":\"number\"},\"start\":{\"type\":\"string\"},\"end\":{\"type\":\"string\"}},\"required\":[],\"additionalProperties\":false}}}]",
+          "role": "user"
+        },
+        {
+          "content": "Called: summarize_window",
+          "role": "assistant"
+        },
+        {
+          "content": "Tool results:\n[{\"tool\":\"summarize_window\",\"arguments\":{\"site_id\":\"plant-01\",\"hours\":24,\"start\":\"yesterday\",\"end\":\"now\"},\"result\":{\"ok\":true,\"tool\":\"summarize_window\",\"renders_as\":\"narrative_block\",\"found\":false,\"message\":\"no memory nodes for that window. Has a session been ingested?\"}}]",
+          "role": "user"
+        },
+        {
+          "content": "sha256:fdfb5b56d715159c",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-1c3a1ce6-1932-4752-994e-2276b3e94c66",
+    "object": "chat.completion",
+    "created": 1786011658,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"list_rules\",\"arguments\":{}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.161236749,
+      "prompt_tokens": 1533,
+      "prompt_time": 0.08009255,
+      "completion_tokens": 14,
+      "completion_time": 0.044097538,
+      "total_tokens": 1547,
+      "total_time": 0.124190088
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_3272ea2d91",
+    "x_groq": {
+      "id": "req_01kzb9e9yce4yv3tq0780s915k",
+      "seed": 1217772372
+    },
+    "service_tier": "on_demand"
+  }
+}

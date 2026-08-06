@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:772ea816d6ac6970",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:e1258805c4cf2d57"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-dbe807e4fa02428a9c6093d2e4d768b5",
+    "object": "chat.completion",
+    "created": 1785982865,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The image shows a person wearing a yellow hard hat and an orange safety vest, walking away from the camera in a large, open room with white pillars and a concrete floor. The room appears to be a warehouse or factory, with a few pieces of equipment and supplies visible in the background.\n\nHere is the enriched description of the image:\n\n*   **Caption:** A person in a yellow hard hat and orange safety vest is walking away from the camera in a large, open room with white pillars and a concrete floor.\n*   **Objects:**\n    *   **Person:** The person is wearing a yellow hard hat and an orange safety vest. They are walking away from the camera, with their back to the viewer.\n    *   **Cardboard Box:** The cardboard box is located on the floor near the person's feet. It is brown and rectangular in shape.\n*   **Activities:**\n    *   **Walking:** The person is walking away from the camera, with their feet moving in a steady rhythm.\n*   **Lighting:** The lighting in the room is dim, with only a few sources of light visible. The overall effect is one of a cool, industrial atmosphere.\n*   **Weather:** The weather outside is not visible in the image, but it appears to be a cloudy or overcast day.\n*   **Visibility:** The visibility in the room is good, with no obstructions or obstacles blocking the view.\n*   **Anomalies:** There are no obvious anomalies in the image, although the presence of a person in a hard hat and safety vest suggests that they may be working in a hazardous environment.\n*   **Confidence:** The confidence level of the image is high, as it appears to be a clear and well-lit photograph.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3672,
+      "total_tokens": 4030,
+      "completion_tokens": 358,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

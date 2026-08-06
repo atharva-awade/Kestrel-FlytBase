@@ -1,0 +1,51 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 8,
+      "messages": [
+        {
+          "content": "Classify this operator question into exactly one category. Reply with the category word only.\n\nLOOKUP    — a specific fact retrievable in one query (an entity, an alert, a count)\nRESEARCH  — needs several retrievals and synthesis (\"what happened last night\")\nAUTHOR    — wants to create or change a rule\nACTION    — wants to dispatch a drone or change an alert's state\nEXPLAIN   — asks how the system itself works or why it decided something\nCHITCHAT  — greeting or small talk\n\nQuestion: hi\nCategory:",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-e994657d-b8e3-4933-ba39-5efb678eed6d",
+    "object": "chat.completion",
+    "created": 1786077457,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "CHITCHAT"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.304056017,
+      "prompt_tokens": 149,
+      "prompt_time": 0.01224703,
+      "completion_tokens": 4,
+      "completion_time": 0.00930884,
+      "total_tokens": 153,
+      "total_time": 0.02155587
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_020e283281",
+    "x_groq": {
+      "id": "req_01kzd86b0kescss8sefv9xf00d",
+      "seed": 1552322410
+    },
+    "service_tier": "on_demand"
+  }
+}

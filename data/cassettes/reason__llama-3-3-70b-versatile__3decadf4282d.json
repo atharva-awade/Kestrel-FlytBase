@@ -1,0 +1,91 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:71bd50932bb5b66e",
+          "role": "system"
+        },
+        {
+          "content": "What happened last night?",
+          "role": "user"
+        },
+        {
+          "content": "I retrieved the data but could not compose an answer (ProviderError).",
+          "role": "assistant"
+        },
+        {
+          "content": "What rules are active?",
+          "role": "user"
+        },
+        {
+          "content": "I could not reach the model that selects tools, so I have not answered rather than guessing.\n\nCause: `ProviderError: all text providers failed → groq/llama-3.3-70b-versatile: HTTP 429: retry-after 169s exceeds the 5s interactive budget, failing over | nvidia/meta/llama-3.1-70b-instruct: ReadTimeout: `\n\nIn replay mode this means the question has no recorded response yet. The rest of the system is unaffected.",
+          "role": "assistant"
+        },
+        {
+          "content": "What rules are active and why?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:feb40bd9616d2315",
+          "role": "assistant"
+        },
+        {
+          "content": "Has this vehicle been seen at another site?",
+          "role": "user"
+        },
+        {
+          "content": "Called: get_entity",
+          "role": "assistant"
+        },
+        {
+          "content": "Tool results:\n[{\"tool\":\"get_entity\",\"arguments\":{\"id\":\"VEH-123\"},\"result\":{\"ok\":false,\"error\":\"bad arguments for 'get_entity': build_registry.<locals>.get_entity() missing 1 required positional argument: 'entity_id'\",\"expected\":{\"type\":\"object\",\"properties\":{\"entity_id\":{\"type\":\"string\"}},\"required\":[\"entity_id\"],\"additionalProperties\":false}}}]",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-e042b0db-225f-4f5a-8fb7-1a80f218ea00",
+    "object": "chat.completion",
+    "created": 1786083097,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The tool results do not answer the question. The get_entity tool returned an error [get_entity] due to missing arguments, and did not provide any information about the vehicle."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.161873244,
+      "prompt_tokens": 865,
+      "prompt_time": 0.042879485,
+      "completion_tokens": 36,
+      "completion_time": 0.158460716,
+      "total_tokens": 901,
+      "total_time": 0.201340201
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_45180df409",
+    "x_groq": {
+      "id": "req_01kzddje43e5dvc9km19xm78zj",
+      "seed": 886594587
+    },
+    "service_tier": "on_demand"
+  }
+}

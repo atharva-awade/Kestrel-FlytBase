@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:dcafe9f95a87bd8c",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:3b2bb272b461a600"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-05de8e58976942ba8e48a1a6f1a61fb1",
+    "object": "chat.completion",
+    "created": 1785982706,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{ \"caption\": \"The camera is capturing a nighttime scene at the Chakan Industrial Plant, with a restricted core zone visible in the foreground.\", \"objects\": [ {\"label\":\"cardboard box\", \"colour\":\"brown\", \"kind\":\"cardboard box\", \"activity\":\"stationary\", \"count\":1, \"confidence\":1.0} ], \"activities\": [\"nighttime\", \"restricted core zone\"], \"lighting\": \"night\", \"weather\": \"unknown\", \"visibility\": \"clear\", \"anomalies\": [], \"confidence\": 1.0 }",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3667,
+      "total_tokens": 3784,
+      "completion_tokens": 117,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

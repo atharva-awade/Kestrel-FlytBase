@@ -1,0 +1,67 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:3e71fe933eca5a47",
+          "role": "system"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "Called: list_rules",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:272a3d80c215d348",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-0b03639f-c13a-4c53-8eed-eb64f02c4d61",
+    "object": "chat.completion",
+    "created": 1786002577,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The following rules are enabled: \n[loitering], \n[perimeter-breach], \n[restricted-zone], \n[after-hours-vehicle], \n[tailgating], \n[unattended-object], \n[baseline-anomaly], \n[unusual-gathering]. \nAll 8 rules are enabled [list_rules]."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.161015581,
+      "prompt_tokens": 1533,
+      "prompt_time": 0.077881759,
+      "completion_tokens": 68,
+      "completion_time": 0.201381757,
+      "total_tokens": 1601,
+      "total_time": 0.279263516
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_45180df409",
+    "x_groq": {
+      "id": "req_01kzb0s609eybtmya6fpfp8sjx",
+      "seed": 1330737321
+    },
+    "service_tier": "on_demand"
+  }
+}

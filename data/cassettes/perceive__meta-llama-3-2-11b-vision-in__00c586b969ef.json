@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 700,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:e1d9f8834b88f014",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:97d099427991eb57"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-8b255a2b22f043e491622f9806a98c04",
+    "object": "chat.completion",
+    "created": 1785979165,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{ \"caption\": \"A person in a yellow hard hat and orange safety vest is standing in a large, empty warehouse with white pillars and red lines on the floor.\", \"objects\": [ {\"label\":\"person\", \"colour\":\"yellow\", \"kind\":\"construction worker\", \"activity\":\"standing\", \"count\":1, \"confidence\":0.9} ], \"activities\": [\"standing\", \"looking around\"], \"lighting\": \"night\", \"weather\": \"unknown\", \"visibility\": \"clear\", \"anomalies\": [\"a blue bin in the corner\"], \"confidence\": 0.8 }",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3640,
+      "total_tokens": 3763,
+      "completion_tokens": 123,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

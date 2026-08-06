@@ -1,0 +1,59 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:f8c451f9e2689073",
+          "role": "system"
+        },
+        {
+          "content": "what is the capital of France?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-afa3f009-8457-4191-8b7c-be4833592ec5",
+    "object": "chat.completion",
+    "created": 1786036007,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"search_frames\",\"arguments\":{\"query\":\"capital of France\"}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.052267229,
+      "prompt_tokens": 1160,
+      "prompt_time": 0.064775019,
+      "completion_tokens": 18,
+      "completion_time": 0.022856673,
+      "total_tokens": 1178,
+      "total_time": 0.087631692
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzc0ncvjemttmz2j1mn2t0y3",
+      "seed": 412702666
+    },
+    "service_tier": "on_demand"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 250,
+      "messages": [
+        {
+          "content": "You are a security analyst writing a shift report: what happened, who was involved, anything unusual. Be specific and concrete: name entities, zones and times. Do not speculate about motive. If the period was uneventful, say so in one sentence rather than padding.",
+          "role": "system"
+        },
+        {
+          "content": "sha256:79a0635cafafaddc",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-18f1f2b0-08c0-4a72-9379-420100d5767f",
+    "object": "chat.completion",
+    "created": 1785983162,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Shift Report for 2026-08-05 03:02 to 03:05:\n\nThe period was uneventful, with no security incidents or detections reported within the Chakan Industrial Plant perimeter. A stray dog was observed moving along the inside of the perimeter fence during this time, but no other unusual activity was noted."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.162955826,
+      "prompt_tokens": 337,
+      "prompt_time": 0.032774136,
+      "completion_tokens": 68,
+      "completion_time": 0.212408815,
+      "total_tokens": 405,
+      "total_time": 0.245182951
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_45180df409",
+    "x_groq": {
+      "id": "req_01kzae8p39ewvtak8dxc3nrkzn",
+      "seed": 590857795
+    },
+    "service_tier": "on_demand"
+  }
+}

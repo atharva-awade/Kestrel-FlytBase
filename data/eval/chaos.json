@@ -1,0 +1,44 @@
+{
+  "faults": [
+    {
+      "fault": "no API key",
+      "expected": "falls back to replay",
+      "survived": true,
+      "detail": "degraded to replay rather than failing"
+    },
+    {
+      "fault": "cassette miss in replay",
+      "expected": "raises rather than silently calling out",
+      "survived": true,
+      "detail": "raised loudly: ProviderError"
+    },
+    {
+      "fault": "corrupt / noise frame",
+      "expected": "gate still returns a verdict",
+      "survived": true,
+      "detail": "gate returned a decision: first-frame"
+    },
+    {
+      "fault": "VLM unavailable",
+      "expected": "degrades to a low-confidence graph",
+      "survived": true,
+      "detail": "returned a degraded scene graph (confidence 0.95)"
+    },
+    {
+      "fault": "telemetry dropout",
+      "expected": "gate handles a null telemetry",
+      "survived": true,
+      "detail": "handled a frame with no telemetry: scripted-frame"
+    },
+    {
+      "fault": "ray above horizon",
+      "expected": "returns no position rather than a wrong one",
+      "survived": true,
+      "detail": "refused to fabricate a coordinate"
+    }
+  ],
+  "survived": 6,
+  "total": 6,
+  "note": "Each fault asserts graceful degradation, not absence of failure. The cassette-miss case deliberately expects a loud error: silently falling through to the network would make 'runs offline' untrue in exactly the situation that matters.",
+  "generated_at": "2026-08-06T08:54:02.751977"
+}

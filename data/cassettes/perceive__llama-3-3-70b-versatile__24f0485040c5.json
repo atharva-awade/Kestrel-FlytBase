@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "You convert a security camera frame description into structured JSON. Extract only what the description states. Do not invent detail.",
+          "role": "system"
+        },
+        {
+          "content": "Site: Chakan Industrial Plant\nTime: 2026-08-06 00:00:30\nFrame description: Frame: Main gate closed and unlit apart from a single sodium lamp; no activity.\n\nReturn JSON with keys: caption, objects[{label,colour,kind,activity,count,confidence}], activities[], lighting, weather, visibility, anomalies[], confidence.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-f283a0ba-b7d6-4b63-949d-90f08b740bcb",
+    "object": "chat.completion",
+    "created": 1785983121,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"caption\": \"Main gate at Chakan Industrial Plant\",\n  \"objects\": [\n    {\n      \"label\": \"gate\",\n      \"colour\": \"not specified\",\n      \"kind\": \"main gate\",\n      \"activity\": \"closed\",\n      \"count\": 1,\n      \"confidence\": \"not specified\"\n    },\n    {\n      \"label\": \"sodium lamp\",\n      \"colour\": \"not specified\",\n      \"kind\": \"light source\",\n      \"activity\": \"lit\",\n      \"count\": 1,\n      \"confidence\": \"not specified\"\n    }\n  ],\n  \"activities\": [],\n  \"lighting\": \"low\",\n  \"weather\": \"not specified\",\n  \"visibility\": \"not specified\",\n  \"anomalies\": [],\n  \"confidence\": \"not specified\"\n}\n```"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.050957984,
+      "prompt_tokens": 134,
+      "prompt_time": 0.019461045,
+      "completion_tokens": 171,
+      "completion_time": 0.337745541,
+      "total_tokens": 305,
+      "total_time": 0.357206586
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzae7dz2e4k86bb0mk2hgfwn",
+      "seed": 1131349919
+    },
+    "service_tier": "on_demand"
+  }
+}

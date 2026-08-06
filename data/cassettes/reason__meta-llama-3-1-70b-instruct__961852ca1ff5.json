@@ -1,0 +1,95 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:4e9586478e8cd786",
+          "role": "system"
+        },
+        {
+          "content": "Was anyone here at 4am on the 3rd?",
+          "role": "user"
+        },
+        {
+          "content": "I have no frames from that window.",
+          "role": "assistant"
+        },
+        {
+          "content": "Why did you skip so many frames?",
+          "role": "user"
+        },
+        {
+          "content": "No frames were found between 2026-08-03 04:00:00 and 2026-08-03 04:00:59 [search_frames].",
+          "role": "assistant"
+        },
+        {
+          "content": "what happened at the main gate last night?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:230786b188a35c31",
+          "role": "assistant"
+        },
+        {
+          "content": "Show me the most recent alerts.",
+          "role": "user"
+        },
+        {
+          "content": "Called: list_alerts",
+          "role": "assistant"
+        },
+        {
+          "content": "Tool results:\n[{\"tool\":\"list_alerts\",\"arguments\":{\"status\":\"active\",\"site\":\"plant-01\"},\"result\":{\"ok\":true,\"tool\":\"list_alerts\",\"renders_as\":\"alert_list\",\"count\":0,\"alerts\":[],\"citations\":[]}}]",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-aeafeaf62d6e81a5",
+    "object": "chat.completion",
+    "created": 1786078375,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "There are no active alerts [list_alerts].",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 791,
+      "total_tokens": 802,
+      "completion_tokens": 11,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

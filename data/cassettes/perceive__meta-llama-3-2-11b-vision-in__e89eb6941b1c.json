@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:992bafa9568a4146",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:56aeb4ea6f3eca35"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-120c17fd1eba45109de8aab54ea3544c",
+    "object": "chat.completion",
+    "created": 1785982247,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The image shows a man in a yellow hard hat and orange safety vest walking away from the camera, holding a yellow and black striped rope. He is wearing a gray long-sleeved shirt and blue jeans.\n\n*   The man is wearing a yellow hard hat and an orange safety vest with reflective strips.\n*   He is holding a yellow and black striped rope in his right hand.\n*   The man is walking away from the camera, with his back to the viewer.\n*   The background of the image shows a large, open room with white walls and columns. There are several doors and windows visible, as well as some crates and boxes stacked up against the walls.\n\n**Caption:** A man in a yellow hard hat and orange safety vest is walking away from the camera, holding a yellow and black striped rope.\n\n**Objects:**\n\n*   Man: 1\n*   Hard hat: 1\n*   Safety vest: 1\n*   Rope: 1\n\n**Activities:**\n\n*   Walking: 1\n\n**Lighting:**\n\n*   Night: 1\n\n**Weather:**\n\n*   Unknown: 1\n\n**Visibility:**\n\n*   Clear: 1\n\n**Anomalies:**\n\n*   None\n\n**Confidence:**\n\n*   0.8 (based on the clarity of the image and the accuracy of the object detection)",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3640,
+      "total_tokens": 3921,
+      "completion_tokens": 281,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

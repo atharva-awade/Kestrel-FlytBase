@@ -1,0 +1,83 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:4d389ee688311df6",
+          "role": "system"
+        },
+        {
+          "content": "What rules are active and why?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:a13efc2f39649244",
+          "role": "assistant"
+        },
+        {
+          "content": "Has this vehicle been seen at another site?",
+          "role": "user"
+        },
+        {
+          "content": "I have no information about the vehicle's presence at another site. The tool \"get_entity\" returned an error due to missing arguments [ENT-vehicle-123].",
+          "role": "assistant"
+        },
+        {
+          "content": "Has any vehicle been seen at more than one site?",
+          "role": "user"
+        },
+        {
+          "content": "Yes, a vehicle has been seen at more than one site. A white panel van was detected at three sites: Navi Mumbai Data Centre [dc-01], Dublin Data Campus [dc-02], and Sanand Auto Plant [plant-02] [correlate_entity_across_sites].",
+          "role": "assistant"
+        },
+        {
+          "content": "Was anyone here at 4am on the 3rd?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-91248325-48f0-4b69-9065-d97e0e3a1725",
+    "object": "chat.completion",
+    "created": 1786079380,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"search_frames\",\"arguments\":{\"site_id\":\"plant-01\",\"time\":1643723400,\"zone_id\":\"main-gate\"}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.058920283,
+      "prompt_tokens": 1454,
+      "prompt_time": 0.139055456,
+      "completion_tokens": 33,
+      "completion_time": 0.051752904,
+      "total_tokens": 1487,
+      "total_time": 0.19080836
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzda109ceta9g4s27s0zhn9c",
+      "seed": 1890753744
+    },
+    "service_tier": "on_demand"
+  }
+}

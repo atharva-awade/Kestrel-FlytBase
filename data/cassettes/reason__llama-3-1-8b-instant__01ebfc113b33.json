@@ -1,0 +1,83 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:4e9586478e8cd786",
+          "role": "system"
+        },
+        {
+          "content": "Was anyone here at 4am on the 3rd?",
+          "role": "user"
+        },
+        {
+          "content": "I have no frames from that window.",
+          "role": "assistant"
+        },
+        {
+          "content": "Why did you skip so many frames?",
+          "role": "user"
+        },
+        {
+          "content": "No frames were found between 2026-08-03 04:00:00 and 2026-08-03 04:00:59 [search_frames].",
+          "role": "assistant"
+        },
+        {
+          "content": "what happened at the main gate last night?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:230786b188a35c31",
+          "role": "assistant"
+        },
+        {
+          "content": "Show me the most recent alerts.",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-72847399-408c-4953-a3c2-8fbc9c08c76c",
+    "object": "chat.completion",
+    "created": 1786078374,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"list_alerts\",\"arguments\":{\"status\":\"active\",\"site\":\"plant-01\"}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.051979083,
+      "prompt_tokens": 1420,
+      "prompt_time": 0.099147666,
+      "completion_tokens": 23,
+      "completion_time": 0.036859708,
+      "total_tokens": 1443,
+      "total_time": 0.136007374
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzd92armebmr0sv2g8vdeenq",
+      "seed": 485655960
+    },
+    "service_tier": "on_demand"
+  }
+}

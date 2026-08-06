@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:7e3df92538904090",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:1eec53eb5ebaec99"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-259ef1a6433d4a92b96d4f107d3b6051",
+    "object": "chat.completion",
+    "created": 1785979416,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The image shows a person wearing a yellow hard hat and an orange safety vest walking through a large, open room with white pillars and a concrete floor. The room appears to be under construction or renovation, with exposed wiring and pipes visible on the walls.\n\nHere is a detailed description of the image:\n\n*   **Person**\n    *   The person is wearing a yellow hard hat and an orange safety vest.\n    *   They are walking towards the right side of the image.\n    *   Their body is facing away from the camera, but their head is turned slightly towards it.\n    *   They appear to be wearing dark pants and a dark shirt.\n*   **Room**\n    *   The room is large and open, with white pillars supporting the ceiling.\n    *   The floor is made of concrete and has a rough texture.\n    *   There are several doors and windows visible in the background, but they are not clearly defined.\n    *   The walls are painted white, but there are some scuff marks and scratches visible.\n*   **Lighting**\n    *   The lighting in the room is dim, with only a few overhead lights visible.\n    *   The shadows cast by the pillars and other objects in the room are deep and dark.\n    *   The overall effect is one of gloominess and neglect.\n\nIn summary, the image shows a person walking through a large, open room that appears to be under construction or renovation. The room is dimly lit, with only a few overhead lights visible, and the shadows cast by the pillars and other objects are deep and dark. The person is wearing a yellow hard hat and an orange safety vest, and they appear to be walking towards the right side of the image.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3666,
+      "total_tokens": 4018,
+      "completion_tokens": 352,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

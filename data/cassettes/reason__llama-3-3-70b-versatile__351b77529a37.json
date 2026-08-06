@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 260,
+      "messages": [
+        {
+          "content": "You are a security analyst writing an incident summary for a site manager. Given a timeline of alerts, write 2-4 sentences describing what appears to have happened, in order.\n\nRules:\n- State only what the alerts state. Never invent detail.\n- Do not assert intent. 'consistent with' is acceptable; 'the intruder intended to' is not.\n- If the sequence is ambiguous, say so.\n- End with the single most useful next action.\n- No preamble, no bullet points.",
+          "role": "system"
+        },
+        {
+          "content": "Site: Chakan Industrial Plant\nThreat score: 0.66\n\nAlert timeline:\n[02:19:20] CRITICAL — Loitering at a sensitive location: person at Electrical Substation (confidence 0.65)\n    evidence: person detected in Electrical Substation\n[02:19:20] CRITICAL — Presence in a restricted area: person at Electrical Substation (confidence 0.69)\n    evidence: person detected in Electrical Substation",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-c3ee7523-594d-44b1-9a37-9a7fdac89155",
+    "object": "chat.completion",
+    "created": 1785983241,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "At 02:19:20, a person was detected at the Electrical Substation, triggering alerts for both loitering at a sensitive location and presence in a restricted area. The alerts occurred simultaneously, suggesting that the detection of the person at the substation prompted both warnings. The sequence of events is clear, with the person's presence at the substation being the sole reported incident. The next action should be to investigate the Electrical Substation to determine the current status and verify the presence of the detected individual."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.16205625,
+      "prompt_tokens": 232,
+      "prompt_time": 0.022425099,
+      "completion_tokens": 104,
+      "completion_time": 0.50047138,
+      "total_tokens": 336,
+      "total_time": 0.522896479
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_45180df409",
+    "x_groq": {
+      "id": "req_01kzaeb2dtea2rjqsevpqn6h7g",
+      "seed": 318332860
+    },
+    "service_tier": "on_demand"
+  }
+}

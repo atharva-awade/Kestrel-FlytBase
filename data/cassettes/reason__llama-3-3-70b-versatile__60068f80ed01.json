@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 250,
+      "messages": [
+        {
+          "content": "You are a security analyst writing a shift report: what happened, who was involved, anything unusual. Be specific and concrete: name entities, zones and times. Do not speculate about motive. If the period was uneventful, say so in one sentence rather than padding.",
+          "role": "system"
+        },
+        {
+          "content": "sha256:aaddb5996f6c5e11",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-08f6113c-4e23-43ee-9519-92e888102c06",
+    "object": "chat.completion",
+    "created": 1785983226,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Shift Report for 2026-08-05 03:02 to 03:05:\n\nDuring the reporting period, a stray dog was detected multiple times within the fence-line of the Chakan Industrial Plant. The dog was first seen trotting along the inside of the perimeter fence at 03:02:45. It was later observed stopping beside the fence line to sniff at the base of a post at 03:03:30, lying down beside a post at 03:04:15, and walking along the fence line at 03:05:45. The dog was also detected at the fence line, moving occasionally, at 03:05:00. The period began with no detections at 03:02:00, with the fence line quiet under yard lighting and a light breeze moving the vegetation."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.055665774,
+      "prompt_tokens": 384,
+      "prompt_time": 0.020164326,
+      "completion_tokens": 169,
+      "completion_time": 0.423462861,
+      "total_tokens": 553,
+      "total_time": 0.443627187
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzaeakzrehgba6j8ak5xsh2w",
+      "seed": 693220753
+    },
+    "service_tier": "on_demand"
+  }
+}

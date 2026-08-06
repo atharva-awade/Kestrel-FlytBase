@@ -1,0 +1,87 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:71bd50932bb5b66e",
+          "role": "system"
+        },
+        {
+          "content": "What happened last night?",
+          "role": "user"
+        },
+        {
+          "content": "Called: summarize_window",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:6df2a2f3dc0834d7",
+          "role": "user"
+        },
+        {
+          "content": "Called: search_frames",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:29152b2e9e32a3aa",
+          "role": "user"
+        },
+        {
+          "content": "Called: get_entity",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:f3c314e352be6391",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-a027d4e54e72d210",
+    "object": "chat.completion",
+    "created": 1786085866,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "A person wearing a high-visibility vest, yellow hard hat, and black pants was seen walking in the restricted core area of the Chakan Industrial Plant [frm_plant-01_000009_7894ac5eee]. The person was also seen walking towards the camera in the restricted core zone [frm_plant-01_000011_fc20fc0571]. \n\nAdditionally, a person in a yellow hard hat and orange safety vest was detected in the same zone and a large warehouse [frm_plant-01_000012_497c48cf98]. \n\nThe area was empty at the start of the period (02:10) and at two points later on (02:13:10 and 02:13:40-02:14:00) [frm_plant-01_000013_5c33697cf6]. However, at 02:14:10, a worker in an orange vest and yellow hard hat was standing in the center of the room, facing the camera [frm_plant-01_000014_9e1f580221].",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 5632,
+      "total_tokens": 5856,
+      "completion_tokens": 224,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

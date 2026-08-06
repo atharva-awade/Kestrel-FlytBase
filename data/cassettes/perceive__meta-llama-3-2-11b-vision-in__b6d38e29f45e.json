@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:e2c1fbcb7cff4000",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:8f7f3d2ea9713adf"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-f4c0eba60a7e475d8734239e3212d1a1",
+    "object": "chat.completion",
+    "created": 1785979491,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{ \"caption\": \"The image shows a dimly lit, empty warehouse with a concrete floor and white pillars, featuring a yellow and black striped rope on the ground.\", \"objects\": [ {\"label\":\"Pillar\", \"colour\":\"White\", \"kind\":\"Concrete pillar\", \"activity\":\"Standing\", \"count\":4, \"confidence\":1.0} ], \"activities\": [\"None\"], \"lighting\": \"night\", \"weather\": null, \"visibility\": \"clear\", \"anomalies\": [\"Yellow and black striped rope on the ground\"], \"confidence\": 1.0 }",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3640,
+      "total_tokens": 3762,
+      "completion_tokens": 122,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

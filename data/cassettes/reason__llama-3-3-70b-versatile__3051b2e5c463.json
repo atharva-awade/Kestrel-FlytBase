@@ -1,0 +1,91 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:2e58069cb13914f8",
+          "role": "system"
+        },
+        {
+          "content": "Show me the most recent alerts.",
+          "role": "user"
+        },
+        {
+          "content": "I retrieved the data but could not compose an answer (ProviderError).",
+          "role": "assistant"
+        },
+        {
+          "content": "What are your scalability limits?",
+          "role": "user"
+        },
+        {
+          "content": "The tool results do not directly address scalability limits. They describe the architecture of the system, including the five tiers of processing and the escalation process [describe_architecture]. However, they do not provide information on the scalability limits of the system.",
+          "role": "assistant"
+        },
+        {
+          "content": "Show me the most recent alerts.",
+          "role": "user"
+        },
+        {
+          "content": "There are no recent alerts. The alert list is empty [list_alerts].",
+          "role": "assistant"
+        },
+        {
+          "content": "Show me the most recent alerts.",
+          "role": "user"
+        },
+        {
+          "content": "Called: list_alerts",
+          "role": "assistant"
+        },
+        {
+          "content": "Tool results:\n[{\"tool\":\"list_alerts\",\"arguments\":{\"site_id\":\"plant-01\",\"status\":\"all\",\"severity\":\"all\"},\"result\":{\"ok\":true,\"tool\":\"list_alerts\",\"renders_as\":\"alert_list\",\"count\":0,\"alerts\":[],\"citations\":[]}}]",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-5834c627-4f41-481c-8d82-07f6d3abde3b",
+    "object": "chat.completion",
+    "created": 1786081793,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "There are no recent alerts [list_alerts]. The alert list is empty, with a count of 0 alerts [list_alerts]."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.05190482,
+      "prompt_tokens": 700,
+      "prompt_time": 0.035333141,
+      "completion_tokens": 29,
+      "completion_time": 0.121539566,
+      "total_tokens": 729,
+      "total_time": 0.156872707
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzdcan4pea0vv90dnfg80chq",
+      "seed": 980339287
+    },
+    "service_tier": "on_demand"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:ece8d405da72264a",
+          "role": "system"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "The following rules are enabled: \n[loitering], \n[perimeter-breach], \n[restricted-zone], \n[after-hours-vehicle], \n[tailgating], \n[unattended-object], \n[baseline-anomaly], \n[unusual-gathering]. \nAll 8 rules are enabled [list_rules].",
+          "role": "assistant"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:fdfb5b56d715159c",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-23ac4d3c-a3e2-4b56-bd25-c162fd14e4b8",
+    "object": "chat.completion",
+    "created": 1786002640,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"list_rules\",\"arguments\":{}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.052543602,
+      "prompt_tokens": 1214,
+      "prompt_time": 0.067234807,
+      "completion_tokens": 14,
+      "completion_time": 0.044644429,
+      "total_tokens": 1228,
+      "total_time": 0.111879236
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzb0v38gesptk5988nbz4v15",
+      "seed": 39175084
+    },
+    "service_tier": "on_demand"
+  }
+}

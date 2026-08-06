@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:2a6c41f4e25fcac3",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:f55dbff284ecae37"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-282ac76af1e74098b3eff48fe88a2ad2",
+    "object": "chat.completion",
+    "created": 1785979502,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The image shows a large, open room with white pillars and a concrete floor. The room is empty, with no people or objects visible. The floor is marked with red lines, which appear to be some kind of grid or measurement system. In the background, there are several doors and a blue bin, but no other objects or people are visible.\n\n**JSON Object:**\n\n{ \"caption\": \"The room is empty, with no people or objects visible.\", \"objects\": [], \"activities\": [], \"lighting\": \"night\", \"weather\": \"unknown\", \"visibility\": \"clear\", \"anomalies\": [], \"confidence\": 1.0 }\n\n**Analysis:**\n\n* The room is empty, with no people or objects visible.\n* The floor is marked with red lines, which appear to be some kind of grid or measurement system.\n* The lighting is nighttime, with an illuminance of 9 lux.\n* The weather is unknown, as it is not possible to determine from the image.\n* The visibility is clear, as there are no obstructions or obstacles in the way.\n* There are no anomalies or unusual objects in the scene.\n* The overall confidence in the analysis is 1.0, indicating that the image is clear and well-lit.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3640,
+      "total_tokens": 3898,
+      "completion_tokens": 258,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

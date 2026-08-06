@@ -1,0 +1,51 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 16,
+      "messages": [
+        {
+          "content": "Reply with exactly: KESTREL ONLINE",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-ab97b868-45e5-4fdd-98d4-2ac11fdf0e96",
+    "object": "chat.completion",
+    "created": 1785962921,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "KESTREL ONLINE"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.050718924,
+      "prompt_tokens": 43,
+      "prompt_time": 0.001957336,
+      "completion_tokens": 5,
+      "completion_time": 0.008871986,
+      "total_tokens": 48,
+      "total_time": 0.010829322
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kz9tyz5qebdb6c1mnwdchqjn",
+      "seed": 432378917
+    },
+    "service_tier": "on_demand"
+  }
+}

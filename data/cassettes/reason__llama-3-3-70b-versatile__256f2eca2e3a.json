@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 250,
+      "messages": [
+        {
+          "content": "You are a security analyst writing a shift report: what happened, who was involved, anything unusual. Be specific and concrete: name entities, zones and times. Do not speculate about motive. If the period was uneventful, say so in one sentence rather than padding.",
+          "role": "system"
+        },
+        {
+          "content": "sha256:01b33552a64389aa",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-d36d9124-9acc-4870-a2c6-4df35037b7c0",
+    "object": "chat.completion",
+    "created": 1785983265,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Shift Report for 2026-08-06 21:14 to 21:16:\n\nDuring the reported period, the following events occurred in the restricted-core and yard areas. At 21:14:00-21:14:20, a white box truck waited at the main gate, which had its barrier closed. From 21:14:40 to 21:15:00, the white box truck cleared the gate and proceeded onto the access road, where it was joined by a dark grey sedan and another truck, with one barrier and one gate in the access-road, restricted-core zone. Between 21:15:20 and 21:15:40, the dark grey sedan followed the white box truck on the access road towards the yard. At 21:16:00, the dark grey sedan was parked at the far end of the yard. The entities involved included two trucks, two sedans (one white box truck and one dark grey sedan), and security infrastructure such as barriers and gates in the access-road, main-gate, and yard zones."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.051207573,
+      "prompt_tokens": 314,
+      "prompt_time": 0.02093777,
+      "completion_tokens": 221,
+      "completion_time": 0.827360905,
+      "total_tokens": 535,
+      "total_time": 0.848298675
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzaebtaceyjbpa6ec9nbyy4w",
+      "seed": 1506898476
+    },
+    "service_tier": "on_demand"
+  }
+}

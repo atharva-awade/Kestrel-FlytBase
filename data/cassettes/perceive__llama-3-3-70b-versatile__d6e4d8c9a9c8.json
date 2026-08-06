@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "You convert a security camera frame description into structured JSON. Extract only what the description states. Do not invent detail.",
+          "role": "system"
+        },
+        {
+          "content": "Site: Chakan Industrial Plant\nTime: 2026-08-06 17:52:40\nFrame description: Frame: Six people walking from staff parking towards warehouse A.\n\nReturn JSON with keys: caption, objects[{label,colour,kind,activity,count,confidence}], activities[], lighting, weather, visibility, anomalies[], confidence.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-1ffdce1a-babb-4503-beac-2df0b849b9b0",
+    "object": "chat.completion",
+    "created": 1785983287,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"caption\": \"Six people walking from staff parking towards warehouse A\",\n  \"objects\": [\n    {\n      \"label\": \"people\",\n      \"colour\": null,\n      \"kind\": \"human\",\n      \"activity\": \"walking\",\n      \"count\": 6,\n      \"confidence\": null\n    }\n  ],\n  \"activities\": [\n    \"walking\"\n  ],\n  \"lighting\": null,\n  \"weather\": null,\n  \"visibility\": null,\n  \"anomalies\": [],\n  \"confidence\": null\n}\n```"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.050953845,
+      "prompt_tokens": 128,
+      "prompt_time": 0.007173359,
+      "completion_tokens": 116,
+      "completion_time": 0.18654695,
+      "total_tokens": 244,
+      "total_time": 0.193720309
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzaecfvzetx8ct4k7s5n905v",
+      "seed": 213673081
+    },
+    "service_tier": "on_demand"
+  }
+}

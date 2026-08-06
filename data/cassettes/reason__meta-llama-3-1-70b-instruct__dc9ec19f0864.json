@@ -1,0 +1,87 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:6aa212a700c7b023",
+          "role": "system"
+        },
+        {
+          "content": "Was anyone here at 4am on the 3rd?",
+          "role": "user"
+        },
+        {
+          "content": "I have no information about anyone being present at the Chakan Industrial Plant at 4am on the 3rd. The tool results [search_frames] only provide information about people present at the plant on August 6th, not August 3rd.",
+          "role": "assistant"
+        },
+        {
+          "content": "Why did you skip so many frames?",
+          "role": "user"
+        },
+        {
+          "content": "I have no information about why I skipped so many frames. The tool results [describe_architecture] provide an explanation of the gate's architecture and its decision-making process, but do not provide specific information about the frames that were skipped. The tool \"search_frames\" [search_frames] returned an error due to missing arguments, and did not provide any relevant information.",
+          "role": "assistant"
+        },
+        {
+          "content": "How do you decide what to escalate?",
+          "role": "user"
+        },
+        {
+          "content": "I have no information about how I decide what to escalate. The tool results [describe_architecture] provide an explanation of the architecture and decision-making process, but do not specifically address the escalation decision.",
+          "role": "assistant"
+        },
+        {
+          "content": "How does the gate work?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-a553ea3413c9b5d6",
+    "object": "chat.completion",
+    "created": 1786080820,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"search_frames\",\"arguments\":{\"query\":\"gate\"}}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 1371,
+      "total_tokens": 1387,
+      "completion_tokens": 16,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

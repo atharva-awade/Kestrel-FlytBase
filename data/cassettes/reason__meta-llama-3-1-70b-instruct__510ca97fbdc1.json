@@ -1,0 +1,71 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:71f292776954eb88",
+          "role": "system"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "Called: list_rules",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:272a3d80c215d348",
+          "role": "user"
+        },
+        {
+          "content": "sha256:fdfb5b56d715159c",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-86f830ee54c4287b",
+    "object": "chat.completion",
+    "created": 1786019506,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"list_entities\",\"arguments\":{}},{\"name\":\"list_alerts\",\"arguments\":{}}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 2157,
+      "total_tokens": 2181,
+      "completion_tokens": 24,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

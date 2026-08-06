@@ -1,0 +1,110 @@
+{
+  "id": "repeat-visitor",
+  "title": "Known vehicle, unknown hour",
+  "description": "A blue Ford F-150 visits on six occasions across three days, always during working hours. On the fourth day it returns at 02:03 with lights off and does not unload. Each individual frame is unremarkable.",
+  "expect_alerts": [
+    "baseline-anomaly",
+    "after-hours-vehicle"
+  ],
+  "expect_no_alerts": [],
+  "expect_entities": [
+    "blue Ford F-150"
+  ],
+  "tags": [
+    "memory",
+    "baseline",
+    "entity-reid",
+    "multi-day",
+    "true-positive"
+  ],
+  "frames": [
+    {
+      "at": "2026-08-03T09:12:00",
+      "text": "Frame: A blue Ford F-150 pickup arrives at the main gate."
+    },
+    {
+      "at": "2026-08-03T09:14:00",
+      "text": "Frame: Blue Ford F-150 parked at the loading dock, driver unloading."
+    },
+    {
+      "at": "2026-08-03T09:16:00",
+      "text": "Frame: Blue Ford F-150 departs through the main gate."
+    },
+    {
+      "at": "2026-08-03T16:40:00",
+      "text": "Frame: A blue Ford F-150 pickup arrives at the main gate."
+    },
+    {
+      "at": "2026-08-03T16:42:00",
+      "text": "Frame: Blue Ford F-150 parked at the loading dock, driver unloading."
+    },
+    {
+      "at": "2026-08-03T16:44:00",
+      "text": "Frame: Blue Ford F-150 departs through the main gate."
+    },
+    {
+      "at": "2026-08-04T09:05:00",
+      "text": "Frame: A blue Ford F-150 pickup arrives at the main gate."
+    },
+    {
+      "at": "2026-08-04T09:07:00",
+      "text": "Frame: Blue Ford F-150 parked at the loading dock, driver unloading."
+    },
+    {
+      "at": "2026-08-04T09:09:00",
+      "text": "Frame: Blue Ford F-150 departs through the main gate."
+    },
+    {
+      "at": "2026-08-04T17:02:00",
+      "text": "Frame: A blue Ford F-150 pickup arrives at the main gate."
+    },
+    {
+      "at": "2026-08-04T17:04:00",
+      "text": "Frame: Blue Ford F-150 parked at the loading dock, driver unloading."
+    },
+    {
+      "at": "2026-08-04T17:06:00",
+      "text": "Frame: Blue Ford F-150 departs through the main gate."
+    },
+    {
+      "at": "2026-08-05T08:58:00",
+      "text": "Frame: A blue Ford F-150 pickup arrives at the main gate."
+    },
+    {
+      "at": "2026-08-05T09:00:00",
+      "text": "Frame: Blue Ford F-150 parked at the loading dock, driver unloading."
+    },
+    {
+      "at": "2026-08-05T09:02:00",
+      "text": "Frame: Blue Ford F-150 departs through the main gate."
+    },
+    {
+      "at": "2026-08-05T15:31:00",
+      "text": "Frame: A blue Ford F-150 pickup arrives at the main gate."
+    },
+    {
+      "at": "2026-08-05T15:33:00",
+      "text": "Frame: Blue Ford F-150 parked at the loading dock, driver unloading."
+    },
+    {
+      "at": "2026-08-05T15:35:00",
+      "text": "Frame: Blue Ford F-150 departs through the main gate."
+    },
+    {
+      "at": "2026-08-06T02:03:00",
+      "text": "Frame: A blue Ford F-150 pickup approaches the main gate with headlights off."
+    },
+    {
+      "at": "2026-08-06T02:04:00",
+      "text": "Frame: Blue Ford F-150 stops short of the main gate; engine running, no one exits."
+    },
+    {
+      "at": "2026-08-06T02:05:00",
+      "text": "Frame: Blue Ford F-150 reverses and parks facing the exit beside the fence line."
+    },
+    {
+      "at": "2026-08-06T02:06:00",
+      "text": "Frame: Blue Ford F-150 stationary at the fence line, occupant visible in cab."
+    }
+  ]
+}

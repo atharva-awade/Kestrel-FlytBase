@@ -1,0 +1,79 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:8a14fb29d1af8853",
+          "role": "system"
+        },
+        {
+          "content": "how many rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "There are 8 rules enabled [list_rules].",
+          "role": "assistant"
+        },
+        {
+          "content": "how many rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "Called: list_rules",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:272a3d80c215d348",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-a61f44efd38dd6c4",
+    "object": "chat.completion",
+    "created": 1786014562,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "There are 8 rules enabled [list_rules].",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 1537,
+      "total_tokens": 1548,
+      "completion_tokens": 11,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

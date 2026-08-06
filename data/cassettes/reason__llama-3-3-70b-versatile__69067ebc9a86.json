@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 380,
+      "messages": [
+        {
+          "content": "sha256:30d0e57737d9cb77",
+          "role": "system"
+        },
+        {
+          "content": "sha256:f82e0db695a623f3",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-58a360bb-bfc5-4aa1-aff1-759456e51125",
+    "object": "chat.completion",
+    "created": 1786002620,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "There are 3 open alerts: \n1. Critical alert [alr_d8a9d2ef4dcc] for presence in a restricted area at the substation, \n2. High alert [alr_8a88b73a2fe6] for loitering at the main gate, and \n3. Medium alert [alr_dc7cc1af0801] for an unusual gathering outside working hours at the main gate. \nThese alerts were triggered between 00:02:50 and 02:11:40 [alr_d8a9d2ef4dcc, alr_8a88b73a2fe6, alr_dc7cc1af0801]. \nThe night was not entirely quiet, with multiple individuals detected in the restricted core zone and other areas of the Chakan Industrial Plant [frm_summarize_window]."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.052351006,
+      "prompt_tokens": 2421,
+      "prompt_time": 0.129162563,
+      "completion_tokens": 182,
+      "completion_time": 0.622963248,
+      "total_tokens": 2603,
+      "total_time": 0.752125811
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzb0tewsecfrvgcvhbjcv2kr",
+      "seed": 1011849469
+    },
+    "service_tier": "on_demand"
+  }
+}

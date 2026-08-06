@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 400,
+      "messages": [
+        {
+          "content": "You are a security analyst writing a daily site summary: patterns, recurring entities, and notable deviations. Be specific and concrete: name entities, zones and times. Do not speculate about motive. If the period was uneventful, say so in one sentence rather than padding.",
+          "role": "system"
+        },
+        {
+          "content": "sha256:9d42d35ed560b5a8",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-482a2fbe-db61-411c-82ab-65b69cd02b18",
+    "object": "chat.completion",
+    "created": 1785989052,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Daily Site Summary for 2026-08-04 09:05 to 17:04:\n\nThe period was marked by two incidents involving a blue Ford F-150 pickup. At 09:05, the vehicle arrived at the main gate, proceeded to the loading dock, and departed at 09:09 after unloading cargo. A similar incident occurred at 17:02 when the same vehicle arrived at the main gate and was later observed at the loading dock at 17:04 with one person unloading cargo. The vehicle and individual were only present for a brief moment at the end of the reporting period. No other incidents or unusual activity were reported during the 8-hour period."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.050968369,
+      "prompt_tokens": 340,
+      "prompt_time": 0.017252454,
+      "completion_tokens": 142,
+      "completion_time": 0.411072456,
+      "total_tokens": 482,
+      "total_time": 0.42832491
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzakwdnxexvrse44e4m33601",
+      "seed": 784933902
+    },
+    "service_tier": "on_demand"
+  }
+}

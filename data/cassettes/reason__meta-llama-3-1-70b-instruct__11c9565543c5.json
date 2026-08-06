@@ -1,0 +1,87 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:adfcc28c527291df",
+          "role": "system"
+        },
+        {
+          "content": "Has any vehicle been seen at more than one site?",
+          "role": "user"
+        },
+        {
+          "content": "The active rules are: loitering [loitering], perimeter-breach [perimeter-breach], restricted-zone [restricted-zone], after-hours-vehicle [after-hours-vehicle], tailgating [tailgating], unattended-object [unattended-object], baseline-anomaly [baseline-anomaly], unusual-gathering [unusual-gathering], and truck-parked-at-dock [truck-parked-at-dock].",
+          "role": "assistant"
+        },
+        {
+          "content": "Was anyone here at 4am on the 3rd?",
+          "role": "user"
+        },
+        {
+          "content": "I have no frames from that window.",
+          "role": "assistant"
+        },
+        {
+          "content": "Why did you skip so many frames?",
+          "role": "user"
+        },
+        {
+          "content": "No frames were found between 2026-08-03 04:00:00 and 2026-08-03 04:00:59 [search_frames].",
+          "role": "assistant"
+        },
+        {
+          "content": "what happened at the main gate last night?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-8c93589583367a0d",
+    "object": "chat.completion",
+    "created": 1786078303,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"summarize_window\",\"arguments\":{\"site_id\":\"plant-01\",\"start_time\":\"2026-08-06 00:00:00\",\"end_time\":\"2026-08-07 00:00:00\"}}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 1331,
+      "total_tokens": 1384,
+      "completion_tokens": 53,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

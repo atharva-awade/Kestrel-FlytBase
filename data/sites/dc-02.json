@@ -1,0 +1,205 @@
+{
+  "id": "dc-02",
+  "name": "Dublin Data Campus",
+  "kind": "datacentre",
+  "origin": {
+    "lat": 53.426,
+    "lon": -6.245
+  },
+  "timezone": "Europe/Dublin",
+  "country": "IE",
+  "country_name": "Ireland",
+  "zones": [
+    {
+      "id": "main-gate",
+      "name": "Main Gate",
+      "kind": "gate",
+      "polygon": [
+        {
+          "lat": 53.42592814,
+          "lon": -6.2431909
+        },
+        {
+          "lat": 53.42592814,
+          "lon": -6.24213559
+        },
+        {
+          "lat": 53.42625153,
+          "lon": -6.24213559
+        },
+        {
+          "lat": 53.42625153,
+          "lon": -6.2431909
+        }
+      ],
+      "priority": 1.6,
+      "normal_hours": [
+        6,
+        21
+      ],
+      "notes": ""
+    },
+    {
+      "id": "yard",
+      "name": "Yard",
+      "kind": "yard",
+      "polygon": [
+        {
+          "lat": 53.42671865,
+          "lon": -6.24288938
+        },
+        {
+          "lat": 53.42671865,
+          "lon": -6.24047724
+        },
+        {
+          "lat": 53.42770679,
+          "lon": -6.24047724
+        },
+        {
+          "lat": 53.42770679,
+          "lon": -6.24288938
+        }
+      ],
+      "priority": 1.2,
+      "normal_hours": [
+        6,
+        22
+      ],
+      "notes": ""
+    },
+    {
+      "id": "loading-dock",
+      "name": "Loading Dock",
+      "kind": "dock",
+      "polygon": [
+        {
+          "lat": 53.4261617,
+          "lon": -6.2446231
+        },
+        {
+          "lat": 53.4261617,
+          "lon": -6.24288938
+        },
+        {
+          "lat": 53.42670068,
+          "lon": -6.24288938
+        },
+        {
+          "lat": 53.42670068,
+          "lon": -6.2446231
+        }
+      ],
+      "priority": 1.4,
+      "normal_hours": [
+        7,
+        19
+      ],
+      "notes": ""
+    },
+    {
+      "id": "substation",
+      "name": "Substation",
+      "kind": "substation",
+      "polygon": [
+        {
+          "lat": 53.42748221,
+          "lon": -6.24085414
+        },
+        {
+          "lat": 53.42748221,
+          "lon": -6.23987421
+        },
+        {
+          "lat": 53.42793137,
+          "lon": -6.23987421
+        },
+        {
+          "lat": 53.42793137,
+          "lon": -6.24085414
+        }
+      ],
+      "priority": 2.2,
+      "normal_hours": [
+        9,
+        17
+      ],
+      "notes": ""
+    },
+    {
+      "id": "fence-line",
+      "name": "Perimeter Fence",
+      "kind": "fence",
+      "polygon": [
+        {
+          "lat": 53.4258922,
+          "lon": -6.24518091
+        },
+        {
+          "lat": 53.4258922,
+          "lon": -6.23934655
+        },
+        {
+          "lat": 53.42815595,
+          "lon": -6.23934655
+        },
+        {
+          "lat": 53.42815595,
+          "lon": -6.24518091
+        },
+        {
+          "lat": 53.4258922,
+          "lon": -6.24518091
+        },
+        {
+          "lat": 53.42806612,
+          "lon": -6.24503015
+        },
+        {
+          "lat": 53.42806612,
+          "lon": -6.23949731
+        },
+        {
+          "lat": 53.42598203,
+          "lon": -6.23949731
+        },
+        {
+          "lat": 53.42598203,
+          "lon": -6.24503015
+        },
+        {
+          "lat": 53.42806612,
+          "lon": -6.24503015
+        }
+      ],
+      "priority": 2.0,
+      "normal_hours": null,
+      "notes": ""
+    }
+  ],
+  "dock": {
+    "lat": 53.42637729,
+    "lon": -6.24213559
+  },
+  "geofence": [
+    {
+      "lat": 53.42573051,
+      "lon": -6.24545228
+    },
+    {
+      "lat": 53.42573051,
+      "lon": -6.23904503
+    },
+    {
+      "lat": 53.42831764,
+      "lon": -6.23904503
+    },
+    {
+      "lat": 53.42831764,
+      "lon": -6.24545228
+    }
+  ],
+  "max_altitude_m": 120.0,
+  "live_footage": false,
+  "notes": "Simulated fleet site: seeded event generator, no live footage."
+}

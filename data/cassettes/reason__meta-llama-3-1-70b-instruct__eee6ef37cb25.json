@@ -1,0 +1,87 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:71bd50932bb5b66e",
+          "role": "system"
+        },
+        {
+          "content": "What happened last night?",
+          "role": "user"
+        },
+        {
+          "content": "I retrieved the data but could not compose an answer (ProviderError).",
+          "role": "assistant"
+        },
+        {
+          "content": "What rules are active?",
+          "role": "user"
+        },
+        {
+          "content": "I could not reach the model that selects tools, so I have not answered rather than guessing.\n\nCause: `ProviderError: all text providers failed → groq/llama-3.3-70b-versatile: HTTP 429: retry-after 169s exceeds the 5s interactive budget, failing over | nvidia/meta/llama-3.1-70b-instruct: ReadTimeout: `\n\nIn replay mode this means the question has no recorded response yet. The rest of the system is unaffected.",
+          "role": "assistant"
+        },
+        {
+          "content": "What rules are active and why?",
+          "role": "user"
+        },
+        {
+          "content": "Called: list_rules",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:5986b7845a7f9bf3",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-83f864bc72a822f3",
+    "object": "chat.completion",
+    "created": 1786083052,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "There are 9 active rules. They are: Loitering at a sensitive location [loitering], Perimeter fence activity [perimeter-breach], Presence in a restricted area [restricted-zone], Vehicle present outside operating hours [after-hours-vehicle], Vehicle followed another through the gate [tailgating], Unattended object near an access point [unattended-object], Unprecedented activity for this time and place [baseline-anomaly], Unusual gathering outside working hours [unusual-gathering], and Truck Parked at Dock [truck-parked-at-dock].",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 1746,
+      "total_tokens": 1861,
+      "completion_tokens": 115,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

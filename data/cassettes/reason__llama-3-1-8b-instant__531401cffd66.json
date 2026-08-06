@@ -1,0 +1,83 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:90f81016e6135bb6",
+          "role": "system"
+        },
+        {
+          "content": "What rules are active and why?",
+          "role": "user"
+        },
+        {
+          "content": "I retrieved the data but could not compose an answer (ProviderError).",
+          "role": "assistant"
+        },
+        {
+          "content": "Has this vehicle been seen at another site?",
+          "role": "user"
+        },
+        {
+          "content": "I retrieved the data but could not compose an answer (ProviderError).",
+          "role": "assistant"
+        },
+        {
+          "content": "Has any vehicle been seen at more than one site?",
+          "role": "user"
+        },
+        {
+          "content": "The active rules are: loitering [loitering], perimeter-breach [perimeter-breach], restricted-zone [restricted-zone], after-hours-vehicle [after-hours-vehicle], tailgating [tailgating], unattended-object [unattended-object], baseline-anomaly [baseline-anomaly], unusual-gathering [unusual-gathering], and truck-parked-at-dock [truck-parked-at-dock].",
+          "role": "assistant"
+        },
+        {
+          "content": "Was anyone here at 4am on the 3rd?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-381b0cde-8ce3-432e-b53a-dce130918c83",
+    "object": "chat.completion",
+    "created": 1786078289,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"search_frames\",\"arguments\":{\"site_id\":\"plant-01\",\"time\":1643723900,\"entities\":[\"person\"]}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.051262138,
+      "prompt_tokens": 1337,
+      "prompt_time": 0.089817668,
+      "completion_tokens": 31,
+      "completion_time": 0.050186532,
+      "total_tokens": 1368,
+      "total_time": 0.1400042
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzd8zqvse49rdgke14actbrp",
+      "seed": 175067017
+    },
+    "service_tier": "on_demand"
+  }
+}

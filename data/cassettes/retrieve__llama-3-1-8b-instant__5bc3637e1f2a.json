@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "retrieve",
+    "payload": {
+      "max_tokens": 380,
+      "messages": [
+        {
+          "content": "sha256:8709b4502f3e577a",
+          "role": "system"
+        },
+        {
+          "content": "Current time: 2026-08-06T08:54:00.793447\nAvailable zone ids: \"main-gate\", \"loading-dock\", \"yard\", \"warehouse-a\", \"warehouse-b\", \"substation\", \"parking\", \"access-road\", \"fence-line\", \"restricted-core\"\n\nQuestion: \"activity in the restricted core\"",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-4ad95ed3-58cf-4f09-9f72-f49d64ebab96",
+    "object": "chat.completion",
+    "created": 1785986643,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"intent\": \"structured\",\n  \"labels\": [],\n  \"zones\": [\"restricted-core\"],\n  \"entity_ids\": [],\n  \"relative_hours\": null,\n  \"start_iso\": null,\n  \"end_iso\": null,\n  \"semantic_text\": null,\n  \"reasoning\": \"The query is purely a filter for a specific zone.\"\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.049469284,
+      "prompt_tokens": 372,
+      "prompt_time": 0.020565735,
+      "completion_tokens": 74,
+      "completion_time": 0.081987892,
+      "total_tokens": 446,
+      "total_time": 0.102553627
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzahjxv9er8rn9gsj0zg9rq1",
+      "seed": 743758602
+    },
+    "service_tier": "on_demand"
+  }
+}

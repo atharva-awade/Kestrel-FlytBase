@@ -1,0 +1,83 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:ec4407c07177e8d6",
+          "role": "system"
+        },
+        {
+          "content": "Why did you skip so many frames?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:1a6da769ba8fb302",
+          "role": "assistant"
+        },
+        {
+          "content": "How do you decide what to escalate?",
+          "role": "user"
+        },
+        {
+          "content": "I do not have enough information from the tool results to directly answer the question of how I decide what to escalate. The describe_architecture tool result [describe_architecture] explains the tiered system of processing frames, but it does not provide specific information on how escalations are decided. The list_rules tool result [list_rules] lists the rules that are used to trigger alerts, but it does not explain how these rules are used to decide what to escalate.",
+          "role": "assistant"
+        },
+        {
+          "content": "What are your scalability limits?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:3bacbb05463227fb",
+          "role": "assistant"
+        },
+        {
+          "content": "Show me the most recent alerts.",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-9933301c-d763-4d88-8056-715d6ad1218c",
+    "object": "chat.completion",
+    "created": 1786082630,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"list_alerts\",\"arguments\":{\"site_id\":\"plant-01\",\"status\":\"active\"}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.052768294,
+      "prompt_tokens": 1552,
+      "prompt_time": 0.11279158,
+      "completion_tokens": 24,
+      "completion_time": 0.037687719,
+      "total_tokens": 1576,
+      "total_time": 0.150479299
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzdd46jeedxb6hmn0aypfysa",
+      "seed": 1369981117
+    },
+    "service_tier": "on_demand"
+  }
+}

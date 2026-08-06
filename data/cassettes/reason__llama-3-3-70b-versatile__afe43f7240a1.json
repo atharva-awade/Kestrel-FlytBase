@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 60,
+      "messages": [
+        {
+          "content": "You compress security camera observations. Write ONE factual sentence covering what happened across these frames. Name objects, people and places. State only what the observations state — never infer intent. No preamble.",
+          "role": "system"
+        },
+        {
+          "content": "[02:10:40] cardboard box in warehouse-b: The warehouse is empty, with a single cardboard box visible in the center of the room.\n[02:10:50] cardboard box in yard: The camera is capturing a nighttime scene at the Chakan Industrial Plant, with a restricted core zone visible in the foreground.\n[02:11:00] cardboard box in restricted-core: A high-visibility worker in an orange vest and yellow hard hat is standing in the foreground, facing away from the camera.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-a43f5ce1-aa68-4038-830e-b0124c57fb1e",
+    "object": "chat.completion",
+    "created": 1785983055,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "A cardboard box is visible in warehouse-b, then in the yard at the Chakan Industrial Plant, and subsequently in the restricted core zone where a worker in an orange vest and yellow hard hat is standing."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.050833728,
+      "prompt_tokens": 178,
+      "prompt_time": 0.009101572,
+      "completion_tokens": 42,
+      "completion_time": 0.156460562,
+      "total_tokens": 220,
+      "total_time": 0.165562134
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzae5dcxe5qacf864q2t7pph",
+      "seed": 549033963
+    },
+    "service_tier": "on_demand"
+  }
+}

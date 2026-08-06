@@ -1,0 +1,71 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:71bd50932bb5b66e",
+          "role": "system"
+        },
+        {
+          "content": "Has this vehicle been seen at another site?",
+          "role": "user"
+        },
+        {
+          "content": "Called: correlate_entity_across_sites",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:07b8c952197918ff",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-aaa18bf3df51689b",
+    "object": "chat.completion",
+    "created": 1786084533,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The vehicle has been seen at other sites. It is a white panel van [ENT-b032-9001, ENT-52f6-9001, ENT-c1ae-9001] that has appeared at Navi Mumbai Data Centre [dc-01], Dublin Data Campus [dc-02], and Sanand Auto Plant [plant-02].",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 893,
+      "total_tokens": 966,
+      "completion_tokens": 73,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

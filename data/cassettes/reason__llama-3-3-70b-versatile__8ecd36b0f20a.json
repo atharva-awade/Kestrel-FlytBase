@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 250,
+      "messages": [
+        {
+          "content": "You are a security analyst writing a shift report: what happened, who was involved, anything unusual. Be specific and concrete: name entities, zones and times. Do not speculate about motive. If the period was uneventful, say so in one sentence rather than padding.",
+          "role": "system"
+        },
+        {
+          "content": "sha256:b9961abcea3d32dc",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-3659cc0c-1cff-4b56-bab4-565e88e4a1ca",
+    "object": "chat.completion",
+    "created": 1785983132,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Shift Report for 2026-08-06 00:00 to 00:05:\n\nDuring the reporting period, a person on foot was observed approaching the main gate of the Chakan Industrial Plant from the access road at 00:01:05. The individual proceeded to walk along the fence at the main gate, returned to the gate, and stood motionless at 00:02:50. At 00:03:25, the person was seen reaching towards the gate latch. They then crouched near the main gate post at 00:04:00 and looked back over their shoulder repeatedly at 00:04:35. The person walked away from the main gate along the fence line at 00:05:10. No security breaches or detections were recorded during this period."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.052108622,
+      "prompt_tokens": 464,
+      "prompt_time": 0.023649091,
+      "completion_tokens": 165,
+      "completion_time": 0.409116593,
+      "total_tokens": 629,
+      "total_time": 0.432765684
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzae7r2per1bpx0waxkzbfws",
+      "seed": 1584695424
+    },
+    "service_tier": "on_demand"
+  }
+}

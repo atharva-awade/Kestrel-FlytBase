@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 250,
+      "messages": [
+        {
+          "content": "You are a security analyst writing a shift report: what happened, who was involved, anything unusual. Be specific and concrete: name entities, zones and times. Do not speculate about motive. If the period was uneventful, say so in one sentence rather than padding.",
+          "role": "system"
+        },
+        {
+          "content": "sha256:befae033fcf0aa37",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-51cbd1c2-de79-40d0-a374-5422fd802536",
+    "object": "chat.completion",
+    "created": 1785983220,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Shift Report for 2026-08-06 11:58 to 12:04:\n\nDuring this period, a blue Ford F-150 pickup truck, driven by an individual wearing a high-visibility vest, entered the Chakan Industrial Plant through the main gate at 11:58:45. The vehicle passed the raised barrier on the access road at 11:59:30 and proceeded to the loading dock. At 12:00:15, the Ford F-150 reversed into loading dock bay 3. The driver then stepped out of the vehicle at 12:01:00 and unloaded two pallets at 12:01:45. After returning to the cab at 12:02:30, the vehicle pulled away from the bay at 12:03:15 and exited the plant through the main gate at 12:04:00. The loading dock was left quiet with two pallets stacked on the apron at 12:04:45."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.05523997,
+      "prompt_tokens": 596,
+      "prompt_time": 0.039164119,
+      "completion_tokens": 202,
+      "completion_time": 0.524101538,
+      "total_tokens": 798,
+      "total_time": 0.563265657
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzaeaej4epxa2ert4fa80sp9",
+      "seed": 734425783
+    },
+    "service_tier": "on_demand"
+  }
+}

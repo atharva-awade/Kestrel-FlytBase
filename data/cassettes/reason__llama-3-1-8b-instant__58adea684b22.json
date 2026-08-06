@@ -1,0 +1,83 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:977fd89d496bca28",
+          "role": "system"
+        },
+        {
+          "content": "What happened last night?",
+          "role": "user"
+        },
+        {
+          "content": "I retrieved the data but could not compose an answer (ProviderError).",
+          "role": "assistant"
+        },
+        {
+          "content": "What rules are active?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:1e179ace8bd2f0e3",
+          "role": "assistant"
+        },
+        {
+          "content": "What rules are active and why?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:a13efc2f39649244",
+          "role": "assistant"
+        },
+        {
+          "content": "Has this vehicle been seen at another site?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-6428a6fd-45bb-4328-92dd-93315cd39646",
+    "object": "chat.completion",
+    "created": 1786079278,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"get_entity\",\"arguments\":{\"id\":\"ENT-vehicle-123\"}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.055002988,
+      "prompt_tokens": 1539,
+      "prompt_time": 0.105819362,
+      "completion_tokens": 20,
+      "completion_time": 0.04743034,
+      "total_tokens": 1559,
+      "total_time": 0.153249702
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzd9xwwje8ht6xbzpx6vfts9",
+      "seed": 2037514313
+    },
+    "service_tier": "on_demand"
+  }
+}

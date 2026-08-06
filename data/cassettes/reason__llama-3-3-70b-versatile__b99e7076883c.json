@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 260,
+      "messages": [
+        {
+          "content": "You are a security analyst writing an incident summary for a site manager. Given a timeline of alerts, write 2-4 sentences describing what appears to have happened, in order.\n\nRules:\n- State only what the alerts state. Never invent detail.\n- Do not assert intent. 'consistent with' is acceptable; 'the intruder intended to' is not.\n- If the sequence is ambiguous, say so.\n- End with the single most useful next action.\n- No preamble, no bullet points.",
+          "role": "system"
+        },
+        {
+          "content": "Site: Chakan Industrial Plant\nThreat score: 0.31\n\nAlert timeline:\n[21:15:00] MEDIUM — Vehicle present outside operating hours: truck at Main Gate (confidence 0.58)\n    evidence: truck detected in Main Gate\n[21:15:40] MEDIUM — Vehicle present outside operating hours: dark grey sedan at Main Gate (confidence 0.58)\n    evidence: dark grey sedan detected in Main Gate",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-6bf7d5e1-fd26-4725-9589-e96b4c7e137a",
+    "object": "chat.completion",
+    "created": 1785986346,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "A truck was detected at the Main Gate at 21:15:00, followed by the detection of a dark grey sedan at the same location 40 seconds later. The presence of these vehicles outside operating hours triggered medium-level alerts. The sequence of events is clear, with both vehicles being detected in close proximity to each other in time. The next action should be to review the Main Gate security footage to determine the actions of the occupants of these vehicles."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.050751075,
+      "prompt_tokens": 230,
+      "prompt_time": 0.011821185,
+      "completion_tokens": 92,
+      "completion_time": 0.472303443,
+      "total_tokens": 322,
+      "total_time": 0.484124628
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzah9v04e0sr8qpvyj6xx71q",
+      "seed": 2039544767
+    },
+    "service_tier": "on_demand"
+  }
+}

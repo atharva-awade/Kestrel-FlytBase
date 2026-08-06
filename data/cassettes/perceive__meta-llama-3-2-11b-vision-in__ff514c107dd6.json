@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:6065859b8171cc7d",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:4bf855139e69a5ad"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-ee39394e209549b1b2090025fbe46f91",
+    "object": "chat.completion",
+    "created": 1785979329,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{ \"caption\": \"The image shows a dimly lit, empty warehouse with a concrete floor and white pillars, featuring a yellow and black striped rope in the foreground.\", \"objects\": [ {\"label\":\"Pillar\", \"colour\":\"White\", \"kind\":\"Concrete Pillar\", \"activity\":\"Standing\", \"count\":4, \"confidence\":1.0} ], \"activities\": [\"None\"], \"lighting\": \"night\", \"weather\": null, \"visibility\": \"clear\", \"anomalies\": [\"Yellow and black striped rope\"], \"confidence\": 1.0 }",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3640,
+      "total_tokens": 3760,
+      "completion_tokens": 120,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

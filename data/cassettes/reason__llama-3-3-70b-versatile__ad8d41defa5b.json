@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 60,
+      "messages": [
+        {
+          "content": "You compress security camera observations. Write ONE factual sentence covering what happened across these frames. Name objects, people and places. State only what the observations state — never infer intent. No preamble.",
+          "role": "system"
+        },
+        {
+          "content": "[02:14:10] nothing: A high-visibility worker in an orange vest and yellow hard hat is standing in the center of the room, facing away from the camera.\n[02:14:20] nothing: A single worker is standing in the restricted core area of the Chakan Industrial Plant\n[02:14:30] nothing: A person in a yellow hard hat and orange safety vest is walking away from the camera, holding a rope",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-cc7623b2-ebc1-4658-b508-de97726fadab",
+    "object": "chat.completion",
+    "created": 1785982454,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "A worker in an orange vest and yellow hard hat is standing in the restricted core area of the Chakan Industrial Plant and then walks away from the camera, holding a rope."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.057614779,
+      "prompt_tokens": 166,
+      "prompt_time": 0.016309571,
+      "completion_tokens": 36,
+      "completion_time": 0.08671268,
+      "total_tokens": 202,
+      "total_time": 0.103022251
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzadk2e3enb83mh2h2qgabs9",
+      "seed": 623120288
+    },
+    "service_tier": "on_demand"
+  }
+}

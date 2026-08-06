@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "You convert a security camera frame description into structured JSON. Extract only what the description states. Do not invent detail.",
+          "role": "system"
+        },
+        {
+          "content": "Site: Chakan Industrial Plant\nTime: 2026-08-06 19:49:00\nFrame description: Frame: Cardboard box still beside the main gate; no people present.\n\nReturn JSON with keys: caption, objects[{label,colour,kind,activity,count,confidence}], activities[], lighting, weather, visibility, anomalies[], confidence.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-d98ef4a1-6086-4528-b8a4-5e5d5654ddd4",
+    "object": "chat.completion",
+    "created": 1785983277,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"caption\": \"Chakan Industrial Plant main gate\",\n  \"objects\": [\n    {\n      \"label\": \"cardboard box\",\n      \"colour\": null,\n      \"kind\": \"object\",\n      \"activity\": null,\n      \"count\": 1,\n      \"confidence\": null\n    }\n  ],\n  \"activities\": [],\n  \"lighting\": null,\n  \"weather\": null,\n  \"visibility\": null,\n  \"anomalies\": [],\n  \"confidence\": null\n}\n```"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.050979335,
+      "prompt_tokens": 131,
+      "prompt_time": 0.012320109,
+      "completion_tokens": 108,
+      "completion_time": 0.219731052,
+      "total_tokens": 239,
+      "total_time": 0.232051161
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzaec6hwezaaznmrf673yfed",
+      "seed": 1827980296
+    },
+    "service_tier": "on_demand"
+  }
+}

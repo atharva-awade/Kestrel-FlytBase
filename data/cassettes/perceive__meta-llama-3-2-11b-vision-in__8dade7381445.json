@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 700,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:e33f7e4253913f8d",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:14529d21a93d2302"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-6a16ad396c024627bffe89fba15d2323",
+    "object": "chat.completion",
+    "created": 1785979070,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{ \"caption\": \"The image shows an empty warehouse with a concrete floor and white pillars, with a yellow and black striped tape running across the floor.\", \"objects\": [ ], \"activities\": [\"Empty warehouse\"], \"lighting\": \"night\", \"weather\": null, \"visibility\": \"clear\", \"anomalies\": [], \"confidence\": 1.0 }",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3633,
+      "total_tokens": 3709,
+      "completion_tokens": 76,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

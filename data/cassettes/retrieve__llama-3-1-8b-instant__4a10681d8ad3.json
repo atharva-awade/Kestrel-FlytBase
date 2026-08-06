@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "retrieve",
+    "payload": {
+      "max_tokens": 380,
+      "messages": [
+        {
+          "content": "sha256:8709b4502f3e577a",
+          "role": "system"
+        },
+        {
+          "content": "Current time: 2026-08-06T17:44:06.791360\nAvailable zone ids: \"main-gate\", \"loading-dock\", \"yard\", \"warehouse-a\", \"warehouse-b\", \"substation\", \"parking\", \"access-road\", \"fence-line\", \"restricted-core\"\n\nQuestion: \"activity at plant-01 between 2026-08-05 17:43:57 and 2026-08-06 17:43:57\"",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-fd14c0a6-dfd8-4675-9988-cddac7cd975d",
+    "object": "chat.completion",
+    "created": 1786018448,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"intent\": \"structured\",\n  \"labels\": [\"activity\"],\n  \"zones\": [\"plant-01\"],\n  \"entity_ids\": [],\n  \"relative_hours\": null,\n  \"start_iso\": \"2026-08-05T17:43:57\",\n  \"end_iso\": \"2026-08-06T17:43:57\",\n  \"semantic_text\": null,\n  \"reasoning\": \"The query is purely a filter on time and location, so it's classified as 'structured'.\"\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.049834676,
+      "prompt_tokens": 400,
+      "prompt_time": 0.022129407,
+      "completion_tokens": 110,
+      "completion_time": 0.115815657,
+      "total_tokens": 510,
+      "total_time": 0.137945064
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzbfxgwteg6sg639bqj2gyw6",
+      "seed": 911840369
+    },
+    "service_tier": "on_demand"
+  }
+}

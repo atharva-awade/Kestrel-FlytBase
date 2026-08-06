@@ -1,0 +1,87 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:dee44281ac1d1cb5",
+          "role": "system"
+        },
+        {
+          "content": "How does your memory compression work?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f53e31f7da2a048",
+          "role": "assistant"
+        },
+        {
+          "content": "How do you verify a citation?",
+          "role": "user"
+        },
+        {
+          "content": "I have no information about how I verify a citation from the tool results. The tool \"describe_architecture\" provided information about the retrieval system [describe_architecture], but did not address the specific question of verifying a citation.",
+          "role": "assistant"
+        },
+        {
+          "content": "What happened last night?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:fc42a4df2c0cc312",
+          "role": "assistant"
+        },
+        {
+          "content": "What rules are active?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-b806bf0180e0ddc5",
+    "object": "chat.completion",
+    "created": 1786080595,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"list_rules\",\"arguments\":{}}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 1528,
+      "total_tokens": 1542,
+      "completion_tokens": 14,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

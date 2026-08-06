@@ -1,0 +1,59 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 380,
+      "messages": [
+        {
+          "content": "sha256:71bd50932bb5b66e",
+          "role": "system"
+        },
+        {
+          "content": "sha256:655299b03ac1d09d",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-9a269719f1ee425d",
+    "object": "chat.completion",
+    "created": 1786088048,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Shift-change brief:\n\nThere are 4 open alerts: \n- Presence in a restricted area: yellow person at Restricted Core (alr_27d99d75733f, 02:12:10)\n- Presence in a restricted area: orange person at Electrical Substation (alr_d8a9d2ef4dcc, 02:11:40)\n- Loitering at a sensitive location: person at Main Gate (alr_8a88b73a2fe6, 00:04:00)\n- Unusual gathering outside working hours: person at Main Gate (alr_dc7cc1af0801, 00:02:50)\n\nThe night was marked by multiple detections of individuals in restricted areas, including the restricted core zone and the electrical substation.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 2437,
+      "total_tokens": 2602,
+      "completion_tokens": 165,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

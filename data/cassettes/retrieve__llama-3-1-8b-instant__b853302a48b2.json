@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "retrieve",
+    "payload": {
+      "max_tokens": 380,
+      "messages": [
+        {
+          "content": "sha256:8709b4502f3e577a",
+          "role": "system"
+        },
+        {
+          "content": "Current time: 2026-08-07T09:25:06.903013\nAvailable zone ids: \"main-gate\", \"loading-dock\", \"yard\", \"warehouse-a\", \"warehouse-b\", \"substation\", \"parking\", \"access-road\", \"fence-line\", \"restricted-core\"\n\nQuestion: \"person walking alone at night\"",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-db785178-6fcb-489d-899e-cae404e6e0f0",
+    "object": "chat.completion",
+    "created": 1786074908,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"intent\": \"visual\",\n  \"labels\": [\"person\"],\n  \"zones\": [\"fence-line\"],\n  \"entity_ids\": [\"ENT-person\"],\n  \"relative_hours\": 12,\n  \"start_iso\": \"2026-08-06T00:00:00.000000\",\n  \"end_iso\": \"2026-08-07T00:00:00.000000\",\n  \"semantic_text\": \"person walking alone\",\n  \"reasoning\": \"The query describes a specific appearance and a time period, so it's a hybrid of visual and structured information.\"\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.051023799,
+      "prompt_tokens": 372,
+      "prompt_time": 0.024866491,
+      "completion_tokens": 125,
+      "completion_time": 0.158245022,
+      "total_tokens": 497,
+      "total_time": 0.183111513
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzd5rhz2e54bc5d2fsj6013k",
+      "seed": 637105934
+    },
+    "service_tier": "on_demand"
+  }
+}

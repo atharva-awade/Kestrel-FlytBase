@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "retrieve",
+    "payload": {
+      "max_tokens": 380,
+      "messages": [
+        {
+          "content": "sha256:8709b4502f3e577a",
+          "role": "system"
+        },
+        {
+          "content": "Current time: 2026-08-07T09:08:56.010031\nAvailable zone ids: \"main-gate\", \"loading-dock\", \"yard\", \"warehouse-a\", \"warehouse-b\", \"substation\", \"parking\", \"access-road\", \"fence-line\", \"restricted-core\"\n\nQuestion: \"vehicles at the loading dock last night\"",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-efa7739c-d48e-462c-8d73-84b570bed335",
+    "object": "chat.completion",
+    "created": 1786073937,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"intent\": \"hybrid\",\n  \"labels\": [\"vehicle\"],\n  \"zones\": [\"loading-dock\"],\n  \"entity_ids\": [],\n  \"relative_hours\": 12,\n  \"start_iso\": \"2026-08-06T00:00:00.000000\",\n  \"end_iso\": \"2026-08-06T23:59:59.999999\",\n  \"semantic_text\": \"vehicles at the loading dock\",\n  \"reasoning\": \"The query describes both a location and a time period, and also uses a visual description of the entities of interest.\"\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.053718931,
+      "prompt_tokens": 374,
+      "prompt_time": 0.027114688,
+      "completion_tokens": 126,
+      "completion_time": 0.149666106,
+      "total_tokens": 500,
+      "total_time": 0.176780794
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzd4txv8ebzbgpp3jfj1k7ha",
+      "seed": 771675920
+    },
+    "service_tier": "on_demand"
+  }
+}

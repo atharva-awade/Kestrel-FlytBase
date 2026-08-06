@@ -1,0 +1,205 @@
+{
+  "id": "plant-02",
+  "name": "Sanand Auto Plant",
+  "kind": "industrial",
+  "origin": {
+    "lat": 22.987,
+    "lon": 72.382
+  },
+  "timezone": "Asia/Kolkata",
+  "country": "IN",
+  "country_name": "India",
+  "zones": [
+    {
+      "id": "main-gate",
+      "name": "Main Gate",
+      "kind": "gate",
+      "polygon": [
+        {
+          "lat": 22.98692814,
+          "lon": 72.38317095
+        },
+        {
+          "lat": 22.98692814,
+          "lon": 72.38385401
+        },
+        {
+          "lat": 22.98725153,
+          "lon": 72.38385401
+        },
+        {
+          "lat": 22.98725153,
+          "lon": 72.38317095
+        }
+      ],
+      "priority": 1.6,
+      "normal_hours": [
+        6,
+        21
+      ],
+      "notes": ""
+    },
+    {
+      "id": "yard",
+      "name": "Yard",
+      "kind": "yard",
+      "polygon": [
+        {
+          "lat": 22.98771865,
+          "lon": 72.38336611
+        },
+        {
+          "lat": 22.98771865,
+          "lon": 72.38492739
+        },
+        {
+          "lat": 22.98870679,
+          "lon": 72.38492739
+        },
+        {
+          "lat": 22.98870679,
+          "lon": 72.38336611
+        }
+      ],
+      "priority": 1.2,
+      "normal_hours": [
+        6,
+        22
+      ],
+      "notes": ""
+    },
+    {
+      "id": "loading-dock",
+      "name": "Loading Dock",
+      "kind": "dock",
+      "polygon": [
+        {
+          "lat": 22.9871617,
+          "lon": 72.38224395
+        },
+        {
+          "lat": 22.9871617,
+          "lon": 72.38336611
+        },
+        {
+          "lat": 22.98770068,
+          "lon": 72.38336611
+        },
+        {
+          "lat": 22.98770068,
+          "lon": 72.38224395
+        }
+      ],
+      "priority": 1.4,
+      "normal_hours": [
+        7,
+        19
+      ],
+      "notes": ""
+    },
+    {
+      "id": "substation",
+      "name": "Substation",
+      "kind": "substation",
+      "polygon": [
+        {
+          "lat": 22.98848221,
+          "lon": 72.38468344
+        },
+        {
+          "lat": 22.98848221,
+          "lon": 72.38531771
+        },
+        {
+          "lat": 22.98893137,
+          "lon": 72.38531771
+        },
+        {
+          "lat": 22.98893137,
+          "lon": 72.38468344
+        }
+      ],
+      "priority": 2.2,
+      "normal_hours": [
+        9,
+        17
+      ],
+      "notes": ""
+    },
+    {
+      "id": "fence-line",
+      "name": "Perimeter Fence",
+      "kind": "fence",
+      "polygon": [
+        {
+          "lat": 22.9868922,
+          "lon": 72.3818829
+        },
+        {
+          "lat": 22.9868922,
+          "lon": 72.38565923
+        },
+        {
+          "lat": 22.98915595,
+          "lon": 72.38565923
+        },
+        {
+          "lat": 22.98915595,
+          "lon": 72.3818829
+        },
+        {
+          "lat": 22.9868922,
+          "lon": 72.3818829
+        },
+        {
+          "lat": 22.98906612,
+          "lon": 72.38198048
+        },
+        {
+          "lat": 22.98906612,
+          "lon": 72.38556165
+        },
+        {
+          "lat": 22.98698203,
+          "lon": 72.38556165
+        },
+        {
+          "lat": 22.98698203,
+          "lon": 72.38198048
+        },
+        {
+          "lat": 22.98906612,
+          "lon": 72.38198048
+        }
+      ],
+      "priority": 2.0,
+      "normal_hours": null,
+      "notes": ""
+    }
+  ],
+  "dock": {
+    "lat": 22.98737729,
+    "lon": 72.38385401
+  },
+  "geofence": [
+    {
+      "lat": 22.98673051,
+      "lon": 72.38170726
+    },
+    {
+      "lat": 22.98673051,
+      "lon": 72.38585439
+    },
+    {
+      "lat": 22.98931764,
+      "lon": 72.38585439
+    },
+    {
+      "lat": 22.98931764,
+      "lon": 72.38170726
+    }
+  ],
+  "max_altitude_m": 120.0,
+  "live_footage": false,
+  "notes": "Simulated fleet site: seeded event generator, no live footage."
+}

@@ -1,0 +1,87 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:24210a9945163b66",
+          "role": "system"
+        },
+        {
+          "content": "Show me the most recent alerts.",
+          "role": "user"
+        },
+        {
+          "content": "sha256:8d978a2f5dcc20ab",
+          "role": "assistant"
+        },
+        {
+          "content": "What alerts are open?",
+          "role": "user"
+        },
+        {
+          "content": "There are 4 open alerts: \n1. Presence in a restricted area: yellow person at Restricted Core [alr_27d99d75733f]\n2. Presence in a restricted area: orange person at Electrical Substation [alr_d8a9d2ef4dcc]\n3. Loitering at a sensitive location: person at Main Gate [alr_8a88b73a2fe6]\n4. Unusual gathering outside working hours: person at Main Gate [alr_dc7cc1af0801]",
+          "role": "assistant"
+        },
+        {
+          "content": "Why did you skip so many frames?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:1a6da769ba8fb302",
+          "role": "assistant"
+        },
+        {
+          "content": "How do you decide what to escalate?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-83f0e49beca17621",
+    "object": "chat.completion",
+    "created": 1786082559,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"list_rules\",\"arguments\":{}}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 1719,
+      "total_tokens": 1733,
+      "completion_tokens": 14,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

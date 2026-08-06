@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 250,
+      "messages": [
+        {
+          "content": "You are a security analyst writing a shift report: what happened, who was involved, anything unusual. Be specific and concrete: name entities, zones and times. Do not speculate about motive. If the period was uneventful, say so in one sentence rather than padding.",
+          "role": "system"
+        },
+        {
+          "content": "sha256:141479fea4cd231a",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-0127fdbd-ca8c-48d8-8daf-c0aeb547422c",
+    "object": "chat.completion",
+    "created": 1785983215,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Shift Report for 2026-08-06 00:00 to 00:05:\n\nDuring the reporting period, a single individual was observed approaching and interacting with the main gate at the Chakan Industrial Plant. At 00:01:05, the person was first seen walking towards the main gate from the access road. They reached the main gate at 00:01:40 and were subsequently observed walking along the fence (00:02:15), standing motionless (00:02:50), reaching towards the gate latch (00:03:25), crouching near the gate post (00:04:00), and looking back over their shoulder repeatedly (00:04:35). The individual was last seen walking away from the main gate along the fence line at 00:05:10. The main gate and surrounding area, including a sodium lamp, were also observed at 00:00:30 and again at 00:05:45, with no other notable activity or individuals detected during the shift."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.162119825,
+      "prompt_tokens": 539,
+      "prompt_time": 0.041474326,
+      "completion_tokens": 212,
+      "completion_time": 0.567667968,
+      "total_tokens": 751,
+      "total_time": 0.609142294
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_45180df409",
+    "x_groq": {
+      "id": "req_01kzaea97qec2rxxa71d7rjj53",
+      "seed": 1098072482
+    },
+    "service_tier": "on_demand"
+  }
+}

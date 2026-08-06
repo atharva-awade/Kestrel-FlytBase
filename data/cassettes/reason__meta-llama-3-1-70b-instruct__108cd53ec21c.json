@@ -1,0 +1,87 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:7012005dc044dd70",
+          "role": "system"
+        },
+        {
+          "content": "How do you verify a citation?",
+          "role": "user"
+        },
+        {
+          "content": "I have no information about how I verify a citation from the tool results. The tool \"describe_architecture\" [describe_architecture] explains the retrieval system, including the use of two indexes, structured SQL, and vector search, but does not address citation verification.",
+          "role": "assistant"
+        },
+        {
+          "content": "What are your scalability limits?",
+          "role": "user"
+        },
+        {
+          "content": "The tool results do not directly address scalability limits. The results describe the architecture of the system, including the five tiers of processing and the escalation process [describe_architecture]. However, they do not provide information on the scalability limits of the system.",
+          "role": "assistant"
+        },
+        {
+          "content": "Can you approve a mission yourself?",
+          "role": "user"
+        },
+        {
+          "content": "No, I cannot approve a mission myself. According to the tool results, tools that change state or move an aircraft cannot be executed by the agent at all; it may only propose them, and execution requires a separate call carrying an explicit human decision [describe_architecture].",
+          "role": "assistant"
+        },
+        {
+          "content": "Show me the most recent alerts.",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-b4a1b0828249b4e8",
+    "object": "chat.completion",
+    "created": 1786081495,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"list_alerts\",\"arguments\":{}}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 1354,
+      "total_tokens": 1369,
+      "completion_tokens": 15,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

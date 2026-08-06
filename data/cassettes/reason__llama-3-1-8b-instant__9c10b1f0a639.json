@@ -1,0 +1,83 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:2e58069cb13914f8",
+          "role": "system"
+        },
+        {
+          "content": "Show me the most recent alerts.",
+          "role": "user"
+        },
+        {
+          "content": "I retrieved the data but could not compose an answer (ProviderError).",
+          "role": "assistant"
+        },
+        {
+          "content": "What are your scalability limits?",
+          "role": "user"
+        },
+        {
+          "content": "The tool results do not directly address scalability limits. They describe the architecture of the system, including the five tiers of processing and the escalation process [describe_architecture]. However, they do not provide information on the scalability limits of the system.",
+          "role": "assistant"
+        },
+        {
+          "content": "Show me the most recent alerts.",
+          "role": "user"
+        },
+        {
+          "content": "There are no recent alerts. The alert list is empty [list_alerts].",
+          "role": "assistant"
+        },
+        {
+          "content": "Show me the most recent alerts.",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-85e8e514-a27f-4e4e-8c0e-0c5a0a00fc1c",
+    "object": "chat.completion",
+    "created": 1786081793,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"list_alerts\",\"arguments\":{\"site_id\":\"plant-01\",\"status\":\"all\",\"severity\":\"all\"}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.053596304,
+      "prompt_tokens": 1300,
+      "prompt_time": 0.094514522,
+      "completion_tokens": 28,
+      "completion_time": 0.043146777,
+      "total_tokens": 1328,
+      "total_time": 0.137661299
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzdcamw6e128c53xaxtxe8vk",
+      "seed": 1515505973
+    },
+    "service_tier": "on_demand"
+  }
+}

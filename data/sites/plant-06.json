@@ -1,0 +1,205 @@
+{
+  "id": "plant-06",
+  "name": "Rotterdam Chemical Park",
+  "kind": "industrial",
+  "origin": {
+    "lat": 51.885,
+    "lon": 4.291
+  },
+  "timezone": "Europe/Amsterdam",
+  "country": "NL",
+  "country_name": "Netherlands",
+  "zones": [
+    {
+      "id": "main-gate",
+      "name": "Main Gate",
+      "kind": "gate",
+      "polygon": [
+        {
+          "lat": 51.88492814,
+          "lon": 4.29274644
+        },
+        {
+          "lat": 51.88492814,
+          "lon": 4.29376519
+        },
+        {
+          "lat": 51.88525153,
+          "lon": 4.29376519
+        },
+        {
+          "lat": 51.88525153,
+          "lon": 4.29274644
+        }
+      ],
+      "priority": 1.6,
+      "normal_hours": [
+        6,
+        21
+      ],
+      "notes": ""
+    },
+    {
+      "id": "yard",
+      "name": "Yard",
+      "kind": "yard",
+      "polygon": [
+        {
+          "lat": 51.88571865,
+          "lon": 4.29303751
+        },
+        {
+          "lat": 51.88571865,
+          "lon": 4.29536609
+        },
+        {
+          "lat": 51.88670679,
+          "lon": 4.29536609
+        },
+        {
+          "lat": 51.88670679,
+          "lon": 4.29303751
+        }
+      ],
+      "priority": 1.2,
+      "normal_hours": [
+        6,
+        22
+      ],
+      "notes": ""
+    },
+    {
+      "id": "loading-dock",
+      "name": "Loading Dock",
+      "kind": "dock",
+      "polygon": [
+        {
+          "lat": 51.8851617,
+          "lon": 4.29136384
+        },
+        {
+          "lat": 51.8851617,
+          "lon": 4.29303751
+        },
+        {
+          "lat": 51.88570068,
+          "lon": 4.29303751
+        },
+        {
+          "lat": 51.88570068,
+          "lon": 4.29136384
+        }
+      ],
+      "priority": 1.4,
+      "normal_hours": [
+        7,
+        19
+      ],
+      "notes": ""
+    },
+    {
+      "id": "substation",
+      "name": "Substation",
+      "kind": "substation",
+      "polygon": [
+        {
+          "lat": 51.88648221,
+          "lon": 4.29500225
+        },
+        {
+          "lat": 51.88648221,
+          "lon": 4.29594824
+        },
+        {
+          "lat": 51.88693137,
+          "lon": 4.29594824
+        },
+        {
+          "lat": 51.88693137,
+          "lon": 4.29500225
+        }
+      ],
+      "priority": 2.2,
+      "normal_hours": [
+        9,
+        17
+      ],
+      "notes": ""
+    },
+    {
+      "id": "fence-line",
+      "name": "Perimeter Fence",
+      "kind": "fence",
+      "polygon": [
+        {
+          "lat": 51.8848922,
+          "lon": 4.29082536
+        },
+        {
+          "lat": 51.8848922,
+          "lon": 4.29645761
+        },
+        {
+          "lat": 51.88715595,
+          "lon": 4.29645761
+        },
+        {
+          "lat": 51.88715595,
+          "lon": 4.29082536
+        },
+        {
+          "lat": 51.8848922,
+          "lon": 4.29082536
+        },
+        {
+          "lat": 51.88706612,
+          "lon": 4.29097089
+        },
+        {
+          "lat": 51.88706612,
+          "lon": 4.29631208
+        },
+        {
+          "lat": 51.88498203,
+          "lon": 4.29631208
+        },
+        {
+          "lat": 51.88498203,
+          "lon": 4.29097089
+        },
+        {
+          "lat": 51.88706612,
+          "lon": 4.29097089
+        }
+      ],
+      "priority": 2.0,
+      "normal_hours": null,
+      "notes": ""
+    }
+  ],
+  "dock": {
+    "lat": 51.88537729,
+    "lon": 4.29376519
+  },
+  "geofence": [
+    {
+      "lat": 51.88473051,
+      "lon": 4.29056339
+    },
+    {
+      "lat": 51.88473051,
+      "lon": 4.29674869
+    },
+    {
+      "lat": 51.88731764,
+      "lon": 4.29674869
+    },
+    {
+      "lat": 51.88731764,
+      "lon": 4.29056339
+    }
+  ],
+  "max_altitude_m": 120.0,
+  "live_footage": false,
+  "notes": "Simulated fleet site: seeded event generator, no live footage."
+}

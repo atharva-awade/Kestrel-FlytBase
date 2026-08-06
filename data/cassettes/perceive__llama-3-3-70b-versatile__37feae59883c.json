@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "You convert a security camera frame description into structured JSON. Extract only what the description states. Do not invent detail.",
+          "role": "system"
+        },
+        {
+          "content": "Site: Chakan Industrial Plant\nTime: 2026-08-05 03:05:45\nFrame description: Frame: The dog stands and continues along the fence line out of view.\n\nReturn JSON with keys: caption, objects[{label,colour,kind,activity,count,confidence}], activities[], lighting, weather, visibility, anomalies[], confidence.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-08b11e52-2ea1-4530-8805-42eb1b23c4b0",
+    "object": "chat.completion",
+    "created": 1785983161,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"caption\": \"A dog walking along the fence line at Chakan Industrial Plant\",\n  \"objects\": [\n    {\n      \"label\": \"dog\",\n      \"colour\": null,\n      \"kind\": \"animal\",\n      \"activity\": \"walking\",\n      \"count\": 1,\n      \"confidence\": null\n    }\n  ],\n  \"activities\": [\n    \"walking\"\n  ],\n  \"lighting\": null,\n  \"weather\": null,\n  \"visibility\": null,\n  \"anomalies\": [],\n  \"confidence\": null\n}\n```"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.162887664,
+      "prompt_tokens": 131,
+      "prompt_time": 0.012561179,
+      "completion_tokens": 119,
+      "completion_time": 0.212192927,
+      "total_tokens": 250,
+      "total_time": 0.224754106
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_45180df409",
+    "x_groq": {
+      "id": "req_01kzae8n6re59s7tq1n8r15pwf",
+      "seed": 1139532125
+    },
+    "service_tier": "on_demand"
+  }
+}

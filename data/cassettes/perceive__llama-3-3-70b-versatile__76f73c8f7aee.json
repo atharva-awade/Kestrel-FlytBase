@@ -1,0 +1,59 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:20cbe666e166d2b5",
+          "role": "user"
+        },
+        {
+          "content": "sha256:95e150e01a88d8ed",
+          "role": "assistant"
+        },
+        {
+          "content": "That was not valid JSON for the required schema. Return ONLY the JSON object — no prose, no code fence.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-cbf8ff5e-42b8-4eff-9d36-5fbb73b8d401",
+    "object": "chat.completion",
+    "created": 1785982134,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"caption\": \"A single worker is present in the restricted core area of the Chakan Industrial Plant\",\n  \"objects\": [\n    {\"label\": \"person\", \"colour\": \"orange and yellow\", \"kind\": \"high-visibility worker\", \"activity\": \"standing\", \"count\": 1, \"confidence\": 0.9}\n  ],\n  \"activities\": [\"nighttime surveillance\"],\n  \"lighting\": \"night\",\n  \"weather\": null,\n  \"visibility\": \"clear\",\n  \"anomalies\": [],\n  \"confidence\": 0.8\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.052019571,
+      "prompt_tokens": 787,
+      "prompt_time": 0.052558869,
+      "completion_tokens": 122,
+      "completion_time": 0.277551712,
+      "total_tokens": 909,
+      "total_time": 0.330110581
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzad9a66ekbazz2w4k2n1awh",
+      "seed": 1723636937
+    },
+    "service_tier": "on_demand"
+  }
+}

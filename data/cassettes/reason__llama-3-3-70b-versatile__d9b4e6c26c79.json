@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 60,
+      "messages": [
+        {
+          "content": "You compress security camera observations. Write ONE factual sentence covering what happened across these frames. Name objects, people and places. State only what the observations state — never infer intent. No preamble.",
+          "role": "system"
+        },
+        {
+          "content": "[02:11:10] cardboard box in restricted-core: A high-visibility worker in an orange vest and yellow hard hat is standing in the middle of a large, empty warehouse.\n[02:11:20] cardboard box in restricted-core: A high-visibility worker in a yellow hard hat is walking away from the camera, wearing an orange safety vest with reflective strip\n[02:11:30] person, cardboard box in restricted-core: A man in a high-visibility vest and yellow hard hat is standing in an industrial warehouse.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-72a6e977-9629-4dd8-bd76-ad9432f83e52",
+    "object": "chat.completion",
+    "created": 1785983055,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "A man wearing a high-visibility orange vest and yellow hard hat was observed standing and then walking in a large, empty warehouse near a cardboard box."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.052189252,
+      "prompt_tokens": 184,
+      "prompt_time": 0.017504618,
+      "completion_tokens": 31,
+      "completion_time": 0.134221828,
+      "total_tokens": 215,
+      "total_time": 0.151726446
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzae5dnhechacegav83nrytm",
+      "seed": 1518901746
+    },
+    "service_tier": "on_demand"
+  }
+}

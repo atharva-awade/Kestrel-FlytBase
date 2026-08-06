@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "retrieve",
+    "payload": {
+      "max_tokens": 380,
+      "messages": [
+        {
+          "content": "sha256:8709b4502f3e577a",
+          "role": "system"
+        },
+        {
+          "content": "Current time: 2026-08-06T15:55:29.886495\nAvailable zone ids: \"main-gate\", \"loading-dock\", \"yard\", \"warehouse-a\", \"warehouse-b\", \"substation\", \"parking\", \"access-road\", \"fence-line\", \"restricted-core\"\n\nQuestion: \"show me all truck events\"",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-e2d9a774-cb81-4b98-8b90-43d17647c834",
+    "object": "chat.completion",
+    "created": 1786011931,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"intent\": \"structured\",\n  \"labels\": [\"truck\"],\n  \"zones\": [],\n  \"entity_ids\": [],\n  \"relative_hours\": null,\n  \"start_iso\": null,\n  \"end_iso\": null,\n  \"semantic_text\": null,\n  \"reasoning\": \"The query is purely a filter for 'truck events', so it's classified as 'structured'.\"\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.049442545,
+      "prompt_tokens": 372,
+      "prompt_time": 0.044822526,
+      "completion_tokens": 82,
+      "completion_time": 0.095427572,
+      "total_tokens": 454,
+      "total_time": 0.140250098
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzb9pmpjemab9w6bfbpbf7z3",
+      "seed": 167179550
+    },
+    "service_tier": "on_demand"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "id": "fence-breach-night",
+  "title": "Fence-line approach and climb attempt",
+  "description": "A vehicle parks on the perimeter road with lights off, one occupant walks the fence line, pauses at a camera blind spot, then attempts to climb. Severity should escalate across the sequence rather than arriving fully formed at the first frame.",
+  "expect_alerts": [
+    "perimeter-breach",
+    "restricted-zone",
+    "after-hours-vehicle"
+  ],
+  "expect_no_alerts": [],
+  "expect_entities": [
+    "person",
+    "dark grey sedan"
+  ],
+  "tags": [
+    "alert",
+    "night",
+    "critical",
+    "escalation",
+    "true-positive"
+  ],
+  "frames": [
+    {
+      "at": "2026-08-06T02:14:00",
+      "text": "Frame: Dark perimeter road outside the fence line; no activity."
+    },
+    {
+      "at": "2026-08-06T02:14:40",
+      "text": "Frame: A dark grey sedan stops on the perimeter road with headlights switched off."
+    },
+    {
+      "at": "2026-08-06T02:15:20",
+      "text": "Frame: A person exits the dark grey sedan and stands beside the fence line."
+    },
+    {
+      "at": "2026-08-06T02:16:00",
+      "text": "Frame: Person walks slowly along the perimeter fence, looking upward at the posts."
+    },
+    {
+      "at": "2026-08-06T02:16:40",
+      "text": "Frame: Person pauses at the fence line beside the substation corner."
+    },
+    {
+      "at": "2026-08-06T02:17:20",
+      "text": "Frame: Person places both hands on the perimeter fence and pulls, testing it."
+    },
+    {
+      "at": "2026-08-06T02:18:00",
+      "text": "Frame: Person begins climbing the perimeter fence near the substation."
+    },
+    {
+      "at": "2026-08-06T02:18:40",
+      "text": "Frame: Person at the top of the perimeter fence beside the substation."
+    },
+    {
+      "at": "2026-08-06T02:19:20",
+      "text": "Frame: Person drops inside the fence line and moves towards the substation."
+    },
+    {
+      "at": "2026-08-06T02:20:00",
+      "text": "Frame: Person at the electrical substation, crouched beside a transformer housing."
+    }
+  ]
+}

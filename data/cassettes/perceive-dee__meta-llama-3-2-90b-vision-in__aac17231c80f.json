@@ -1,0 +1,56 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive_deep",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:66e0c49dc6d53fe7",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:18e107eaabf06812"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-90b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-a050759116bb4df29a178614df7f9a0f",
+    "object": "chat.completion",
+    "created": 1786012308,
+    "model": "meta/llama-3.2-90b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "{\"caption\": \"A person in a high-visibility vest and hard hat is walking in a restricted area of the Chakan Industrial Plant at night.\", \"objects\": [{\"label\":\"person\", \"colour\":\"orange\", \"kind\":\"high-visibility worker\", \"activity\":\"walking\", \"count\":1, \"confidence\":0.9}], \"activities\": [\"walking\"], \"lighting\": \"night\", \"weather\": \"unknown\", \"visibility\": \"clear\", \"anomalies\": [], \"confidence\": 0.9}",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3666,
+      "total_tokens": 3774,
+      "completion_tokens": 108,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  }
+}

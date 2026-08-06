@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 700,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:a6040c70603f1194",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:f47bd4ad7c46dcfd"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-3339b05faf854d22806e25f60c77fe4a",
+    "object": "chat.completion",
+    "created": 1785979174,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{ \"caption\": \"A man in a yellow hard hat and orange safety vest is standing in an industrial warehouse, holding a yellow and black striped rope.\", \"objects\": [ {\"label\":\"person\", \"colour\":\"orange\", \"kind\":\"high-visibility worker\", \"activity\":\"standing\", \"count\":1, \"confidence\":0.9} ], \"activities\": [\"standing\", \"holding a rope\"], \"lighting\":\"artificial\", \"weather\":null, \"visibility\":\"clear\", \"anomalies\": [], \"confidence\":0.8 }",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3640,
+      "total_tokens": 3753,
+      "completion_tokens": 113,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

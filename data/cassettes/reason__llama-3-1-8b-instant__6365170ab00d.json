@@ -1,0 +1,59 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:a4f72186fc395c00",
+          "role": "system"
+        },
+        {
+          "content": "Show me the most recent alerts.",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-b588159f-b77d-4101-b31d-6e2b073f170c",
+    "object": "chat.completion",
+    "created": 1786084887,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"list_alerts\",\"arguments\":{\"site_id\":\"plant-01\",\"status\":\"active\",\"severity\":\"all\"}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.051690238,
+      "prompt_tokens": 1172,
+      "prompt_time": 0.099641861,
+      "completion_tokens": 28,
+      "completion_time": 0.037652641,
+      "total_tokens": 1200,
+      "total_time": 0.137294502
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzdf929zen38j2hbt89a337k",
+      "seed": 1622044423
+    },
+    "service_tier": "on_demand"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:57f38fd47c305a26",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:da290ad6e27f028d"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-545a090743c4432d9e851f32bbf6bfcb",
+    "object": "chat.completion",
+    "created": 1785979456,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The image shows a person wearing a yellow hard hat and an orange safety vest walking through a large, open room with white pillars and a concrete floor. The room appears to be an industrial or warehouse setting, possibly a construction site or a storage facility.\n\nHere is a detailed description of the image:\n\n*   **Person:**\n    *   The person is wearing a yellow hard hat and an orange safety vest.\n    *   They are walking towards the right side of the image.\n    *   Their body is facing the camera, but their head is turned slightly to the right.\n    *   They appear to be wearing dark pants and a dark shirt.\n*   **Room:**\n    *   The room is large and open, with white pillars supporting the ceiling.\n    *   The floor is made of concrete and has a few cracks and stains.\n    *   There are several doors and windows along the walls, but they are not clearly visible due to the distance and lighting.\n    *   In the background, there are some boxes and crates stacked up against the wall.\n*   **Lighting:**\n    *   The lighting in the room is dim, with only a few sources of light visible.\n    *   The main light source appears to be coming from the left side of the image, casting a shadow on the right side of the person's face.\n    *   There are also some faint reflections on the floor and walls, suggesting that there may be additional light sources in the room.\n\nOverall, the image suggests that the person is working in a industrial or warehouse setting, possibly as part of a construction or maintenance project. The dim lighting and lack of clear visibility make it difficult to determine the exact nature of the work being done.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3666,
+      "total_tokens": 4018,
+      "completion_tokens": 352,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

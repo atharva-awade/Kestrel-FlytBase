@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "retrieve",
+    "payload": {
+      "max_tokens": 380,
+      "messages": [
+        {
+          "content": "sha256:8709b4502f3e577a",
+          "role": "system"
+        },
+        {
+          "content": "Current time: 2026-08-06T13:35:10.368975\nAvailable zone ids: \"main-gate\", \"loading-dock\", \"yard\", \"warehouse-a\", \"warehouse-b\", \"substation\", \"parking\", \"access-road\", \"fence-line\", \"restricted-core\"\n\nQuestion: \"person\"",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-bb35fe33-a662-46cc-8da2-35bfc93d93ce",
+    "object": "chat.completion",
+    "created": 1786003512,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"intent\": \"structured\",\n  \"labels\": [\"person\"],\n  \"zones\": [],\n  \"entity_ids\": [],\n  \"relative_hours\": null,\n  \"start_iso\": null,\n  \"end_iso\": null,\n  \"semantic_text\": null,\n  \"reasoning\": \"The query is purely a filter for 'person' events, so it's classified as 'structured'.\"\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.158615559,
+      "prompt_tokens": 368,
+      "prompt_time": 0.02022641,
+      "completion_tokens": 83,
+      "completion_time": 0.088601767,
+      "total_tokens": 451,
+      "total_time": 0.108828177
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_7ccc667439",
+    "x_groq": {
+      "id": "req_01kzb1npncea3rkw1772x5ztww",
+      "seed": 214250862
+    },
+    "service_tier": "on_demand"
+  }
+}

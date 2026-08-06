@@ -1,0 +1,59 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 700,
+      "messages": [
+        {
+          "content": "sha256:492b69a6e5a93d3b",
+          "role": "user"
+        },
+        {
+          "content": "I'm not going to engage in this conversation.",
+          "role": "assistant"
+        },
+        {
+          "content": "That was not valid JSON for the required schema. Return ONLY the JSON object — no prose, no code fence.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-304c1e05-6805-431c-82bd-9606b2ae8667",
+    "object": "chat.completion",
+    "created": 1785979114,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"caption\": \"A single person is visible in the Restricted Core zone of the Chakan Industrial Plant at night\",\n  \"objects\": [\n    {\"label\":\"person\", \"colour\":\"orange\", \"kind\":\"high-visibility worker\", \"activity\":\"walking\", \"count\":1, \"confidence\":0.8}\n  ],\n  \"activities\": [\"patrolling\"],\n  \"lighting\": \"artificial\",\n  \"weather\": null,\n  \"visibility\": \"clear\",\n  \"anomalies\": [],\n  \"confidence\": 0.9\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.052246947,
+      "prompt_tokens": 546,
+      "prompt_time": 0.030336133,
+      "completion_tokens": 116,
+      "completion_time": 0.236017294,
+      "total_tokens": 662,
+      "total_time": 0.266353427
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzaad4dje91bfq16gx4smh2v",
+      "seed": 599619255
+    },
+    "service_tier": "on_demand"
+  }
+}

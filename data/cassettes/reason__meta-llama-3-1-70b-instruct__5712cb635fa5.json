@@ -1,0 +1,95 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:06eea492714d156b",
+          "role": "system"
+        },
+        {
+          "content": "How do you decide what to escalate?",
+          "role": "user"
+        },
+        {
+          "content": "I have no information about what triggers escalation. The tool \"describe_architecture\" provided information about the decision-making process [describe_architecture], but did not address the specific question of what triggers escalation.",
+          "role": "assistant"
+        },
+        {
+          "content": "How does the gate work?",
+          "role": "user"
+        },
+        {
+          "content": "The gate works by using three signals to decide whether a frame deserves to reach a model: structural perceptual-hash distance, photometric mean absolute pixel delta, and semantic embedding cosine distance [describe_architecture]. The gate's sensitivity is adjusted by context, such as high-priority zones, night, off-hours, or stationary drones [describe_architecture].",
+          "role": "assistant"
+        },
+        {
+          "content": "How does your memory compression work?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f53e31f7da2a048",
+          "role": "assistant"
+        },
+        {
+          "content": "What happened last night?",
+          "role": "user"
+        },
+        {
+          "content": "Called: summarize_window",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:25b5c581d21abc7f",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-aa36e7233df6f397",
+    "object": "chat.completion",
+    "created": 1786080516,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Last night, a single individual was observed approaching and interacting with the main gate at the Chakan Industrial Plant between 00:00:30 and 00:05:45 [ENT-0a15-0001, ENT-0a15-0002, ENT-0a15-0003, ENT-0a15-0004, ENT-0a15-0005]. The individual was seen walking towards the main gate, reaching the gate, and then walking along the fence line. They were last seen walking away from the main gate at 00:05:10.\n\nAdditionally, multiple individuals were observed in the Restricted Core zone between 02:10:00 and 02:16:10.370000 [ENT-0a15-0001]. They were seen walking in the restricted area, wearing high-visibility vests, yellow hard hats, and black pants.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 2617,
+      "total_tokens": 2800,
+      "completion_tokens": 183,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

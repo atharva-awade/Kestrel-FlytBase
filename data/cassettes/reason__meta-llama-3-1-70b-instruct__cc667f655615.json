@@ -1,0 +1,59 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 250,
+      "messages": [
+        {
+          "content": "You are a security analyst writing a shift report: what happened, who was involved, anything unusual. Be specific and concrete: name entities, zones and times. Do not speculate about motive. If the period was uneventful, say so in one sentence rather than padding.",
+          "role": "system"
+        },
+        {
+          "content": "sha256:67f414bb7f9002b1",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-a698aad9a62cbcb8",
+    "object": "chat.completion",
+    "created": 1786086753,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Shift Report: 2026-08-06 02:10 to 02:16\n\nDuring the shift, multiple individuals were detected in the restricted core zone of the Chakan Industrial Plant. The following incidents were recorded:\n\n- 02:10:00: No detections in the restricted core area.\n- 02:10-02:11: A worker was present in the restricted core area, which has a concrete floor, white pillars, and a yellow and black striped rope.\n- 02:11-02:12: A person wearing a high-visibility vest, yellow hard hat, and black pants walked in the restricted core zone.\n- 02:12-02:12: A person in a yellow hard hat and orange safety vest walked in the Restricted Core zone and a large warehouse.\n- 02:12-02:13: A worker wearing a yellow hard hat and orange safety vest walked in the restricted core area and then through a large, open room with white pillars and a concrete floor.\n- 02:13:10-02:13:10: No detections in the dimly lit, empty warehouse.\n- 02:13:40-02:14:00: No detections in the",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "length",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 714,
+      "total_tokens": 964,
+      "completion_tokens": 250,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

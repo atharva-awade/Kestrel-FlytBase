@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 260,
+      "messages": [
+        {
+          "content": "You are a security analyst writing an incident summary for a site manager. Given a timeline of alerts, write 2-4 sentences describing what appears to have happened, in order.\n\nRules:\n- State only what the alerts state. Never invent detail.\n- Do not assert intent. 'consistent with' is acceptable; 'the intruder intended to' is not.\n- If the sequence is ambiguous, say so.\n- End with the single most useful next action.\n- No preamble, no bullet points.",
+          "role": "system"
+        },
+        {
+          "content": "Site: Chakan Industrial Plant\nThreat score: 0.64\n\nAlert timeline:\n[02:16:00] CRITICAL — Perimeter fence activity: person at Perimeter Fence (confidence 0.69)\n    evidence: person detected in Perimeter Fence\n[02:17:20] CRITICAL — Loitering at a sensitive location: person at Perimeter Fence (confidence 0.61)\n    evidence: person detected in Perimeter Fence",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-88559724-c570-46e1-af1a-6eeb341a96bb",
+    "object": "chat.completion",
+    "created": 1785983237,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "At 02:16:00, a person was detected at the Perimeter Fence, which triggered a critical alert for perimeter fence activity. Approximately one minute later, at 02:17:20, another critical alert was triggered for loitering at a sensitive location, also due to a person being detected at the Perimeter Fence. The sequence of events suggests that the person detected at the fence remained in the area for at least one minute. The next useful action is to review the security footage to determine the current status of the individual and the perimeter fence."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.051554673,
+      "prompt_tokens": 231,
+      "prompt_time": 0.025153047,
+      "completion_tokens": 114,
+      "completion_time": 0.591515045,
+      "total_tokens": 345,
+      "total_time": 0.616668092
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzaeayr6ezv8mrt9bxykqfr9",
+      "seed": 582267050
+    },
+    "service_tier": "on_demand"
+  }
+}

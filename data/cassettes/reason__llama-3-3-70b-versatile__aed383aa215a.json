@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 250,
+      "messages": [
+        {
+          "content": "You are a security analyst writing a shift report: what happened, who was involved, anything unusual. Be specific and concrete: name entities, zones and times. Do not speculate about motive. If the period was uneventful, say so in one sentence rather than padding.",
+          "role": "system"
+        },
+        {
+          "content": "Period: 2026-08-06 02:10 to 02:10\n\n[02:10-02:10] 02:10:00-02:10:00: no detections. The image shows a dimly lit, empty warehouse with a concrete floor and white pillars, featuring a yellow and b\n[02:10-02:10] 02:10:40-02:10:50: no detections. The warehouse is empty, with no people or vehicles visible.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-897fd1ea-9a40-4f1d-bc29-8eace3b7b674",
+    "object": "chat.completion",
+    "created": 1786019139,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Shift Report for 2026-08-06 02:10 to 02:10:\n\nThe period was uneventful, with no security incidents or detections reported in the warehouse zone during the entire shift."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.052016359,
+      "prompt_tokens": 195,
+      "prompt_time": 0.01211093,
+      "completion_tokens": 44,
+      "completion_time": 0.1400638,
+      "total_tokens": 239,
+      "total_time": 0.15217473
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzbgjm5testsj11k28zpn609",
+      "seed": 843061493
+    },
+    "service_tier": "on_demand"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive_deep",
+    "payload": {
+      "max_tokens": 700,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:20cbe666e166d2b5",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:60622ceed281c204"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-90b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-85d6a60b27314b29a002c95c6b859a7f",
+    "object": "chat.completion",
+    "created": 1785979081,
+    "model": "meta/llama-3.2-90b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "{\"caption\": \"An empty warehouse with red tape on the floor and a blue bin in the corner.\", \"objects\": [], \"activities\": [], \"lighting\": \"artificial\", \"weather\": \"unknown\", \"visibility\": \"clear\", \"anomalies\": [], \"confidence\": 0.9}",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3640,
+      "total_tokens": 3704,
+      "completion_tokens": 64,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  }
+}

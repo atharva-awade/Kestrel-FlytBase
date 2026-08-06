@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:c6634c7da48288b8",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:d339e1d34fe19458"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-f3431776f2dd43468460aca5d1c59ca0",
+    "object": "chat.completion",
+    "created": 1785982721,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{ \"caption\": \"A high-visibility worker in a yellow hard hat is walking away from the camera, wearing an orange safety vest with reflective strips.\", \"objects\": [ {\"label\":\"worker\", \"colour\":\"orange\", \"kind\":\"high-visibility worker\", \"activity\":\"walking\", \"count\":1, \"confidence\":1.0} ], \"activities\": [\"worker walking\"], \"lighting\": \"artificial\", \"weather\": \"unknown\", \"visibility\": \"clear\", \"anomalies\": [], \"confidence\": 1.0 }",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3667,
+      "total_tokens": 3780,
+      "completion_tokens": 113,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

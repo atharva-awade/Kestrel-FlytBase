@@ -1,0 +1,71 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:3891d5b672d5180f",
+          "role": "system"
+        },
+        {
+          "content": "What happened last night?",
+          "role": "user"
+        },
+        {
+          "content": "Called: summarize_window",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:16dd515d3ef8e69e",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-916ed27395034b91",
+    "object": "chat.completion",
+    "created": 1786081165,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Last night, a single individual was observed approaching and interacting with the main gate at the Chakan Industrial Plant between 00:00:30 and 00:05:45 [ENT-0a15-0001, ENT-0a15-0002, ENT-0a15-0003, ENT-0a15-0004, ENT-0a15-0005]. The individual was seen walking towards the main gate, interacting with the gate, and then walking away along the fence line.\n\nAdditionally, multiple individuals were observed in the Restricted Core zone between 02:10:00 and 02:16:10.370000 [ENT-0a15-0001]. They were seen walking in the restricted area, wearing high-visibility vests and yellow hard hats.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 2343,
+      "total_tokens": 2506,
+      "completion_tokens": 163,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

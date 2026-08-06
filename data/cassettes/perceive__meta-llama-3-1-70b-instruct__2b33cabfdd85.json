@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:787e38cb0f32f065",
+          "role": "user"
+        },
+        {
+          "content": "I'm not going to engage in this conversation topic.",
+          "role": "assistant"
+        },
+        {
+          "content": "That was not valid JSON for the required schema. Return ONLY the JSON object — no prose, no code fence.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-860037cdd5a89bfb",
+    "object": "chat.completion",
+    "created": 1786086738,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{ \n  \"caption\": \"A person is walking in the Restricted Core zone at night.\",\n  \"objects\": [ \n    { \n      \"label\": \"person\", \n      \"colour\": \"high-visibility\", \n      \"kind\": \"high-visibility worker\", \n      \"activity\": \"walking\", \n      \"count\": 1, \n      \"confidence\": 0.95 \n    } \n  ], \n  \"activities\": [ \"patrolling\" ], \n  \"lighting\": \"night\", \n  \"weather\": null, \n  \"visibility\": \"clear\", \n  \"anomalies\": [], \n  \"confidence\": 0.95 \n}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 532,
+      "total_tokens": 674,
+      "completion_tokens": 142,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

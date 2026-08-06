@@ -1,0 +1,67 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:f8c451f9e2689073",
+          "role": "system"
+        },
+        {
+          "content": "what is the capital of France?",
+          "role": "user"
+        },
+        {
+          "content": "Called: search_frames",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:df1452634ded4263",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-6629902f-a080-4ddb-be72-66e845e221d8",
+    "object": "chat.completion",
+    "created": 1786036009,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "I have no information about the capital of France from the tool results [frm_plant-01_000037_b06b10e774], [frm_plant-01_000035_0bc7904be3], etc. The results appear to be related to the Chakan Industrial Plant, with no mention of France or its capital."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.057617576,
+      "prompt_tokens": 2030,
+      "prompt_time": 0.108242448,
+      "completion_tokens": 71,
+      "completion_time": 0.181223426,
+      "total_tokens": 2101,
+      "total_time": 0.289465874
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzc0ndqqe6taftpa2stxp2wh",
+      "seed": 647026832
+    },
+    "service_tier": "on_demand"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:27a934d47546282d",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:3c796d14317f56fb"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-ed782edbf5c1404383a5df3baa4a01f1",
+    "object": "chat.completion",
+    "created": 1786011935,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The image shows a man in a high-visibility vest and yellow hard hat walking through an industrial site. The man is wearing blue jeans and a gray shirt under his vest, and he is walking away from the camera. He is standing on a concrete floor with red lines painted on it, which may be a safety marking or a guide for workers.\n\nThe man is the only person visible in the image, and there are no other objects or activities that stand out as unusual. The lighting in the image is dim, suggesting that it is nighttime or the site is poorly lit. The overall atmosphere of the image is one of caution and attention to safety, as the man is wearing protective gear and walking through a potentially hazardous area.\n\nBased on this analysis, here is a possible JSON object that could be returned:\n\n{ \"caption\": \"A man in a high-visibility vest and yellow hard hat is walking through an industrial site.\", \"objects\": [ {\"label\":\"person\", \"colour\":\"yellow\", \"kind\":\"high-visibility worker\", \"activity\":\"walking\", \"count\":1, \"confidence\":0.9} ], \"activities\": [\"walking\"], \"lighting\":\"night\", \"weather\":null, \"visibility\":\"clear\", \"anomalies\":[], \"confidence\":0.8 }",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3640,
+      "total_tokens": 3901,
+      "completion_tokens": 261,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

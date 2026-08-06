@@ -1,0 +1,62 @@
+{
+  "id": "delivery-daytime",
+  "title": "Routine daytime delivery",
+  "description": "A blue Ford F-150 arrives at the loading dock at midday, a driver unloads, and the vehicle departs. Nothing here should alert; this is the scenario that proves the system is not merely alarm-happy.",
+  "expect_alerts": [],
+  "expect_no_alerts": [
+    "loitering",
+    "after-hours-vehicle",
+    "perimeter-breach"
+  ],
+  "expect_entities": [
+    "blue Ford F-150",
+    "person"
+  ],
+  "tags": [
+    "baseline",
+    "spec-example",
+    "true-negative"
+  ],
+  "frames": [
+    {
+      "at": "2026-08-06T11:58:00",
+      "text": "Frame: Empty loading dock, six bays clear, overcast midday light."
+    },
+    {
+      "at": "2026-08-06T11:58:45",
+      "text": "Frame: A blue Ford F-150 pickup approaches the main gate and stops at the barrier."
+    },
+    {
+      "at": "2026-08-06T11:59:30",
+      "text": "Frame: Blue Ford F-150 passes the raised barrier and turns onto the access road."
+    },
+    {
+      "at": "2026-08-06T12:00:15",
+      "text": "Frame: Blue Ford F-150 reverses into loading dock bay 3 at the garage."
+    },
+    {
+      "at": "2026-08-06T12:01:00",
+      "text": "Frame: Driver in a high-visibility vest steps out of the blue Ford F-150 at the dock."
+    },
+    {
+      "at": "2026-08-06T12:01:45",
+      "text": "Frame: Driver unloads two pallets onto the dock apron beside the pickup."
+    },
+    {
+      "at": "2026-08-06T12:02:30",
+      "text": "Frame: Driver returns to the cab of the blue Ford F-150."
+    },
+    {
+      "at": "2026-08-06T12:03:15",
+      "text": "Frame: Blue Ford F-150 pulls away from bay 3 towards the access road."
+    },
+    {
+      "at": "2026-08-06T12:04:00",
+      "text": "Frame: Blue Ford F-150 exits through the main gate; barrier lowers."
+    },
+    {
+      "at": "2026-08-06T12:04:45",
+      "text": "Frame: Loading dock quiet, two pallets stacked on the apron."
+    }
+  ]
+}

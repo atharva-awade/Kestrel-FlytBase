@@ -1,0 +1,59 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:7b01c28acaf03e7e",
+          "role": "user"
+        },
+        {
+          "content": "sha256:497d5b90492936fb",
+          "role": "assistant"
+        },
+        {
+          "content": "That was not valid JSON for the required schema. Return ONLY the JSON object — no prose, no code fence.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-33321a3a-ea05-485a-b21a-0e12d14fd3cf",
+    "object": "chat.completion",
+    "created": 1785979359,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"caption\": \"A person in a high-visibility vest is standing in the restricted core area of the Chakan Industrial Plant\",\n  \"objects\": [\n    {\"label\": \"person\", \"colour\": \"yellow\", \"kind\": \"high-visibility worker\", \"activity\": \"standing\", \"count\": 1, \"confidence\": 0.9}\n  ],\n  \"activities\": [\"inspection\"],\n  \"lighting\": \"artificial\",\n  \"weather\": null,\n  \"visibility\": \"clear\",\n  \"anomalies\": [],\n  \"confidence\": 0.9\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.055396433,
+      "prompt_tokens": 818,
+      "prompt_time": 0.043394587,
+      "completion_tokens": 124,
+      "completion_time": 0.220540578,
+      "total_tokens": 942,
+      "total_time": 0.263935165
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzaamm24efrv2jvf7wr2rd6s",
+      "seed": 1759736957
+    },
+    "service_tier": "on_demand"
+  }
+}

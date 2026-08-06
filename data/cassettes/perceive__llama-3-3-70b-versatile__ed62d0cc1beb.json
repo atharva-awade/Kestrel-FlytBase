@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "You convert a security camera frame description into structured JSON. Extract only what the description states. Do not invent detail.",
+          "role": "system"
+        },
+        {
+          "content": "Site: Chakan Industrial Plant\nTime: 2026-08-06 02:14:00\nFrame description: Frame: Dark perimeter road outside the fence line; no activity.\n\nReturn JSON with keys: caption, objects[{label,colour,kind,activity,count,confidence}], activities[], lighting, weather, visibility, anomalies[], confidence.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-6eee74c4-5159-4b77-b89c-aca7638e0c77",
+    "object": "chat.completion",
+    "created": 1785983230,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"caption\": \"Dark perimeter road outside the fence line\",\n  \"objects\": [],\n  \"activities\": [],\n  \"lighting\": \"Dark\",\n  \"weather\": null,\n  \"visibility\": null,\n  \"anomalies\": [],\n  \"confidence\": null\n}\n```"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.051219648,
+      "prompt_tokens": 129,
+      "prompt_time": 0.006635762,
+      "completion_tokens": 63,
+      "completion_time": 0.128201453,
+      "total_tokens": 192,
+      "total_time": 0.134837215
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzaearpdegebcqrtw8r127d8",
+      "seed": 105120236
+    },
+    "service_tier": "on_demand"
+  }
+}

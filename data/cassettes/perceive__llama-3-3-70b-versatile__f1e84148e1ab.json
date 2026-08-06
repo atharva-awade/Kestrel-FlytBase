@@ -1,0 +1,59 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:e1d9f8834b88f014",
+          "role": "user"
+        },
+        {
+          "content": "sha256:4ca4a8ed33e3f0fe",
+          "role": "assistant"
+        },
+        {
+          "content": "That was not valid JSON for the required schema. Return ONLY the JSON object — no prose, no code fence.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-e05c5534-005a-4ac1-8475-0ba79abd5bd7",
+    "object": "chat.completion",
+    "created": 1785979525,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"caption\": \"A single person is standing in the restricted core area of the Chakan Industrial Plant\",\n  \"objects\": [\n    {\"label\": \"person\", \"colour\": \"orange and yellow\", \"kind\": \"high-visibility worker\", \"activity\": \"holding a rope or cable\", \"count\": 1, \"confidence\": 0.9}\n  ],\n  \"activities\": [\"maintenance or construction work\"],\n  \"lighting\": \"night\",\n  \"weather\": null,\n  \"visibility\": \"clear\",\n  \"anomalies\": [],\n  \"confidence\": 0.8\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.052355315,
+      "prompt_tokens": 836,
+      "prompt_time": 0.051076314,
+      "completion_tokens": 127,
+      "completion_time": 0.296052663,
+      "total_tokens": 963,
+      "total_time": 0.347128977
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzaasp2be75snzj0qekyyz8b",
+      "seed": 100809918
+    },
+    "service_tier": "on_demand"
+  }
+}

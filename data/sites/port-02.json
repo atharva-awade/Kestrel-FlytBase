@@ -1,0 +1,205 @@
+{
+  "id": "port-02",
+  "name": "Santos Terminal 9",
+  "kind": "logistics",
+  "origin": {
+    "lat": -23.954,
+    "lon": -46.333
+  },
+  "timezone": "America/Sao_Paulo",
+  "country": "BR",
+  "country_name": "Brazil",
+  "zones": [
+    {
+      "id": "main-gate",
+      "name": "Main Gate",
+      "kind": "gate",
+      "polygon": [
+        {
+          "lat": -23.95407186,
+          "lon": -46.33182043
+        },
+        {
+          "lat": -23.95407186,
+          "lon": -46.33113235
+        },
+        {
+          "lat": -23.95374847,
+          "lon": -46.33113235
+        },
+        {
+          "lat": -23.95374847,
+          "lon": -46.33182043
+        }
+      ],
+      "priority": 1.6,
+      "normal_hours": [
+        6,
+        21
+      ],
+      "notes": ""
+    },
+    {
+      "id": "yard",
+      "name": "Yard",
+      "kind": "yard",
+      "polygon": [
+        {
+          "lat": -23.95328135,
+          "lon": -46.33162384
+        },
+        {
+          "lat": -23.95328135,
+          "lon": -46.33005108
+        },
+        {
+          "lat": -23.95229321,
+          "lon": -46.33005108
+        },
+        {
+          "lat": -23.95229321,
+          "lon": -46.33162384
+        }
+      ],
+      "priority": 1.2,
+      "normal_hours": [
+        6,
+        22
+      ],
+      "notes": ""
+    },
+    {
+      "id": "loading-dock",
+      "name": "Loading Dock",
+      "kind": "dock",
+      "polygon": [
+        {
+          "lat": -23.9538383,
+          "lon": -46.33275426
+        },
+        {
+          "lat": -23.9538383,
+          "lon": -46.33162384
+        },
+        {
+          "lat": -23.95329932,
+          "lon": -46.33162384
+        },
+        {
+          "lat": -23.95329932,
+          "lon": -46.33275426
+        }
+      ],
+      "priority": 1.4,
+      "normal_hours": [
+        7,
+        19
+      ],
+      "notes": ""
+    },
+    {
+      "id": "substation",
+      "name": "Substation",
+      "kind": "substation",
+      "polygon": [
+        {
+          "lat": -23.95251779,
+          "lon": -46.33029682
+        },
+        {
+          "lat": -23.95251779,
+          "lon": -46.32965789
+        },
+        {
+          "lat": -23.95206863,
+          "lon": -46.32965789
+        },
+        {
+          "lat": -23.95206863,
+          "lon": -46.33029682
+        }
+      ],
+      "priority": 2.2,
+      "normal_hours": [
+        9,
+        17
+      ],
+      "notes": ""
+    },
+    {
+      "id": "fence-line",
+      "name": "Perimeter Fence",
+      "kind": "fence",
+      "polygon": [
+        {
+          "lat": -23.9541078,
+          "lon": -46.33311796
+        },
+        {
+          "lat": -23.9541078,
+          "lon": -46.32931385
+        },
+        {
+          "lat": -23.95184405,
+          "lon": -46.32931385
+        },
+        {
+          "lat": -23.95184405,
+          "lon": -46.33311796
+        },
+        {
+          "lat": -23.9541078,
+          "lon": -46.33311796
+        },
+        {
+          "lat": -23.95193388,
+          "lon": -46.33301966
+        },
+        {
+          "lat": -23.95193388,
+          "lon": -46.32941215
+        },
+        {
+          "lat": -23.95401797,
+          "lon": -46.32941215
+        },
+        {
+          "lat": -23.95401797,
+          "lon": -46.33301966
+        },
+        {
+          "lat": -23.95193388,
+          "lon": -46.33301966
+        }
+      ],
+      "priority": 2.0,
+      "normal_hours": null,
+      "notes": ""
+    }
+  ],
+  "dock": {
+    "lat": -23.95362271,
+    "lon": -46.33113235
+  },
+  "geofence": [
+    {
+      "lat": -23.95426949,
+      "lon": -46.33329489
+    },
+    {
+      "lat": -23.95426949,
+      "lon": -46.32911726
+    },
+    {
+      "lat": -23.95168236,
+      "lon": -46.32911726
+    },
+    {
+      "lat": -23.95168236,
+      "lon": -46.33329489
+    }
+  ],
+  "max_altitude_m": 120.0,
+  "live_footage": false,
+  "notes": "Simulated fleet site: seeded event generator, no live footage."
+}

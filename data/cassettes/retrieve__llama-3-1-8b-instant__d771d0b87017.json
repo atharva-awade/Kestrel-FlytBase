@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "retrieve",
+    "payload": {
+      "max_tokens": 380,
+      "messages": [
+        {
+          "content": "sha256:8709b4502f3e577a",
+          "role": "system"
+        },
+        {
+          "content": "Current time: 2026-08-06T08:53:58.675054\nAvailable zone ids: \"main-gate\", \"loading-dock\", \"yard\", \"warehouse-a\", \"warehouse-b\", \"substation\", \"parking\", \"access-road\", \"fence-line\", \"restricted-core\"\n\nQuestion: \"someone in a high-visibility vest\"",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-57be85fa-7e73-4c7a-9801-2425743e1579",
+    "object": "chat.completion",
+    "created": 1785986642,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"intent\": \"visual\",\n  \"labels\": [\"person\"],\n  \"zones\": [\"main-gate\", \"loading-dock\", \"yard\", \"warehouse-a\", \"warehouse-b\", \"substation\", \"parking\", \"access-road\", \"fence-line\", \"restricted-core\"],\n  \"entity_ids\": [\"ENT-person-in-high-visibility-vest\"],\n  \"relative_hours\": null,\n  \"start_iso\": null,\n  \"end_iso\": null,\n  \"semantic_text\": \"someone in a high-visibility vest\",\n  \"reasoning\": \"The query describes a specific appearance that the caption may not have used, so it is classified as 'visual'.\"\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.053142472,
+      "prompt_tokens": 374,
+      "prompt_time": 0.024615321,
+      "completion_tokens": 142,
+      "completion_time": 0.16673985,
+      "total_tokens": 516,
+      "total_time": 0.191355171
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzahjvwwetvrkarg3jcn9m9j",
+      "seed": 86772515
+    },
+    "service_tier": "on_demand"
+  }
+}

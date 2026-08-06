@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "You convert a security camera frame description into structured JSON. Extract only what the description states. Do not invent detail.",
+          "role": "system"
+        },
+        {
+          "content": "Site: Chakan Industrial Plant\nTime: 2026-08-05 03:02:00\nFrame description: Frame: Fence line quiet under yard lighting; a light breeze moves vegetation.\n\nReturn JSON with keys: caption, objects[{label,colour,kind,activity,count,confidence}], activities[], lighting, weather, visibility, anomalies[], confidence.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-8ef22ca6-55a6-4f95-95b7-c7081172d8a1",
+    "object": "chat.completion",
+    "created": 1785983156,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"caption\": \"Fence line quiet under yard lighting; a light breeze moves vegetation\",\n  \"objects\": [],\n  \"activities\": [],\n  \"lighting\": \"yard lighting\",\n  \"weather\": \"light breeze\",\n  \"visibility\": \"quiet\",\n  \"anomalies\": [],\n  \"confidence\": null\n}\n```"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.051226316,
+      "prompt_tokens": 131,
+      "prompt_time": 0.013049108,
+      "completion_tokens": 73,
+      "completion_time": 0.147678577,
+      "total_tokens": 204,
+      "total_time": 0.160727685
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzae8frheq1smkffphyy6qe1",
+      "seed": 8090773
+    },
+    "service_tier": "on_demand"
+  }
+}

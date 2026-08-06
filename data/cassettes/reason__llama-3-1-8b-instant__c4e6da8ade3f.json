@@ -1,0 +1,83 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:71bd50932bb5b66e",
+          "role": "system"
+        },
+        {
+          "content": "What happened last night?",
+          "role": "user"
+        },
+        {
+          "content": "I retrieved the data but could not compose an answer (ProviderError).",
+          "role": "assistant"
+        },
+        {
+          "content": "What rules are active?",
+          "role": "user"
+        },
+        {
+          "content": "I could not reach the model that selects tools, so I have not answered rather than guessing.\n\nCause: `ProviderError: all text providers failed → groq/llama-3.3-70b-versatile: HTTP 429: retry-after 169s exceeds the 5s interactive budget, failing over | nvidia/meta/llama-3.1-70b-instruct: ReadTimeout: `\n\nIn replay mode this means the question has no recorded response yet. The rest of the system is unaffected.",
+          "role": "assistant"
+        },
+        {
+          "content": "What rules are active and why?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:feb40bd9616d2315",
+          "role": "assistant"
+        },
+        {
+          "content": "Has this vehicle been seen at another site?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-8b3f70a4-de29-4bb5-bed3-c97334be8e16",
+    "object": "chat.completion",
+    "created": 1786083096,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"get_entity\",\"arguments\":{\"id\":\"VEH-123\"}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.059581315,
+      "prompt_tokens": 1444,
+      "prompt_time": 0.114701547,
+      "completion_tokens": 19,
+      "completion_time": 0.04616905,
+      "total_tokens": 1463,
+      "total_time": 0.160870597
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzddjdtkewavghww7pjmdqa5",
+      "seed": 497651545
+    },
+    "service_tier": "on_demand"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "retrieve",
+    "payload": {
+      "max_tokens": 380,
+      "messages": [
+        {
+          "content": "sha256:8709b4502f3e577a",
+          "role": "system"
+        },
+        {
+          "content": "Current time: 2026-08-07T10:07:07.900277\nAvailable zone ids: \"main-gate\", \"loading-dock\", \"yard\", \"warehouse-a\", \"warehouse-b\", \"substation\", \"parking\", \"access-road\", \"fence-line\", \"restricted-core\"\n\nQuestion: \"anyone near the substation after midnight\"",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-c7eb4669-dcf7-4f06-bece-97753945c303",
+    "object": "chat.completion",
+    "created": 1786077429,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"intent\": \"structured\",\n  \"labels\": [\"person\"],\n  \"zones\": [\"substation\"],\n  \"entity_ids\": [\"ENT-person\"],\n  \"relative_hours\": 24,\n  \"start_iso\": \"2026-08-07T00:00:00.000000\",\n  \"end_iso\": null,\n  \"semantic_text\": null,\n  \"reasoning\": \"The query is purely a filter for person events near the substation after midnight.\"\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.052916513,
+      "prompt_tokens": 375,
+      "prompt_time": 0.025173386,
+      "completion_tokens": 100,
+      "completion_time": 0.113068255,
+      "total_tokens": 475,
+      "total_time": 0.138241641
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzd85fy4e2d86e3xmrc8ce85",
+      "seed": 142061651
+    },
+    "service_tier": "on_demand"
+  }
+}

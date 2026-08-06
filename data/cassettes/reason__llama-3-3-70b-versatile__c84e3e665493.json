@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 250,
+      "messages": [
+        {
+          "content": "You are a security analyst writing a shift report: what happened, who was involved, anything unusual. Be specific and concrete: name entities, zones and times. Do not speculate about motive. If the period was uneventful, say so in one sentence rather than padding.",
+          "role": "system"
+        },
+        {
+          "content": "sha256:deb0c122a3599ec4",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-55391623-fca4-4b73-9c4b-6cae6e70063d",
+    "object": "chat.completion",
+    "created": 1785983305,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Shift Report for 2026-08-06 17:52 to 17:59:\n\nThe period was marked by normal activity at the Chakan Industrial Plant. Key events included:\n\n- At 17:52:00, one car was observed in the parking area as staff parking began to fill with the shift change.\n- Between 17:52:40 and 17:54:00, six people were seen walking from the staff parking towards Warehouse A, and at 17:54:00, four people badged in at the Warehouse A entrance.\n- At 17:53:20, a silver hatchback parked in staff parking bay 12.\n- At 17:54:40, two forklifts were moving pallets in the yard.\n- At 17:55:20, a white van arrived at the loading dock for a scheduled collection.\n- At 17:56:00, eight people were observed crossing the access road towards the car park, and at 17:56:40, a red hatchback departed the staff parking towards the main gate.\n- At 17:57:20, the yard was busy with two forklifts and three people in high-visibility"
+        },
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.052055297,
+      "prompt_tokens": 621,
+      "prompt_time": 0.030340823,
+      "completion_tokens": 250,
+      "completion_time": 0.698905252,
+      "total_tokens": 871,
+      "total_time": 0.729246075
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzaed0rne9g9rvkakw71qdp3",
+      "seed": 864785377
+    },
+    "service_tier": "on_demand"
+  }
+}

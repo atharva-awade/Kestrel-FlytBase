@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:5b1750ed28c601c5",
+          "role": "user"
+        },
+        {
+          "content": "sha256:16b630e209e3c648",
+          "role": "assistant"
+        },
+        {
+          "content": "That was not valid JSON for the required schema. Return ONLY the JSON object — no prose, no code fence.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-852a87492c071291",
+    "object": "chat.completion",
+    "created": 1786018489,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{ \"caption\": \"A person in a yellow hard hat and orange safety vest is standing in a large room with white walls and pillars.\", \"objects\": [ {\"label\":\"person\", \"colour\":\"yellow and orange\", \"kind\":\"high-visibility worker\", \"activity\":\"standing still\", \"count\":1, \"confidence\":1.0} ], \"activities\": [], \"lighting\": \"night\", \"weather\": null, \"visibility\": \"clear\", \"anomalies\": [], \"confidence\": 1.0 }",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 724,
+      "total_tokens": 832,
+      "completion_tokens": 108,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:a4f72186fc395c00",
+          "role": "system"
+        },
+        {
+          "content": "Can you approve a mission yourself?",
+          "role": "user"
+        },
+        {
+          "content": "I retrieved the data but could not compose an answer (ProviderError).",
+          "role": "assistant"
+        },
+        {
+          "content": "Show me the most recent alerts.",
+          "role": "user"
+        },
+        {
+          "content": "I could not reach the model that selects tools, so I have not answered rather than guessing.\n\nCause: `ProviderError: all text providers failed → groq/llama-3.3-70b-versatile: groq: circuit open after 5 failures | nvidia/meta/llama-3.1-70b-instruct: nvidia: circuit open after 6 failures`\n\nIn replay mode this means the question has no recorded response yet. The rest of the system is unaffected.",
+          "role": "assistant"
+        },
+        {
+          "content": "What alerts are open?",
+          "role": "user"
+        },
+        {
+          "content": "I could not reach the model that selects tools, so I have not answered rather than guessing.\n\nCause: `ProviderError: all text providers failed → groq/llama-3.3-70b-versatile: groq: circuit open after 5 failures | nvidia/meta/llama-3.1-70b-instruct: nvidia: circuit open after 6 failures`\n\nIn replay mode this means the question has no recorded response yet. The rest of the system is unaffected.",
+          "role": "assistant"
+        },
+        {
+          "content": "How does the gate work?",
+          "role": "user"
+        },
+        {
+          "content": "Called: describe_architecture, search_frames",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:ab94cc171f34a913",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-bd8b1336b8115c15",
+    "object": "chat.completion",
+    "created": 1786083439,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The gate's operation is not described in the tool results. The results provide information on the tier-0 gate's decision-making process for frame analysis [describe_architecture] and show some frames related to the gate [search_frames], but do not explain how the gate works.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 1593,
+      "total_tokens": 1649,
+      "completion_tokens": 56,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

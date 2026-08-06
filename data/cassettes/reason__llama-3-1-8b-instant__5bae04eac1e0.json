@@ -1,0 +1,59 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:71bd50932bb5b66e",
+          "role": "system"
+        },
+        {
+          "content": "Has this vehicle been seen at another site?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-7327bfb0-83f7-4b68-951a-ef70d8eb531c",
+    "object": "chat.completion",
+    "created": 1786084533,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"correlate_entity_across_sites\",\"arguments\":{\"site_id\":\"plant-01\",\"entity_id\":null}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.051601121,
+      "prompt_tokens": 1162,
+      "prompt_time": 0.093094018,
+      "completion_tokens": 29,
+      "completion_time": 0.042953323,
+      "total_tokens": 1191,
+      "total_time": 0.136047341
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzdey91zed8ss06mb5te69my",
+      "seed": 43535209
+    },
+    "service_tier": "on_demand"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:dfe6ddb46e352351",
+          "role": "user"
+        },
+        {
+          "content": "sha256:c299b97f7f4136ee",
+          "role": "assistant"
+        },
+        {
+          "content": "That was not valid JSON for the required schema. Return ONLY the JSON object — no prose, no code fence.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-7bcc8867-cabf-4d38-8d19-5e78e6ef4f7a",
+    "object": "chat.completion",
+    "created": 1786011933,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"caption\": \"A person in a yellow hard hat and orange safety vest is walking away from the camera in a large, open room\",\n  \"objects\": [\n    {\"label\": \"person\", \"colour\": \"yellow and orange\", \"kind\": \"construction worker\", \"activity\": \"walking away\", \"count\": 1, \"confidence\": 0.9}\n  ],\n  \"activities\": [],\n  \"lighting\": \"night\",\n  \"weather\": null,\n  \"visibility\": \"clear\",\n  \"anomalies\": [],\n  \"confidence\": 0.9\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.051339415,
+      "prompt_tokens": 778,
+      "prompt_time": 0.042047914,
+      "completion_tokens": 124,
+      "completion_time": 0.218686048,
+      "total_tokens": 902,
+      "total_time": 0.260733962
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzb9ppweesgvyv2wvfdq6r8h",
+      "seed": 523848370
+    },
+    "service_tier": "on_demand"
+  }
+}

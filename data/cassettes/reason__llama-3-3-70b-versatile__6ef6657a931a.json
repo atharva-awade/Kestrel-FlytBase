@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 380,
+      "messages": [
+        {
+          "content": "sha256:f7547e21ebea9b13",
+          "role": "system"
+        },
+        {
+          "content": "sha256:471d6576dcd02c7e",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-3545bf88-307d-41ef-9e3d-ac3181dcd4e7",
+    "object": "chat.completion",
+    "created": 1786059379,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "There are 4 open alerts: \n1. Presence in a restricted area: yellow person at Restricted Core [alr_27d99d75733f]\n2. Presence in a restricted area: orange person at Electrical Substation [alr_d8a9d2ef4dcc]\n3. Loitering at a sensitive location: person at Main Gate [alr_8a88b73a2fe6]\n4. Unusual gathering outside working hours: person at Main Gate [alr_dc7cc1af0801]\n\nThe night was marked by several alerts, with the most recent activity on record between 2026-08-06 00:00 and 2026-08-06 02:16."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.051267253,
+      "prompt_tokens": 2475,
+      "prompt_time": 0.126603086,
+      "completion_tokens": 153,
+      "completion_time": 0.336952747,
+      "total_tokens": 2628,
+      "total_time": 0.463555833
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzcpyktgew1tv52fdgbgpvqa",
+      "seed": 205809723
+    },
+    "service_tier": "on_demand"
+  }
+}

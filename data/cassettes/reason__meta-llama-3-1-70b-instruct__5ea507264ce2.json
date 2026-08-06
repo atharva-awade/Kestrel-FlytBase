@@ -1,0 +1,87 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:71bd50932bb5b66e",
+          "role": "system"
+        },
+        {
+          "content": "What happened last night?",
+          "role": "user"
+        },
+        {
+          "content": "Called: summarize_window",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:6df2a2f3dc0834d7",
+          "role": "user"
+        },
+        {
+          "content": "Called: search_frames",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:fa4bc3184d072486",
+          "role": "user"
+        },
+        {
+          "content": "Called: get_entity",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:f3c314e352be6391",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-9c12c2adcb352e92",
+    "object": "chat.completion",
+    "created": 1786085275,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "A person in a high-visibility vest and yellow hard hat was seen walking in the restricted core area of the Chakan Industrial Plant at 02:11:30 [frm_plant-01_000009_7894ac5eee]. The person was also seen walking towards the camera in the restricted core zone at 02:11:40 [frm_plant-01_000010_c1ea8b2175] and 02:11:50 [frm_plant-01_000011_fc20fc0571]. \n\nAdditionally, a person in a yellow hard hat and orange safety vest was seen walking away from the camera in a large, open room at 02:12:00 [frm_plant-01_000012_497c48cf98] and 02:12:10 [frm_plant-01_000013_5c33697cf6]. \n\nThe person in the high-visibility vest and yellow hard hat was also seen standing in the restricted core area at 02:14:10 [frm_plant-01_000016_edd150aedf].",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 5632,
+      "total_tokens": 5860,
+      "completion_tokens": 228,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

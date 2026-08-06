@@ -1,0 +1,87 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:71bd50932bb5b66e",
+          "role": "system"
+        },
+        {
+          "content": "What rules are active?",
+          "role": "user"
+        },
+        {
+          "content": "I could not reach the model that selects tools, so I have not answered rather than guessing.\n\nCause: `ProviderError: all text providers failed → groq/llama-3.3-70b-versatile: HTTP 429: retry-after 169s exceeds the 5s interactive budget, failing over | nvidia/meta/llama-3.1-70b-instruct: ReadTimeout: `\n\nIn replay mode this means the question has no recorded response yet. The rest of the system is unaffected.",
+          "role": "assistant"
+        },
+        {
+          "content": "What rules are active and why?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:feb40bd9616d2315",
+          "role": "assistant"
+        },
+        {
+          "content": "Has this vehicle been seen at another site?",
+          "role": "user"
+        },
+        {
+          "content": "The tool results do not answer the question. The get_entity tool returned an error [get_entity] due to missing arguments, and did not provide any information about the vehicle.",
+          "role": "assistant"
+        },
+        {
+          "content": "Has any vehicle been seen at more than one site?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-9ed5431aa41be98e",
+    "object": "chat.completion",
+    "created": 1786083101,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"correlate_entity_across_sites\",\"arguments\":{}}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 1447,
+      "total_tokens": 1466,
+      "completion_tokens": 19,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

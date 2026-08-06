@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:d7330cd9c507f328",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:38e95e34455e1764"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-df84d2b2478047098579a570eb860765",
+    "object": "chat.completion",
+    "created": 1785982857,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The image shows a man in a high-visibility vest and yellow hard hat standing in an industrial area, holding a yellow and black rope. The man is wearing a long-sleeved gray shirt under his vest and blue jeans. He is facing away from the camera, looking towards the left side of the image.\n\n*   The man is wearing a yellow hard hat and a high-visibility vest.\n*   He is holding a yellow and black rope in his right hand.\n*   The man is standing in an industrial area with concrete floors and white pillars.\n*   There are several large, open spaces in the background, possibly warehouses or storage areas.\n*   The overall atmosphere suggests that the man is working or inspecting the area, possibly as part of a maintenance or security team.\n\nThe image does not show any other people or objects in the area, and the man appears to be alone. The lighting is dim, suggesting that it may be nighttime or an area with limited natural light. Overall, the image suggests that the man is engaged in some kind of work or inspection activity in the industrial area.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3672,
+      "total_tokens": 3895,
+      "completion_tokens": 223,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:d1d4962cf3b69c5b",
+          "role": "system"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "Called: list_rules",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:272a3d80c215d348",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-52e04524-9e93-426c-a462-71dccd599851",
+    "object": "chat.completion",
+    "created": 1786059167,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.054849919,
+      "prompt_tokens": 2207,
+      "prompt_time": 0.108409306,
+      "completion_tokens": 5,
+      "completion_time": 0.023533505,
+      "total_tokens": 2212,
+      "total_time": 0.131942811
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzcpr5n1e2ns2q8xvet8xz5h",
+      "seed": 320019989
+    },
+    "service_tier": "on_demand"
+  }
+}

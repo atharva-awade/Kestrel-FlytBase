@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 260,
+      "messages": [
+        {
+          "content": "You are a security analyst writing an incident summary for a site manager. Given a timeline of alerts, write 2-4 sentences describing what appears to have happened, in order.\n\nRules:\n- State only what the alerts state. Never invent detail.\n- Do not assert intent. 'consistent with' is acceptable; 'the intruder intended to' is not.\n- If the sequence is ambiguous, say so.\n- End with the single most useful next action.\n- No preamble, no bullet points.",
+          "role": "system"
+        },
+        {
+          "content": "Site: Chakan Industrial Plant\nThreat score: 0.39\n\nAlert timeline:\n[00:02:50] MEDIUM: Unusual gathering outside working hours: person at Main Gate (confidence 0.50)\n    evidence: person detected in Main Gate\n[00:04:00] HIGH: Loitering at a sensitive location: person at Main Gate (confidence 0.62)\n    evidence: person detected in Main Gate",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-127be534-e5be-44cb-b7a5-9ff2a5a35e86",
+    "object": "chat.completion",
+    "created": 1786073052,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "At 00:02:50, an alert was triggered for an unusual gathering outside working hours, with a person detected at the Main Gate. Approximately 1 minute and 10 seconds later, at 00:04:00, a high alert was triggered for loitering at a sensitive location, also with a person detected at the Main Gate. The sequence of events suggests a person was present at the Main Gate for at least 1 minute and 10 seconds. The next useful action is to review the Main Gate security footage to determine the person's activities during this time."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.051118157,
+      "prompt_tokens": 228,
+      "prompt_time": 0.011725752,
+      "completion_tokens": 118,
+      "completion_time": 0.39196755,
+      "total_tokens": 346,
+      "total_time": 0.403693302
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzd3zwf4emer3vvhkjt0h69y",
+      "seed": 1108628771
+    },
+    "service_tier": "on_demand"
+  }
+}

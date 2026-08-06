@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:7a9e6fcfdb6a0864",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:e713f73b51de548b"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-a5d900c05a154676a94b52b24bd2ef57",
+    "object": "chat.completion",
+    "created": 1785979584,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The image shows a person wearing a yellow hard hat and an orange safety vest, standing in a large room with white walls and pillars. The floor is made of concrete and has red lines painted on it, possibly indicating a grid or a boundary.\n\nHere is the enriched description of the scene:\n\n* Caption: A person in a yellow hard hat and orange safety vest is standing in a large room with white walls and pillars.\n* Objects:\n\t+ Person: 1\n\t\t- Colour: Orange (safety vest) and yellow (hard hat)\n\t\t- Kind: High-visibility worker\n\t\t- Activity: Standing still\n\t\t- Count: 1\n\t\t- Confidence: 1.0\n* Activities: None\n* Lighting: Night\n* Weather: Unknown\n* Visibility: Clear\n* Anomalies: None\n* Confidence: 1.0\n\nNote that the detector only localised one person, but the enriched description includes additional details about the person's attire and activity. The lighting and weather are also inferred based on the image.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3666,
+      "total_tokens": 3886,
+      "completion_tokens": 220,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

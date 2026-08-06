@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:6d997538ca2eac1b",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:38e95e34455e1764"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-bce46b3748f147929e5c6342f74a31fb",
+    "object": "chat.completion",
+    "created": 1785982256,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The image shows a man in a high-visibility vest and yellow hard hat standing in an industrial area, with a large open space and several pillars. The man is wearing a long-sleeved shirt and blue jeans, and he is holding a yellow and black striped rope or cable in his right hand. He is facing away from the camera, looking towards the left side of the image.\n\nHere is the enriched description of the image:\n\n* **Caption:** A man in a high-visibility vest and yellow hard hat is standing in an industrial area, holding a yellow and black striped rope or cable.\n* **Objects:**\n\t+ **Person:** 1\n\t\t- Colour: Orange (high-visibility vest)\n\t\t- Kind: Worker\n\t\t- Activity: Standing, looking towards the left side of the image\n\t\t- Count: 1\n\t\t- Confidence: 1.0\n* **Activities:** None\n* **Lighting:** Night\n* **Weather:** Unknown\n* **Visibility:** Clear\n* **Anomalies:** None\n* **Confidence:** 1.0\n\nNote that I have only described what is visible in the image and have not made any inferences about the man's intentions or activities. I have also only included the person that was detected by the detector, as there are no other objects visible in the image.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3666,
+      "total_tokens": 3948,
+      "completion_tokens": 282,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

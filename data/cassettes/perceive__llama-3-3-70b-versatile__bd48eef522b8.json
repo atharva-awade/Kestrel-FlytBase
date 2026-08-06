@@ -1,0 +1,59 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:772ea816d6ac6970",
+          "role": "user"
+        },
+        {
+          "content": "sha256:55304dbc30e53fd7",
+          "role": "assistant"
+        },
+        {
+          "content": "That was not valid JSON for the required schema. Return ONLY the JSON object — no prose, no code fence.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-cf9ae870-8bb4-4265-ba1d-ec1355635288",
+    "object": "chat.completion",
+    "created": 1785982874,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"caption\": \"A person in a yellow hard hat and orange safety vest is walking away from the camera in a restricted area\",\n  \"objects\": [\n    {\"label\": \"person\", \"colour\": \"yellow and orange\", \"kind\": \"high-visibility worker\", \"activity\": \"walking\", \"count\": 1, \"confidence\": 0.9},\n    {\"label\": \"cardboard box\", \"colour\": \"brown\", \"kind\": \"large box\", \"activity\": \"stationary\", \"count\": 1, \"confidence\": 0.8}\n  ],\n  \"activities\": [\"walking\"],\n  \"lighting\": \"artificial\",\n  \"weather\": null,\n  \"visibility\": \"clear\",\n  \"anomalies\": [],\n  \"confidence\": 0.85\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.16223227,
+      "prompt_tokens": 871,
+      "prompt_time": 0.062361818,
+      "completion_tokens": 169,
+      "completion_time": 0.332039159,
+      "total_tokens": 1040,
+      "total_time": 0.394400977
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_3272ea2d91",
+    "x_groq": {
+      "id": "req_01kzadzw78efythxe1kkwa337q",
+      "seed": 551833488
+    },
+    "service_tier": "on_demand"
+  }
+}

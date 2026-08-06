@@ -1,0 +1,87 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:a4f72186fc395c00",
+          "role": "system"
+        },
+        {
+          "content": "Why did you skip so many frames?",
+          "role": "user"
+        },
+        {
+          "content": "The tool results do not answer the question of why I skipped so many frames. The describe_architecture tool provided information on the gate's decision-making process, but it did not provide specific information on why frames were skipped in this instance [describe_architecture].",
+          "role": "assistant"
+        },
+        {
+          "content": "How do you decide what to escalate?",
+          "role": "user"
+        },
+        {
+          "content": "I have no information on how I decide what to escalate in this specific instance. The explain_decision tool returned an error, stating that a frame_id or alert_id is required to explain the decision [explain_decision].",
+          "role": "assistant"
+        },
+        {
+          "content": "How does the gate work?",
+          "role": "user"
+        },
+        {
+          "content": "The gate works by using three signals to decide whether a frame deserves to reach a model: structural perceptual-hash distance, photometric mean absolute pixel delta, and semantic embedding cosine distance [describe_architecture]. \n\nThe tool results do not provide information on how I decide what to escalate.",
+          "role": "assistant"
+        },
+        {
+          "content": "How does your memory compression work?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-b2019bd0ce79006a",
+    "object": "chat.completion",
+    "created": 1786083976,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"get_pipeline_stats\",\"arguments\":{}}]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 1349,
+      "total_tokens": 1364,
+      "completion_tokens": 15,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

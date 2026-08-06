@@ -1,0 +1,95 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:54df47acdbd0e116",
+          "role": "system"
+        },
+        {
+          "content": "How do you verify a citation?",
+          "role": "user"
+        },
+        {
+          "content": "I have no information about how I verify a citation from the tool results. The tool \"describe_architecture\" [describe_architecture] explains the retrieval system, including the use of two indexes, vector search, and fusion, but does not address citation verification.",
+          "role": "assistant"
+        },
+        {
+          "content": "What are your scalability limits?",
+          "role": "user"
+        },
+        {
+          "content": "The tool results do not provide information on my scalability limits. The results describe the fleet architecture and its capabilities, but do not address scalability limits [describe_architecture].",
+          "role": "assistant"
+        },
+        {
+          "content": "Can you approve a mission yourself?",
+          "role": "user"
+        },
+        {
+          "content": "No, I cannot approve a mission myself. According to the security architecture [describe_architecture], tools that change state or move an aircraft, such as approving a mission, require a separate call carrying an explicit human decision.",
+          "role": "assistant"
+        },
+        {
+          "content": "Show me the most recent alerts.",
+          "role": "user"
+        },
+        {
+          "content": "Called: list_alerts",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:2d2bc1e8890afd18",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-a6e1c6cbcfb51f14",
+    "object": "chat.completion",
+    "created": 1786079627,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The most recent alerts are:\n\n1. Presence in a restricted area: yellow person at Restricted Core [alr_27d99d75733f]\n2. Presence in a restricted area: orange person at Electrical Substation [alr_d8a9d2ef4dcc]\n3. Loitering at a sensitive location: person at Main Gate [alr_8a88b73a2fe6]\n4. Unusual gathering outside working hours: person at Main Gate [alr_dc7cc1af0801]\n5. Presence in a restricted area: orange person at Electrical Substation (dismissed) [alr_4cd0991c0592]\n6. Loitering at a sensitive location: orange person at an unresolved location (dismissed) [alr_17990f0bbb27]\n\nNote that the timestamps for these alerts are not in chronological order, but based on the provided data, these are the most recent alerts.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 2139,
+      "total_tokens": 2338,
+      "completion_tokens": 199,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

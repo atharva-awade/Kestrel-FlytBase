@@ -1,0 +1,338 @@
+{
+  "id": "plant-01",
+  "name": "Chakan Industrial Plant",
+  "kind": "industrial",
+  "origin": {
+    "lat": 18.7582,
+    "lon": 73.8594
+  },
+  "timezone": "Asia/Kolkata",
+  "country": "IN",
+  "country_name": "India",
+  "zones": [
+    {
+      "id": "main-gate",
+      "name": "Main Gate",
+      "kind": "gate",
+      "polygon": [
+        {
+          "lat": 18.75812814,
+          "lon": 73.86072818
+        },
+        {
+          "lat": 18.75812814,
+          "lon": 73.86139227
+        },
+        {
+          "lat": 18.75846949,
+          "lon": 73.86139227
+        },
+        {
+          "lat": 18.75846949,
+          "lon": 73.86072818
+        }
+      ],
+      "priority": 1.6,
+      "normal_hours": [
+        6,
+        21
+      ],
+      "notes": "Sole vehicle entry. Manned 06:00-21:00; unmanned overnight."
+    },
+    {
+      "id": "loading-dock",
+      "name": "Loading Dock",
+      "kind": "dock",
+      "polygon": [
+        {
+          "lat": 18.7583617,
+          "lon": 73.85963718
+        },
+        {
+          "lat": 18.7583617,
+          "lon": 73.86077562
+        },
+        {
+          "lat": 18.75893662,
+          "lon": 73.86077562
+        },
+        {
+          "lat": 18.75893662,
+          "lon": 73.85963718
+        }
+      ],
+      "priority": 1.4,
+      "normal_hours": [
+        7,
+        19
+      ],
+      "notes": "Six bays. Scheduled deliveries only outside 07:00-19:00."
+    },
+    {
+      "id": "yard",
+      "name": "Storage Yard",
+      "kind": "yard",
+      "polygon": [
+        {
+          "lat": 18.75983493,
+          "lon": 73.85968461
+        },
+        {
+          "lat": 18.75983493,
+          "lon": 73.86205637
+        },
+        {
+          "lat": 18.76033798,
+          "lon": 73.86205637
+        },
+        {
+          "lat": 18.76033798,
+          "lon": 73.85968461
+        }
+      ],
+      "priority": 1.2,
+      "normal_hours": [
+        6,
+        22
+      ],
+      "notes": "Open container and pallet storage."
+    },
+    {
+      "id": "warehouse-a",
+      "name": "Warehouse A",
+      "kind": "building",
+      "polygon": [
+        {
+          "lat": 18.75906238,
+          "lon": 73.85976051
+        },
+        {
+          "lat": 18.75906238,
+          "lon": 73.86084203
+        },
+        {
+          "lat": 18.7597451,
+          "lon": 73.86084203
+        },
+        {
+          "lat": 18.7597451,
+          "lon": 73.85976051
+        }
+      ],
+      "priority": 1.0,
+      "normal_hours": null,
+      "notes": ""
+    },
+    {
+      "id": "warehouse-b",
+      "name": "Warehouse B",
+      "kind": "building",
+      "polygon": [
+        {
+          "lat": 18.75906238,
+          "lon": 73.86099382
+        },
+        {
+          "lat": 18.75906238,
+          "lon": 73.86207534
+        },
+        {
+          "lat": 18.7597451,
+          "lon": 73.86207534
+        },
+        {
+          "lat": 18.7597451,
+          "lon": 73.86099382
+        }
+      ],
+      "priority": 1.0,
+      "normal_hours": null,
+      "notes": ""
+    },
+    {
+      "id": "substation",
+      "name": "Electrical Substation",
+      "kind": "substation",
+      "polygon": [
+        {
+          "lat": 18.75978103,
+          "lon": 73.86220816
+        },
+        {
+          "lat": 18.75978103,
+          "lon": 73.86289122
+        },
+        {
+          "lat": 18.76024815,
+          "lon": 73.86289122
+        },
+        {
+          "lat": 18.76024815,
+          "lon": 73.86220816
+        }
+      ],
+      "priority": 2.2,
+      "normal_hours": [
+        9,
+        17
+      ],
+      "notes": "High-value copper. Access by permit only, so any presence is notable."
+    },
+    {
+      "id": "parking",
+      "name": "Staff Parking",
+      "kind": "parking",
+      "polygon": [
+        {
+          "lat": 18.75834373,
+          "lon": 73.86172432
+        },
+        {
+          "lat": 18.75834373,
+          "lon": 73.8628343
+        },
+        {
+          "lat": 18.75886475,
+          "lon": 73.8628343
+        },
+        {
+          "lat": 18.75886475,
+          "lon": 73.86172432
+        }
+      ],
+      "priority": 0.7,
+      "normal_hours": [
+        6,
+        22
+      ],
+      "notes": ""
+    },
+    {
+      "id": "access-road",
+      "name": "Access Road",
+      "kind": "road",
+      "polygon": [
+        {
+          "lat": 18.75845153,
+          "lon": 73.86077562
+        },
+        {
+          "lat": 18.75845153,
+          "lon": 73.86134484
+        },
+        {
+          "lat": 18.75902645,
+          "lon": 73.86134484
+        },
+        {
+          "lat": 18.75902645,
+          "lon": 73.86077562
+        }
+      ],
+      "priority": 0.9,
+      "normal_hours": null,
+      "notes": ""
+    },
+    {
+      "id": "fence-line",
+      "name": "Perimeter Fence",
+      "kind": "fence",
+      "polygon": [
+        {
+          "lat": 18.7580922,
+          "lon": 73.85928616
+        },
+        {
+          "lat": 18.7580922,
+          "lon": 73.86311891
+        },
+        {
+          "lat": 18.76044578,
+          "lon": 73.86311891
+        },
+        {
+          "lat": 18.76044578,
+          "lon": 73.85928616
+        },
+        {
+          "lat": 18.7580922,
+          "lon": 73.85928616
+        },
+        {
+          "lat": 18.76035595,
+          "lon": 73.85938103
+        },
+        {
+          "lat": 18.76035595,
+          "lon": 73.86302404
+        },
+        {
+          "lat": 18.75818203,
+          "lon": 73.86302404
+        },
+        {
+          "lat": 18.75818203,
+          "lon": 73.85938103
+        },
+        {
+          "lat": 18.76035595,
+          "lon": 73.85938103
+        }
+      ],
+      "priority": 2.0,
+      "normal_hours": null,
+      "notes": "3 m palisade. Any dwell here is anomalous at any hour."
+    },
+    {
+      "id": "restricted-core",
+      "name": "Restricted Core",
+      "kind": "restricted",
+      "polygon": [
+        {
+          "lat": 18.75985289,
+          "lon": 73.86228406
+        },
+        {
+          "lat": 18.75985289,
+          "lon": 73.86281533
+        },
+        {
+          "lat": 18.76017628,
+          "lon": 73.86281533
+        },
+        {
+          "lat": 18.76017628,
+          "lon": 73.86228406
+        }
+      ],
+      "priority": 2.5,
+      "normal_hours": null,
+      "notes": "Substation interior. Escalate immediately on any human presence."
+    }
+  ],
+  "dock": {
+    "lat": 18.75860424,
+    "lon": 73.8612974
+  },
+  "geofence": [
+    {
+      "lat": 18.75793051,
+      "lon": 73.85911539
+    },
+    {
+      "lat": 18.75793051,
+      "lon": 73.86328968
+    },
+    {
+      "lat": 18.76060747,
+      "lon": 73.86328968
+    },
+    {
+      "lat": 18.76060747,
+      "lon": 73.85911539
+    }
+  ],
+  "max_altitude_m": 120.0,
+  "live_footage": true,
+  "notes": "Flagship site. Real footage runs the full perception cascade here."
+}

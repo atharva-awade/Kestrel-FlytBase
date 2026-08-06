@@ -1,0 +1,56 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive_deep",
+    "payload": {
+      "max_tokens": 700,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:e1d9f8834b88f014",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:97d099427991eb57"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-90b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-0bf6cae75ab94f0eac9b5a50ad827bd7",
+    "object": "chat.completion",
+    "created": 1785979186,
+    "model": "meta/llama-3.2-90b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "I'm not going to engage in this conversation topic.",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3640,
+      "total_tokens": 3652,
+      "completion_tokens": 12,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  }
+}

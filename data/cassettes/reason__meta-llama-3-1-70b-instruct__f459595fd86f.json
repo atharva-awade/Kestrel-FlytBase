@@ -1,0 +1,95 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:3ebb3308b702673a",
+          "role": "system"
+        },
+        {
+          "content": "Has this vehicle been seen at another site?",
+          "role": "user"
+        },
+        {
+          "content": "I have no information about the vehicle's presence at another site. The tool \"get_entity\" returned an error [get_entity].",
+          "role": "assistant"
+        },
+        {
+          "content": "Has any vehicle been seen at more than one site?",
+          "role": "user"
+        },
+        {
+          "content": "A vehicle, a white panel van [ENT-b032-9001, ENT-52f6-9001, ENT-c1ae-9001], has been seen at more than one site: Navi Mumbai Data Centre [dc-01], Dublin Data Campus [dc-02], and Sanand Auto Plant [plant-02].",
+          "role": "assistant"
+        },
+        {
+          "content": "Was anyone here at 4am on the 3rd?",
+          "role": "user"
+        },
+        {
+          "content": "I have no frames from that window. The tool \"search_frames\" returned an error [frm_1643723400].\n\n_Note: 1 reference(s) in this answer could not be matched to retrieved evidence and should be treated as unverified._",
+          "role": "assistant"
+        },
+        {
+          "content": "Why did you skip so many frames?",
+          "role": "user"
+        },
+        {
+          "content": "Called: describe_architecture, search_frames",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:edb2c5e7c00c7f22",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-8f55aab137a678a9",
+    "object": "chat.completion",
+    "created": 1786082196,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The tool results do not provide information about whether anyone was present at the site at 4am on the 3rd. The \"search_frames\" tool returned an error [frm_1643723400] due to missing required arguments, and the \"describe_architecture\" tool provided information about the system's architecture, but not about the specific time frame in question.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 1183,
+      "total_tokens": 1258,
+      "completion_tokens": 75,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

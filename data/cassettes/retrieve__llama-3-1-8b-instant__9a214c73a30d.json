@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "retrieve",
+    "payload": {
+      "max_tokens": 380,
+      "messages": [
+        {
+          "content": "sha256:8709b4502f3e577a",
+          "role": "system"
+        },
+        {
+          "content": "Current time: 2026-08-07T10:21:34.431841\nAvailable zone ids: \"main-gate\", \"loading-dock\", \"yard\", \"warehouse-a\", \"warehouse-b\", \"substation\", \"parking\", \"access-road\", \"fence-line\", \"restricted-core\"\n\nQuestion: \"frames between 2026-08-03 04:00:00 and 2026-08-03 04:00:59\"",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-2fcd18d6-50be-462f-ac45-c567bea30e27",
+    "object": "chat.completion",
+    "created": 1786078296,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"intent\": \"structured\",\n  \"labels\": [],\n  \"zones\": [],\n  \"entity_ids\": [],\n  \"relative_hours\": null,\n  \"start_iso\": \"2026-08-03T04:00:00\",\n  \"end_iso\": \"2026-08-03T04:00:59\",\n  \"semantic_text\": null,\n  \"reasoning\": \"The query is purely a filter specifying a time range, so it's classified as 'structured'.\"\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.052062324,
+      "prompt_tokens": 396,
+      "prompt_time": 0.028690226,
+      "completion_tokens": 104,
+      "completion_time": 0.11076833,
+      "total_tokens": 500,
+      "total_time": 0.139458556
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzd8zy5hed6s92by0rr69h13",
+      "seed": 437569682
+    },
+    "service_tier": "on_demand"
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "id": "solar-02",
+  "name": "Al Dhafra Solar",
+  "kind": "solar",
+  "origin": {
+    "lat": 24.052,
+    "lon": 54.138
+  },
+  "timezone": "Asia/Dubai",
+  "country": "AE",
+  "country_name": "UAE",
+  "zones": [
+    {
+      "id": "main-gate",
+      "name": "Main Gate",
+      "kind": "gate",
+      "polygon": [
+        {
+          "lat": 24.05192814,
+          "lon": 54.13918047
+        },
+        {
+          "lat": 24.05192814,
+          "lon": 54.13986907
+        },
+        {
+          "lat": 24.05225153,
+          "lon": 54.13986907
+        },
+        {
+          "lat": 24.05225153,
+          "lon": 54.13918047
+        }
+      ],
+      "priority": 1.6,
+      "normal_hours": [
+        6,
+        21
+      ],
+      "notes": ""
+    },
+    {
+      "id": "yard",
+      "name": "Yard",
+      "kind": "yard",
+      "polygon": [
+        {
+          "lat": 24.05271865,
+          "lon": 54.13937721
+        },
+        {
+          "lat": 24.05271865,
+          "lon": 54.14095117
+        },
+        {
+          "lat": 24.05370679,
+          "lon": 54.14095117
+        },
+        {
+          "lat": 24.05370679,
+          "lon": 54.13937721
+        }
+      ],
+      "priority": 1.2,
+      "normal_hours": [
+        6,
+        22
+      ],
+      "notes": ""
+    },
+    {
+      "id": "loading-dock",
+      "name": "Loading Dock",
+      "kind": "dock",
+      "polygon": [
+        {
+          "lat": 24.0521617,
+          "lon": 54.13824593
+        },
+        {
+          "lat": 24.0521617,
+          "lon": 54.13937721
+        },
+        {
+          "lat": 24.05270068,
+          "lon": 54.13937721
+        },
+        {
+          "lat": 24.05270068,
+          "lon": 54.13824593
+        }
+      ],
+      "priority": 1.4,
+      "normal_hours": [
+        7,
+        19
+      ],
+      "notes": ""
+    },
+    {
+      "id": "substation",
+      "name": "Substation",
+      "kind": "substation",
+      "polygon": [
+        {
+          "lat": 24.05348221,
+          "lon": 54.14070524
+        },
+        {
+          "lat": 24.05348221,
+          "lon": 54.14134465
+        },
+        {
+          "lat": 24.05393137,
+          "lon": 54.14134465
+        },
+        {
+          "lat": 24.05393137,
+          "lon": 54.14070524
+        }
+      ],
+      "priority": 2.2,
+      "normal_hours": [
+        9,
+        17
+      ],
+      "notes": ""
+    },
+    {
+      "id": "fence-line",
+      "name": "Perimeter Fence",
+      "kind": "fence",
+      "polygon": [
+        {
+          "lat": 24.0518922,
+          "lon": 54.13788195
+        },
+        {
+          "lat": 24.0518922,
+          "lon": 54.14168896
+        },
+        {
+          "lat": 24.05415595,
+          "lon": 54.14168896
+        },
+        {
+          "lat": 24.05415595,
+          "lon": 54.13788195
+        },
+        {
+          "lat": 24.0518922,
+          "lon": 54.13788195
+        },
+        {
+          "lat": 24.05406612,
+          "lon": 54.13798033
+        },
+        {
+          "lat": 24.05406612,
+          "lon": 54.14159058
+        },
+        {
+          "lat": 24.05198203,
+          "lon": 54.14159058
+        },
+        {
+          "lat": 24.05198203,
+          "lon": 54.13798033
+        },
+        {
+          "lat": 24.05406612,
+          "lon": 54.13798033
+        }
+      ],
+      "priority": 2.0,
+      "normal_hours": null,
+      "notes": ""
+    }
+  ],
+  "dock": {
+    "lat": 24.05237729,
+    "lon": 54.13986907
+  },
+  "geofence": [
+    {
+      "lat": 24.05173051,
+      "lon": 54.13770488
+    },
+    {
+      "lat": 24.05173051,
+      "lon": 54.1418857
+    },
+    {
+      "lat": 24.05431764,
+      "lon": 54.1418857
+    },
+    {
+      "lat": 24.05431764,
+      "lon": 54.13770488
+    }
+  ],
+  "max_altitude_m": 120.0,
+  "live_footage": false,
+  "notes": "Simulated fleet site: seeded event generator, no live footage."
+}

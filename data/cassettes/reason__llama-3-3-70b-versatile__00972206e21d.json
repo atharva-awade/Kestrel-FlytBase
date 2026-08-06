@@ -1,0 +1,83 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:c16f6955bf9e96e6",
+          "role": "system"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "I could not find a tool that answers that. Try asking about what was seen, an entity, an alert, the rules, the fleet, or how I work.",
+          "role": "assistant"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "I could not find a tool that answers that. Try asking about what was seen, an entity, an alert, the rules, the fleet, or how I work.",
+          "role": "assistant"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "I could not find a tool that answers that. Try asking about what was seen, an entity, an alert, the rules, the fleet, or how I work.",
+          "role": "assistant"
+        },
+        {
+          "content": "What happened last night?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:fdfb5b56d715159c",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-ac048708-3751-49fb-95a5-8b6484e15ae6",
+    "object": "chat.completion",
+    "created": 1786011657,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"summarize_window\",\"arguments\":{\"start_time\":\"2026-08-05 00:00:00\",\"end_time\":\"2026-08-06 00:00:00\"}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.179341007,
+      "prompt_tokens": 1302,
+      "prompt_time": 0.066085081,
+      "completion_tokens": 46,
+      "completion_time": 0.132678809,
+      "total_tokens": 1348,
+      "total_time": 0.19876389
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_45180df409",
+    "x_groq": {
+      "id": "req_01kzb9e93veywadfy1ej9gz61m",
+      "seed": 1284099068
+    },
+    "service_tier": "on_demand"
+  }
+}

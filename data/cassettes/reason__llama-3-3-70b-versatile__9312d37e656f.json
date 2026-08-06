@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 250,
+      "messages": [
+        {
+          "content": "You are a security analyst writing a shift report: what happened, who was involved, anything unusual. Be specific and concrete: name entities, zones and times. Do not speculate about motive. If the period was uneventful, say so in one sentence rather than padding.",
+          "role": "system"
+        },
+        {
+          "content": "sha256:3494d8d80a41a592",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-96b9671c-1513-4c61-a221-c82b87bd564f",
+    "object": "chat.completion",
+    "created": 1785983501,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Shift Report for 2026-08-06 11:58 to 12:04:\n\nDuring this period, a blue Ford F-150 pickup truck, driven by an individual wearing a high-visibility vest, entered the Chakan Industrial Plant through the main gate at 11:58:45. The vehicle passed the raised barrier on the access road at 11:59:30 and proceeded to the loading dock. At 12:00:15, the truck reversed into loading dock bay 3. The driver then stepped out of the vehicle at 12:01:00 and began unloading two pallets at 12:01:45. After completing the unloading, the driver returned to the cab of the truck at 12:02:30 in Warehouse A. The vehicle then pulled away from bay 3 towards the access road at 12:03:15 and exited the plant through the main gate at 12:04:00. The loading dock was left quiet with two pallets stacked on the apron at 12:04:45."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.052205571,
+      "prompt_tokens": 601,
+      "prompt_time": 0.104709719,
+      "completion_tokens": 220,
+      "completion_time": 0.599315522,
+      "total_tokens": 821,
+      "total_time": 0.704025241
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzaek02he36rx2h7j61sxj69",
+      "seed": 2006541971
+    },
+    "service_tier": "on_demand"
+  }
+}

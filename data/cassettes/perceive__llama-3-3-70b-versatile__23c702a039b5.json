@@ -1,0 +1,59 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 700,
+      "messages": [
+        {
+          "content": "sha256:6065859b8171cc7d",
+          "role": "user"
+        },
+        {
+          "content": "I'm not going to engage in this conversation.",
+          "role": "assistant"
+        },
+        {
+          "content": "That was not valid JSON for the required schema. Return ONLY the JSON object — no prose, no code fence.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-91b587ea-fef2-4cca-b093-7cd2ce596cd0",
+    "object": "chat.completion",
+    "created": 1785979080,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"caption\": \"The access road is empty and dimly lit at night\",\n  \"objects\": [],\n  \"activities\": [],\n  \"lighting\": \"night\",\n  \"weather\": null,\n  \"visibility\": \"reduced\",\n  \"anomalies\": [],\n  \"confidence\": 0.8\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.161787593,
+      "prompt_tokens": 519,
+      "prompt_time": 0.026652728,
+      "completion_tokens": 68,
+      "completion_time": 0.14675395,
+      "total_tokens": 587,
+      "total_time": 0.173406678
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_45180df409",
+    "x_groq": {
+      "id": "req_01kzaac3wsehtsa000gnvjk0d3",
+      "seed": 93803719
+    },
+    "service_tier": "on_demand"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 60,
+      "messages": [
+        {
+          "content": "You compress security camera observations. Write ONE factual sentence covering what happened across these frames. Name objects, people and places. State only what the observations state — never infer intent. No preamble.",
+          "role": "system"
+        },
+        {
+          "content": "[02:15:10] nothing: A man in a high-visibility vest and yellow hard hat is walking through an industrial site.\n[02:15:20] person in substation: A person in a yellow hard hat and orange safety vest is walking away from the camera in a large, open room with white walls and pi\n[02:15:30] person in substation: A person in a yellow hard hat and orange safety vest is standing in a large room with white walls and pillars.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-b4e58946-82d1-492a-ae3a-45aeed07a09a",
+    "object": "chat.completion",
+    "created": 1786018690,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "A man in a high-visibility vest and yellow hard hat walked through an industrial site, while another person in a yellow hard hat and orange safety vest walked away from the camera and then stood in a large room with white walls and pillars at the substation."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.051602259,
+      "prompt_tokens": 177,
+      "prompt_time": 0.010305501,
+      "completion_tokens": 53,
+      "completion_time": 0.123886034,
+      "total_tokens": 230,
+      "total_time": 0.134191535
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzbg4x8jeayv3bw5kgw4g5tt",
+      "seed": 1109729596
+    },
+    "service_tier": "on_demand"
+  }
+}

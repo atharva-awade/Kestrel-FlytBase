@@ -1,0 +1,59 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:b305c5ed0e5dd210",
+          "role": "user"
+        },
+        {
+          "content": "sha256:2e25fb84c3c29357",
+          "role": "assistant"
+        },
+        {
+          "content": "That was not valid JSON for the required schema. Return ONLY the JSON object — no prose, no code fence.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-0ae821ef-8327-45aa-8fd4-d15a59decb5a",
+    "object": "chat.completion",
+    "created": 1785982222,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"caption\": \"The Restricted Core area of the Chakan Industrial Plant is empty and well-lit at night\",\n  \"objects\": [],\n  \"activities\": [],\n  \"lighting\": \"artificial\",\n  \"weather\": null,\n  \"visibility\": \"clear\",\n  \"anomalies\": [],\n  \"confidence\": 0.95\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.161689108,
+      "prompt_tokens": 781,
+      "prompt_time": 0.039919652,
+      "completion_tokens": 75,
+      "completion_time": 0.168699055,
+      "total_tokens": 856,
+      "total_time": 0.208618707
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_3272ea2d91",
+    "x_groq": {
+      "id": "req_01kzadbzzxey89m1w1vm9papcy",
+      "seed": 1963742076
+    },
+    "service_tier": "on_demand"
+  }
+}

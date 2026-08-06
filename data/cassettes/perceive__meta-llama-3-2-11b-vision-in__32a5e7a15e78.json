@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:19f917075e20eaf7",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:69458019065cc211"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-7f351e419caa4aa180dc61f6cc2777b8",
+    "object": "chat.completion",
+    "created": 1785979427,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The image shows a person wearing a yellow hard hat and an orange safety vest, walking in a large warehouse with white pillars and a concrete floor. The person is wearing black pants and a dark-colored shirt underneath the vest.\n\n*   The person is walking towards the right side of the image, away from the camera.\n*   The warehouse has a large open space with several white pillars supporting the ceiling.\n*   The floor is made of concrete and has a few red lines painted on it, possibly indicating a designated area or path.\n*   In the background, there are some crates and boxes stacked up against the wall, suggesting that the warehouse may be used for storage or shipping purposes.\n*   The overall atmosphere of the image appears to be one of caution and attention to safety, given the person's protective gear and the presence of warning signs or markings on the floor.\n\n**Answer:** { \"caption\": \"A person in a yellow hard hat and orange safety vest is walking in a large warehouse.\", \"objects\": [ {\"label\":\"person\", \"colour\":\"yellow\", \"kind\":\"worker\", \"activity\":\"walking\", \"count\":1, \"confidence\":1.0} ], \"activities\": [\"walking\"], \"lighting\":\"night\", \"weather\":null, \"visibility\":\"clear\", \"anomalies\": [], \"confidence\":1.0 }",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3666,
+      "total_tokens": 3939,
+      "completion_tokens": 273,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

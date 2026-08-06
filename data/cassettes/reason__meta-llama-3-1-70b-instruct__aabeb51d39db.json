@@ -1,0 +1,87 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:71bd50932bb5b66e",
+          "role": "system"
+        },
+        {
+          "content": "Has any vehicle been seen at more than one site?",
+          "role": "user"
+        },
+        {
+          "content": "Called: correlate_entity_across_sites",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:5b63354f3f846cd1",
+          "role": "user"
+        },
+        {
+          "content": "Called: get_entity",
+          "role": "assistant"
+        },
+        {
+          "content": "Tool results:\n[{\"tool\":\"get_entity\",\"arguments\":{\"entity_id\":\"ENT-b032-9001\"},\"result\":{\"ok\":true,\"tool\":\"get_entity\",\"renders_as\":\"entity_card\",\"found\":false,\"entity_id\":\"ENT-b032-9001\",\"message\":\"no entity ENT-b032-9001 in the index\"}}]",
+          "role": "user"
+        },
+        {
+          "content": "Called: list_entities",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:d77ff97b0d12114b",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-9753976688abc13a",
+    "object": "chat.completion",
+    "created": 1786084567,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 2005,
+      "total_tokens": 2010,
+      "completion_tokens": 5,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

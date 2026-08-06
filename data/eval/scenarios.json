@@ -1,0 +1,226 @@
+{
+  "scenarios": [
+    {
+      "id": "delivery-daytime",
+      "title": "Routine daytime delivery",
+      "tags": [
+        "baseline",
+        "spec-example",
+        "true-negative"
+      ],
+      "expected": [],
+      "fired": [],
+      "hits": [],
+      "misses": [],
+      "false_positives": [],
+      "alerts_raised": 0,
+      "alerts_suppressed": 0,
+      "missions_proposed": 0,
+      "frames": 10,
+      "seconds": 0.6,
+      "pass": true
+    },
+    {
+      "id": "loiter-midnight",
+      "title": "Person loitering at the main gate after midnight",
+      "tags": [
+        "alert",
+        "spec-example",
+        "night",
+        "true-positive"
+      ],
+      "expected": [
+        "loitering"
+      ],
+      "fired": [
+        "loitering",
+        "unusual-gathering"
+      ],
+      "hits": [
+        "loitering"
+      ],
+      "misses": [],
+      "false_positives": [],
+      "alerts_raised": 2,
+      "alerts_suppressed": 0,
+      "missions_proposed": 2,
+      "frames": 10,
+      "seconds": 0.5,
+      "pass": true
+    },
+    {
+      "id": "fence-breach-night",
+      "title": "Fence-line approach and climb attempt",
+      "tags": [
+        "alert",
+        "night",
+        "critical",
+        "escalation",
+        "true-positive"
+      ],
+      "expected": [
+        "after-hours-vehicle",
+        "perimeter-breach",
+        "restricted-zone"
+      ],
+      "fired": [
+        "after-hours-vehicle",
+        "loitering",
+        "perimeter-breach",
+        "restricted-zone"
+      ],
+      "hits": [
+        "after-hours-vehicle",
+        "perimeter-breach",
+        "restricted-zone"
+      ],
+      "misses": [],
+      "false_positives": [],
+      "alerts_raised": 5,
+      "alerts_suppressed": 0,
+      "missions_proposed": 5,
+      "frames": 10,
+      "seconds": 0.6,
+      "pass": true
+    },
+    {
+      "id": "repeat-visitor",
+      "title": "Known vehicle, unknown hour",
+      "tags": [
+        "memory",
+        "baseline",
+        "entity-reid",
+        "multi-day",
+        "true-positive"
+      ],
+      "expected": [
+        "after-hours-vehicle",
+        "baseline-anomaly"
+      ],
+      "fired": [
+        "after-hours-vehicle",
+        "baseline-anomaly"
+      ],
+      "hits": [
+        "after-hours-vehicle",
+        "baseline-anomaly"
+      ],
+      "misses": [],
+      "false_positives": [],
+      "alerts_raised": 4,
+      "alerts_suppressed": 0,
+      "missions_proposed": 4,
+      "frames": 22,
+      "seconds": 49.0,
+      "pass": true
+    },
+    {
+      "id": "wildlife-false-positive",
+      "title": "Animal movement at the fence line",
+      "tags": [
+        "false-positive",
+        "night",
+        "true-negative"
+      ],
+      "expected": [],
+      "fired": [],
+      "hits": [],
+      "misses": [],
+      "false_positives": [],
+      "alerts_raised": 0,
+      "alerts_suppressed": 0,
+      "missions_proposed": 0,
+      "frames": 6,
+      "seconds": 11.6,
+      "pass": true
+    },
+    {
+      "id": "unattended-package",
+      "title": "Package left at the gate",
+      "tags": [
+        "alert",
+        "dusk",
+        "object-persistence",
+        "true-positive"
+      ],
+      "expected": [
+        "unattended-object"
+      ],
+      "fired": [
+        "unattended-object"
+      ],
+      "hits": [
+        "unattended-object"
+      ],
+      "misses": [],
+      "false_positives": [],
+      "alerts_raised": 1,
+      "alerts_suppressed": 0,
+      "missions_proposed": 1,
+      "frames": 9,
+      "seconds": 18.1,
+      "pass": true
+    },
+    {
+      "id": "shift-change-busy",
+      "title": "Shift change: high benign volume",
+      "tags": [
+        "load",
+        "suppression",
+        "true-negative"
+      ],
+      "expected": [],
+      "fired": [],
+      "hits": [],
+      "misses": [],
+      "false_positives": [],
+      "alerts_raised": 0,
+      "alerts_suppressed": 0,
+      "missions_proposed": 0,
+      "frames": 12,
+      "seconds": 24.1,
+      "pass": true
+    },
+    {
+      "id": "tailgating",
+      "title": "Vehicle tailgates through the gate",
+      "tags": [
+        "alert",
+        "sequence-rule",
+        "evening",
+        "true-positive"
+      ],
+      "expected": [
+        "after-hours-vehicle",
+        "tailgating"
+      ],
+      "fired": [
+        "after-hours-vehicle",
+        "tailgating"
+      ],
+      "hits": [
+        "after-hours-vehicle",
+        "tailgating"
+      ],
+      "misses": [],
+      "false_positives": [],
+      "alerts_raised": 4,
+      "alerts_suppressed": 0,
+      "missions_proposed": 4,
+      "frames": 7,
+      "seconds": 14.1,
+      "pass": true
+    }
+  ],
+  "passed": 8,
+  "total": 8,
+  "true_positives": 9,
+  "false_positives": 0,
+  "false_negatives": 0,
+  "true_negatives": 3,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "note": "True-negative scenarios (routine delivery, wildlife at the fence, shift change) are weighted equally in this suite. A security system that cries wolf is switched off, and then protects nothing.",
+  "generated_at": "2026-08-06T09:35:19.090860"
+}

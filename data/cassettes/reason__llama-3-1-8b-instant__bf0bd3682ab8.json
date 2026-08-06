@@ -1,0 +1,83 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:494cb861f0cc49ce",
+          "role": "system"
+        },
+        {
+          "content": "What happened last night?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:fe5cbc19783b5289",
+          "role": "assistant"
+        },
+        {
+          "content": "What rules are active?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:52029bbfc6131d13",
+          "role": "assistant"
+        },
+        {
+          "content": "What rules are active and why?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:4865caf8a40a5041",
+          "role": "assistant"
+        },
+        {
+          "content": "Has this vehicle been seen at another site?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-0fb1dbe1-3352-4b62-826f-2ec340d941e1",
+    "object": "chat.completion",
+    "created": 1786081310,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"get_entity\",\"arguments\":{\"id\":\"ENT-0a15-0001\"}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.160432907,
+      "prompt_tokens": 1591,
+      "prompt_time": 0.105260627,
+      "completion_tokens": 23,
+      "completion_time": 0.044122768,
+      "total_tokens": 1614,
+      "total_time": 0.149383395
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_7ccc667439",
+    "x_groq": {
+      "id": "req_01kzdbvxyye97s6ax1xsvp32hd",
+      "seed": 1638027003
+    },
+    "service_tier": "on_demand"
+  }
+}

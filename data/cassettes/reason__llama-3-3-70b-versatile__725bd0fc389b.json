@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 1100,
+      "messages": [
+        {
+          "content": "sha256:6299cb7f9e286d3a",
+          "role": "system"
+        },
+        {
+          "content": "sha256:b1b1545f95160027",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-f8b19aa4-fdb9-4512-a459-2f962b6530ee",
+    "object": "chat.completion",
+    "created": 1786074015,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"id\": \"truck-parked-at-dock\",\n  \"name\": \"Truck Parked at Dock\",\n  \"description\": \"Truck dwelling at the loading dock for more than 10 minutes\",\n  \"severity\": \"medium\",\n  \"enabled\": true,\n  \"conditions\": [\n    {\n      \"kind\": \"class_is\",\n      \"labels\": [\"truck\"]\n    },\n    {\n      \"kind\": \"zone_in\",\n      \"zones\": [\"loading-dock\"]\n    },\n    {\n      \"kind\": \"dwell\",\n      \"seconds\": 600\n    }\n  ],\n  \"cooldown_seconds\": 300,\n  \"cooldown_per_entity\": true,\n  \"visual_predicate\": null,\n  \"strength\": 0.8,\n  \"origin\": \"natural_language\",\n  \"source_text\": \"alert me if a truck parks at the dock for more than 10 mins\",\n  \"tags\": []\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.163523462,
+      "prompt_tokens": 2309,
+      "prompt_time": 0.147109066,
+      "completion_tokens": 192,
+      "completion_time": 0.359527223,
+      "total_tokens": 2501,
+      "total_time": 0.506636289
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_45180df409",
+    "x_groq": {
+      "id": "req_01kzd4x9h4eet8zzcxf362k7tj",
+      "seed": 526182157
+    },
+    "service_tier": "on_demand"
+  }
+}

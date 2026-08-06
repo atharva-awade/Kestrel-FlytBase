@@ -1,0 +1,164 @@
+{
+  "probes": [
+    {
+      "name": "GET /models",
+      "required": true,
+      "ok": true,
+      "ms": 237,
+      "shape": "",
+      "detail": "102 models visible to this key"
+    },
+    {
+      "name": "chat  nvidia llama-3.1-70b (failover path)",
+      "required": true,
+      "ok": true,
+      "ms": 52008,
+      "shape": "",
+      "detail": "meta/llama-3.1-70b-instruct \u2192 'KESTREL ONLINE'",
+      "extra": {
+        "usage": {
+          "prompt_tokens": 43,
+          "total_tokens": 48,
+          "completion_tokens": 5,
+          "prompt_tokens_details": null
+        }
+      }
+    },
+    {
+      "name": "chat  nvidia llama-3.3-70b (unusably slow)",
+      "required": false,
+      "ok": true,
+      "ms": 35814,
+      "shape": "",
+      "detail": "meta/llama-3.3-70b-instruct \u2192 'KESTREL ONLINE'"
+    },
+    {
+      "name": "chat  structured json_schema",
+      "required": false,
+      "ok": true,
+      "ms": 88589,
+      "shape": "response_format.json_schema",
+      "detail": "honoured \u2192 {'colour': 'blue', 'count': 1}"
+    },
+    {
+      "name": "vlm   llama-3.2-11b-vision",
+      "required": true,
+      "ok": true,
+      "ms": 1292,
+      "shape": "chat/completions + image_url data URI",
+      "detail": "The scene depicts a blue truck parked next to a streetlight, with no people visible.  **Vehicles:**  * Blue truck  **People:**  * ",
+      "extra": {
+        "usage": {
+          "prompt_tokens": 3229,
+          "total_tokens": 3263,
+          "completion_tokens": 34,
+          "prompt_tokens_details": null
+        }
+      }
+    },
+    {
+      "name": "vlm   llama-3.2-90b-vision",
+      "required": false,
+      "ok": false,
+      "ms": 90063,
+      "shape": "",
+      "detail": "ReadTimeout: The read operation timed out"
+    },
+    {
+      "name": "embed nvclip text (unprovisioned, superseded)",
+      "required": false,
+      "ok": false,
+      "ms": 110,
+      "shape": "",
+      "detail": "HTTPStatusError: Client error '404 Not Found' for url 'https://integrate.api.nvidia.com/v1/embeddings'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404"
+    },
+    {
+      "name": "embed nvclip image (unprovisioned, superseded)",
+      "required": false,
+      "ok": false,
+      "ms": 95,
+      "shape": "",
+      "detail": "HTTPStatusError: Client error '404 Not Found' for url 'https://integrate.api.nvidia.com/v1/embeddings'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404"
+    },
+    {
+      "name": "embed joint text  (nemotron-embed-vl)",
+      "required": true,
+      "ok": true,
+      "ms": 489,
+      "shape": "embeddings + modality:text",
+      "detail": "dim=2048, the query side of visual search",
+      "extra": {
+        "dim": 2048
+      }
+    },
+    {
+      "name": "embed joint image (nemotron-embed-vl)",
+      "required": true,
+      "ok": true,
+      "ms": 610,
+      "shape": "embeddings + modality:image",
+      "detail": "dim=2048, frames embedded without captioning them",
+      "extra": {
+        "dim": 2048
+      }
+    },
+    {
+      "name": "embed cross-modal alignment",
+      "required": true,
+      "ok": true,
+      "ms": 1075,
+      "shape": "cosine(text, image) = 0.2575",
+      "detail": "one shared 2048-d space; cosine 0.2575 is comparable",
+      "extra": {
+        "cosine": 0.2575,
+        "dim": 2048
+      }
+    },
+    {
+      "name": "embed nv-embedqa-e5-v5",
+      "required": false,
+      "ok": true,
+      "ms": 373,
+      "shape": "embeddings + input_type",
+      "detail": "dim=1024",
+      "extra": {
+        "dim": 1024
+      }
+    },
+    {
+      "name": "rerank llama-3.2-nv-rerankqa",
+      "required": false,
+      "ok": false,
+      "ms": 66,
+      "shape": "",
+      "detail": "HTTP 404 on /ranking: 404 page not found\n"
+    },
+    {
+      "name": "detect nv-grounding-dino",
+      "required": false,
+      "ok": false,
+      "ms": 511,
+      "shape": "",
+      "detail": "no shape accepted; https://ai.api.nvidia.com/v1/cv/nvidia/nv-grounding-dino#0 \u2192 404 {\"status\":404,\"title\":\"Not Found\",\"detail\":\"Function '501288 | https://ai.api.nvidia.com/v1/cv/nvidia/nv-grounding-dino#1 \u2192 404 {\"status\":404,\"title\":\"Not Found\",\"detail\":\"Function '501288",
+      "extra": {
+        "attempts": [
+          "https://ai.api.nvidia.com/v1/cv/nvidia/nv-grounding-dino#0 \u2192 404 {\"status\":404,\"title\":\"Not Found\",\"detail\":\"Function '501288",
+          "https://ai.api.nvidia.com/v1/cv/nvidia/nv-grounding-dino#1 \u2192 404 {\"status\":404,\"title\":\"Not Found\",\"detail\":\"Function '501288",
+          "https://ai.api.nvidia.com/v1/cv/nvidia/nv-grounding-dino#2 \u2192 404 {\"status\":404,\"title\":\"Not Found\",\"detail\":\"Function '501288",
+          "https://integrate.api.nvidia.com/v1/cv/nvidia/nv-grounding-dino#0 \u2192 404 404 page not found\n",
+          "https://integrate.api.nvidia.com/v1/cv/nvidia/nv-grounding-dino#1 \u2192 404 404 page not found\n",
+          "https://integrate.api.nvidia.com/v1/cv/nvidia/nv-grounding-dino#2 \u2192 404 404 page not found\n"
+        ]
+      }
+    },
+    {
+      "name": "groq  llama-3.3-70b-versatile (primary)",
+      "required": true,
+      "ok": true,
+      "ms": 271,
+      "shape": "",
+      "detail": "llama-3.3-70b-versatile \u2192 'KESTREL ONLINE'"
+    }
+  ],
+  "catalogue_size": 102
+}

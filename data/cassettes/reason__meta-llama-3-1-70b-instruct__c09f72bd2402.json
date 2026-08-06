@@ -1,0 +1,95 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:0d3e3cd74d05a165",
+          "role": "system"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "I could not find a tool that answers that. Try asking about what was seen, an entity, an alert, the rules, the fleet, or how I work.",
+          "role": "assistant"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "The following rules are enabled: \n1. Loitering at a sensitive location [loitering]\n2. Perimeter fence activity [perimeter-breach]\n3. Presence in a restricted area [restricted-zone]\n4. Vehicle present outside operating hours [after-hours-vehicle]\n5. Vehicle followed another through the gate [tailgating]\n6. Unattended object near an access point [unattended-object]\n7. Unprecedented activity for this time and place [baseline-anomaly]\n8. Unusual gathering outside working hours [unusual-gathering]",
+          "role": "assistant"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "I retrieved the data but could not compose an answer (ProviderError).",
+          "role": "assistant"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "Called: list_rules",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:272a3d80c215d348",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-9bfa896e8e3982aa",
+    "object": "chat.completion",
+    "created": 1786064154,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The following rules are enabled: \n1. Loitering at a sensitive location [loitering]\n2. Perimeter fence activity [perimeter-breach]\n3. Presence in a restricted area [restricted-zone]\n4. Vehicle present outside operating hours [after-hours-vehicle]\n5. Vehicle followed another through the gate [tailgating]\n6. Unattended object near an access point [unattended-object]\n7. Unprecedented activity for this time and place [baseline-anomaly]\n8. Unusual gathering outside working hours [unusual-gathering]",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 1723,
+      "total_tokens": 1837,
+      "completion_tokens": 114,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

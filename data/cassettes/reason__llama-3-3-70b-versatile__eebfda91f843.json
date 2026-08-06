@@ -1,0 +1,67 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:707e7b19fb6cb711",
+          "role": "system"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "I could not find a tool that answers that. Try asking about what was seen, an entity, an alert, the rules, the fleet, or how I work.",
+          "role": "assistant"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:fdfb5b56d715159c",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-c5672b81-516e-43a9-8712-d29c8a738434",
+    "object": "chat.completion",
+    "created": 1786005274,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"list_rules\",\"arguments\":{}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.161251142,
+      "prompt_tokens": 1181,
+      "prompt_time": 0.132091098,
+      "completion_tokens": 14,
+      "completion_time": 0.045346603,
+      "total_tokens": 1195,
+      "total_time": 0.177437701
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_3272ea2d91",
+    "x_groq": {
+      "id": "req_01kzb3bfzfep8ap7qsry40p5mj",
+      "seed": 1859037566
+    },
+    "service_tier": "on_demand"
+  }
+}

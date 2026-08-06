@@ -1,0 +1,95 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:27303acb0e22b90f",
+          "role": "system"
+        },
+        {
+          "content": "Why did you skip so many frames?",
+          "role": "user"
+        },
+        {
+          "content": "I have no information about why I skipped frames at 4am on the 3rd. The tool \"describe_architecture\" provided general information about the gate's decision-making process [describe_architecture], but did not address the specific question.",
+          "role": "assistant"
+        },
+        {
+          "content": "How do you decide what to escalate?",
+          "role": "user"
+        },
+        {
+          "content": "I have no information about what triggers escalation. The tool \"describe_architecture\" provided information about the decision-making process [describe_architecture], but did not address the specific question of what triggers escalation.",
+          "role": "assistant"
+        },
+        {
+          "content": "How does the gate work?",
+          "role": "user"
+        },
+        {
+          "content": "The gate works by using three signals to decide whether a frame deserves to reach a model: structural perceptual-hash distance, photometric mean absolute pixel delta, and semantic embedding cosine distance [describe_architecture]. The gate's sensitivity is adjusted by context, such as high-priority zones, night, off-hours, or stationary drones [describe_architecture].",
+          "role": "assistant"
+        },
+        {
+          "content": "How does your memory compression work?",
+          "role": "user"
+        },
+        {
+          "content": "Called: describe_architecture",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:59167f90eb998319",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-a3fe1aa21f193b86",
+    "object": "chat.completion",
+    "created": 1786080373,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "My memory compression works through three stores: ENTITIES, THE TEMPORAL PYRAMID, and THE BASELINE [describe_architecture]. ENTITIES store identity that survives across frames, sessions, and days, using appearance embeddings, attribute agreement, and spatio-temporal plausibility. THE TEMPORAL PYRAMID is a hierarchical compression system that collapses an eight-hour shift into a summary, with compression weighted by salience. THE BASELINE stores counts per zone, hour, and class, scored by departure from history.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 1119,
+      "total_tokens": 1226,
+      "completion_tokens": 107,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

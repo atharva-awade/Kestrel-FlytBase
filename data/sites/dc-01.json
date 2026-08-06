@@ -1,0 +1,205 @@
+{
+  "id": "dc-01",
+  "name": "Navi Mumbai Data Centre",
+  "kind": "datacentre",
+  "origin": {
+    "lat": 19.041,
+    "lon": 73.028
+  },
+  "timezone": "Asia/Kolkata",
+  "country": "IN",
+  "country_name": "India",
+  "zones": [
+    {
+      "id": "main-gate",
+      "name": "Main Gate",
+      "kind": "gate",
+      "polygon": [
+        {
+          "lat": 19.04092814,
+          "lon": 73.02914037
+        },
+        {
+          "lat": 19.04092814,
+          "lon": 73.02980558
+        },
+        {
+          "lat": 19.04125153,
+          "lon": 73.02980558
+        },
+        {
+          "lat": 19.04125153,
+          "lon": 73.02914037
+        }
+      ],
+      "priority": 1.6,
+      "normal_hours": [
+        6,
+        21
+      ],
+      "notes": ""
+    },
+    {
+      "id": "yard",
+      "name": "Yard",
+      "kind": "yard",
+      "polygon": [
+        {
+          "lat": 19.04171865,
+          "lon": 73.02933043
+        },
+        {
+          "lat": 19.04171865,
+          "lon": 73.03085092
+        },
+        {
+          "lat": 19.04270679,
+          "lon": 73.03085092
+        },
+        {
+          "lat": 19.04270679,
+          "lon": 73.02933043
+        }
+      ],
+      "priority": 1.2,
+      "normal_hours": [
+        6,
+        22
+      ],
+      "notes": ""
+    },
+    {
+      "id": "loading-dock",
+      "name": "Loading Dock",
+      "kind": "dock",
+      "polygon": [
+        {
+          "lat": 19.0411617,
+          "lon": 73.02823758
+        },
+        {
+          "lat": 19.0411617,
+          "lon": 73.02933043
+        },
+        {
+          "lat": 19.04170068,
+          "lon": 73.02933043
+        },
+        {
+          "lat": 19.04170068,
+          "lon": 73.02823758
+        }
+      ],
+      "priority": 1.4,
+      "normal_hours": [
+        7,
+        19
+      ],
+      "notes": ""
+    },
+    {
+      "id": "substation",
+      "name": "Substation",
+      "kind": "substation",
+      "polygon": [
+        {
+          "lat": 19.04248221,
+          "lon": 73.03061334
+        },
+        {
+          "lat": 19.04248221,
+          "lon": 73.03123104
+        },
+        {
+          "lat": 19.04293137,
+          "lon": 73.03123104
+        },
+        {
+          "lat": 19.04293137,
+          "lon": 73.03061334
+        }
+      ],
+      "priority": 2.2,
+      "normal_hours": [
+        9,
+        17
+      ],
+      "notes": ""
+    },
+    {
+      "id": "fence-line",
+      "name": "Perimeter Fence",
+      "kind": "fence",
+      "polygon": [
+        {
+          "lat": 19.0408922,
+          "lon": 73.02788596
+        },
+        {
+          "lat": 19.0408922,
+          "lon": 73.03156365
+        },
+        {
+          "lat": 19.04315595,
+          "lon": 73.03156365
+        },
+        {
+          "lat": 19.04315595,
+          "lon": 73.02788596
+        },
+        {
+          "lat": 19.0408922,
+          "lon": 73.02788596
+        },
+        {
+          "lat": 19.04306612,
+          "lon": 73.02798099
+        },
+        {
+          "lat": 19.04306612,
+          "lon": 73.03146862
+        },
+        {
+          "lat": 19.04098203,
+          "lon": 73.03146862
+        },
+        {
+          "lat": 19.04098203,
+          "lon": 73.02798099
+        },
+        {
+          "lat": 19.04306612,
+          "lon": 73.02798099
+        }
+      ],
+      "priority": 2.0,
+      "normal_hours": null,
+      "notes": ""
+    }
+  ],
+  "dock": {
+    "lat": 19.04137729,
+    "lon": 73.02980558
+  },
+  "geofence": [
+    {
+      "lat": 19.04073051,
+      "lon": 73.02771491
+    },
+    {
+      "lat": 19.04073051,
+      "lon": 73.03175371
+    },
+    {
+      "lat": 19.04331764,
+      "lon": 73.03175371
+    },
+    {
+      "lat": 19.04331764,
+      "lon": 73.02771491
+    }
+  ],
+  "max_altitude_m": 120.0,
+  "live_footage": false,
+  "notes": "Simulated fleet site: seeded event generator, no live footage."
+}

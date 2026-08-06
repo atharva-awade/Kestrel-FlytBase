@@ -1,0 +1,87 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:2990a801efcb9e47",
+          "role": "system"
+        },
+        {
+          "content": "What happened last night?",
+          "role": "user"
+        },
+        {
+          "content": "A person was detected at the main gate at 00:01:40 [frm_plant-01_000002_f7fa12a573]. They were subsequently observed walking along the fence (00:02:15) [frm_plant-01_000003_03c4deb00c], standing motionless (00:02:50) [frm_plant-01_000004_bd258a8337], reaching towards the gate latch (00:03:25) [frm_plant-01_000005_a52052561a], crouching near the gate post (00:04:00) [frm_plant-01_000006_86c422626f], and looking back over their shoulder repeatedly (00:04:35) [frm_plant-01_000007_0b377220df].",
+          "role": "assistant"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "I retrieved the data but could not compose an answer (ProviderError).",
+          "role": "assistant"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "Called: list_rules",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:5986b7845a7f9bf3",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-b3c4e8a06dd3ec96",
+    "object": "chat.completion",
+    "created": 1786074301,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The following rules are enabled: \n\nLoitering at a sensitive location [loitering], \nPerimeter fence activity [perimeter-breach], \nPresence in a restricted area [restricted-zone], \nVehicle present outside operating hours [after-hours-vehicle], \nVehicle followed another through the gate [tailgating], \nUnattended object near an access point [unattended-object], \nUnprecedented activity for this time and place [baseline-anomaly], \nUnusual gathering outside working hours [unusual-gathering], \nTruck Parked at Dock [truck-parked-at-dock].",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 1813,
+      "total_tokens": 1933,
+      "completion_tokens": 120,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

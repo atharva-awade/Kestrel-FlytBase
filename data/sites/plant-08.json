@@ -1,0 +1,205 @@
+{
+  "id": "plant-08",
+  "name": "Laredo Distribution",
+  "kind": "logistics",
+  "origin": {
+    "lat": 27.561,
+    "lon": -99.487
+  },
+  "timezone": "America/Chicago",
+  "country": "US",
+  "country_name": "United States",
+  "zones": [
+    {
+      "id": "main-gate",
+      "name": "Main Gate",
+      "kind": "gate",
+      "polygon": [
+        {
+          "lat": 27.56092814,
+          "lon": -99.48578404
+        },
+        {
+          "lat": 27.56092814,
+          "lon": -99.48507473
+        },
+        {
+          "lat": 27.56125153,
+          "lon": -99.48507473
+        },
+        {
+          "lat": 27.56125153,
+          "lon": -99.48578404
+        }
+      ],
+      "priority": 1.6,
+      "normal_hours": [
+        6,
+        21
+      ],
+      "notes": ""
+    },
+    {
+      "id": "yard",
+      "name": "Yard",
+      "kind": "yard",
+      "polygon": [
+        {
+          "lat": 27.56171865,
+          "lon": -99.48558138
+        },
+        {
+          "lat": 27.56171865,
+          "lon": -99.48396009
+        },
+        {
+          "lat": 27.56270679,
+          "lon": -99.48396009
+        },
+        {
+          "lat": 27.56270679,
+          "lon": -99.48558138
+        }
+      ],
+      "priority": 1.2,
+      "normal_hours": [
+        6,
+        22
+      ],
+      "notes": ""
+    },
+    {
+      "id": "loading-dock",
+      "name": "Loading Dock",
+      "kind": "dock",
+      "polygon": [
+        {
+          "lat": 27.5611617,
+          "lon": -99.48674667
+        },
+        {
+          "lat": 27.5611617,
+          "lon": -99.48558138
+        },
+        {
+          "lat": 27.56170068,
+          "lon": -99.48558138
+        },
+        {
+          "lat": 27.56170068,
+          "lon": -99.48674667
+        }
+      ],
+      "priority": 1.4,
+      "normal_hours": [
+        7,
+        19
+      ],
+      "notes": ""
+    },
+    {
+      "id": "substation",
+      "name": "Substation",
+      "kind": "substation",
+      "polygon": [
+        {
+          "lat": 27.56248221,
+          "lon": -99.48421342
+        },
+        {
+          "lat": 27.56248221,
+          "lon": -99.48355477
+        },
+        {
+          "lat": 27.56293137,
+          "lon": -99.48355477
+        },
+        {
+          "lat": 27.56293137,
+          "lon": -99.48421342
+        }
+      ],
+      "priority": 2.2,
+      "normal_hours": [
+        9,
+        17
+      ],
+      "notes": ""
+    },
+    {
+      "id": "fence-line",
+      "name": "Perimeter Fence",
+      "kind": "fence",
+      "polygon": [
+        {
+          "lat": 27.5608922,
+          "lon": -99.4871216
+        },
+        {
+          "lat": 27.5608922,
+          "lon": -99.48320012
+        },
+        {
+          "lat": 27.56315595,
+          "lon": -99.48320012
+        },
+        {
+          "lat": 27.56315595,
+          "lon": -99.4871216
+        },
+        {
+          "lat": 27.5608922,
+          "lon": -99.4871216
+        },
+        {
+          "lat": 27.56306612,
+          "lon": -99.48702027
+        },
+        {
+          "lat": 27.56306612,
+          "lon": -99.48330145
+        },
+        {
+          "lat": 27.56098203,
+          "lon": -99.48330145
+        },
+        {
+          "lat": 27.56098203,
+          "lon": -99.48702027
+        },
+        {
+          "lat": 27.56306612,
+          "lon": -99.48702027
+        }
+      ],
+      "priority": 2.0,
+      "normal_hours": null,
+      "notes": ""
+    }
+  ],
+  "dock": {
+    "lat": 27.56137729,
+    "lon": -99.48507473
+  },
+  "geofence": [
+    {
+      "lat": 27.56073051,
+      "lon": -99.48730399
+    },
+    {
+      "lat": 27.56073051,
+      "lon": -99.48299746
+    },
+    {
+      "lat": 27.56331764,
+      "lon": -99.48299746
+    },
+    {
+      "lat": 27.56331764,
+      "lon": -99.48730399
+    }
+  ],
+  "max_altitude_m": 120.0,
+  "live_footage": false,
+  "notes": "Simulated fleet site: seeded event generator, no live footage."
+}

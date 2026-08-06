@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 60,
+      "messages": [
+        {
+          "content": "You compress security camera observations. Write ONE factual sentence covering what happened across these frames. Name objects, people and places. State only what the observations state — never infer intent. No preamble.",
+          "role": "system"
+        },
+        {
+          "content": "[02:11:40] person in substation: A person in a high-visibility vest is walking towards the camera in the restricted core zone of the Chakan Industrial Plant.\n[02:11:50] person in substation: A person in a high-visibility vest is walking towards the camera, wearing a yellow hard hat and black pants.\n[02:12:00] person in restricted-core: A person in a yellow hard hat and orange safety vest is walking through a large, open room with white walls and pillars.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-44848bef-4acc-4f0b-9cf9-54663298fe24",
+    "object": "chat.completion",
+    "created": 1785982453,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "A person wearing a high-visibility vest, yellow hard hat, and black pants is walking in the restricted core zone of the Chakan Industrial Plant."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.162351678,
+      "prompt_tokens": 182,
+      "prompt_time": 0.008922517,
+      "completion_tokens": 31,
+      "completion_time": 0.06937861,
+      "total_tokens": 213,
+      "total_time": 0.078301127
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_45180df409",
+    "x_groq": {
+      "id": "req_01kzadk1q3ezzv2gfg5cvr2bv8",
+      "seed": 1964951004
+    },
+    "service_tier": "on_demand"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 250,
+      "messages": [
+        {
+          "content": "You are a security analyst writing a shift report: what happened, who was involved, anything unusual. Be specific and concrete: name entities, zones and times. Do not speculate about motive. If the period was uneventful, say so in one sentence rather than padding.",
+          "role": "system"
+        },
+        {
+          "content": "Period: 2026-08-03 16:40 to 16:44\n\n[16:42-16:42] 16:42:00-16:42:00: 1x vehicle, 1x person in loading-dock. Blue Ford F-150 parked at the loading dock, driver unloading\n[16:40-16:40] 16:40:00-16:40:00: 1x pickup in main-gate. A blue Ford F-150 pickup arrives at the main gate\n[16:44-16:44] 16:44:00-16:44:00: 1x vehicle in main-gate. Blue Ford F-150 departs through the main gate",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-2fa4c6b1-6e7b-48c4-a0f1-28de9919cfe6",
+    "object": "chat.completion",
+    "created": 1785983553,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Shift Report for 2026-08-03 16:40 to 16:44:\n\nDuring this 4-minute period, a blue Ford F-150 pickup truck arrived at the main gate at 16:40. The vehicle then proceeded to the loading dock, where the driver unloaded cargo from 16:42 to 16:42. The truck departed through the main gate at 16:44. The incident involved one vehicle and one person, and occurred within the main gate and loading dock zones."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.052254441,
+      "prompt_tokens": 246,
+      "prompt_time": 0.022434572,
+      "completion_tokens": 105,
+      "completion_time": 0.376912059,
+      "total_tokens": 351,
+      "total_time": 0.399346631
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzaemk9be4nsa29aa4582jnf",
+      "seed": 2085024513
+    },
+    "service_tier": "on_demand"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:a4f72186fc395c00",
+          "role": "system"
+        },
+        {
+          "content": "How do you decide what to escalate?",
+          "role": "user"
+        },
+        {
+          "content": "I have no information on how I decide what to escalate in this specific instance. The explain_decision tool returned an error, stating that a frame_id or alert_id is required to explain the decision [explain_decision].",
+          "role": "assistant"
+        },
+        {
+          "content": "How does the gate work?",
+          "role": "user"
+        },
+        {
+          "content": "The gate works by using three signals to decide whether a frame deserves to reach a model: structural perceptual-hash distance, photometric mean absolute pixel delta, and semantic embedding cosine distance [describe_architecture]. \n\nThe tool results do not provide information on how I decide what to escalate.",
+          "role": "assistant"
+        },
+        {
+          "content": "How does your memory compression work?",
+          "role": "user"
+        },
+        {
+          "content": "The memory compression works by using three stores: ENTITIES, THE TEMPORAL PYRAMID, and THE BASELINE [describe_architecture]. ENTITIES store identity that survives across frames, sessions, and days. THE TEMPORAL PYRAMID is a hierarchical compression that collapses an eight-hour shift into a summary, with salience-weighted compression. THE BASELINE stores counts per (zone, hour, class), scored by departure from history.",
+          "role": "assistant"
+        },
+        {
+          "content": "How do you verify a citation?",
+          "role": "user"
+        },
+        {
+          "content": "Called: describe_architecture",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:cbc3715303af4e8b",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-b5bc38229b4abfc6",
+    "object": "chat.completion",
+    "created": 1786084035,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 1764,
+      "total_tokens": 1769,
+      "completion_tokens": 5,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

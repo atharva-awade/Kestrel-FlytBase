@@ -1,0 +1,95 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:adfcc28c527291df",
+          "role": "system"
+        },
+        {
+          "content": "Has any vehicle been seen at more than one site?",
+          "role": "user"
+        },
+        {
+          "content": "The active rules are: loitering [loitering], perimeter-breach [perimeter-breach], restricted-zone [restricted-zone], after-hours-vehicle [after-hours-vehicle], tailgating [tailgating], unattended-object [unattended-object], baseline-anomaly [baseline-anomaly], unusual-gathering [unusual-gathering], and truck-parked-at-dock [truck-parked-at-dock].",
+          "role": "assistant"
+        },
+        {
+          "content": "Was anyone here at 4am on the 3rd?",
+          "role": "user"
+        },
+        {
+          "content": "I have no frames from that window.",
+          "role": "assistant"
+        },
+        {
+          "content": "Why did you skip so many frames?",
+          "role": "user"
+        },
+        {
+          "content": "No frames were found between 2026-08-03 04:00:00 and 2026-08-03 04:00:59 [search_frames].",
+          "role": "assistant"
+        },
+        {
+          "content": "what happened at the main gate last night?",
+          "role": "user"
+        },
+        {
+          "content": "Called: summarize_window",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:1222c84efbd40061",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-accdc0a6f586ca82",
+    "object": "chat.completion",
+    "created": 1786078361,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "A person was observed approaching and interacting with the main gate at 00:01:05 [ENT-0a15-0001, ENT-0a15-0002, ENT-0a15-0003, ENT-0a15-0004, ENT-0a15-0005]. They walked towards the main gate from the access road, reached the gate at 00:01:40, and were subsequently observed walking along the fence, standing motionless, reaching towards the gate latch, crouching near the gate post, and looking back over their shoulder repeatedly. The individual was last seen walking away from the main gate along the fence line at 00:05:10.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 2539,
+      "total_tokens": 2684,
+      "completion_tokens": 145,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

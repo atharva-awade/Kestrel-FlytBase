@@ -1,0 +1,75 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:f4cdea2a4f63eb30",
+          "role": "system"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "The following rules are enabled: \n[loitering], \n[perimeter-breach], \n[restricted-zone], \n[after-hours-vehicle], \n[tailgating], \n[unattended-object], \n[baseline-anomaly], \n[unusual-gathering]. \n\nAll 8 rules returned by the tool are enabled. [list_rules]",
+          "role": "assistant"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "Called: list_rules",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:272a3d80c215d348",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-61cc4580-b144-492b-8caf-39c8059d985c",
+    "object": "chat.completion",
+    "created": 1786059173,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The following rules are enabled: \n[loitering], \n[perimeter-breach], \n[restricted-zone], \n[after-hours-vehicle], \n[tailgating], \n[unattended-object], \n[baseline-anomaly], \n[unusual-gathering]. \n\nAll 8 rules returned by the tool are enabled, as indicated by \"enabled\": true in their respective conditions [loitering], [perimeter-breach], [restricted-zone], [after-hours-vehicle], [tailgating], [unattended-object], [baseline-anomaly], [unusual-gathering]."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.161087489,
+      "prompt_tokens": 1620,
+      "prompt_time": 0.079376331,
+      "completion_tokens": 122,
+      "completion_time": 0.272789244,
+      "total_tokens": 1742,
+      "total_time": 0.352165575
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_3272ea2d91",
+    "x_groq": {
+      "id": "req_01kzcprbhredqb08k8hgzq7kbc",
+      "seed": 1824882963
+    },
+    "service_tier": "on_demand"
+  }
+}

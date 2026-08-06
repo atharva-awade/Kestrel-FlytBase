@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:d20f35583965f780",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:18e107eaabf06812"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-41948d92e8db4d229f72cab1331d16b0",
+    "object": "chat.completion",
+    "created": 1785982785,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The image shows a man walking in an industrial area, wearing a yellow hard hat and an orange safety vest. The man is walking towards the right side of the image, and the background is a large, open space with white pillars and a concrete floor.\n\n*   The man is wearing a yellow hard hat and an orange safety vest.\n*   He is walking towards the right side of the image.\n*   The background is a large, open space with white pillars and a concrete floor.\n*   There are several white pillars in the background, and a few pieces of furniture or equipment are visible.\n*   The overall atmosphere suggests that the man is working or inspecting the area.\n\n**Answer:** { \"caption\": \"A man in a yellow hard hat and orange safety vest is walking towards the right side of the image in a large, open industrial area.\", \"objects\": [ {\"label\":\"person\", \"colour\":\"orange\", \"kind\":\"worker\", \"activity\":\"walking\", \"count\":1, \"confidence\":1.0} ], \"activities\": [\"person walking\"], \"lighting\":\"night\", \"weather\":null, \"visibility\":\"clear\", \"anomalies\": [], \"confidence\":1.0 }",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3672,
+      "total_tokens": 3919,
+      "completion_tokens": 247,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KESTREL — Solution Flowchart</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7f8fb;
+        --ink: #1f2430;
+        --ink-2: #535b6b;
+        --ink-3: #8a93a6;
+        --line: #e2e6ee;
+        --stage: #ffffff;
+        --decision: #fbebcf;
+        --decision-border: #e5bf77;
+        --route: #d8f0e4;
+        --route-border: #aedcc6;
+        --stop: #f8dce3;
+        --stop-border: #edacbd;
+        --note: #e6e0f4;
+        --note-border: #c9bee8;
+        --accent: #0ea5e9;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        padding: 28px 18px 56px;
+      }
+
+      main { width: min(980px, 100%); margin: 0 auto; }
+
+      h1, h2, p { margin: 0; }
+      h1 { font-size: 24px; letter-spacing: -0.03em; }
+
+      .sub {
+        margin-top: 6px;
+        max-width: 760px;
+        color: var(--ink-2);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .legend {
+        display: flex; flex-wrap: wrap; gap: 12px;
+        margin: 18px 0 26px;
+        color: var(--ink-2); font-size: 11px;
+      }
+      .lg { display: inline-flex; align-items: center; gap: 6px; }
+      .sw {
+        width: 14px; height: 14px;
+        border: 1.5px solid var(--line); border-radius: 4px; background: #fff;
+      }
+      .sw.dec {
+        width: 12px; height: 12px;
+        border-color: var(--decision-border); background: var(--decision);
+        transform: rotate(45deg);
+      }
+      .sw.route { border-color: var(--route-border); background: var(--route); }
+      .sw.stop { border-color: var(--stop-border); background: var(--stop); }
+
+      .flow, .col, .branch-col {
+        display: flex; flex-direction: column; align-items: center;
+      }
+      .flow { gap: 0; }
+
+      .section {
+        width: 100%;
+        margin: 26px 0 12px;
+        border-bottom: 1.5px solid var(--line);
+        padding-bottom: 6px;
+        color: var(--ink-3);
+        font-size: 11px; font-weight: 800;
+        letter-spacing: 0.08em; text-transform: uppercase;
+      }
+
+      .node, .decision, .route, .stop, .note {
+        width: min(620px, 100%);
+        border-radius: 12px;
+        padding: 12px 15px;
+        text-align: center;
+      }
+      .node { border: 1.5px solid var(--line); background: var(--stage); }
+      .decision { border: 1.5px solid var(--decision-border); background: var(--decision); }
+      .route { border: 1.5px solid var(--route-border); background: var(--route); }
+      .stop { border: 1.5px solid var(--stop-border); background: var(--stop); }
+      .note { border: 1.5px dashed var(--note-border); background: var(--note); }
+
+      .tag {
+        display: block; margin-bottom: 4px;
+        color: var(--ink-3); font-size: 9px; font-weight: 800;
+        letter-spacing: 0.08em; text-transform: uppercase;
+      }
+      .title { font-size: 14px; font-weight: 800; }
+      .desc { margin-top: 4px; color: var(--ink-2); font-size: 11px; line-height: 1.45; }
+
+      .slot {
+        margin-top: 9px;
+        border: 1px dashed rgba(31, 36, 48, 0.28);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.62);
+        padding: 9px 10px;
+        color: var(--ink-2);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 11px; line-height: 1.45; text-align: left;
+      }
+      .slot b { color: var(--ink); font-weight: 700; }
+      .slot .m { color: var(--accent); font-weight: 700; }
+
+      .arrow { position: relative; width: 2px; height: 22px; background: var(--ink-3); }
+      .arrow::after {
+        content: ""; position: absolute; bottom: -1px; left: -4px;
+        border-left: 5px solid transparent; border-right: 5px solid transparent;
+        border-top: 7px solid var(--ink-3);
+      }
+
+      .split {
+        margin: 5px 0;
+        color: var(--ink-3); font-size: 10px; font-weight: 800;
+        letter-spacing: 0.08em; text-transform: uppercase;
+      }
+
+      .branch {
+        display: flex; flex-wrap: wrap; justify-content: center;
+        gap: 18px; width: 100%;
+      }
+      .branch-col { flex: 1; min-width: 260px; gap: 7px; }
+
+      .notes {
+        display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px; width: 100%;
+      }
+      .notes .note { min-height: 128px; text-align: left; }
+
+      .loop {
+        width: min(620px, 100%);
+        margin-top: 10px;
+        border: 1.5px dashed var(--accent);
+        border-radius: 12px;
+        background: rgba(14, 165, 233, 0.06);
+        padding: 10px 14px;
+        text-align: center;
+        color: var(--ink-2);
+        font-size: 11.5px; line-height: 1.5;
+      }
+      .loop b { color: var(--ink); }
+
+      @media (max-width: 760px) {
+        .branch-col, .notes { min-width: 100%; grid-template-columns: 1fr; }
+      }
+
+      @media print {
+        body { background: #fff; padding: 12px; }
+        .node, .decision, .route, .stop, .note { break-inside: avoid; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>KESTREL — Solution Flowchart</h1>
+      <p class="sub">
+        How one frame becomes an alert a drone can be dispatched to. The spine is a
+        cost cascade: each tier only runs when the tier before it earns the spend,
+        because the free inference tier allows about 40 requests a minute and an
+        eight-hour patrol produces roughly 57,600 frames.
+      </p>
+
+      <div class="legend">
+        <span class="lg"><span class="sw"></span>Step</span>
+        <span class="lg"><span class="sw dec"></span>Decision</span>
+        <span class="lg"><span class="sw route"></span>Route</span>
+        <span class="lg"><span class="sw stop"></span>Stop</span>
+      </div>
+
+      <section class="flow" aria-label="Solution flowchart">
+        <div class="section" style="margin-top: 0">Main Flow</div>
+
+        <div class="node">
+          <span class="tag">Entry</span>
+          <div class="title">Frame + telemetry arrive</div>
+          <div class="desc">One interface over three sources, so nothing downstream knows where a frame came from.</div>
+          <div class="slot">
+<b>VideoFileSource</b>   real MP4 (CC BY 4.0) — the hero path
+<b>ScriptedSource</b>    text descriptions — the assignment's literal spec
+<b>CassetteSource</b>    recorded replay — runs with <span class="m">no API key</span>
+
+telemetry: position · altitude · gimbal · battery · wind · lux
+          </div>
+        </div>
+        <div class="arrow"></div>
+
+        <div class="decision">
+          <span class="tag">Fork · Tier 0</span>
+          <div class="title">Is this frame worth spending anything on?</div>
+          <div class="desc">CPU only. Three signals, cheapest first, short-circuiting as soon as one fires.</div>
+          <div class="slot">
+1. perceptual-hash distance   structural change
+2. mean absolute pixel delta  motion the hash smooths over
+3. embedding cosine distance  <i>same pixels, new meaning</i>
+
+context raises sensitivity — zone priority x night x off-hours,
+capped at <span class="m">2.5x</span> (uncapped it compounded to ~6x and
+gated nothing at all)
+
+heartbeat: re-verify every N frames OR N seconds, whichever first
+          </div>
+        </div>
+        <div class="split">skip / analyse</div>
+
+        <div class="branch">
+          <div class="branch-col">
+            <div class="stop">
+              <span class="tag">A · the common case</span>
+              <div class="title">Skip — record the decision, spend nothing</div>
+              <div class="desc">Persisted anyway. The skip rate is the scalability claim, so it has to be auditable after the fact.</div>
+              <div class="slot">
+cost: <span class="m">$0.00</span>
+
+measured skip rate
+  real footage   <b>38.9%</b>  (floor — CV demo reels
+                 authored for continuous motion)
+  idle patrol    <b>96.7%</b>  (constructed static scene)
+              </div>
+            </div>
+          </div>
+
+          <div class="branch-col">
+            <div class="node">
+              <span class="tag">B · Tiers 1 → 1.5</span>
+              <div class="title">Detect, then hold identity</div>
+              <div class="desc">On-device. No API budget, no rate limit, keeps working with the network unplugged.</div>
+              <div class="slot">
+YOLO11 on CUDA        <span class="m">~12 ms</span>  boxes + classes
+ByteTrack             ~free    persistent track ids
+
+without a tracker, "a person" in frame 41 and frame 42 are
+unrelated observations and every claim about duration is a guess
+              </div>
+            </div>
+            <div class="arrow"></div>
+
+            <div class="node">
+              <span class="tag">Tier 2</span>
+              <div class="title">Project to the world, embed for memory</div>
+              <div class="desc">Pixel → ground plane → named zone, using telemetry. This is what makes an alert dispatchable.</div>
+              <div class="slot">
+homography from altitude + gimbal + heading
+box bottom-centre = ground contact point
+confidence degrades with obliquity, range, GPS quality
+
+joint image/text embeddings (2048-d) for re-ID and search
+              </div>
+            </div>
+            <div class="arrow"></div>
+
+            <div class="node">
+              <span class="tag">Tier 3</span>
+              <div class="title">Structured scene graph</div>
+              <div class="desc">Not a caption — objects with colour, type and activity, plus lighting and anomalies. A caption is unqueryable.</div>
+              <div class="slot">
+llama-3.2-11b-vision   <span class="m">~1.3 s</span>
+detector context injected into the prompt to anchor counts
+validate → repair once → degrade to caption-only, never drop
+              </div>
+            </div>
+            <div class="arrow"></div>
+
+            <div class="decision">
+              <span class="tag">Fork · escalate?</span>
+              <div class="title">What kind of doubt is this?</div>
+              <div class="slot">
+need to <b>SEE</b> better    → 90B vision, <span class="m">57-84 s</span>, ASYNC
+                          (upgrades the record after the fact)
+need to <b>THINK</b> better  → reasoning LLM over the scene graph
+                          + memory, <span class="m">~230 ms</span>, on the path
+
+most escalations are cognitive, so the common case stays fast
+              </div>
+            </div>
+            <div class="arrow"></div>
+
+            <div class="node">
+              <span class="tag">Memory</span>
+              <div class="title">Resolve identity, then judge</div>
+              <div class="desc">Order matters: entity first, because dwell is a property of an entity; baseline last, or the frame becomes part of the normal it is measured against.</div>
+              <div class="slot">
+entity re-ID      appearance + attributes + spatio-temporal
+memory pyramid    L0 frame → L1 clip → L2 event → L3 shift → L4 day
+baseline          counts per (zone, hour, class), z-scored
+                  abstains below 3 days of history
+              </div>
+            </div>
+            <div class="arrow"></div>
+
+            <div class="decision">
+              <span class="tag">Fork · rules</span>
+              <div class="title">Temporal rule evaluation</div>
+              <div class="desc">Declarative data, not code — so a language model can author them and the engine can backtest them.</div>
+              <div class="slot">
+dwell · sequence (A then B within T) · count in window
+zone entry/exit · time-of-day · absence · baseline anomaly
+
+zone changes debounced: nested zones and failed projections
+would otherwise reset every dwell clock
+              </div>
+            </div>
+            <div class="arrow"></div>
+
+            <div class="decision">
+              <span class="tag">Fork · triage</span>
+              <div class="title">Does a human need to see this?</div>
+              <div class="desc">Suppression is a safety feature. Forty alerts a night trains an operator to dismiss all of them.</div>
+              <div class="slot">
+duplicate?             suppress
+CONTRADICTING evidence suppress outright
+  (a dog is not a person — scaling a confidence
+   cannot express "this premise is false")
+MITIGATING evidence    scale confidence, let the threshold decide
+  (rain, PPE — but PPE never excuses a critical-zone breach)
+below threshold?       suppress
+          </div>
+            </div>
+            <div class="arrow"></div>
+
+            <div class="route">
+              <span class="tag">Output</span>
+              <div class="title">Alert you can fly to + mission proposal</div>
+              <div class="desc">Coordinates, accuracy, bearing, ETA, altitude, geofence — plus a flight plan checked against battery reserve, wind and daylight.</div>
+              <div class="slot">
+TARGET    18.760018, 73.862886   +/-4.9 m (geo-projection)
+DISPATCH  230 m from dock, bearing 47 deg, ETA 39 s
+FLY AT    18 m, geofence OK
+
+LAUNCH → GOTO → ORBIT(r=20m) → TRACK(ENT-0a15-0001) → RTD
+              </div>
+            </div>
+            <div class="arrow"></div>
+
+            <div class="decision">
+              <span class="tag">Fork · the gate that matters</span>
+              <div class="title">Human approval</div>
+              <div class="desc">KESTREL cannot fly this. Proposal and approval are separate code paths, enforced in the tool registry — prompt wording is not a security control.</div>
+              <div class="slot">
+declined → recorded in the ledger, nothing changes
+approved → mission executes, decision hash-chained
+          </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="loop">
+          <b>↺ The loop closes.</b> The approved flight produces a closer, better-lit
+          frame of the same subject. That frame re-enters at Tier 0, and the resulting
+          change in confidence is <b>measured against the mission</b> rather than assumed.
+        </div>
+
+        <div class="section">Proof</div>
+        <div class="note">
+          <span class="tag">Signals</span>
+          <div class="title">What was measured, not asserted</div>
+          <div class="slot">
+<b>Scenarios</b>  8/8 correct — 5 fire as specified,
+            3 correctly silent, 0 false positives
+            (incl. both examples named in the brief)
+<b>Tests</b>      90 passing, incl. the action gate and
+            citation-grounding assertions
+<b>Gate</b>       38.9% real footage / 96.7% idle patrol
+<b>Models</b>     4 of 9 vision models actually reachable
+<b>Ledger</b>     tamper detection verified by test
+<b>Offline</b>    full system runs with no API key
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="Supporting notes">
+        <div class="section">Notes</div>
+        <div class="notes">
+          <div class="note">
+            <span class="tag">Context</span>
+            <div class="slot">
+The organising constraint is cost, not accuracy.
+
+40 req/min free tier
+57,600 frames per 8h shift
+=> captioning every frame would take
+   24 hours and cost more than the
+   guard it replaces.
+
+Almost every frame shows the same
+empty yard. The architecture exists
+to find the ones that do not.
+            </div>
+          </div>
+          <div class="note">
+            <span class="tag">Edges</span>
+            <div class="slot">
+Handled explicitly:
+
+· projection fails (ray above horizon)
+  → no fabricated coordinate
+· zone flicker at nested boundaries
+  → debounce, or dwell never accrues
+· VLM returns "none" as an anomaly
+  → nullish values filtered
+· provider 429 / cold start
+  → retry + jitter, circuit breaker,
+    cross-provider failover
+· no API key at all
+  → cassette replay, byte-identical
+            </div>
+          </div>
+          <div class="note">
+            <span class="tag">Open</span>
+            <div class="slot">
+Stated rather than hidden:
+
+· telemetry is simulated — no aircraft
+· flat-ground projection; a raised dock
+  would project long
+· re-ID uses general embeddings, not a
+  model trained for re-identification
+· open-vocab detection routes through
+  the VLM (the HF Hub was blocked on
+  the build network)
+· one site has real footage; the rest
+  of the fleet is seeded and labelled
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 250,
+      "messages": [
+        {
+          "content": "You are a security analyst writing a shift report: what happened, who was involved, anything unusual. Be specific and concrete: name entities, zones and times. Do not speculate about motive. If the period was uneventful, say so in one sentence rather than padding.",
+          "role": "system"
+        },
+        {
+          "content": "sha256:3fb568432c4f827a",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-b74023c0-ddcd-46d6-9498-7394c97d05be",
+    "object": "chat.completion",
+    "created": 1785982455,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Shift Report for 2026-08-06 02:10 to 02:14:\n\nDuring the reporting period, multiple individuals were detected in the restricted core zone of the Chakan Industrial Plant. \n\nAt 02:10, the area was empty. However, between 02:10-02:11, a worker was present in the restricted core area. From 02:11-02:12, a person wearing a high-visibility vest, yellow hard hat, and black pants was walking in the same area. \n\nBetween 02:12-02:12, another individual in a yellow hard hat and orange safety vest was seen in the Restricted Core zone and a large warehouse. From 02:12-02:13, a worker wearing a yellow hard hat and orange safety vest walked through the restricted core area and a large, open room with white pillars and a concrete floor.\n\nAt 02:11, a person in a high-visibility vest and yellow hard hat was walking towards the camera in the restricted core zone. At 02:14, two individuals were detected: one in a high-visibility vest standing in the restricted core area, and another worker in an orange vest and yellow hard hat standing in"
+        },
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.05093304,
+      "prompt_tokens": 547,
+      "prompt_time": 0.032530533,
+      "completion_tokens": 250,
+      "completion_time": 0.691415076,
+      "total_tokens": 797,
+      "total_time": 0.723945609
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzadk2mseswv99yqnpzbexx4",
+      "seed": 2068927570
+    },
+    "service_tier": "on_demand"
+  }
+}

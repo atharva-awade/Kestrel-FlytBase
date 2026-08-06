@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 700,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:6065859b8171cc7d",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:2e6647506f0d1de3"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-b401151c6d0e49119cc5544bc690271b",
+    "object": "chat.completion",
+    "created": 1785979058,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{ \"caption\": \"The image shows a dimly lit industrial site with a concrete floor and white pillars, featuring a few objects that are not clearly visible due to the low lighting conditions.\", \"objects\": [ {\"label\":\"unknown\", \"colour\":\"unknown\", \"kind\":\"unknown\", \"activity\":\"unknown\", \"count\":0, \"confidence\":0.0} ], \"activities\": [\"unknown\"], \"lighting\":\"night\", \"weather\": \"unknown\", \"visibility\": \"unknown\", \"anomalies\": [\"unknown\"], \"confidence\": 0.0 }",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3640,
+      "total_tokens": 3756,
+      "completion_tokens": 116,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

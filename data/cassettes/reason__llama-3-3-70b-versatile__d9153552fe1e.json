@@ -1,0 +1,67 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:c2c48e74fac831f2",
+          "role": "system"
+        },
+        {
+          "content": "Compile this into a rule and backtest it, but do not enable it: \"alert me if a truck parks at the dock for more than 10 mins\"",
+          "role": "user"
+        },
+        {
+          "content": "Called: compile_rule_from_text",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:7456ff9cc7237848",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-058b8dd7-0e3a-454e-9d7f-e160c9d38f87",
+    "object": "chat.completion",
+    "created": 1786074016,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The rule \"alert me if a truck parks at the dock for more than 10 mins\" has been compiled and backtested [truck-parked-at-dock]. The backtest results show that the rule would not have fired on any indexed history [backtest]. The rule is not active and requires approval to enable [next_step]."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.162330928,
+      "prompt_tokens": 997,
+      "prompt_time": 0.063033731,
+      "completion_tokens": 68,
+      "completion_time": 0.217991584,
+      "total_tokens": 1065,
+      "total_time": 0.281025315
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_45180df409",
+    "x_groq": {
+      "id": "req_01kzd4xah8ewfatwn6jbpzzp39",
+      "seed": 270480740
+    },
+    "service_tier": "on_demand"
+  }
+}

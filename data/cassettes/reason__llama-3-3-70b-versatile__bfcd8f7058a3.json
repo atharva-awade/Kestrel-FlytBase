@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 260,
+      "messages": [
+        {
+          "content": "You are a security analyst writing an incident summary for a site manager. Given a timeline of alerts, write 2-4 sentences describing what appears to have happened, in order.\n\nRules:\n- State only what the alerts state. Never invent detail.\n- Do not assert intent. 'consistent with' is acceptable; 'the intruder intended to' is not.\n- If the sequence is ambiguous, say so.\n- End with the single most useful next action.\n- No preamble, no bullet points.",
+          "role": "system"
+        },
+        {
+          "content": "Site: Chakan Industrial Plant\nThreat score: 0.50\n\nAlert timeline:\n[02:06:00] HIGH — Vehicle present outside operating hours: blue vehicle at Perimeter Fence (confidence 0.61)\n    evidence: blue vehicle detected in Perimeter Fence\n[02:06:00] HIGH — Unprecedented activity for this time and place: blue vehicle at Perimeter Fence (confidence 0.67)\n    evidence: blue vehicle detected in Perimeter Fence",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-982e665f-3c38-44e2-b709-50dc74ac031e",
+    "object": "chat.completion",
+    "created": 1785986566,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "A blue vehicle was detected at the Perimeter Fence of the Chakan Industrial Plant at 02:06:00, which is outside of operating hours, and this activity is unprecedented for this time and place. The alerts were triggered simultaneously, suggesting that the vehicle's presence is the sole observed anomaly. The sequence of events is not ambiguous, as both alerts occurred at the same time. The next action should be to review the security footage to verify the details of the vehicle and its activities."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.204764389,
+      "prompt_tokens": 235,
+      "prompt_time": 0.01132871,
+      "completion_tokens": 99,
+      "completion_time": 0.468340504,
+      "total_tokens": 334,
+      "total_time": 0.479669214
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_3272ea2d91",
+    "x_groq": {
+      "id": "req_01kzahghb9embvrrama6crry83",
+      "seed": 54613316
+    },
+    "service_tier": "on_demand"
+  }
+}

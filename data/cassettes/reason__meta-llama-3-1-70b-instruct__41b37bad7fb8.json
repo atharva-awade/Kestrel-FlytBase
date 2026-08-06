@@ -1,0 +1,95 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:7173e449d4a03010",
+          "role": "system"
+        },
+        {
+          "content": "What alerts are open?",
+          "role": "user"
+        },
+        {
+          "content": "There are 4 open alerts: \n1. Presence in a restricted area: yellow person at Restricted Core [alr_27d99d75733f]\n2. Presence in a restricted area: orange person at Electrical Substation [alr_d8a9d2ef4dcc]\n3. Loitering at a sensitive location: person at Main Gate [alr_8a88b73a2fe6]\n4. Unusual gathering outside working hours: person at Main Gate [alr_dc7cc1af0801]",
+          "role": "assistant"
+        },
+        {
+          "content": "Why did you skip so many frames?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:1a6da769ba8fb302",
+          "role": "assistant"
+        },
+        {
+          "content": "How do you decide what to escalate?",
+          "role": "user"
+        },
+        {
+          "content": "I do not have enough information from the tool results to directly answer the question of how I decide what to escalate. The describe_architecture tool result [describe_architecture] explains the tiered system of processing frames, but it does not provide specific information on how escalations are decided. The list_rules tool result [list_rules] lists the rules that are used to trigger alerts, but it does not explain how these rules are used to decide what to escalate.",
+          "role": "assistant"
+        },
+        {
+          "content": "What are your scalability limits?",
+          "role": "user"
+        },
+        {
+          "content": "Called: describe_architecture, get_pipeline_stats",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:3ec479aecc068bff",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-96bf92c7a089bf59",
+    "object": "chat.completion",
+    "created": 1786082623,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The scalability limits are determined by the number of frames that can be processed by the vision models, which is limited by the free model tier's request limit of roughly 19,200 requests per 8-hour shift [describe_architecture]. The system is designed to scale freely for the gate and YOLO11, which run locally on device, but the hosted model calls (tiers 3 and 4) must be rationed [describe_architecture]. The actual limit is dynamic and depends on how much is happening at the site, with busier sites spending more and potentially exhausting the budget [describe_architecture].",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 2176,
+      "total_tokens": 2301,
+      "completion_tokens": 125,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

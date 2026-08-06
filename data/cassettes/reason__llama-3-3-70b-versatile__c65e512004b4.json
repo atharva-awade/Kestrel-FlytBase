@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 250,
+      "messages": [
+        {
+          "content": "You are a security analyst writing a shift report: what happened, who was involved, anything unusual. Be specific and concrete: name entities, zones and times. Do not speculate about motive. If the period was uneventful, say so in one sentence rather than padding.",
+          "role": "system"
+        },
+        {
+          "content": "sha256:1e75f443c7c32fc0",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-eb1eb6bc-6d82-4927-8817-735a790e1491",
+    "object": "chat.completion",
+    "created": 1785983243,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Shift Report for Period: 2026-08-06 02:14 to 02:20\n\nDuring the reporting period, a security incident occurred involving a person and a dark grey sedan. At 02:14:40, a dark grey sedan was detected stopped on the perimeter road in the Warehouse-B area with its headlights switched off. \n\nAt 02:15:20, a person exited the sedan and stood beside the fence line. The individual then proceeded to walk along the perimeter fence at 02:16:00. They paused at the fence line beside the substation corner at 02:16:40. \n\nThe person was observed testing the perimeter fence at 02:17:20 and subsequently climbed the fence near the substation at 02:18:00. They reached the top of the fence at 02:18:40 and then dropped inside the fence line, moving towards the substation at 02:19:20. \n\nAt 02:20:00, the person was detected crouched beside a transformer housing within the electrical substation. The sedan was not observed leaving the area during the reporting period."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.162329588,
+      "prompt_tokens": 554,
+      "prompt_time": 0.028350222,
+      "completion_tokens": 236,
+      "completion_time": 0.703070425,
+      "total_tokens": 790,
+      "total_time": 0.731420647
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_45180df409",
+    "x_groq": {
+      "id": "req_01kzaeb433e01rgvn1fy466fr2",
+      "seed": 330552000
+    },
+    "service_tier": "on_demand"
+  }
+}

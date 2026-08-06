@@ -1,0 +1,95 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:80b14ac1b9c6a2de",
+          "role": "system"
+        },
+        {
+          "content": "What happened last night?",
+          "role": "user"
+        },
+        {
+          "content": "I retrieved the data but could not compose an answer (ProviderError).",
+          "role": "assistant"
+        },
+        {
+          "content": "What rules are active?",
+          "role": "user"
+        },
+        {
+          "content": "Called: list_rules",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:5986b7845a7f9bf3",
+          "role": "user"
+        },
+        {
+          "content": "Called: summarize_window",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:25b5c581d21abc7f",
+          "role": "user"
+        },
+        {
+          "content": "Called: list_alerts",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:6353c2933774803f",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-9990e252cfcf4ded",
+    "object": "chat.completion",
+    "created": 1786079214,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Last night, there were several security incidents at the Chakan Industrial Plant. \n\nA person was detected loitering at the main gate at 00:04:00 [alr_8a88b73a2fe6]. The same person was also detected at the main gate at 00:02:50, which was flagged as an unusual gathering outside working hours [alr_dc7cc1af0801]. \n\nAdditionally, there were multiple detections of people in restricted areas, including the electrical substation and the restricted core [alr_4cd0991c0592, alr_27d99d75733f, alr_d8a9d2ef4dcc]. \n\nThere was also a detection of a person loitering at an unresolved location at 02:14:40 [alr_17990f0bbb27].",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 4980,
+      "total_tokens": 5159,
+      "completion_tokens": 179,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

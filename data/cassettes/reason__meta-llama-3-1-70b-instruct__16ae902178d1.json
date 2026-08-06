@@ -1,0 +1,95 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:12864d35d1bcfbda",
+          "role": "system"
+        },
+        {
+          "content": "What happened last night?",
+          "role": "user"
+        },
+        {
+          "content": "I retrieved the data but could not compose an answer (ProviderError).",
+          "role": "assistant"
+        },
+        {
+          "content": "What rules are active?",
+          "role": "user"
+        },
+        {
+          "content": "Called: list_rules",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:5986b7845a7f9bf3",
+          "role": "user"
+        },
+        {
+          "content": "Called: summarize_window",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:044c9bd453568fb5",
+          "role": "user"
+        },
+        {
+          "content": "Called: search_frames",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:7f1f45a65426bb27",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-acab16190a5d867a",
+    "object": "chat.completion",
+    "created": 1786078010,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "A person was detected at the main gate at 00:01:40 [frm_plant-01_000002_f7fa12a573]. They were subsequently observed walking along the fence (00:02:15) [frm_plant-01_000003_03c4deb00c], standing motionless (00:02:50) [frm_plant-01_000004_bd258a8337], reaching towards the gate latch (00:03:25) [frm_plant-01_000005_a52052561a], crouching near the gate post (00:04:00) [frm_plant-01_000006_86c422626f], and looking back over their shoulder repeatedly (00:04:35) [frm_plant-01_000007_0b377220df].",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 4293,
+      "total_tokens": 4469,
+      "completion_tokens": 176,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

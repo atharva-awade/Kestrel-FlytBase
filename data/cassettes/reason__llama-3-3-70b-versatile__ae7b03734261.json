@@ -1,0 +1,51 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 256,
+      "messages": [
+        {
+          "content": "A blue pickup truck is parked; a person stands beside it. Return JSON with keys caption and objects[{label,colour}].",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-1680ed56-b321-47eb-99ef-f48b22e42765",
+    "object": "chat.completion",
+    "created": 1785962922,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"caption\": \"A person standing beside a blue pickup truck\",\n  \"objects\": [\n    {\n      \"label\": \"pickup truck\",\n      \"colour\": \"blue\"\n    },\n    {\n      \"label\": \"person\",\n      \"colour\": null\n    }\n  ]\n}\n```"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.16193887,
+      "prompt_tokens": 61,
+      "prompt_time": 0.00218514,
+      "completion_tokens": 64,
+      "completion_time": 0.129434427,
+      "total_tokens": 125,
+      "total_time": 0.131619567
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_3272ea2d91",
+    "x_groq": {
+      "id": "req_01kz9tz07jems8mc734hhg947m",
+      "seed": 823227510
+    },
+    "service_tier": "on_demand"
+  }
+}

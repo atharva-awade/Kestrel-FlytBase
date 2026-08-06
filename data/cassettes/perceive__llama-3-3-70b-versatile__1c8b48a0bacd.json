@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "You convert a security camera frame description into structured JSON. Extract only what the description states. Do not invent detail.",
+          "role": "system"
+        },
+        {
+          "content": "Site: Chakan Industrial Plant\nTime: 2026-08-06 02:17:20\nFrame description: Frame: Person places both hands on the perimeter fence and pulls, testing it.\n\nReturn JSON with keys: caption, objects[{label,colour,kind,activity,count,confidence}], activities[], lighting, weather, visibility, anomalies[], confidence.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-5fe7c19d-7a44-42c3-b381-69a60bcde3e7",
+    "object": "chat.completion",
+    "created": 1785983236,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"caption\": \"Person testing perimeter fence\",\n  \"objects\": [\n    {\n      \"label\": \"Person\",\n      \"colour\": null,\n      \"kind\": \"Human\",\n      \"activity\": \"testing fence\",\n      \"count\": 1,\n      \"confidence\": null\n    },\n    {\n      \"label\": \"Fence\",\n      \"colour\": null,\n      \"kind\": \"Perimeter fence\",\n      \"activity\": null,\n      \"count\": 1,\n      \"confidence\": null\n    }\n  ],\n  \"activities\": [\n    \"testing\"\n  ],\n  \"lighting\": null,\n  \"weather\": null,\n  \"visibility\": null,\n  \"anomalies\": [],\n  \"confidence\": null\n}\n```"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.051491429,
+      "prompt_tokens": 132,
+      "prompt_time": 0.006922801,
+      "completion_tokens": 158,
+      "completion_time": 0.286981638,
+      "total_tokens": 290,
+      "total_time": 0.293904439
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzaeaxsqeasaz1x2ys5zzpss",
+      "seed": 133096768
+    },
+    "service_tier": "on_demand"
+  }
+}

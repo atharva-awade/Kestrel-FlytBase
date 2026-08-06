@@ -1,0 +1,205 @@
+{
+  "id": "plant-09",
+  "name": "Gqeberha Assembly",
+  "kind": "industrial",
+  "origin": {
+    "lat": -33.876,
+    "lon": 25.601
+  },
+  "timezone": "Africa/Johannesburg",
+  "country": "ZA",
+  "country_name": "South Africa",
+  "zones": [
+    {
+      "id": "main-gate",
+      "name": "Main Gate",
+      "kind": "gate",
+      "polygon": [
+        {
+          "lat": -33.87607186,
+          "lon": 25.60229838
+        },
+        {
+          "lat": -33.87607186,
+          "lon": 25.60305577
+        },
+        {
+          "lat": -33.87574847,
+          "lon": 25.60305577
+        },
+        {
+          "lat": -33.87574847,
+          "lon": 25.60229838
+        }
+      ],
+      "priority": 1.6,
+      "normal_hours": [
+        6,
+        21
+      ],
+      "notes": ""
+    },
+    {
+      "id": "yard",
+      "name": "Yard",
+      "kind": "yard",
+      "polygon": [
+        {
+          "lat": -33.87528135,
+          "lon": 25.60251478
+        },
+        {
+          "lat": -33.87528135,
+          "lon": 25.60424595
+        },
+        {
+          "lat": -33.87429321,
+          "lon": 25.60424595
+        },
+        {
+          "lat": -33.87429321,
+          "lon": 25.60251478
+        }
+      ],
+      "priority": 1.2,
+      "normal_hours": [
+        6,
+        22
+      ],
+      "notes": ""
+    },
+    {
+      "id": "loading-dock",
+      "name": "Loading Dock",
+      "kind": "dock",
+      "polygon": [
+        {
+          "lat": -33.8758383,
+          "lon": 25.6012705
+        },
+        {
+          "lat": -33.8758383,
+          "lon": 25.60251478
+        },
+        {
+          "lat": -33.87529932,
+          "lon": 25.60251478
+        },
+        {
+          "lat": -33.87529932,
+          "lon": 25.6012705
+        }
+      ],
+      "priority": 1.4,
+      "normal_hours": [
+        7,
+        19
+      ],
+      "notes": ""
+    },
+    {
+      "id": "substation",
+      "name": "Substation",
+      "kind": "substation",
+      "polygon": [
+        {
+          "lat": -33.87451779,
+          "lon": 25.60397545
+        },
+        {
+          "lat": -33.87451779,
+          "lon": 25.60467874
+        },
+        {
+          "lat": -33.87406863,
+          "lon": 25.60467874
+        },
+        {
+          "lat": -33.87406863,
+          "lon": 25.60397545
+        }
+      ],
+      "priority": 2.2,
+      "normal_hours": [
+        9,
+        17
+      ],
+      "notes": ""
+    },
+    {
+      "id": "fence-line",
+      "name": "Perimeter Fence",
+      "kind": "fence",
+      "polygon": [
+        {
+          "lat": -33.8761078,
+          "lon": 25.60087016
+        },
+        {
+          "lat": -33.8761078,
+          "lon": 25.60505743
+        },
+        {
+          "lat": -33.87384405,
+          "lon": 25.60505743
+        },
+        {
+          "lat": -33.87384405,
+          "lon": 25.60087016
+        },
+        {
+          "lat": -33.8761078,
+          "lon": 25.60087016
+        },
+        {
+          "lat": -33.87393388,
+          "lon": 25.60097836
+        },
+        {
+          "lat": -33.87393388,
+          "lon": 25.60494923
+        },
+        {
+          "lat": -33.87601797,
+          "lon": 25.60494923
+        },
+        {
+          "lat": -33.87601797,
+          "lon": 25.60097836
+        },
+        {
+          "lat": -33.87393388,
+          "lon": 25.60097836
+        }
+      ],
+      "priority": 2.0,
+      "normal_hours": null,
+      "notes": ""
+    }
+  ],
+  "dock": {
+    "lat": -33.87562271,
+    "lon": 25.60305577
+  },
+  "geofence": [
+    {
+      "lat": -33.87626949,
+      "lon": 25.60067541
+    },
+    {
+      "lat": -33.87626949,
+      "lon": 25.60527383
+    },
+    {
+      "lat": -33.87368236,
+      "lon": 25.60527383
+    },
+    {
+      "lat": -33.87368236,
+      "lon": 25.60067541
+    }
+  ],
+  "max_altitude_m": 120.0,
+  "live_footage": false,
+  "notes": "Simulated fleet site: seeded event generator, no live footage."
+}

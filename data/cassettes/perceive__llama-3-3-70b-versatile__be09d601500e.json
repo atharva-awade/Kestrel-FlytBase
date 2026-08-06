@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "You convert a security camera frame description into structured JSON. Extract only what the description states. Do not invent detail.",
+          "role": "system"
+        },
+        {
+          "content": "Site: Chakan Industrial Plant\nTime: 2026-08-05 15:33:00\nFrame description: Frame: Blue Ford F-150 parked at the loading dock, driver unloading.\n\nReturn JSON with keys: caption, objects[{label,colour,kind,activity,count,confidence}], activities[], lighting, weather, visibility, anomalies[], confidence.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-c28202b7-0417-4057-8771-1bb17cdb63ea",
+    "object": "chat.completion",
+    "created": 1785983532,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"caption\": \"Blue Ford F-150 parked at the loading dock, driver unloading\",\n  \"objects\": [\n    {\n      \"label\": \"vehicle\",\n      \"colour\": \"blue\",\n      \"kind\": \"Ford F-150\",\n      \"activity\": \"parked\",\n      \"count\": 1,\n      \"confidence\": null\n    },\n    {\n      \"label\": \"person\",\n      \"colour\": null,\n      \"kind\": \"driver\",\n      \"activity\": \"unloading\",\n      \"count\": 1,\n      \"confidence\": null\n    }\n  ],\n  \"activities\": [\n    \"unloading\"\n  ],\n  \"lighting\": null,\n  \"weather\": null,\n  \"visibility\": null,\n  \"anomalies\": [],\n  \"confidence\": null\n}\n```"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.057247682,
+      "prompt_tokens": 133,
+      "prompt_time": 0.006870898,
+      "completion_tokens": 172,
+      "completion_time": 0.316488491,
+      "total_tokens": 305,
+      "total_time": 0.323359389
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzaekypseg0a26ffwgc5031n",
+      "seed": 796849032
+    },
+    "service_tier": "on_demand"
+  }
+}

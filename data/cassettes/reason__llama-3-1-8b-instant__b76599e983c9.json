@@ -1,0 +1,83 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:c3dbd4c2acbd905e",
+          "role": "system"
+        },
+        {
+          "content": "What happened last night?",
+          "role": "user"
+        },
+        {
+          "content": "I retrieved the data but could not compose an answer (ProviderError).",
+          "role": "assistant"
+        },
+        {
+          "content": "What rules are active?",
+          "role": "user"
+        },
+        {
+          "content": "A person was detected at the main gate at 00:01:40 [frm_plant-01_000002_f7fa12a573]. They were subsequently observed walking along the fence (00:02:15) [frm_plant-01_000003_03c4deb00c], standing motionless (00:02:50) [frm_plant-01_000004_bd258a8337], reaching towards the gate latch (00:03:25) [frm_plant-01_000005_a52052561a], crouching near the gate post (00:04:00) [frm_plant-01_000006_86c422626f], and looking back over their shoulder repeatedly (00:04:35) [frm_plant-01_000007_0b377220df].",
+          "role": "assistant"
+        },
+        {
+          "content": "What rules are active and why?",
+          "role": "user"
+        },
+        {
+          "content": "I retrieved the data but could not compose an answer (ProviderError).",
+          "role": "assistant"
+        },
+        {
+          "content": "Has this vehicle been seen at another site?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-b500092b-0ff3-4f50-93e7-a4b228b0368f",
+    "object": "chat.completion",
+    "created": 1786078103,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"get_entity\",\"arguments\":{\"id\":\"ENT-000001\"}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.052033326,
+      "prompt_tokens": 1412,
+      "prompt_time": 0.087709053,
+      "completion_tokens": 19,
+      "completion_time": 0.042535074,
+      "total_tokens": 1431,
+      "total_time": 0.130244127
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzd8t1s4e37v2t18j1zemw85",
+      "seed": 278364956
+    },
+    "service_tier": "on_demand"
+  }
+}

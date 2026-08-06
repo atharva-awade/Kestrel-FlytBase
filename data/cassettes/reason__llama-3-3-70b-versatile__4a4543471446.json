@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 400,
+      "messages": [
+        {
+          "content": "You are a security analyst writing a daily site summary: patterns, recurring entities, and notable deviations. Be specific and concrete: name entities, zones and times. Do not speculate about motive. If the period was uneventful, say so in one sentence rather than padding.",
+          "role": "system"
+        },
+        {
+          "content": "sha256:663b9a3f1f1399f5",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-6c810cbe-406c-4ca9-afe7-144c9e59ae31",
+    "object": "chat.completion",
+    "created": 1785983563,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Daily Site Summary for 2026-08-03, 09:12 to 16:44:\n\nThe period was marked by two incidents involving a blue Ford F-150 pickup truck, which arrived at the main gate at 09:12 and 16:40, respectively. On both occasions, the vehicle proceeded to the loading dock, where the driver unloaded cargo, before departing through the main gate at 09:16 and 16:44. The incidents involved the main gate and loading dock zones, with a single person and vehicle involved in each instance. No other notable activity was reported during the period."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.162737686,
+      "prompt_tokens": 330,
+      "prompt_time": 0.020927903,
+      "completion_tokens": 126,
+      "completion_time": 0.412882942,
+      "total_tokens": 456,
+      "total_time": 0.433810845
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_45180df409",
+    "x_groq": {
+      "id": "req_01kzaemx3qerfb7s18wq3bdvb5",
+      "seed": 654699753
+    },
+    "service_tier": "on_demand"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "id": "shift-change-busy",
+  "title": "Shift change: high benign volume",
+  "description": "Twelve frames of heavy but entirely normal activity during the 18:00 shift change. Exercises alert suppression and cooldowns: a system that raises twenty alerts here would be turned off within a week.",
+  "expect_alerts": [],
+  "expect_no_alerts": [
+    "loitering",
+    "perimeter-breach",
+    "after-hours-vehicle"
+  ],
+  "expect_entities": [
+    "person",
+    "forklift",
+    "white van"
+  ],
+  "tags": [
+    "load",
+    "suppression",
+    "true-negative"
+  ],
+  "frames": [
+    {
+      "at": "2026-08-06T17:52:00",
+      "text": "Frame: Staff parking filling as the shift changes; several cars arriving."
+    },
+    {
+      "at": "2026-08-06T17:52:40",
+      "text": "Frame: Six people walking from staff parking towards warehouse A."
+    },
+    {
+      "at": "2026-08-06T17:53:20",
+      "text": "Frame: A silver hatchback parks in staff parking bay 12."
+    },
+    {
+      "at": "2026-08-06T17:54:00",
+      "text": "Frame: Four people at the warehouse A entrance, badging in."
+    },
+    {
+      "at": "2026-08-06T17:54:40",
+      "text": "Frame: Two forklifts moving pallets in the yard."
+    },
+    {
+      "at": "2026-08-06T17:55:20",
+      "text": "Frame: A white van arrives at the loading dock for a scheduled collection."
+    },
+    {
+      "at": "2026-08-06T17:56:00",
+      "text": "Frame: Eight people crossing the access road towards the car park."
+    },
+    {
+      "at": "2026-08-06T17:56:40",
+      "text": "Frame: A red hatchback departs staff parking towards the main gate."
+    },
+    {
+      "at": "2026-08-06T17:57:20",
+      "text": "Frame: Yard busy with two forklifts and three people in high-visibility vests."
+    },
+    {
+      "at": "2026-08-06T17:58:00",
+      "text": "Frame: Loading dock activity: van loading, two staff assisting."
+    },
+    {
+      "at": "2026-08-06T17:58:40",
+      "text": "Frame: Staff parking half empty; people walking towards the main gate."
+    },
+    {
+      "at": "2026-08-06T17:59:20",
+      "text": "Frame: Quiet yard; one forklift parked, no people visible."
+    }
+  ]
+}

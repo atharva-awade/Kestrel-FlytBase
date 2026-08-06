@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:86ddcc016943bb7f",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:ba8ddfa0baf48042"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-6050873e447d47b38119552b6f18a095",
+    "object": "chat.completion",
+    "created": 1785982235,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The image shows a man in a yellow hard hat and orange safety vest standing in an industrial area, with a concrete floor and white pillars. The man is wearing a gray shirt underneath his vest and has his back to the camera. He is holding a long, black and yellow rope or cable in his right hand.\n\n*   The man is wearing a yellow hard hat and an orange safety vest.\n*   He is holding a long, black and yellow rope or cable in his right hand.\n*   The man is standing in an industrial area with a concrete floor and white pillars.\n*   There are no other people or objects visible in the image.\n\n**Activities:**\n\n*   The man is holding a rope or cable, which suggests that he may be preparing to secure something or pull something towards him.\n*   The man is standing in an industrial area, which suggests that he may be working on a construction or maintenance project.\n\n**Lighting:**\n\n*   The lighting in the image is dim, suggesting that it may be nighttime or that the area is poorly lit.\n\n**Weather:**\n\n*   There is no visible weather in the image, suggesting that it may be nighttime or that the area is indoors.\n\n**Visibility:**\n\n*   The visibility in the image is good, suggesting that the area is well-lit and that there are no obstructions blocking the view.\n\n**Anomalies:**\n\n*   There are no visible anomalies in the image, suggesting that everything appears to be in order.\n\n**Confidence:**\n\n*   The confidence level for this image is high, suggesting that the analysis is accurate and reliable.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3640,
+      "total_tokens": 3968,
+      "completion_tokens": 328,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

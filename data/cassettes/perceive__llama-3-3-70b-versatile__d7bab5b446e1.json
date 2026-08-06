@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "You convert a security camera frame description into structured JSON. Extract only what the description states. Do not invent detail.",
+          "role": "system"
+        },
+        {
+          "content": "Site: Chakan Industrial Plant\nTime: 2026-08-06 02:19:20\nFrame description: Frame: Person drops inside the fence line and moves towards the substation.\n\nReturn JSON with keys: caption, objects[{label,colour,kind,activity,count,confidence}], activities[], lighting, weather, visibility, anomalies[], confidence.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-50e45bb0-ea58-494b-94b9-7c259cc9ba37",
+    "object": "chat.completion",
+    "created": 1785983240,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"caption\": \"Person drops inside the fence line and moves towards the substation\",\n  \"objects\": [\n    {\n      \"label\": \"Person\",\n      \"colour\": null,\n      \"kind\": \"human\",\n      \"activity\": \"moving\",\n      \"count\": 1,\n      \"confidence\": null\n    }\n  ],\n  \"activities\": [\n    \"dropping\",\n    \"moving\"\n  ],\n  \"lighting\": null,\n  \"weather\": null,\n  \"visibility\": null,\n  \"anomalies\": [\n    \"person inside the fence line\"\n  ],\n  \"confidence\": null\n}\n```"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.163239743,
+      "prompt_tokens": 131,
+      "prompt_time": 0.012559276,
+      "completion_tokens": 134,
+      "completion_time": 0.292262791,
+      "total_tokens": 265,
+      "total_time": 0.304822067
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_3272ea2d91",
+    "x_groq": {
+      "id": "req_01kzaeb1esepetm8s62745vd5s",
+      "seed": 183460746
+    },
+    "service_tier": "on_demand"
+  }
+}

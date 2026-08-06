@@ -1,0 +1,51 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 8,
+      "messages": [
+        {
+          "content": "Classify: 'show me all trucks'. One word: LOOKUP or ACTION.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-fc20b489-0550-4253-b91d-4573b3306d71",
+    "object": "chat.completion",
+    "created": 1785962921,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "ACTION"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.049679627,
+      "prompt_tokens": 52,
+      "prompt_time": 0.003043302,
+      "completion_tokens": 2,
+      "completion_time": 0.007474913,
+      "total_tokens": 54,
+      "total_time": 0.010518215
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kz9tyz94esct8h9bamfgh53j",
+      "seed": 1218778505
+    },
+    "service_tier": "on_demand"
+  }
+}

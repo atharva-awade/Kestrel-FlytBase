@@ -1,0 +1,91 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:f870445095d86c09",
+          "role": "system"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "The following rules are enabled: \n[loitering], \n[perimeter-breach], \n[restricted-zone], \n[after-hours-vehicle], \n[tailgating], \n[unattended-object], \n[baseline-anomaly], \n[unusual-gathering]. \n\nAll 8 rules returned by the tool are enabled. [list_rules]",
+          "role": "assistant"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "The following rules are enabled: \n[loitering], \n[perimeter-breach], \n[restricted-zone], \n[after-hours-vehicle], \n[tailgating], \n[unattended-object], \n[baseline-anomaly], \n[unusual-gathering]. \n\nAll 8 rules returned by the tool are enabled, as indicated by \"enabled\": true in their respective conditions [loitering], [perimeter-breach], [restricted-zone], [after-hours-vehicle], [tailgating], [unattended-object], [baseline-anomaly], [unusual-gathering].",
+          "role": "assistant"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "I retrieved the data but could not compose an answer (ProviderError).",
+          "role": "assistant"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "Called: list_rules",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:272a3d80c215d348",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-b05493c0-4c71-4dba-ae1e-06a2013dd9b9",
+    "object": "chat.completion",
+    "created": 1786059395,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The following rules are enabled: \n[loitering], \n[perimeter-breach], \n[restricted-zone], \n[after-hours-vehicle], \n[tailgating], \n[unattended-object], \n[baseline-anomaly], \n[unusual-gathering]. \n\nAll 8 rules have \"enabled\": true, as shown in the tool results."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.051326768,
+      "prompt_tokens": 1785,
+      "prompt_time": 0.089964249,
+      "completion_tokens": 75,
+      "completion_time": 0.155325701,
+      "total_tokens": 1860,
+      "total_time": 0.24528995
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzcpz4gmekh8bxe1drx608xx",
+      "seed": 1660290540
+    },
+    "service_tier": "on_demand"
+  }
+}

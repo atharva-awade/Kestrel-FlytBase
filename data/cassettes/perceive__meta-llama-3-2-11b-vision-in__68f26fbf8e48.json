@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:098bf0028ae51b16",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:1eec53eb5ebaec99"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-a544f3f850a8401098adc72f71653b10",
+    "object": "chat.completion",
+    "created": 1785982763,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The image shows a person wearing a yellow hard hat and an orange safety vest walking through a large, open room with white pillars and a concrete floor. The room appears to be under construction or renovation, as evidenced by the exposed wiring and pipes on the walls.\n\nHere is a detailed description of the image:\n\n*   **Person**\n    *   The person is wearing a yellow hard hat and an orange safety vest.\n    *   They are walking towards the right side of the image.\n    *   Their body is facing away from the camera, but their head is turned slightly towards it.\n    *   They appear to be wearing dark pants and a dark shirt.\n*   **Room**\n    *   The room is large and open, with white pillars supporting the ceiling.\n    *   The floor is made of concrete and has a rough texture.\n    *   There are several doors and windows visible in the background.\n    *   The walls are painted white, but there are some areas where the paint is peeling or missing.\n*   **Background**\n    *   The background of the image shows a hallway or corridor leading out of the room.\n    *   There are several doors and windows visible in the background, as well as some machinery or equipment.\n    *   The walls are painted white, but there are some areas where the paint is peeling or missing.\n\nIn summary, the image shows a person wearing a yellow hard hat and an orange safety vest walking through a large, open room with white pillars and a concrete floor. The room appears to be under construction or renovation, and there are several doors and windows visible in the background.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3672,
+      "total_tokens": 4004,
+      "completion_tokens": 332,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:f85d9d9262e3d15f",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:1a839553dd60f985"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-7e9c26d19e75431391806e62e184b90c",
+    "object": "chat.completion",
+    "created": 1785982749,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The image shows a person wearing a yellow hard hat and an orange safety vest walking through a large, open room with white walls and pillars. The floor is made of concrete and has red lines painted on it.\n\n*   The person is wearing a yellow hard hat and an orange safety vest.\n*   The person is walking towards the right side of the image.\n*   The person is wearing black pants and shoes.\n*   The person is not carrying any objects.\n\nThe room appears to be a warehouse or factory, and the person may be a worker or inspector. The red lines on the floor could be a safety feature or a guide for navigation.\n\n**Objects:**\n\n*   1x person\n*   1x cardboard box\n\n**Activities:**\n\n*   The person is walking towards the right side of the image.\n\n**Anomalies:**\n\n*   None\n\n**Confidence:**\n\n*   0.8 (high confidence in the detection of the person and the cardboard box)\n\n**Lighting:**\n\n*   Night\n\n**Weather:**\n\n*   Unknown\n\n**Visibility:**\n\n*   Clear\n\n**Caption:**\n\n*   A person wearing a yellow hard hat and an orange safety vest is walking through a large, open room with white walls and pillars.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3672,
+      "total_tokens": 3932,
+      "completion_tokens": 260,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

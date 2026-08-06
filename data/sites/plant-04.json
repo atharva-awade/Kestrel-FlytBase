@@ -1,0 +1,205 @@
+{
+  "id": "plant-04",
+  "name": "Rayong Assembly",
+  "kind": "industrial",
+  "origin": {
+    "lat": 12.681,
+    "lon": 101.256
+  },
+  "timezone": "Asia/Bangkok",
+  "country": "TH",
+  "country_name": "Thailand",
+  "zones": [
+    {
+      "id": "main-gate",
+      "name": "Main Gate",
+      "kind": "gate",
+      "polygon": [
+        {
+          "lat": 12.68092814,
+          "lon": 101.25710493
+        },
+        {
+          "lat": 12.68092814,
+          "lon": 101.25774947
+        },
+        {
+          "lat": 12.68125153,
+          "lon": 101.25774947
+        },
+        {
+          "lat": 12.68125153,
+          "lon": 101.25710493
+        }
+      ],
+      "priority": 1.6,
+      "normal_hours": [
+        6,
+        21
+      ],
+      "notes": ""
+    },
+    {
+      "id": "yard",
+      "name": "Yard",
+      "kind": "yard",
+      "polygon": [
+        {
+          "lat": 12.68171865,
+          "lon": 101.25728908
+        },
+        {
+          "lat": 12.68171865,
+          "lon": 101.25876231
+        },
+        {
+          "lat": 12.68270679,
+          "lon": 101.25876231
+        },
+        {
+          "lat": 12.68270679,
+          "lon": 101.25728908
+        }
+      ],
+      "priority": 1.2,
+      "normal_hours": [
+        6,
+        22
+      ],
+      "notes": ""
+    },
+    {
+      "id": "loading-dock",
+      "name": "Loading Dock",
+      "kind": "dock",
+      "polygon": [
+        {
+          "lat": 12.6811617,
+          "lon": 101.25623019
+        },
+        {
+          "lat": 12.6811617,
+          "lon": 101.25728908
+        },
+        {
+          "lat": 12.68170068,
+          "lon": 101.25728908
+        },
+        {
+          "lat": 12.68170068,
+          "lon": 101.25623019
+        }
+      ],
+      "priority": 1.4,
+      "normal_hours": [
+        7,
+        19
+      ],
+      "notes": ""
+    },
+    {
+      "id": "substation",
+      "name": "Substation",
+      "kind": "substation",
+      "polygon": [
+        {
+          "lat": 12.68248221,
+          "lon": 101.25853212
+        },
+        {
+          "lat": 12.68248221,
+          "lon": 101.25913062
+        },
+        {
+          "lat": 12.68293137,
+          "lon": 101.25913062
+        },
+        {
+          "lat": 12.68293137,
+          "lon": 101.25853212
+        }
+      ],
+      "priority": 2.2,
+      "normal_hours": [
+        9,
+        17
+      ],
+      "notes": ""
+    },
+    {
+      "id": "fence-line",
+      "name": "Perimeter Fence",
+      "kind": "fence",
+      "polygon": [
+        {
+          "lat": 12.6808922,
+          "lon": 101.25588951
+        },
+        {
+          "lat": 12.6808922,
+          "lon": 101.25945289
+        },
+        {
+          "lat": 12.68315595,
+          "lon": 101.25945289
+        },
+        {
+          "lat": 12.68315595,
+          "lon": 101.25588951
+        },
+        {
+          "lat": 12.6808922,
+          "lon": 101.25588951
+        },
+        {
+          "lat": 12.68306612,
+          "lon": 101.25598158
+        },
+        {
+          "lat": 12.68306612,
+          "lon": 101.25936081
+        },
+        {
+          "lat": 12.68098203,
+          "lon": 101.25936081
+        },
+        {
+          "lat": 12.68098203,
+          "lon": 101.25598158
+        },
+        {
+          "lat": 12.68306612,
+          "lon": 101.25598158
+        }
+      ],
+      "priority": 2.0,
+      "normal_hours": null,
+      "notes": ""
+    }
+  ],
+  "dock": {
+    "lat": 12.68137729,
+    "lon": 101.25774947
+  },
+  "geofence": [
+    {
+      "lat": 12.68073051,
+      "lon": 101.25572377
+    },
+    {
+      "lat": 12.68073051,
+      "lon": 101.25963705
+    },
+    {
+      "lat": 12.68331764,
+      "lon": 101.25963705
+    },
+    {
+      "lat": 12.68331764,
+      "lon": 101.25572377
+    }
+  ],
+  "max_altitude_m": 120.0,
+  "live_footage": false,
+  "notes": "Simulated fleet site: seeded event generator, no live footage."
+}

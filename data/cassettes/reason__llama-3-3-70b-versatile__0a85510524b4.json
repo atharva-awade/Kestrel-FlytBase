@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 60,
+      "messages": [
+        {
+          "content": "You compress security camera observations. Write ONE factual sentence covering what happened across these frames. Name objects, people and places. State only what the observations state — never infer intent. No preamble.",
+          "role": "system"
+        },
+        {
+          "content": "[02:11:10] nothing: A high-visibility worker in an orange vest and yellow hard hat is standing in the middle of a large, empty warehouse with concrete\n[02:11:20] person: A person in a high-visibility vest is walking towards the camera, wearing a yellow hard hat.\n[02:11:30] person: A person in a high-visibility vest is walking towards the camera in the restricted core zone of the Chakan Industrial Plant.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-b22c6cf4-dcec-4937-965b-3724468ee1c4",
+    "object": "chat.completion",
+    "created": 1785982453,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "A person in a high-visibility vest and yellow hard hat is walking towards the camera in the restricted core zone of the Chakan Industrial Plant."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.050861234,
+      "prompt_tokens": 172,
+      "prompt_time": 0.014043348,
+      "completion_tokens": 30,
+      "completion_time": 0.054716612,
+      "total_tokens": 202,
+      "total_time": 0.06875996
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzadk1hpes1t2rqp4vnx0k6k",
+      "seed": 1631265501
+    },
+    "service_tier": "on_demand"
+  }
+}

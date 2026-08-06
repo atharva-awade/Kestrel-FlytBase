@@ -1,0 +1,71 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:c9b0fdcb6f422b4a",
+          "role": "system"
+        },
+        {
+          "content": "What happened last night?",
+          "role": "user"
+        },
+        {
+          "content": "Called: summarize_window",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:1222c84efbd40061",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-b22b9d241b2019b2",
+    "object": "chat.completion",
+    "created": 1786081970,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "A person was observed approaching and interacting with the main gate at 00:01:05 [ENT-0a15-0001, ENT-0a15-0002, ENT-0a15-0003, ENT-0a15-0004, ENT-0a15-0005]. They were seen walking towards the main gate from the access road, reaching the gate at 00:01:40, and then walking along the fence, standing motionless, reaching towards the gate latch, crouching near the gate post, and looking back over their shoulder repeatedly. The individual was last seen walking away from the main gate along the fence line at 00:05:10.\n\nLater, at 02:11, a person wearing a high-visibility vest, yellow hard hat, and black pants was seen walking in the restricted core area [ENT-0a15-0001]. Multiple individuals were observed in the Restricted Core zone between 02:10-02:14, including a worker with a yellow hard hat and orange safety vest walking in the restricted core area and then through a large room with white pillars and a concrete floor.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 2343,
+      "total_tokens": 2581,
+      "completion_tokens": 238,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

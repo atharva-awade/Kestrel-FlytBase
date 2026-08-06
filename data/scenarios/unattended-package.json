@@ -1,0 +1,60 @@
+{
+  "id": "unattended-package",
+  "title": "Package left at the gate",
+  "description": "A courier leaves a package beside the main gate and departs. The package remains for a prolonged period. Tests the 'object appears and persists without an owner' pattern, which needs entity persistence rather than a per-frame rule.",
+  "expect_alerts": [
+    "unattended-object"
+  ],
+  "expect_no_alerts": [
+    "perimeter-breach"
+  ],
+  "expect_entities": [
+    "white van",
+    "person",
+    "cardboard box"
+  ],
+  "tags": [
+    "alert",
+    "dusk",
+    "object-persistence",
+    "true-positive"
+  ],
+  "frames": [
+    {
+      "at": "2026-08-06T19:40:00",
+      "text": "Frame: Main gate area clear at dusk."
+    },
+    {
+      "at": "2026-08-06T19:41:30",
+      "text": "Frame: A white van stops on the access road beside the main gate."
+    },
+    {
+      "at": "2026-08-06T19:43:00",
+      "text": "Frame: A courier carries a cardboard box from the van towards the main gate."
+    },
+    {
+      "at": "2026-08-06T19:44:30",
+      "text": "Frame: Courier sets the cardboard box down beside the main gate post."
+    },
+    {
+      "at": "2026-08-06T19:46:00",
+      "text": "Frame: Courier returns to the white van without the box."
+    },
+    {
+      "at": "2026-08-06T19:47:30",
+      "text": "Frame: White van departs; cardboard box remains beside the main gate."
+    },
+    {
+      "at": "2026-08-06T19:49:00",
+      "text": "Frame: Cardboard box still beside the main gate; no people present."
+    },
+    {
+      "at": "2026-08-06T19:50:30",
+      "text": "Frame: Cardboard box still beside the main gate under gate lighting."
+    },
+    {
+      "at": "2026-08-06T19:52:00",
+      "text": "Frame: Cardboard box unattended at the main gate."
+    }
+  ]
+}

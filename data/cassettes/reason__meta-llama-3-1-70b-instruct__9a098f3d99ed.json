@@ -1,0 +1,95 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:f8a0c44e1b0c192b",
+          "role": "system"
+        },
+        {
+          "content": "How does the gate work?",
+          "role": "user"
+        },
+        {
+          "content": "The gate at Chakan Industrial Plant is shown in various frames, but the tool results do not provide information on how the gate works [frm_plant-01_000009_0d1649ffd8, frm_plant-01_000000_5d287e2032]. The results do show a person interacting with the gate, including reaching towards the gate latch [frm_plant-01_000005_a52052561a], but do not explain the gate's mechanism.",
+          "role": "assistant"
+        },
+        {
+          "content": "How does your memory compression work?",
+          "role": "user"
+        },
+        {
+          "content": "My memory compression works through a hierarchical system called the Temporal Pyramid [describe_architecture]. It compresses raw observations into a salience-weighted hierarchy of frame, clip, event, shift, and day [describe_architecture]. This allows for efficient storage and retrieval of information, with the ability to expand summaries back to the original frames [describe_architecture].",
+          "role": "assistant"
+        },
+        {
+          "content": "How do you verify a citation?",
+          "role": "user"
+        },
+        {
+          "content": "I have no information about how I verify a citation from the tool results. The tool \"describe_architecture\" [describe_architecture] explains the retrieval system, including the use of two indexes, vector search, and fusion, but does not address citation verification.",
+          "role": "assistant"
+        },
+        {
+          "content": "What are your scalability limits?",
+          "role": "user"
+        },
+        {
+          "content": "Called: describe_architecture",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:98a24996a5fd05cd",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-af92b00b168fa4ef",
+    "object": "chat.completion",
+    "created": 1786079585,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The tool results do not provide information on my scalability limits. The results describe the fleet architecture and its capabilities, but do not address scalability limits [describe_architecture].",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 1046,
+      "total_tokens": 1080,
+      "completion_tokens": 34,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:a4f72186fc395c00",
+          "role": "system"
+        },
+        {
+          "content": "What alerts are open?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-45ee67a3-b8c8-4368-9a88-15074569665a",
+    "object": "chat.completion",
+    "created": 1786084909,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"list_alerts\",\"arguments\":{\"site_id\":\"plant-01\",\"status\":\"open\"}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.057184166,
+      "prompt_tokens": 1170,
+      "prompt_time": 0.110324763,
+      "completion_tokens": 24,
+      "completion_time": 0.043546175,
+      "total_tokens": 1194,
+      "total_time": 0.153870938
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzdf9r6keyxa50jd5cc734vn",
+      "seed": 1277945469
+    },
+    "service_tier": "on_demand"
+  }
+}

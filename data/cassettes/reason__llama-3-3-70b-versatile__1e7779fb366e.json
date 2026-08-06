@@ -1,0 +1,83 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:e777456ed3eb142d",
+          "role": "system"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "I could not find a tool that answers that. Try asking about what was seen, an entity, an alert, the rules, the fleet, or how I work.",
+          "role": "assistant"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "The following rules are enabled: \n1. Loitering at a sensitive location [loitering] \n2. Perimeter fence activity [perimeter-breach] \n3. Presence in a restricted area [restricted-zone] \n4. Vehicle present outside operating hours [after-hours-vehicle] \n5. Vehicle followed another through the gate [tailgating] \n6. Unattended object near an access point [unattended-object] \n7. Unprecedented activity for this time and place [baseline-anomaly] \n8. Unusual gathering outside working hours [unusual-gathering]",
+          "role": "assistant"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "I retrieved the data but could not compose an answer (ProviderError).",
+          "role": "assistant"
+        },
+        {
+          "content": "What happened last night?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:fdfb5b56d715159c",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-01374d6b-77e9-4338-80e7-307472b51801",
+    "object": "chat.completion",
+    "created": 1786018439,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"summarize_window\",\"arguments\":{\"start_time\":\"2026-08-05 17:43:57\",\"end_time\":\"2026-08-06 17:43:57\"}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.056909832,
+      "prompt_tokens": 1345,
+      "prompt_time": 0.197328267,
+      "completion_tokens": 46,
+      "completion_time": 0.139710362,
+      "total_tokens": 1391,
+      "total_time": 0.337038629
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzbfx860entvp1evv3xcvmcs",
+      "seed": 941124920
+    },
+    "service_tier": "on_demand"
+  }
+}

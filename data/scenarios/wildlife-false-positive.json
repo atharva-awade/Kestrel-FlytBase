@@ -1,0 +1,45 @@
+{
+  "id": "wildlife-false-positive",
+  "title": "Animal movement at the fence line",
+  "description": "A stray dog moves along the fence line at 03:00 and lingers. Motion, night-time, high-priority zone, extended dwell: every surface signal of an intrusion. The system must not raise a perimeter breach.",
+  "expect_alerts": [],
+  "expect_no_alerts": [
+    "perimeter-breach",
+    "loitering",
+    "restricted-zone"
+  ],
+  "expect_entities": [
+    "dog"
+  ],
+  "tags": [
+    "false-positive",
+    "night",
+    "true-negative"
+  ],
+  "frames": [
+    {
+      "at": "2026-08-05T03:02:00",
+      "text": "Frame: Fence line quiet under yard lighting; a light breeze moves vegetation."
+    },
+    {
+      "at": "2026-08-05T03:02:45",
+      "text": "Frame: A stray dog trots along the inside of the perimeter fence."
+    },
+    {
+      "at": "2026-08-05T03:03:30",
+      "text": "Frame: The dog stops beside the fence line and sniffs at the base of a post."
+    },
+    {
+      "at": "2026-08-05T03:04:15",
+      "text": "Frame: The dog remains at the fence line, lying down beside the post."
+    },
+    {
+      "at": "2026-08-05T03:05:00",
+      "text": "Frame: The dog is still at the fence line, moving occasionally."
+    },
+    {
+      "at": "2026-08-05T03:05:45",
+      "text": "Frame: The dog stands and continues along the fence line out of view."
+    }
+  ]
+}

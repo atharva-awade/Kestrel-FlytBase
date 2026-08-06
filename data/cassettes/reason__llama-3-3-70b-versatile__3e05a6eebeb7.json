@@ -1,0 +1,67 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:c2c48e74fac831f2",
+          "role": "system"
+        },
+        {
+          "content": "Compile this into a rule and backtest it, but do not enable it: \"alert me if a truck parks at the dock for more than 10 mins\"",
+          "role": "user"
+        },
+        {
+          "content": "Called: compile_rule_from_text",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:7456ff9cc7237848",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-e5aa6213-62ab-4ece-b925-3c6ff74b8594",
+    "object": "chat.completion",
+    "created": 1786074016,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.055966778,
+      "prompt_tokens": 1671,
+      "prompt_time": 0.090920671,
+      "completion_tokens": 5,
+      "completion_time": 0.014040418,
+      "total_tokens": 1676,
+      "total_time": 0.104961089
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzd4xaa8ea587xgjy7r2wfa8",
+      "seed": 117514104
+    },
+    "service_tier": "on_demand"
+  }
+}

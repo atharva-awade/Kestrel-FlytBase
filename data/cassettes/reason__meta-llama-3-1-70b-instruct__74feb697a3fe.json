@@ -1,0 +1,103 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:452f6156203db73a",
+          "role": "system"
+        },
+        {
+          "content": "What rules are active?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:52029bbfc6131d13",
+          "role": "assistant"
+        },
+        {
+          "content": "What rules are active and why?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:4865caf8a40a5041",
+          "role": "assistant"
+        },
+        {
+          "content": "Has this vehicle been seen at another site?",
+          "role": "user"
+        },
+        {
+          "content": "I have no information about the vehicle's presence at another site. The tool \"get_entity\" returned an error [get_entity].",
+          "role": "assistant"
+        },
+        {
+          "content": "Has any vehicle been seen at more than one site?",
+          "role": "user"
+        },
+        {
+          "content": "Called: correlate_entity_across_sites",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:5b63354f3f846cd1",
+          "role": "user"
+        },
+        {
+          "content": "Called: get_entity",
+          "role": "assistant"
+        },
+        {
+          "content": "Tool results:\n[{\"tool\":\"get_entity\",\"arguments\":{\"entity_id\":\"ENT-b032-9001\"},\"result\":{\"ok\":true,\"tool\":\"get_entity\",\"renders_as\":\"entity_card\",\"found\":false,\"entity_id\":\"ENT-b032-9001\",\"message\":\"no entity ENT-b032-9001 in the index\"}}]",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-8808ce5aeb89792a",
+    "object": "chat.completion",
+    "created": 1786082150,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "A vehicle, a white panel van [ENT-b032-9001, ENT-52f6-9001, ENT-c1ae-9001], has been seen at more than one site: Navi Mumbai Data Centre [dc-01], Dublin Data Campus [dc-02], and Sanand Auto Plant [plant-02].",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 1263,
+      "total_tokens": 1333,
+      "completion_tokens": 70,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

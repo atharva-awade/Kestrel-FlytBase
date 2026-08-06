@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 380,
+      "messages": [
+        {
+          "content": "sha256:b31e3ff4c446d1ff",
+          "role": "system"
+        },
+        {
+          "content": "sha256:f82e0db695a623f3",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-99a6c37a-c179-4cc2-8f19-b47e15aa39f6",
+    "object": "chat.completion",
+    "created": 1786002449,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "There are 3 open alerts: \n1. Critical alert [alr_d8a9d2ef4dcc] for presence in a restricted area at the substation, \n2. High alert [alr_8a88b73a2fe6] for loitering at the main gate, and \n3. Medium alert [alr_dc7cc1af0801] for an unusual gathering outside working hours at the main gate. \nThe night was marked by multiple detections of individuals in the restricted core area and other zones, as detailed in the shift reports [frm_...]."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.054826793,
+      "prompt_tokens": 2421,
+      "prompt_time": 0.139861197,
+      "completion_tokens": 124,
+      "completion_time": 0.466966581,
+      "total_tokens": 2545,
+      "total_time": 0.606827778
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzb0n87ve598h24vyhvrekvh",
+      "seed": 1981040325
+    },
+    "service_tier": "on_demand"
+  }
+}

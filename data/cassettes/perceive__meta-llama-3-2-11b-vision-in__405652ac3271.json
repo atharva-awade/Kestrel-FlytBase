@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:66e0c49dc6d53fe7",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:18e107eaabf06812"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-5e63cb45fc034edda9979a504570544d",
+    "object": "chat.completion",
+    "created": 1785982186,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The image shows a man walking in an industrial area, wearing a yellow hard hat and an orange safety vest. The man is walking towards the right side of the image, and the background is a large, open space with white pillars and a concrete floor.\n\n*   The man is wearing a yellow hard hat and an orange safety vest.\n*   He is walking towards the right side of the image.\n*   The background is a large, open space with white pillars and a concrete floor.\n\nThe image suggests that the man is a worker or maintenance personnel in the industrial area, and he is likely performing some task or inspection. The presence of the hard hat and safety vest indicates that he is taking necessary precautions to ensure his safety while working in the area.\n\nOverall, the image provides a clear view of the man and his surroundings, and it appears to be a typical scene in an industrial setting.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3666,
+      "total_tokens": 3846,
+      "completion_tokens": 180,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

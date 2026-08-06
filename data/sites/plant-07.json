@@ -1,0 +1,205 @@
+{
+  "id": "plant-07",
+  "name": "Querétaro Aerospace",
+  "kind": "industrial",
+  "origin": {
+    "lat": 20.617,
+    "lon": -100.185
+  },
+  "timezone": "America/Mexico_City",
+  "country": "MX",
+  "country_name": "Mexico",
+  "zones": [
+    {
+      "id": "main-gate",
+      "name": "Main Gate",
+      "kind": "gate",
+      "polygon": [
+        {
+          "lat": 20.61692814,
+          "lon": -100.18384826
+        },
+        {
+          "lat": 20.61692814,
+          "lon": -100.18317642
+        },
+        {
+          "lat": 20.61725153,
+          "lon": -100.18317642
+        },
+        {
+          "lat": 20.61725153,
+          "lon": -100.18384826
+        }
+      ],
+      "priority": 1.6,
+      "normal_hours": [
+        6,
+        21
+      ],
+      "notes": ""
+    },
+    {
+      "id": "yard",
+      "name": "Yard",
+      "kind": "yard",
+      "polygon": [
+        {
+          "lat": 20.61771865,
+          "lon": -100.18365631
+        },
+        {
+          "lat": 20.61771865,
+          "lon": -100.18212066
+        },
+        {
+          "lat": 20.61870679,
+          "lon": -100.18212066
+        },
+        {
+          "lat": 20.61870679,
+          "lon": -100.18365631
+        }
+      ],
+      "priority": 1.2,
+      "normal_hours": [
+        6,
+        22
+      ],
+      "notes": ""
+    },
+    {
+      "id": "loading-dock",
+      "name": "Loading Dock",
+      "kind": "dock",
+      "polygon": [
+        {
+          "lat": 20.6171617,
+          "lon": -100.18476005
+        },
+        {
+          "lat": 20.6171617,
+          "lon": -100.18365631
+        },
+        {
+          "lat": 20.61770068,
+          "lon": -100.18365631
+        },
+        {
+          "lat": 20.61770068,
+          "lon": -100.18476005
+        }
+      ],
+      "priority": 1.4,
+      "normal_hours": [
+        7,
+        19
+      ],
+      "notes": ""
+    },
+    {
+      "id": "substation",
+      "name": "Substation",
+      "kind": "substation",
+      "polygon": [
+        {
+          "lat": 20.61848221,
+          "lon": -100.1823606
+        },
+        {
+          "lat": 20.61848221,
+          "lon": -100.18173675
+        },
+        {
+          "lat": 20.61893137,
+          "lon": -100.18173675
+        },
+        {
+          "lat": 20.61893137,
+          "lon": -100.1823606
+        }
+      ],
+      "priority": 2.2,
+      "normal_hours": [
+        9,
+        17
+      ],
+      "notes": ""
+    },
+    {
+      "id": "fence-line",
+      "name": "Perimeter Fence",
+      "kind": "fence",
+      "polygon": [
+        {
+          "lat": 20.6168922,
+          "lon": -100.18511517
+        },
+        {
+          "lat": 20.6168922,
+          "lon": -100.18140082
+        },
+        {
+          "lat": 20.61915595,
+          "lon": -100.18140082
+        },
+        {
+          "lat": 20.61915595,
+          "lon": -100.18511517
+        },
+        {
+          "lat": 20.6168922,
+          "lon": -100.18511517
+        },
+        {
+          "lat": 20.61906612,
+          "lon": -100.1850192
+        },
+        {
+          "lat": 20.61906612,
+          "lon": -100.1814968
+        },
+        {
+          "lat": 20.61698203,
+          "lon": -100.1814968
+        },
+        {
+          "lat": 20.61698203,
+          "lon": -100.1850192
+        },
+        {
+          "lat": 20.61906612,
+          "lon": -100.1850192
+        }
+      ],
+      "priority": 2.0,
+      "normal_hours": null,
+      "notes": ""
+    }
+  ],
+  "dock": {
+    "lat": 20.61737729,
+    "lon": -100.18317642
+  },
+  "geofence": [
+    {
+      "lat": 20.61673051,
+      "lon": -100.18528793
+    },
+    {
+      "lat": 20.61673051,
+      "lon": -100.18120887
+    },
+    {
+      "lat": 20.61931764,
+      "lon": -100.18120887
+    },
+    {
+      "lat": 20.61931764,
+      "lon": -100.18528793
+    }
+  ],
+  "max_altitude_m": 120.0,
+  "live_footage": false,
+  "notes": "Simulated fleet site: seeded event generator, no live footage."
+}

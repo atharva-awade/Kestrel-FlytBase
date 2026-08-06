@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 60,
+      "messages": [
+        {
+          "content": "You compress security camera observations. Write ONE factual sentence covering what happened across these frames. Name objects, people and places. State only what the observations state — never infer intent. No preamble.",
+          "role": "system"
+        },
+        {
+          "content": "[02:12:40] person, cardboard box in substation: A man in a yellow hard hat and orange safety vest is walking towards the right side of the image in a large, open industrial area.\n[02:12:50] person, cardboard box in substation: A person in a yellow hard hat and orange safety vest is walking towards the right side of the image in a large, open industrial sp\n[02:13:00] person, cardboard box in restricted-core: A man in a high-visibility vest and yellow hard hat is walking through an industrial area.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-f620632e-922f-46e5-87df-1b5f1ef56d1d",
+    "object": "chat.completion",
+    "created": 1785983056,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "A man in a yellow hard hat and orange safety vest walked through a large, open industrial area in the substation and then the restricted-core area, near a cardboard box."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.050755418,
+      "prompt_tokens": 193,
+      "prompt_time": 0.009160872,
+      "completion_tokens": 36,
+      "completion_time": 0.131022304,
+      "total_tokens": 229,
+      "total_time": 0.140183176
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzae5eewevqv655ge600y8py",
+      "seed": 20154583
+    },
+    "service_tier": "on_demand"
+  }
+}

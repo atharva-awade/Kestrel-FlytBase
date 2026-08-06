@@ -1,0 +1,205 @@
+{
+  "id": "port-01",
+  "name": "Mundra Port Terminal 3",
+  "kind": "logistics",
+  "origin": {
+    "lat": 22.839,
+    "lon": 69.728
+  },
+  "timezone": "Asia/Kolkata",
+  "country": "IN",
+  "country_name": "India",
+  "zones": [
+    {
+      "id": "main-gate",
+      "name": "Main Gate",
+      "kind": "gate",
+      "polygon": [
+        {
+          "lat": 22.83892814,
+          "lon": 69.72916968
+        },
+        {
+          "lat": 22.83892814,
+          "lon": 69.72985199
+        },
+        {
+          "lat": 22.83925153,
+          "lon": 69.72985199
+        },
+        {
+          "lat": 22.83925153,
+          "lon": 69.72916968
+        }
+      ],
+      "priority": 1.6,
+      "normal_hours": [
+        6,
+        21
+      ],
+      "notes": ""
+    },
+    {
+      "id": "yard",
+      "name": "Yard",
+      "kind": "yard",
+      "polygon": [
+        {
+          "lat": 22.83971865,
+          "lon": 69.72936462
+        },
+        {
+          "lat": 22.83971865,
+          "lon": 69.73092419
+        },
+        {
+          "lat": 22.84070679,
+          "lon": 69.73092419
+        },
+        {
+          "lat": 22.84070679,
+          "lon": 69.72936462
+        }
+      ],
+      "priority": 1.2,
+      "normal_hours": [
+        6,
+        22
+      ],
+      "notes": ""
+    },
+    {
+      "id": "loading-dock",
+      "name": "Loading Dock",
+      "kind": "dock",
+      "polygon": [
+        {
+          "lat": 22.8391617,
+          "lon": 69.72824368
+        },
+        {
+          "lat": 22.8391617,
+          "lon": 69.72936462
+        },
+        {
+          "lat": 22.83970068,
+          "lon": 69.72936462
+        },
+        {
+          "lat": 22.83970068,
+          "lon": 69.72824368
+        }
+      ],
+      "priority": 1.4,
+      "normal_hours": [
+        7,
+        19
+      ],
+      "notes": ""
+    },
+    {
+      "id": "substation",
+      "name": "Substation",
+      "kind": "substation",
+      "polygon": [
+        {
+          "lat": 22.84048221,
+          "lon": 69.73068051
+        },
+        {
+          "lat": 22.84048221,
+          "lon": 69.73131409
+        },
+        {
+          "lat": 22.84093137,
+          "lon": 69.73131409
+        },
+        {
+          "lat": 22.84093137,
+          "lon": 69.73068051
+        }
+      ],
+      "priority": 2.2,
+      "normal_hours": [
+        9,
+        17
+      ],
+      "notes": ""
+    },
+    {
+      "id": "fence-line",
+      "name": "Perimeter Fence",
+      "kind": "fence",
+      "polygon": [
+        {
+          "lat": 22.8388922,
+          "lon": 69.72788303
+        },
+        {
+          "lat": 22.8388922,
+          "lon": 69.73165524
+        },
+        {
+          "lat": 22.84115595,
+          "lon": 69.73165524
+        },
+        {
+          "lat": 22.84115595,
+          "lon": 69.72788303
+        },
+        {
+          "lat": 22.8388922,
+          "lon": 69.72788303
+        },
+        {
+          "lat": 22.84106612,
+          "lon": 69.72798051
+        },
+        {
+          "lat": 22.84106612,
+          "lon": 69.73155777
+        },
+        {
+          "lat": 22.83898203,
+          "lon": 69.73155777
+        },
+        {
+          "lat": 22.83898203,
+          "lon": 69.72798051
+        },
+        {
+          "lat": 22.84106612,
+          "lon": 69.72798051
+        }
+      ],
+      "priority": 2.0,
+      "normal_hours": null,
+      "notes": ""
+    }
+  ],
+  "dock": {
+    "lat": 22.83937729,
+    "lon": 69.72985199
+  },
+  "geofence": [
+    {
+      "lat": 22.83873051,
+      "lon": 69.72770758
+    },
+    {
+      "lat": 22.83873051,
+      "lon": 69.73185019
+    },
+    {
+      "lat": 22.84131764,
+      "lon": 69.73185019
+    },
+    {
+      "lat": 22.84131764,
+      "lon": 69.72770758
+    }
+  ],
+  "max_altitude_m": 120.0,
+  "live_footage": false,
+  "notes": "Simulated fleet site: seeded event generator, no live footage."
+}

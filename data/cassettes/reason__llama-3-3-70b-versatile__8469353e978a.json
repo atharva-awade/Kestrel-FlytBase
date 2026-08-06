@@ -1,0 +1,83 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:f216b5248b04a828",
+          "role": "system"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "The following rules are enabled: \n1. Loitering at a sensitive location [loitering]\n2. Perimeter fence activity [perimeter-breach]\n3. Presence in a restricted area [restricted-zone]\n4. Vehicle present outside operating hours [after-hours-vehicle]\n5. Vehicle followed another through the gate [tailgating]\n6. Unattended object near an access point [unattended-object]\n7. Unprecedented activity for this time and place [baseline-anomaly]\n8. Unusual gathering outside working hours [unusual-gathering]",
+          "role": "assistant"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "I could not find a tool that answers that. Try asking about what was seen, an entity, an alert, the rules, the fleet, or how I work.",
+          "role": "assistant"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "I could not find a tool that answers that. Try asking about what was seen, an entity, an alert, the rules, the fleet, or how I work.",
+          "role": "assistant"
+        },
+        {
+          "content": "what rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-90fd29c3-aa52-4bda-ac7e-dce1a2ecd2eb",
+    "object": "chat.completion",
+    "created": 1786063511,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"list_rules\",\"arguments\":{}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.160691634,
+      "prompt_tokens": 1384,
+      "prompt_time": 0.070760166,
+      "completion_tokens": 14,
+      "completion_time": 0.041060449,
+      "total_tokens": 1398,
+      "total_time": 0.111820615
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_3272ea2d91",
+    "x_groq": {
+      "id": "req_01kzctwqapepsvtkn9n4fyvv9m",
+      "seed": 1646550660
+    },
+    "service_tier": "on_demand"
+  }
+}

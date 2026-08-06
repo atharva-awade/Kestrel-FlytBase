@@ -1,0 +1,205 @@
+{
+  "id": "solar-03",
+  "name": "Mojave Solar Field",
+  "kind": "solar",
+  "origin": {
+    "lat": 35.013,
+    "lon": -117.552
+  },
+  "timezone": "America/Los_Angeles",
+  "country": "US",
+  "country_name": "United States",
+  "zones": [
+    {
+      "id": "main-gate",
+      "name": "Main Gate",
+      "kind": "gate",
+      "polygon": [
+        {
+          "lat": 35.01292814,
+          "lon": -117.55068383
+        },
+        {
+          "lat": 35.01292814,
+          "lon": -117.54991606
+        },
+        {
+          "lat": 35.01325153,
+          "lon": -117.54991606
+        },
+        {
+          "lat": 35.01325153,
+          "lon": -117.55068383
+        }
+      ],
+      "priority": 1.6,
+      "normal_hours": [
+        6,
+        21
+      ],
+      "notes": ""
+    },
+    {
+      "id": "yard",
+      "name": "Yard",
+      "kind": "yard",
+      "polygon": [
+        {
+          "lat": 35.01371865,
+          "lon": -117.55046447
+        },
+        {
+          "lat": 35.01371865,
+          "lon": -117.54870957
+        },
+        {
+          "lat": 35.01470679,
+          "lon": -117.54870957
+        },
+        {
+          "lat": 35.01470679,
+          "lon": -117.55046447
+        }
+      ],
+      "priority": 1.2,
+      "normal_hours": [
+        6,
+        22
+      ],
+      "notes": ""
+    },
+    {
+      "id": "loading-dock",
+      "name": "Loading Dock",
+      "kind": "dock",
+      "polygon": [
+        {
+          "lat": 35.0131617,
+          "lon": -117.5517258
+        },
+        {
+          "lat": 35.0131617,
+          "lon": -117.55046447
+        },
+        {
+          "lat": 35.01370068,
+          "lon": -117.55046447
+        },
+        {
+          "lat": 35.01370068,
+          "lon": -117.5517258
+        }
+      ],
+      "priority": 1.4,
+      "normal_hours": [
+        7,
+        19
+      ],
+      "notes": ""
+    },
+    {
+      "id": "substation",
+      "name": "Substation",
+      "kind": "substation",
+      "polygon": [
+        {
+          "lat": 35.01448221,
+          "lon": -117.54898377
+        },
+        {
+          "lat": 35.01448221,
+          "lon": -117.54827085
+        },
+        {
+          "lat": 35.01493137,
+          "lon": -117.54827085
+        },
+        {
+          "lat": 35.01493137,
+          "lon": -117.54898377
+        }
+      ],
+      "priority": 2.2,
+      "normal_hours": [
+        9,
+        17
+      ],
+      "notes": ""
+    },
+    {
+      "id": "fence-line",
+      "name": "Perimeter Fence",
+      "kind": "fence",
+      "polygon": [
+        {
+          "lat": 35.0128922,
+          "lon": -117.55213162
+        },
+        {
+          "lat": 35.0128922,
+          "lon": -117.54788696
+        },
+        {
+          "lat": 35.01515595,
+          "lon": -117.54788696
+        },
+        {
+          "lat": 35.01515595,
+          "lon": -117.55213162
+        },
+        {
+          "lat": 35.0128922,
+          "lon": -117.55213162
+        },
+        {
+          "lat": 35.01506612,
+          "lon": -117.55202194
+        },
+        {
+          "lat": 35.01506612,
+          "lon": -117.54799664
+        },
+        {
+          "lat": 35.01298203,
+          "lon": -117.54799664
+        },
+        {
+          "lat": 35.01298203,
+          "lon": -117.55202194
+        },
+        {
+          "lat": 35.01506612,
+          "lon": -117.55202194
+        }
+      ],
+      "priority": 2.0,
+      "normal_hours": null,
+      "notes": ""
+    }
+  ],
+  "dock": {
+    "lat": 35.01337729,
+    "lon": -117.54991606
+  },
+  "geofence": [
+    {
+      "lat": 35.01273051,
+      "lon": -117.55232904
+    },
+    {
+      "lat": 35.01273051,
+      "lon": -117.5476676
+    },
+    {
+      "lat": 35.01531764,
+      "lon": -117.5476676
+    },
+    {
+      "lat": 35.01531764,
+      "lon": -117.55232904
+    }
+  ],
+  "max_altitude_m": 120.0,
+  "live_footage": false,
+  "notes": "Simulated fleet site: seeded event generator, no live footage."
+}

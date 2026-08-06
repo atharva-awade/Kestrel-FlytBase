@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "retrieve",
+    "payload": {
+      "max_tokens": 380,
+      "messages": [
+        {
+          "content": "sha256:8709b4502f3e577a",
+          "role": "system"
+        },
+        {
+          "content": "Current time: 2026-08-07T12:27:33.460809\nAvailable zone ids: \"main-gate\", \"loading-dock\", \"yard\", \"warehouse-a\", \"warehouse-b\", \"substation\", \"parking\", \"access-road\", \"fence-line\", \"restricted-core\"\n\nQuestion: \"person in high-visibility vest and yellow hard hat\"",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-05c419a8-6575-4516-9f02-f837d62a3fdd",
+    "object": "chat.completion",
+    "created": 1786085855,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"intent\": \"visual\",\n  \"labels\": [\"person\"],\n  \"zones\": [\"main-gate\", \"loading-dock\", \"yard\", \"warehouse-a\", \"warehouse-b\", \"substation\", \"parking\", \"access-road\", \"fence-line\", \"restricted-core\"],\n  \"entity_ids\": [\"ENT-person-in-high-visibility-vest-and-yellow-hard-hat\"],\n  \"relative_hours\": null,\n  \"start_iso\": null,\n  \"end_iso\": null,\n  \"semantic_text\": \"person in high-visibility vest and yellow hard hat\",\n  \"reasoning\": \"The query describes a specific appearance that the caption may not have used, so it is classified as 'visual'.\"\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.05291658,
+      "prompt_tokens": 377,
+      "prompt_time": 0.024142172,
+      "completion_tokens": 150,
+      "completion_time": 0.172664659,
+      "total_tokens": 527,
+      "total_time": 0.196806831
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzdg6m3nen0rzde251wv5308",
+      "seed": 299332808
+    },
+    "service_tier": "on_demand"
+  }
+}

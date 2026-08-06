@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 60,
+      "messages": [
+        {
+          "content": "You compress security camera observations. Write ONE factual sentence covering what happened across these frames. Name objects, people and places. State only what the observations state — never infer intent. No preamble.",
+          "role": "system"
+        },
+        {
+          "content": "[02:12:40] person in substation: A single worker is walking in the restricted core area of the Chakan Industrial Plant\n[02:12:50] person in substation: A person in a yellow hard hat and orange safety vest is walking in the Restricted Core zone\n[02:13:00] person: A person in a yellow hard hat and orange safety vest is walking through a large, open room with white pillars and a concrete floor",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-41d8e675-c6e6-483b-8d81-c9672bd7f153",
+    "object": "chat.completion",
+    "created": 1785982454,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "A worker wearing a yellow hard hat and orange safety vest walked in the restricted core area of the Chakan Industrial Plant, and then through a large, open room with white pillars and a concrete floor."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.050932476,
+      "prompt_tokens": 168,
+      "prompt_time": 0.008865965,
+      "completion_tokens": 41,
+      "completion_time": 0.118481259,
+      "total_tokens": 209,
+      "total_time": 0.127347224
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzadk26reejb01b5pn2x6zjp",
+      "seed": 320394135
+    },
+    "service_tier": "on_demand"
+  }
+}

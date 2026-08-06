@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "You convert a security camera frame description into structured JSON. Extract only what the description states. Do not invent detail.",
+          "role": "system"
+        },
+        {
+          "content": "Site: Chakan Industrial Plant\nTime: 2026-08-06 02:14:40\nFrame description: Frame: A dark grey sedan stops on the perimeter road with headlights switched off.\n\nReturn JSON with keys: caption, objects[{label,colour,kind,activity,count,confidence}], activities[], lighting, weather, visibility, anomalies[], confidence.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-859d9c14-de66-4d4e-a099-5539bbbda491",
+    "object": "chat.completion",
+    "created": 1785983231,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"caption\": \"A dark grey sedan stops on the perimeter road with headlights switched off\",\n  \"objects\": [\n    {\n      \"label\": \"sedan\",\n      \"colour\": \"dark grey\",\n      \"kind\": \"car\",\n      \"activity\": \"stops\",\n      \"count\": 1,\n      \"confidence\": null\n    }\n  ],\n  \"activities\": [\n    \"stops\"\n  ],\n  \"lighting\": \"dark\",\n  \"weather\": null,\n  \"visibility\": null,\n  \"anomalies\": [\n    \"headlights switched off\"\n  ],\n  \"confidence\": null\n}\n```"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.052594598,
+      "prompt_tokens": 132,
+      "prompt_time": 0.017243652,
+      "completion_tokens": 133,
+      "completion_time": 0.279798512,
+      "total_tokens": 265,
+      "total_time": 0.297042164
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzaeasgae54t0rkcpfdnep34",
+      "seed": 922405027
+    },
+    "service_tier": "on_demand"
+  }
+}

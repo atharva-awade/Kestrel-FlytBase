@@ -1,0 +1,213 @@
+{
+  "prompt": "You are a security camera analyst. Describe this scene in one sentence, then list every vehicle and person visible with their colour.",
+  "results": [
+    {
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "ok": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "seconds": 1.28
+        }
+      ],
+      "best_seconds": 1.28,
+      "caption": "The scene depicts a blue truck parked on the side of a road, with a person standing next to it.\n\n**Vehicles:**\n\n* 1 blue truck\n\n**People:**\n\n* 1 person (coloured in)",
+      "usage": {
+        "prompt_tokens": 3238,
+        "total_tokens": 3285,
+        "completion_tokens": 47,
+        "prompt_tokens_details": null
+      },
+      "mentions_blue": true,
+      "mentions_vehicle": true,
+      "mentions_person": true
+    },
+    {
+      "model": "meta/llama-3.2-90b-vision-instruct",
+      "ok": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "seconds": 84.38
+        },
+        {
+          "attempt": 2,
+          "ok": true,
+          "seconds": 57.6
+        }
+      ],
+      "best_seconds": 57.6,
+      "caption": "The image depicts a blue truck and a person standing on the ground, with the truck positioned to the left of the person.\n\n**Vehicles:**\n\n* Blue truck\n\n**People:**\n\n* Person (beige head, dark blue body)",
+      "usage": {
+        "prompt_tokens": 3238,
+        "total_tokens": 3288,
+        "completion_tokens": 50,
+        "prompt_tokens_details": null
+      },
+      "mentions_blue": true,
+      "mentions_vehicle": true,
+      "mentions_person": true
+    },
+    {
+      "model": "nvidia/vila",
+      "ok": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": false,
+          "seconds": 0.11
+        },
+        {
+          "attempt": 2,
+          "ok": false,
+          "seconds": 0.08
+        }
+      ],
+      "best_seconds": null,
+      "caption": "",
+      "usage": {},
+      "mentions_blue": false,
+      "mentions_vehicle": false,
+      "mentions_person": false
+    },
+    {
+      "model": "nvidia/nemotron-nano-12b-v2-vl",
+      "ok": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "seconds": 29.21
+        },
+        {
+          "attempt": 2,
+          "ok": true,
+          "seconds": 98.02
+        }
+      ],
+      "best_seconds": 29.21,
+      "caption": "A blue truck is parked on a grey road, with a traffic light visible in the background.\n\nVehicle:\n\n*   Blue truck\n*   Grey road\n\nPerson: None visible",
+      "usage": {
+        "prompt_tokens": 1834,
+        "total_tokens": 1871,
+        "completion_tokens": 37,
+        "prompt_tokens_details": null
+      },
+      "mentions_blue": true,
+      "mentions_vehicle": true,
+      "mentions_person": true
+    },
+    {
+      "model": "nvidia/llama-3.1-nemotron-nano-vl-8b-v1",
+      "ok": true,
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": true,
+          "seconds": 0.86
+        }
+      ],
+      "best_seconds": 0.86,
+      "caption": "A blue truck is driving down the road.",
+      "usage": {
+        "prompt_tokens": 1839,
+        "total_tokens": 1848,
+        "completion_tokens": 9,
+        "prompt_tokens_details": null
+      },
+      "mentions_blue": true,
+      "mentions_vehicle": true,
+      "mentions_person": false
+    },
+    {
+      "model": "microsoft/phi-3-vision-128k-instruct",
+      "ok": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": false,
+          "seconds": 0.09
+        },
+        {
+          "attempt": 2,
+          "ok": false,
+          "seconds": 0.1
+        }
+      ],
+      "best_seconds": null,
+      "caption": "",
+      "usage": {},
+      "mentions_blue": false,
+      "mentions_vehicle": false,
+      "mentions_person": false
+    },
+    {
+      "model": "microsoft/kosmos-2",
+      "ok": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": false,
+          "seconds": 0.11
+        },
+        {
+          "attempt": 2,
+          "ok": false,
+          "seconds": 0.07
+        }
+      ],
+      "best_seconds": null,
+      "caption": "",
+      "usage": {},
+      "mentions_blue": false,
+      "mentions_vehicle": false,
+      "mentions_person": false
+    },
+    {
+      "model": "nvidia/neva-22b",
+      "ok": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": false,
+          "seconds": 0.11
+        },
+        {
+          "attempt": 2,
+          "ok": false,
+          "seconds": 0.1
+        }
+      ],
+      "best_seconds": null,
+      "caption": "",
+      "usage": {},
+      "mentions_blue": false,
+      "mentions_vehicle": false,
+      "mentions_person": false
+    },
+    {
+      "model": "adept/fuyu-8b",
+      "ok": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "ok": false,
+          "seconds": 0.09
+        },
+        {
+          "attempt": 2,
+          "ok": false,
+          "seconds": 0.1
+        }
+      ],
+      "best_seconds": null,
+      "caption": "",
+      "usage": {},
+      "mentions_blue": false,
+      "mentions_vehicle": false,
+      "mentions_person": false
+    }
+  ]
+}

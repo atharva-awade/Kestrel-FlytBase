@@ -1,0 +1,95 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:b5e09fd48203b43d",
+          "role": "system"
+        },
+        {
+          "content": "Has this vehicle been seen at another site?",
+          "role": "user"
+        },
+        {
+          "content": "I have no information about the vehicle being seen at another site. The tool \"get_entity\" returned an error [get_entity].",
+          "role": "assistant"
+        },
+        {
+          "content": "Has any vehicle been seen at more than one site?",
+          "role": "user"
+        },
+        {
+          "content": "A vehicle, a white panel van [ENT-b032-9001, ENT-52f6-9001, ENT-c1ae-9001], has been seen at more than one site: Navi Mumbai Data Centre [dc-01], Dublin Data Campus [dc-02], and Sanand Auto Plant [plant-02].",
+          "role": "assistant"
+        },
+        {
+          "content": "Was anyone here at 4am on the 3rd?",
+          "role": "user"
+        },
+        {
+          "content": "I have no information about anyone being present at the Chakan Industrial Plant at 4am on the 3rd. The tool results [search_frames] only provide information about people present at the plant on August 6th, not August 3rd.",
+          "role": "assistant"
+        },
+        {
+          "content": "Why did you skip so many frames?",
+          "role": "user"
+        },
+        {
+          "content": "Called: describe_architecture, search_frames",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:d3c1f843f0b8c541",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-a1c6dfc5edec31ee",
+    "object": "chat.completion",
+    "created": 1786080804,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "I have no information about why I skipped so many frames. The tool results [describe_architecture] provide an explanation of the gate's architecture and its decision-making process, but do not provide specific information about the frames that were skipped. The tool \"search_frames\" [search_frames] returned an error due to missing arguments, and did not provide any relevant information.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 1205,
+      "total_tokens": 1279,
+      "completion_tokens": 74,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 60,
+      "messages": [
+        {
+          "content": "You compress security camera observations. Write ONE factual sentence covering what happened across these frames. Name objects, people and places. State only what the observations state — never infer intent. No preamble.",
+          "role": "system"
+        },
+        {
+          "content": "[02:11:10] nothing: A high-visibility worker in an orange vest and yellow hard hat is standing in the middle of a large, empty warehouse with concrete\n[02:11:20] nothing: A lone worker in a high-visibility vest is walking through an empty warehouse.\n[02:11:30] person: A person in a high-visibility vest is walking towards the camera in the restricted core zone of the Chakan Industrial Plant.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-5b9767ed-3122-4d66-ab33-8de0892ae290",
+    "object": "chat.completion",
+    "created": 1786018689,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "A person in a high-visibility vest and yellow hard hat is walking in the Chakan Industrial Plant's restricted core zone and empty warehouse."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.160985722,
+      "prompt_tokens": 168,
+      "prompt_time": 0.007909191,
+      "completion_tokens": 29,
+      "completion_time": 0.079930221,
+      "total_tokens": 197,
+      "total_time": 0.087839412
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_3272ea2d91",
+    "x_groq": {
+      "id": "req_01kzbg4wpfezetwrwrn0dgrrpp",
+      "seed": 1653412282
+    },
+    "service_tier": "on_demand"
+  }
+}

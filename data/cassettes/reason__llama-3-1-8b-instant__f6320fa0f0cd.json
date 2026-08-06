@@ -1,0 +1,59 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:71bd50932bb5b66e",
+          "role": "system"
+        },
+        {
+          "content": "Was anyone here at 4am on the 3rd?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-36cea95a-4544-46a2-82f6-9d63540663b8",
+    "object": "chat.completion",
+    "created": 1786084628,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"search_frames\",\"arguments\":{\"site_id\":\"plant-01\",\"time\":1643723400,\"zone_ids\":[\"main-gate\",\"loading-dock\",\"yard\",\"warehouse-a\",\"warehouse-b\",\"substation\",\"parking\",\"access-road\",\"fence-line\",\"restricted-core\"],\"entities\":[]}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.158303405,
+      "prompt_tokens": 1166,
+      "prompt_time": 0.066468914,
+      "completion_tokens": 65,
+      "completion_time": 0.071755253,
+      "total_tokens": 1231,
+      "total_time": 0.138224167
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_7ccc667439",
+    "x_groq": {
+      "id": "req_01kzdf15dme7n8gwcrd8j7p91e",
+      "seed": 700052091
+    },
+    "service_tier": "on_demand"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:7a9e6fcfdb6a0864",
+          "role": "user"
+        },
+        {
+          "content": "sha256:a63910f804f220b7",
+          "role": "assistant"
+        },
+        {
+          "content": "That was not valid JSON for the required schema. Return ONLY the JSON object — no prose, no code fence.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-98f088be-acb0-45cc-a63e-d2ec2dec2735",
+    "object": "chat.completion",
+    "created": 1785979591,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"caption\": \"A person in a yellow hard hat and orange safety vest is standing in a large room with white walls and pillars.\",\n  \"objects\": [\n    {\"label\":\"person\", \"colour\":\"yellow and orange\", \"kind\":\"high-visibility worker\", \"activity\":\"standing still\", \"count\":1, \"confidence\":1.0}\n  ],\n  \"activities\": [],\n  \"lighting\": \"artificial\",\n  \"weather\": null,\n  \"visibility\": \"clear\",\n  \"anomalies\": [],\n  \"confidence\": 1.0\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.051371595,
+      "prompt_tokens": 755,
+      "prompt_time": 0.038496986,
+      "completion_tokens": 120,
+      "completion_time": 0.201885694,
+      "total_tokens": 875,
+      "total_time": 0.24038268
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzaavpdvet39cj2hswbz58wt",
+      "seed": 1942929448
+    },
+    "service_tier": "on_demand"
+  }
+}

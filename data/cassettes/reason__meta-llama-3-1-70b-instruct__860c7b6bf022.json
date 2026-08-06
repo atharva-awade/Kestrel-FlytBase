@@ -1,0 +1,87 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:a4f72186fc395c00",
+          "role": "system"
+        },
+        {
+          "content": "How does your memory compression work?",
+          "role": "user"
+        },
+        {
+          "content": "The memory compression works by using three stores: ENTITIES, THE TEMPORAL PYRAMID, and THE BASELINE [describe_architecture]. ENTITIES store identity that survives across frames, sessions, and days. THE TEMPORAL PYRAMID is a hierarchical compression that collapses an eight-hour shift into a summary, with salience-weighted compression. THE BASELINE stores counts per (zone, hour, class), scored by departure from history.",
+          "role": "assistant"
+        },
+        {
+          "content": "How do you verify a citation?",
+          "role": "user"
+        },
+        {
+          "content": "I have no information on how I verify a citation. The describe_architecture tool results [describe_architecture] explain the retrieval system's architecture, but do not mention citation verification.",
+          "role": "assistant"
+        },
+        {
+          "content": "What are your scalability limits?",
+          "role": "user"
+        },
+        {
+          "content": "The scalability limit is that sending every frame to a vision model is arithmetically impossible due to the free model tier's request limit [describe_architecture]. The system is designed to ration model calls, with a measured result of 38.9% of frames never reaching a VLM on real footage, and 94.6% on idle footage [describe_architecture]. The honest limit is that a busier site spends more, and a site busy enough that most frames are novel would exhaust the budget [describe_architecture].",
+          "role": "assistant"
+        },
+        {
+          "content": "Can you approve a mission yourself?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-a5f01ec5d9eb802b",
+    "object": "chat.completion",
+    "created": 1786084148,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[]}",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 1431,
+      "total_tokens": 1436,
+      "completion_tokens": 5,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

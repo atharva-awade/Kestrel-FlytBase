@@ -1,0 +1,95 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:6029ef19a742d2b3",
+          "role": "system"
+        },
+        {
+          "content": "Why did you skip so many frames?",
+          "role": "user"
+        },
+        {
+          "content": "I have no information about the presence of anyone at 4am on the 3rd. The tool \"search_frames\" returned an error due to missing arguments [frm_1643723400].\n\n_Note: 1 reference(s) in this answer could not be matched to retrieved evidence and should be treated as unverified._",
+          "role": "assistant"
+        },
+        {
+          "content": "How do you decide what to escalate?",
+          "role": "user"
+        },
+        {
+          "content": "I have no information about how I decide what to escalate from the tool results. The tool \"describe_architecture\" [describe_architecture] explains the architecture of the system, including the five tiers of processing, but does not specifically address the decision-making process for escalation.",
+          "role": "assistant"
+        },
+        {
+          "content": "How does the gate work?",
+          "role": "user"
+        },
+        {
+          "content": "The gate at Chakan Industrial Plant is shown in various frames, but the tool results do not provide information on how the gate works [frm_plant-01_000009_0d1649ffd8, frm_plant-01_000000_5d287e2032]. The results do show a person interacting with the gate, including reaching towards the gate latch [frm_plant-01_000005_a52052561a], but do not explain the gate's mechanism.",
+          "role": "assistant"
+        },
+        {
+          "content": "How does your memory compression work?",
+          "role": "user"
+        },
+        {
+          "content": "Called: describe_architecture",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:59167f90eb998319",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-953f5f13b724624d",
+    "object": "chat.completion",
+    "created": 1786079547,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "My memory compression works through a hierarchical system called the Temporal Pyramid [describe_architecture]. It compresses raw observations into a salience-weighted hierarchy of frame, clip, event, shift, and day [describe_architecture]. This allows for efficient storage and retrieval of information, with the ability to expand summaries back to the original frames [describe_architecture].",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 1180,
+      "total_tokens": 1253,
+      "completion_tokens": 73,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

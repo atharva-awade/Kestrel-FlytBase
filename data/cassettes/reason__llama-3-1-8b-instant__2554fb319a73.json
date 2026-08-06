@@ -1,0 +1,83 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:a4f72186fc395c00",
+          "role": "system"
+        },
+        {
+          "content": "What happened last night?",
+          "role": "user"
+        },
+        {
+          "content": "The tool results do not provide information on what happened last night, as the results are shifted to the most recent activity on record, which is from 2026-08-06 00:00 to 2026-08-06 02:16 [summarize_window].",
+          "role": "assistant"
+        },
+        {
+          "content": "What rules are active?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:52029bbfc6131d13",
+          "role": "assistant"
+        },
+        {
+          "content": "What rules are active and why?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:4865caf8a40a5041",
+          "role": "assistant"
+        },
+        {
+          "content": "Has this vehicle been seen at another site?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-e86ab4d2-21ac-4e70-9b5e-fbd5ef406c59",
+    "object": "chat.completion",
+    "created": 1786083701,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"get_entity\",\"arguments\":{\"id\":\"VEH-123\"}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.059517952,
+      "prompt_tokens": 1499,
+      "prompt_time": 0.134974538,
+      "completion_tokens": 19,
+      "completion_time": 0.043534775,
+      "total_tokens": 1518,
+      "total_time": 0.178509313
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzde4wsvejhbw8byw2vb5jy6",
+      "seed": 1481055134
+    },
+    "service_tier": "on_demand"
+  }
+}

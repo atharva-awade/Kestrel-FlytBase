@@ -1,0 +1,51 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 8,
+      "messages": [
+        {
+          "content": "sha256:d7b8b34e2275147e",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-272e6c38-862d-4a12-bfc4-f81894586c00",
+    "object": "chat.completion",
+    "created": 1786078496,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "ACTION"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.15744482,
+      "prompt_tokens": 154,
+      "prompt_time": 0.008895329,
+      "completion_tokens": 2,
+      "completion_time": 0.007282371,
+      "total_tokens": 156,
+      "total_time": 0.0161777
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_7ccc667439",
+    "x_groq": {
+      "id": "req_01kzd961dpew9axevdwrxe0j00",
+      "seed": 1342915699
+    },
+    "service_tier": "on_demand"
+  }
+}

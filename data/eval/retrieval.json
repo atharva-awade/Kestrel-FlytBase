@@ -1,0 +1,51 @@
+{
+  "queries": [
+    {
+      "query": "show me all person events",
+      "intent": "structured",
+      "retrievers": {
+        "structured": 11
+      },
+      "returned": 10,
+      "relevant": 10,
+      "precision_at_k": 1.0,
+      "took_ms": 2120.2
+    },
+    {
+      "query": "anything at the substation",
+      "intent": "structured",
+      "retrievers": {
+        "structured": 4
+      },
+      "returned": 4,
+      "relevant": 4,
+      "precision_at_k": 1.0,
+      "took_ms": 2020.6
+    },
+    {
+      "query": "someone in a high-visibility vest",
+      "intent": "visual",
+      "retrievers": {
+        "visual": 19
+      },
+      "returned": 10,
+      "relevant": 9,
+      "precision_at_k": 0.9,
+      "took_ms": 2118.4
+    },
+    {
+      "query": "activity in the restricted core",
+      "intent": "structured",
+      "retrievers": {
+        "structured": 4
+      },
+      "returned": 4,
+      "relevant": 4,
+      "precision_at_k": 1.0,
+      "took_ms": 1882.0
+    }
+  ],
+  "mean_precision_at_k": 0.975,
+  "note": "A small labelled set on one ingested session, indicative rather than a benchmark. It exists to show the fusion works and the plan is sane.",
+  "generated_at": "2026-08-06T08:54:02.675237"
+}

@@ -1,0 +1,59 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:ce98aaaa1380a55d",
+          "role": "user"
+        },
+        {
+          "content": "sha256:1d41cdbb728c8467",
+          "role": "assistant"
+        },
+        {
+          "content": "That was not valid JSON for the required schema. Return ONLY the JSON object — no prose, no code fence.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-f0f4fa54-beff-41d9-add4-76c09567109b",
+    "object": "chat.completion",
+    "created": 1785982855,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"caption\": \"A person in high-visibility clothing is walking away from the camera in the Restricted Core zone of the Chakan Industrial Plant\",\n  \"objects\": [\n    {\"label\": \"person\", \"colour\": \"yellow and orange\", \"kind\": \"high-visibility worker\", \"activity\": \"walking\", \"count\": 1, \"confidence\": 0.9},\n    {\"label\": \"cardboard box\", \"colour\": \"brown\", \"kind\": \"large box\", \"activity\": \"stationary\", \"count\": 1, \"confidence\": 0.8}\n  ],\n  \"activities\": [\"nighttime maintenance\"],\n  \"lighting\": \"night\",\n  \"weather\": null,\n  \"visibility\": \"clear\",\n  \"anomalies\": [],\n  \"confidence\": 0.85\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.160274522,
+      "prompt_tokens": 780,
+      "prompt_time": 0.040000437,
+      "completion_tokens": 173,
+      "completion_time": 0.366017786,
+      "total_tokens": 953,
+      "total_time": 0.406018223
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_45180df409",
+    "x_groq": {
+      "id": "req_01kzadz9cae26rvg65bcqg9pwc",
+      "seed": 1179318582
+    },
+    "service_tier": "on_demand"
+  }
+}

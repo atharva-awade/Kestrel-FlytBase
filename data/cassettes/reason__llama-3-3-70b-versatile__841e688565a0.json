@@ -1,0 +1,67 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:8a14fb29d1af8853",
+          "role": "system"
+        },
+        {
+          "content": "how many rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "There are 8 rules enabled [list_rules].",
+          "role": "assistant"
+        },
+        {
+          "content": "how many rules are enabled?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:fdfb5b56d715159c",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-83355349-c73c-49f6-8d30-0b8a87b44ee1",
+    "object": "chat.completion",
+    "created": 1786014465,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"list_rules\",\"arguments\":{}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.162158569,
+      "prompt_tokens": 1159,
+      "prompt_time": 0.05892171,
+      "completion_tokens": 14,
+      "completion_time": 0.032045001,
+      "total_tokens": 1173,
+      "total_time": 0.090966711
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_3272ea2d91",
+    "x_groq": {
+      "id": "req_01kzbc3zmhedzbfm31d8ac8wvt",
+      "seed": 1704032956
+    },
+    "service_tier": "on_demand"
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "id": "plant-05",
+  "name": "Selangor Logistics Hub",
+  "kind": "logistics",
+  "origin": {
+    "lat": 3.056,
+    "lon": 101.447
+  },
+  "timezone": "Asia/Kuala_Lumpur",
+  "country": "MY",
+  "country_name": "Malaysia",
+  "zones": [
+    {
+      "id": "main-gate",
+      "name": "Main Gate",
+      "kind": "gate",
+      "polygon": [
+        {
+          "lat": 3.05592814,
+          "lon": 101.44807951
+        },
+        {
+          "lat": 3.05592814,
+          "lon": 101.44870922
+        },
+        {
+          "lat": 3.05625153,
+          "lon": 101.44870922
+        },
+        {
+          "lat": 3.05625153,
+          "lon": 101.44807951
+        }
+      ],
+      "priority": 1.6,
+      "normal_hours": [
+        6,
+        21
+      ],
+      "notes": ""
+    },
+    {
+      "id": "yard",
+      "name": "Yard",
+      "kind": "yard",
+      "polygon": [
+        {
+          "lat": 3.05671865,
+          "lon": 101.44825943
+        },
+        {
+          "lat": 3.05671865,
+          "lon": 101.44969877
+        },
+        {
+          "lat": 3.05770679,
+          "lon": 101.44969877
+        },
+        {
+          "lat": 3.05770679,
+          "lon": 101.44825943
+        }
+      ],
+      "priority": 1.2,
+      "normal_hours": [
+        6,
+        22
+      ],
+      "notes": ""
+    },
+    {
+      "id": "loading-dock",
+      "name": "Loading Dock",
+      "kind": "dock",
+      "polygon": [
+        {
+          "lat": 3.0561617,
+          "lon": 101.4472249
+        },
+        {
+          "lat": 3.0561617,
+          "lon": 101.44825943
+        },
+        {
+          "lat": 3.05670068,
+          "lon": 101.44825943
+        },
+        {
+          "lat": 3.05670068,
+          "lon": 101.4472249
+        }
+      ],
+      "priority": 1.4,
+      "normal_hours": [
+        7,
+        19
+      ],
+      "notes": ""
+    },
+    {
+      "id": "substation",
+      "name": "Substation",
+      "kind": "substation",
+      "polygon": [
+        {
+          "lat": 3.05748221,
+          "lon": 101.44947387
+        },
+        {
+          "lat": 3.05748221,
+          "lon": 101.45005861
+        },
+        {
+          "lat": 3.05793137,
+          "lon": 101.45005861
+        },
+        {
+          "lat": 3.05793137,
+          "lon": 101.44947387
+        }
+      ],
+      "priority": 2.2,
+      "normal_hours": [
+        9,
+        17
+      ],
+      "notes": ""
+    },
+    {
+      "id": "fence-line",
+      "name": "Perimeter Fence",
+      "kind": "fence",
+      "polygon": [
+        {
+          "lat": 3.0558922,
+          "lon": 101.44689205
+        },
+        {
+          "lat": 3.0558922,
+          "lon": 101.45037346
+        },
+        {
+          "lat": 3.05815595,
+          "lon": 101.45037346
+        },
+        {
+          "lat": 3.05815595,
+          "lon": 101.44689205
+        },
+        {
+          "lat": 3.0558922,
+          "lon": 101.44689205
+        },
+        {
+          "lat": 3.05806612,
+          "lon": 101.44698201
+        },
+        {
+          "lat": 3.05806612,
+          "lon": 101.45028351
+        },
+        {
+          "lat": 3.05598203,
+          "lon": 101.45028351
+        },
+        {
+          "lat": 3.05598203,
+          "lon": 101.44698201
+        },
+        {
+          "lat": 3.05806612,
+          "lon": 101.44698201
+        }
+      ],
+      "priority": 2.0,
+      "normal_hours": null,
+      "notes": ""
+    }
+  ],
+  "dock": {
+    "lat": 3.05637729,
+    "lon": 101.44870922
+  },
+  "geofence": [
+    {
+      "lat": 3.05573051,
+      "lon": 101.44673012
+    },
+    {
+      "lat": 3.05573051,
+      "lon": 101.45055338
+    },
+    {
+      "lat": 3.05831764,
+      "lon": 101.45055338
+    },
+    {
+      "lat": 3.05831764,
+      "lon": 101.44673012
+    }
+  ],
+  "max_altitude_m": 120.0,
+  "live_footage": false,
+  "notes": "Simulated fleet site: seeded event generator, no live footage."
+}

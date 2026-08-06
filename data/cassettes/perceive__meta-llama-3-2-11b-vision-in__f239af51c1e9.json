@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:2a7d23c66ffb68b1",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:bd7abb11190aba28"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-2a0aeb2cb41b49a0ad31a1d6338ae4a2",
+    "object": "chat.completion",
+    "created": 1785982202,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The image shows a person wearing a yellow hard hat and an orange safety vest walking through a large, open room with white pillars and a concrete floor. The room appears to be an industrial or warehouse setting, possibly a construction site.\n\nHere is the description of the image in a JSON format as requested:\n\n{ \"caption\": \"A person in a yellow hard hat and orange safety vest is walking through a large, open room with white pillars and a concrete floor.\", \"objects\": [ {\"label\":\"person\", \"colour\":\"yellow\", \"kind\":\"construction worker\", \"activity\":\"walking\", \"count\":1, \"confidence\":1.0} ], \"activities\": [\"person walking\"], \"lighting\": \"night\", \"weather\": \"unknown\", \"visibility\": \"clear\", \"anomalies\": [], \"confidence\": 1.0 }\n\nNote that I have only included the person that was detected by the detector, as there are no other objects visible in the image. I have also assumed that the person is a construction worker based on their attire, but this could be incorrect if they are not actually working on a construction site.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3666,
+      "total_tokens": 3895,
+      "completion_tokens": 229,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:5ec3ef1d1f89f5b7",
+          "role": "system"
+        },
+        {
+          "content": "What are your scalability limits?",
+          "role": "user"
+        },
+        {
+          "content": "The tool results do not provide information on my scalability limits. The results describe the fleet architecture and its capabilities, but do not address scalability limits [describe_architecture].",
+          "role": "assistant"
+        },
+        {
+          "content": "Can you approve a mission yourself?",
+          "role": "user"
+        },
+        {
+          "content": "No, I cannot approve a mission myself. According to the security architecture [describe_architecture], tools that change state or move an aircraft, such as approving a mission, require a separate call carrying an explicit human decision.",
+          "role": "assistant"
+        },
+        {
+          "content": "Show me the most recent alerts.",
+          "role": "user"
+        },
+        {
+          "content": "sha256:aef2b93b50d1352a",
+          "role": "assistant"
+        },
+        {
+          "content": "What happened last night?",
+          "role": "user"
+        },
+        {
+          "content": "Called: summarize_window",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:1222c84efbd40061",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-a15aa973f32f72b7",
+    "object": "chat.completion",
+    "created": 1786079670,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Last night, a single individual was observed approaching and interacting with the main gate at the Chakan Industrial Plant between 00:00:30 and 00:05:45 [ENT-0a15-0001, ENT-0a15-0002, ENT-0a15-0003, ENT-0a15-0004, ENT-0a15-0005]. The individual was seen walking towards the main gate, reaching the gate, and then walking along the fence, standing motionless, reaching towards the gate latch, crouching near the gate post, and looking back over their shoulder repeatedly. They were last seen walking away from the main gate along the fence line at 00:05:10.\n\nAdditionally, multiple individuals were observed in the Restricted Core zone between 02:10:00 and 02:16:10 [ENT-0a15-0001]. They were seen walking in the restricted area, wearing high-visibility vests, yellow hard hats, and black pants.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 2685,
+      "total_tokens": 2894,
+      "completion_tokens": 209,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

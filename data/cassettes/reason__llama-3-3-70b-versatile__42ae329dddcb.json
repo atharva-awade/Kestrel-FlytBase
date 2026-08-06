@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 250,
+      "messages": [
+        {
+          "content": "You are a security analyst writing a shift report: what happened, who was involved, anything unusual. Be specific and concrete: name entities, zones and times. Do not speculate about motive. If the period was uneventful, say so in one sentence rather than padding.",
+          "role": "system"
+        },
+        {
+          "content": "sha256:7c2d7b2f961be7b6",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-3134039f-a732-4bce-a19b-d2999dba5d02",
+    "object": "chat.completion",
+    "created": 1785983151,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Shift Report for 2026-08-06 11:58 to 12:04:\n\nDuring the reporting period, a blue Ford F-150 pickup truck, driven by an individual wearing a high-visibility vest, entered the Chakan Industrial Plant through the main gate at 11:58:45. The vehicle proceeded to loading dock bay 3, where the driver unloaded pallets between 12:01:00 and 12:02:30. After completing the unloading task, the blue Ford F-150 departed the loading dock at 12:03:15 and exited the plant through the main gate at 12:04:00, leaving two pallets stacked on the apron. The entire interaction was uneventful, with no security detections or incidents reported."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.050731927,
+      "prompt_tokens": 501,
+      "prompt_time": 0.026561295,
+      "completion_tokens": 161,
+      "completion_time": 0.479256738,
+      "total_tokens": 662,
+      "total_time": 0.505818033
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzae8aq3ezxr2vx0byqa6w91",
+      "seed": 1067338646
+    },
+    "service_tier": "on_demand"
+  }
+}

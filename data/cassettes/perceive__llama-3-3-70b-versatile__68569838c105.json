@@ -1,0 +1,59 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:f85d9d9262e3d15f",
+          "role": "user"
+        },
+        {
+          "content": "sha256:102ba848b3543d6d",
+          "role": "assistant"
+        },
+        {
+          "content": "That was not valid JSON for the required schema. Return ONLY the JSON object — no prose, no code fence.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-7495c6fb-c4fa-4185-9e8c-14a20e1b1659",
+    "object": "chat.completion",
+    "created": 1785982755,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"caption\": \"A person wearing a yellow hard hat and an orange safety vest is walking through a large, open room with white walls and pillars near a cardboard box\",\n  \"objects\": [\n    {\"label\":\"person\", \"colour\":null, \"kind\":\"high-visibility worker\", \"activity\":\"walking\", \"count\":1, \"confidence\":0.8},\n    {\"label\":\"cardboard box\", \"colour\":\"brown\", \"kind\":\"large box\", \"activity\":\"stationary\", \"count\":1, \"confidence\":0.7}\n  ],\n  \"activities\": [\"walking\"],\n  \"lighting\": \"night\",\n  \"weather\": null,\n  \"visibility\": \"clear\",\n  \"anomalies\": [],\n  \"confidence\": 0.8\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.051224298,
+      "prompt_tokens": 801,
+      "prompt_time": 0.041896982,
+      "completion_tokens": 162,
+      "completion_time": 0.304105253,
+      "total_tokens": 963,
+      "total_time": 0.346002235
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzadw7z9eyct52tvapxb1f33",
+      "seed": 1316540530
+    },
+    "service_tier": "on_demand"
+  }
+}

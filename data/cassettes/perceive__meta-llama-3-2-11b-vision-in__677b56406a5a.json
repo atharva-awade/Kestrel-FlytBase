@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 700,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:992bafa9568a4146",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:e71ca53b5263b24e"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-7971844bfb3d44e9948c5ae36afe6cf5",
+    "object": "chat.completion",
+    "created": 1785979128,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{ \"caption\": \"A man in a yellow hard hat and orange safety vest walks across the floor of a warehouse.\", \"objects\": [ {\"label\":\"man\", \"colour\":\"yellow\", \"kind\":\"worker\", \"activity\":\"walking\", \"count\":1, \"confidence\":0.9} ], \"activities\": [\"man walking\"], \"lighting\":\"artificial\", \"weather\": null, \"visibility\":\"clear\", \"anomalies\": [], \"confidence\": 0.9 }",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3640,
+      "total_tokens": 3740,
+      "completion_tokens": 100,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

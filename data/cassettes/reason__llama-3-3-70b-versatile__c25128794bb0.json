@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 260,
+      "messages": [
+        {
+          "content": "You are a security analyst writing an incident summary for a site manager. Given a timeline of alerts, write 2-4 sentences describing what appears to have happened, in order.\n\nRules:\n- State only what the alerts state. Never invent detail.\n- Do not assert intent. 'consistent with' is acceptable; 'the intruder intended to' is not.\n- If the sequence is ambiguous, say so.\n- End with the single most useful next action.\n- No preamble, no bullet points.",
+          "role": "system"
+        },
+        {
+          "content": "sha256:91a9b79f42601547",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-8a86674b-d7bc-4ad2-bcc2-19ce9924e3d2",
+    "object": "chat.completion",
+    "created": 1785986232,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "A dark grey sedan was detected outside the Perimeter Fence at 02:15:20, which is outside operating hours. Approximately 40 seconds later, a person was detected at the Perimeter Fence, and this person was still present about 1 minute and 20 seconds after the initial vehicle detection. The sequence of events is consistent with someone arriving in the sedan and then approaching the fence. The next action should be to review the security footage to verify the details of the incident and assess potential security breaches."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.055270949,
+      "prompt_tokens": 272,
+      "prompt_time": 0.013801021,
+      "completion_tokens": 103,
+      "completion_time": 0.370114598,
+      "total_tokens": 375,
+      "total_time": 0.383915619
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzah6bzye1qrv2qp6dweqgz1",
+      "seed": 105135936
+    },
+    "service_tier": "on_demand"
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "frames_per_context": 60,
+  "sample_fps": 2.0,
+  "contexts": [
+    {
+      "clip": "worker-zone",
+      "zone": "restricted-core",
+      "start": "2026-08-06T02:10:00",
+      "seen": 60,
+      "analysed": 40,
+      "skipped": 20,
+      "efficiency": 0.3333,
+      "reasons": {
+        "first-frame": 1,
+        "static": 20,
+        "pixel-delta": 9,
+        "phash-change": 30
+      },
+      "label": "restricted zone, 02:00"
+    },
+    {
+      "clip": "worker-zone",
+      "zone": "substation",
+      "start": "2026-08-06T02:10:00",
+      "seen": 60,
+      "analysed": 40,
+      "skipped": 20,
+      "efficiency": 0.3333,
+      "reasons": {
+        "first-frame": 1,
+        "static": 20,
+        "pixel-delta": 9,
+        "phash-change": 30
+      },
+      "label": "substation, 02:00"
+    },
+    {
+      "clip": "worker-zone",
+      "zone": "yard",
+      "start": "2026-08-06T14:10:00",
+      "seen": 60,
+      "analysed": 33,
+      "skipped": 27,
+      "efficiency": 0.45,
+      "reasons": {
+        "first-frame": 1,
+        "static": 27,
+        "phash-change": 21,
+        "pixel-delta": 11
+      },
+      "label": "yard, 14:00"
+    },
+    {
+      "clip": "worker-zone",
+      "zone": "parking",
+      "start": "2026-08-06T14:10:00",
+      "seen": 60,
+      "analysed": 33,
+      "skipped": 27,
+      "efficiency": 0.45,
+      "reasons": {
+        "first-frame": 1,
+        "static": 27,
+        "phash-change": 21,
+        "pixel-delta": 11
+      },
+      "label": "staff parking, 14:00"
+    },
+    {
+      "clip": "store-aisle",
+      "zone": "parking",
+      "start": "2026-08-06T14:10:00",
+      "seen": 60,
+      "analysed": 42,
+      "skipped": 18,
+      "efficiency": 0.3,
+      "reasons": {
+        "first-frame": 1,
+        "static": 18,
+        "phash-change": 25,
+        "pixel-delta": 16
+      },
+      "label": "parking, quiet clip, 14:00"
+    },
+    {
+      "clip": "car-detection",
+      "zone": "yard",
+      "start": "2026-08-06T11:00:00",
+      "seen": 60,
+      "analysed": 32,
+      "skipped": 28,
+      "efficiency": 0.4667,
+      "reasons": {
+        "first-frame": 1,
+        "static": 28,
+        "phash-change": 29,
+        "pixel-delta": 2
+      },
+      "label": "yard, quiet clip, 11:00"
+    }
+  ],
+  "idle_constructed": {
+    "clip": "synthetic-idle",
+    "zone": "yard",
+    "start": "2026-08-06T14:10:00",
+    "seen": 60,
+    "analysed": 2,
+    "skipped": 58,
+    "efficiency": 0.9667,
+    "reasons": {
+      "first-frame": 1,
+      "static": 58,
+      "heartbeat": 1
+    },
+    "constructed": true,
+    "label": "idle patrol, quiet yard (constructed)"
+  },
+  "overall_efficiency_real_footage": 0.3889,
+  "idle_efficiency_constructed": 0.9667,
+  "best": {
+    "label": "yard, quiet clip, 11:00",
+    "efficiency": 0.4667
+  },
+  "worst": {
+    "label": "parking, quiet clip, 14:00",
+    "efficiency": 0.3
+  },
+  "caveat": "Real-footage figures are a floor, not a typical value: every available clip is a CV demo reel authored for continuous motion, which is close to worst-case for a gate. The idle context is a constructed static scene representing patrol idle time and is labelled as such."
+}

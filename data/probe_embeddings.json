@@ -1,0 +1,46 @@
+{
+  "winners": [
+    {
+      "model": "nvidia/llama-nemotron-embed-vl-1b-v2",
+      "path": "https://integrate.api.nvidia.com/v1/embeddings",
+      "shape": "input:[data-uri]+input_type",
+      "dim": 2048,
+      "text_dim": 2048
+    }
+  ],
+  "notes": [
+    "nvidia/nvclip input:[data-uri] \u2192 404 {\"status\":404,\"title\":\"Not Found\",\"detail\":\"Function '3072eebf-b0f0-4318-a5b8-5a45cd035b95': Not found for acc",
+    "nvidia/nvclip input:[data-uri]+input_type \u2192 404 {\"status\":404,\"title\":\"Not Found\",\"detail\":\"Function '3072eebf-b0f0-4318-a5b8-5a45cd035b95': Not found for acc",
+    "nvidia/nvclip input:[{type:image_url}] \u2192 404 {\"status\":404,\"title\":\"Not Found\",\"detail\":\"Function '3072eebf-b0f0-4318-a5b8-5a45cd035b95': Not found for acc",
+    "nvidia/nvclip input:[{image:b64}] \u2192 404 {\"status\":404,\"title\":\"Not Found\",\"detail\":\"Function '3072eebf-b0f0-4318-a5b8-5a45cd035b95': Not found for acc",
+    "nvidia/nvclip input:[data-uri] \u2192 404 404 page not found ",
+    "nvidia/nvclip input:[data-uri]+input_type \u2192 404 404 page not found ",
+    "nvidia/nvclip input:[{type:image_url}] \u2192 404 404 page not found ",
+    "nvidia/nvclip input:[{image:b64}] \u2192 404 404 page not found ",
+    "nvidia/nvclip input:[data-uri] \u2192 404 404 page not found ",
+    "nvidia/nvclip input:[data-uri]+input_type \u2192 404 404 page not found ",
+    "nvidia/nvclip input:[{type:image_url}] \u2192 404 404 page not found ",
+    "nvidia/nvclip input:[{image:b64}] \u2192 404 404 page not found ",
+    "nvidia/nvclip input:[data-uri] \u2192 404 404 page not found ",
+    "nvidia/nvclip input:[data-uri]+input_type \u2192 404 404 page not found ",
+    "nvidia/nvclip input:[{type:image_url}] \u2192 404 404 page not found ",
+    "nvidia/nvclip input:[{image:b64}] \u2192 404 404 page not found ",
+    "nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1 input:[data-uri] \u2192 404 {\"status\":404,\"title\":\"Not Found\",\"detail\":\"Function '6cb5bc77-9adc-48ac-85e2-c0ebceda934f': Not found for acc",
+    "nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1 input:[data-uri]+input_type \u2192 404 {\"status\":404,\"title\":\"Not Found\",\"detail\":\"Function '6cb5bc77-9adc-48ac-85e2-c0ebceda934f': Not found for acc",
+    "nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1 input:[{type:image_url}] \u2192 404 {\"status\":404,\"title\":\"Not Found\",\"detail\":\"Function '6cb5bc77-9adc-48ac-85e2-c0ebceda934f': Not found for acc",
+    "nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1 input:[{image:b64}] \u2192 404 {\"status\":404,\"title\":\"Not Found\",\"detail\":\"Function '6cb5bc77-9adc-48ac-85e2-c0ebceda934f': Not found for acc",
+    "nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1 input:[data-uri] \u2192 404 404 page not found ",
+    "nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1 input:[data-uri]+input_type \u2192 404 404 page not found ",
+    "nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1 input:[{type:image_url}] \u2192 404 404 page not found ",
+    "nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1 input:[{image:b64}] \u2192 404 404 page not found ",
+    "nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1 input:[data-uri] \u2192 404 404 page not found ",
+    "nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1 input:[data-uri]+input_type \u2192 404 404 page not found ",
+    "nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1 input:[{type:image_url}] \u2192 404 404 page not found ",
+    "nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1 input:[{image:b64}] \u2192 404 404 page not found ",
+    "nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1 input:[data-uri] \u2192 404 404 page not found ",
+    "nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1 input:[data-uri]+input_type \u2192 404 404 page not found ",
+    "nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1 input:[{type:image_url}] \u2192 404 404 page not found ",
+    "nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1 input:[{image:b64}] \u2192 404 404 page not found ",
+    "nvidia/llama-nemotron-embed-vl-1b-v2 input:[data-uri] \u2192 400 {\"error\":\"'input_type' parameter is required for asymmetric models\"}"
+  ]
+}

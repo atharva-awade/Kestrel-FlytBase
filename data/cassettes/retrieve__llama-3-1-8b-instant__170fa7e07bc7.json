@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "retrieve",
+    "payload": {
+      "max_tokens": 380,
+      "messages": [
+        {
+          "content": "sha256:8709b4502f3e577a",
+          "role": "system"
+        },
+        {
+          "content": "Current time: 2026-08-07T09:25:16.957520\nAvailable zone ids: \"main-gate\", \"loading-dock\", \"yard\", \"warehouse-a\", \"warehouse-b\", \"substation\", \"parking\", \"access-road\", \"fence-line\", \"restricted-core\"\n\nQuestion: \"a white van parked near the gate\"",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-ce0cdf0e-6617-484c-b24e-0d91b4f95466",
+    "object": "chat.completion",
+    "created": 1786074919,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"intent\": \"hybrid\",\n  \"labels\": [\"van\"],\n  \"zones\": [\"main-gate\"],\n  \"entity_ids\": [\"ENT-...\"],\n  \"relative_hours\": null,\n  \"start_iso\": null,\n  \"end_iso\": null,\n  \"semantic_text\": \"a white van parked near the gate\",\n  \"reasoning\": \"The query describes both a specific appearance and a location, indicating a hybrid intent.\"\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.050055808,
+      "prompt_tokens": 374,
+      "prompt_time": 0.024698132,
+      "completion_tokens": 94,
+      "completion_time": 0.103762712,
+      "total_tokens": 468,
+      "total_time": 0.128460844
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzd5rvxte1j84c8km7853f11",
+      "seed": 170633004
+    },
+    "service_tier": "on_demand"
+  }
+}

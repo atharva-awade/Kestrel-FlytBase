@@ -1,0 +1,56 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive_deep",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:5b1750ed28c601c5",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:e713f73b51de548b"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-90b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-fb5cd09fd3394e18933615eb097be481",
+    "object": "chat.completion",
+    "created": 1786086706,
+    "model": "meta/llama-3.2-90b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "reasoning_content": null,
+          "content": "{\n  \"caption\": \"A person in a hard hat and high-visibility vest is walking away from the camera in a dimly lit, empty room.\",\n  \"objects\": [\n    {\n      \"label\": \"person\",\n      \"colour\": \"yellow\",\n      \"kind\": \"high-visibility worker\",\n      \"activity\": \"walking\",\n      \"count\": 1,\n      \"confidence\": 0.9\n    }\n  ],\n  \"activities\": [\"walking\"],\n  \"lighting\": \"artificial\",\n  \"weather\": null,\n  \"visibility\": \"clear\",\n  \"anomalies\": [],\n  \"confidence\": 0.9\n}",
+          "tool_calls": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3666,
+      "total_tokens": 3803,
+      "completion_tokens": 137,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null
+  }
+}

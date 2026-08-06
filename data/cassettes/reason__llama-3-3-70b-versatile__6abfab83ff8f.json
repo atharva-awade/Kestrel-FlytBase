@@ -1,0 +1,83 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:ee81523dff01883a",
+          "role": "system"
+        },
+        {
+          "content": "How do you verify a citation?",
+          "role": "user"
+        },
+        {
+          "content": "I have no information about how I verify a citation from the tool results. The tool \"describe_architecture\" provided information about the retrieval system [describe_architecture], but did not address the specific question of verifying a citation.",
+          "role": "assistant"
+        },
+        {
+          "content": "What happened last night?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:fc42a4df2c0cc312",
+          "role": "assistant"
+        },
+        {
+          "content": "What rules are active?",
+          "role": "user"
+        },
+        {
+          "content": "There are 9 active rules: loitering [loitering], perimeter-breach [perimeter-breach], restricted-zone [restricted-zone], after-hours-vehicle [after-hours-vehicle], tailgating [tailgating], unattended-object [unattended-object], baseline-anomaly [baseline-anomaly], unusual-gathering [unusual-gathering], and truck-parked-at-dock [truck-parked-at-dock].",
+          "role": "assistant"
+        },
+        {
+          "content": "What rules are active and why?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-4fd39345-ee37-4481-a6bb-b5c91f65f26f",
+    "object": "chat.completion",
+    "created": 1786080622,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"list_rules\",\"arguments\":{}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.165496058,
+      "prompt_tokens": 1534,
+      "prompt_time": 0.085429149,
+      "completion_tokens": 14,
+      "completion_time": 0.044604824,
+      "total_tokens": 1548,
+      "total_time": 0.130033973
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_45180df409",
+    "x_groq": {
+      "id": "req_01kzdb6xakevs9z3srkcb777vr",
+      "seed": 2095266860
+    },
+    "service_tier": "on_demand"
+  }
+}

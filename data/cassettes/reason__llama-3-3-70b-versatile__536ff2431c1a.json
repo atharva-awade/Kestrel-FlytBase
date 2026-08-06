@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 60,
+      "messages": [
+        {
+          "content": "You compress security camera observations. Write ONE factual sentence covering what happened across these frames. Name objects, people and places. State only what the observations state — never infer intent. No preamble.",
+          "role": "system"
+        },
+        {
+          "content": "[02:10:40] nothing: The warehouse is empty, with no people or vehicles visible.\n[02:10:50] nothing: The image shows a dimly lit, empty warehouse with a concrete floor and white pillars, featuring a yellow and black striped rope in\n[02:11:00] nothing: A single worker is present in the restricted core area of the Chakan Industrial Plant",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-29398d1f-08f2-4081-aa69-6f622bb46409",
+    "object": "chat.completion",
+    "created": 1785982453,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "A worker is present in the restricted core area of the Chakan Industrial Plant, which has a concrete floor, white pillars, and a yellow and black striped rope."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.051002974,
+      "prompt_tokens": 155,
+      "prompt_time": 0.007406746,
+      "completion_tokens": 34,
+      "completion_time": 0.09352902,
+      "total_tokens": 189,
+      "total_time": 0.100935766
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzadk1b8e2erwe4sdzpndf58",
+      "seed": 1852475988
+    },
+    "service_tier": "on_demand"
+  }
+}

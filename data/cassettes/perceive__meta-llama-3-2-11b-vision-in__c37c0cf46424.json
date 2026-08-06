@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:ce98aaaa1380a55d",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:56aeb4ea6f3eca35"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-ec745e0420ef4a80a955c5db870e2767",
+    "object": "chat.completion",
+    "created": 1785982849,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The image shows a man in a high-visibility vest and yellow hard hat walking away from the camera, holding a yellow and black striped rope. The man is wearing a gray shirt under his vest and blue jeans. He has short dark hair and is facing away from the camera.\n\n*   The man is wearing a yellow hard hat and a high-visibility vest.\n*   He is holding a yellow and black striped rope in his right hand.\n*   The man is walking away from the camera, with his back to the viewer.\n*   The man is wearing a gray shirt under his vest and blue jeans.\n*   He has short dark hair.\n\nThe man is likely a construction worker or someone working on a project at the Chakan Industrial Plant. He is wearing protective gear, including a hard hat and high-visibility vest, which suggests that he is working in a potentially hazardous environment. The yellow and black striped rope he is holding may be used for safety purposes, such as marking off an area or guiding people through a construction zone.\n\nOverall, the image suggests that the man is engaged in some kind of work or project at the industrial plant, and is taking necessary safety precautions to protect himself and others.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3667,
+      "total_tokens": 3911,
+      "completion_tokens": 244,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

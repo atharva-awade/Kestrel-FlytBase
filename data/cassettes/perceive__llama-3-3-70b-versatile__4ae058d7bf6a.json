@@ -1,0 +1,59 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:098bf0028ae51b16",
+          "role": "user"
+        },
+        {
+          "content": "sha256:4cff6b865ca23f86",
+          "role": "assistant"
+        },
+        {
+          "content": "That was not valid JSON for the required schema. Return ONLY the JSON object — no prose, no code fence.",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-5c9cea8b-b4cc-4bc1-8f30-cd06b76befd3",
+    "object": "chat.completion",
+    "created": 1785982771,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"caption\": \"A person in a yellow hard hat and orange safety vest is walking in the Restricted Core zone\",\n  \"objects\": [\n    {\"label\":\"person\", \"colour\":null, \"kind\":\"high-visibility worker\", \"activity\":\"walking\", \"count\":1, \"confidence\":0.95}\n  ],\n  \"activities\": [\"walking\"],\n  \"lighting\": \"night\",\n  \"weather\": null,\n  \"visibility\": \"clear\",\n  \"anomalies\": [],\n  \"confidence\": 0.92\n}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.052796036,
+      "prompt_tokens": 862,
+      "prompt_time": 0.050285714,
+      "completion_tokens": 114,
+      "completion_time": 0.270530753,
+      "total_tokens": 976,
+      "total_time": 0.320816467
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzadwqmme7dt8xarge6941k5",
+      "seed": 940122022
+    },
+    "service_tier": "on_demand"
+  }
+}

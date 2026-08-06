@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:9f3b895956e884da",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:18e107eaabf06812"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-ddeadd36a9004fe48e554002ab8c267f",
+    "object": "chat.completion",
+    "created": 1785979434,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The image shows a man walking in an industrial area, wearing a yellow hard hat and an orange safety vest. The man is wearing black pants and shoes, and his face is blurred. He is walking towards the right side of the image, away from the camera.\n\n*   The man is wearing a yellow hard hat and an orange safety vest.\n*   He is wearing black pants and shoes.\n*   His face is blurred.\n*   He is walking towards the right side of the image, away from the camera.\n\nThe man is walking in an industrial area, which is likely a warehouse or factory. The floor is made of concrete, and there are several pillars and beams visible. There are also some crates and boxes stacked up against the wall in the background.\n\n*   The floor is made of concrete.\n*   There are several pillars and beams visible.\n*   There are some crates and boxes stacked up against the wall in the background.\n\nOverall, the image suggests that the man is working in an industrial setting, possibly as a maintenance worker or a security guard. The presence of the hard hat and safety vest indicates that he is taking necessary precautions to ensure his safety while working in the area.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3666,
+      "total_tokens": 3907,
+      "completion_tokens": 241,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}

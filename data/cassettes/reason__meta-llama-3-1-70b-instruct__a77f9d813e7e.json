@@ -1,0 +1,95 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 600,
+      "messages": [
+        {
+          "content": "sha256:45fb70576ef3e301",
+          "role": "system"
+        },
+        {
+          "content": "How do you verify a citation?",
+          "role": "user"
+        },
+        {
+          "content": "I have no information about how I verify a citation from the tool results. The results describe the retrieval system's architecture, but do not mention citation verification [describe_architecture].",
+          "role": "assistant"
+        },
+        {
+          "content": "What are your scalability limits?",
+          "role": "user"
+        },
+        {
+          "content": "The scalability limit is that sending every frame to a vision model is arithmetically impossible due to the free model tier's request limit [describe_architecture]. The system is designed to ration model calls, with a goal of reducing the number of frames that reach the model [describe_architecture]. The actual limit is that a busier site spends more, and a site busy enough that most frames are novel would exhaust the budget [describe_architecture].",
+          "role": "assistant"
+        },
+        {
+          "content": "Can you approve a mission yourself?",
+          "role": "user"
+        },
+        {
+          "content": "No, I cannot approve a mission myself. Tools that change state or move an aircraft, such as approving a mission, require a separate call carrying an explicit human decision [describe_architecture].",
+          "role": "assistant"
+        },
+        {
+          "content": "Show me the most recent alerts.",
+          "role": "user"
+        },
+        {
+          "content": "Called: list_alerts",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:2d2bc1e8890afd18",
+          "role": "user"
+        },
+        {
+          "content": "Answer the operator's question now, using ONLY the tool results above. Cite ids in square brackets. If the results do not answer the question, say so plainly rather than guessing.",
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.1-70b-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-ac007c55e842893f",
+    "object": "chat.completion",
+    "created": 1786082425,
+    "model": "meta/llama-3.1-70b-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The most recent alerts are:\n\n1. Presence in a restricted area: yellow person at Restricted Core [alr_27d99d75733f]\n2. Presence in a restricted area: orange person at Electrical Substation [alr_d8a9d2ef4dcc]\n3. Loitering at a sensitive location: person at Main Gate [alr_8a88b73a2fe6]\n4. Unusual gathering outside working hours: person at Main Gate [alr_dc7cc1af0801]\n5. Presence in a restricted area: orange person at Electrical Substation [alr_4cd0991c0592]\n6. Loitering at a sensitive location: orange person at an unresolved location [alr_17990f0bbb27]\n\nThese alerts were triggered at the following times:\n- 02:16:10 [alr_4cd0991c0592]\n- 02:14:40 [alr_17990f0bbb27]\n- 02:12:10 [alr_27d99d75733f]\n- 02:11:40 [alr_d8a9d2ef4dcc]\n- 00:04:00 [alr_8a88b73a2fe6]\n- 00:02:50 [alr_dc7cc1af0801]",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null,
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 2173,
+      "total_tokens": 2461,
+      "completion_tokens": 288,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  }
+}

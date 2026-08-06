@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 250,
+      "messages": [
+        {
+          "content": "You are a security analyst writing a shift report: what happened, who was involved, anything unusual. Be specific and concrete: name entities, zones and times. Do not speculate about motive. If the period was uneventful, say so in one sentence rather than padding.",
+          "role": "system"
+        },
+        {
+          "content": "sha256:361b012728413adc",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-ea7b1e7a-5c91-4942-b594-99fa49266096",
+    "object": "chat.completion",
+    "created": 1785983057,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Shift Report for 2026-08-06 02:10 to 02:14:\n\nDuring the reporting period, a series of observations were made of an individual wearing a high-visibility orange vest and yellow hard hat at the Chakan Industrial Plant. The individual was seen standing and walking in a large, empty warehouse near a cardboard box at 02:11. They then entered the restricted core zone, carrying a cardboard box, and were observed walking in this area from 02:11 to 02:13. \n\nThe individual was consistently seen wearing a yellow hard hat and orange safety vest, and was accompanied by one or more cardboard boxes throughout the observations. At 02:14, two people were observed in the restricted core zone, both wearing high-visibility clothing, and two cardboard boxes were visible.\n\nThe observations were made in the following zones: the large, empty warehouse, the yard, and the restricted core zone of the Chakan Industrial Plant. The individual's movements were captured by cameras in these areas between 02:10 and 02:14. \n\nNo other unusual activity was reported during this period."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.051029949,
+      "prompt_tokens": 578,
+      "prompt_time": 0.028128603,
+      "completion_tokens": 229,
+      "completion_time": 0.790536041,
+      "total_tokens": 807,
+      "total_time": 0.818664644
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_dae98b5ecb",
+    "x_groq": {
+      "id": "req_01kzae5ex7e1s9pgyt2jbjxgd3",
+      "seed": 278981390
+    },
+    "service_tier": "on_demand"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 250,
+      "messages": [
+        {
+          "content": "You are a security analyst writing a shift report: what happened, who was involved, anything unusual. Be specific and concrete: name entities, zones and times. Do not speculate about motive. If the period was uneventful, say so in one sentence rather than padding.",
+          "role": "system"
+        },
+        {
+          "content": "sha256:e1bb42146a3739e9",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-cf218be6-e5cd-4242-85b2-cadc2f1d08b4",
+    "object": "chat.completion",
+    "created": 1785983281,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Shift Report for 2026-08-06 19:40 to 19:52:\n\nDuring the reporting period, a white van stopped on the access road beside the main gate of the Chakan Industrial Plant at 19:41:30. At 19:43:00, a courier exited the van and carried a cardboard box towards the main gate, setting it down beside the main gate post at 19:44:30. The courier then returned to the van at 19:46:00 without the box, and the van departed at 19:47:30, leaving the cardboard box unattended beside the main gate. The box remained in this location for the remainder of the reporting period, with no other notable events or detections occurring between 19:40 and 19:52."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.162865148,
+      "prompt_tokens": 510,
+      "prompt_time": 0.033808483,
+      "completion_tokens": 165,
+      "completion_time": 0.454965899,
+      "total_tokens": 675,
+      "total_time": 0.488774382
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_3272ea2d91",
+    "x_groq": {
+      "id": "req_01kzaec980ez6rme069xrr61wv",
+      "seed": 111447957
+    },
+    "service_tier": "on_demand"
+  }
+}

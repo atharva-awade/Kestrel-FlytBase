@@ -1,0 +1,205 @@
+{
+  "id": "solar-01",
+  "name": "Bhadla Solar Park North",
+  "kind": "solar",
+  "origin": {
+    "lat": 27.539,
+    "lon": 71.912
+  },
+  "timezone": "Asia/Kolkata",
+  "country": "IN",
+  "country_name": "India",
+  "zones": [
+    {
+      "id": "main-gate",
+      "name": "Main Gate",
+      "kind": "gate",
+      "polygon": [
+        {
+          "lat": 27.53892814,
+          "lon": 71.91321572
+        },
+        {
+          "lat": 27.53892814,
+          "lon": 71.91392489
+        },
+        {
+          "lat": 27.53925153,
+          "lon": 71.91392489
+        },
+        {
+          "lat": 27.53925153,
+          "lon": 71.91321572
+        }
+      ],
+      "priority": 1.6,
+      "normal_hours": [
+        6,
+        21
+      ],
+      "notes": ""
+    },
+    {
+      "id": "yard",
+      "name": "Yard",
+      "kind": "yard",
+      "polygon": [
+        {
+          "lat": 27.53971865,
+          "lon": 71.91341834
+        },
+        {
+          "lat": 27.53971865,
+          "lon": 71.9150393
+        },
+        {
+          "lat": 27.54070679,
+          "lon": 71.9150393
+        },
+        {
+          "lat": 27.54070679,
+          "lon": 71.91341834
+        }
+      ],
+      "priority": 1.2,
+      "normal_hours": [
+        6,
+        22
+      ],
+      "notes": ""
+    },
+    {
+      "id": "loading-dock",
+      "name": "Loading Dock",
+      "kind": "dock",
+      "polygon": [
+        {
+          "lat": 27.5391617,
+          "lon": 71.91225327
+        },
+        {
+          "lat": 27.5391617,
+          "lon": 71.91341834
+        },
+        {
+          "lat": 27.53970068,
+          "lon": 71.91341834
+        },
+        {
+          "lat": 27.53970068,
+          "lon": 71.91225327
+        }
+      ],
+      "priority": 1.4,
+      "normal_hours": [
+        7,
+        19
+      ],
+      "notes": ""
+    },
+    {
+      "id": "substation",
+      "name": "Substation",
+      "kind": "substation",
+      "polygon": [
+        {
+          "lat": 27.54048221,
+          "lon": 71.91478602
+        },
+        {
+          "lat": 27.54048221,
+          "lon": 71.91544454
+        },
+        {
+          "lat": 27.54093137,
+          "lon": 71.91544454
+        },
+        {
+          "lat": 27.54093137,
+          "lon": 71.91478602
+        }
+      ],
+      "priority": 2.2,
+      "normal_hours": [
+        9,
+        17
+      ],
+      "notes": ""
+    },
+    {
+      "id": "fence-line",
+      "name": "Perimeter Fence",
+      "kind": "fence",
+      "polygon": [
+        {
+          "lat": 27.5388922,
+          "lon": 71.91187843
+        },
+        {
+          "lat": 27.5388922,
+          "lon": 71.91579912
+        },
+        {
+          "lat": 27.54115595,
+          "lon": 71.91579912
+        },
+        {
+          "lat": 27.54115595,
+          "lon": 71.91187843
+        },
+        {
+          "lat": 27.5388922,
+          "lon": 71.91187843
+        },
+        {
+          "lat": 27.54106612,
+          "lon": 71.91197974
+        },
+        {
+          "lat": 27.54106612,
+          "lon": 71.91569781
+        },
+        {
+          "lat": 27.53898203,
+          "lon": 71.91569781
+        },
+        {
+          "lat": 27.53898203,
+          "lon": 71.91197974
+        },
+        {
+          "lat": 27.54106612,
+          "lon": 71.91197974
+        }
+      ],
+      "priority": 2.0,
+      "normal_hours": null,
+      "notes": ""
+    }
+  ],
+  "dock": {
+    "lat": 27.53937729,
+    "lon": 71.91392489
+  },
+  "geofence": [
+    {
+      "lat": 27.53873051,
+      "lon": 71.91169607
+    },
+    {
+      "lat": 27.53873051,
+      "lon": 71.91600174
+    },
+    {
+      "lat": 27.54131764,
+      "lon": 71.91600174
+    },
+    {
+      "lat": 27.54131764,
+      "lon": 71.91169607
+    }
+  ],
+  "max_altitude_m": 120.0,
+  "live_footage": false,
+  "notes": "Simulated fleet site: seeded event generator, no live footage."
+}

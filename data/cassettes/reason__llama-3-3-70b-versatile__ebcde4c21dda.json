@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 250,
+      "messages": [
+        {
+          "content": "You are a security analyst writing a shift report: what happened, who was involved, anything unusual. Be specific and concrete: name entities, zones and times. Do not speculate about motive. If the period was uneventful, say so in one sentence rather than padding.",
+          "role": "system"
+        },
+        {
+          "content": "Period: 2026-08-06 02:03 to 02:06\n\n[02:06-02:06] 02:06:00-02:06:00: 1x vehicle, 1x person in fence-line. Blue Ford F-150 stationary at the fence line\n[02:05-02:05] 02:05:00-02:05:00: 1x vehicle in fence-line. Blue Ford F-150 parks beside the fence line\n[02:03-02:03] 02:03:00-02:03:00: 1x vehicle in main-gate. A blue Ford F-150 pickup approaches the main gate with headlights off\n[02:04-02:04] 02:04:00-02:04:00: 1x vehicle in main-gate. Blue Ford F-150 stops short of the main gate",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-614180f4-8c59-4fd5-855b-12c71258d5fb",
+    "object": "chat.completion",
+    "created": 1785983561,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Shift Report for 2026-08-06 02:03 to 02:06:\n\nDuring the reporting period, a blue Ford F-150 pickup truck was observed approaching the main gate of the facility at 02:03:00 with its headlights off. The vehicle stopped short of the main gate at 02:04:00. It then proceeded to park beside the fence line at 02:05:00. At 02:06:00, the vehicle was stationary at the fence line with one person inside. The vehicle and individual remained in this position for the duration of the observation."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.160685108,
+      "prompt_tokens": 284,
+      "prompt_time": 0.014083411,
+      "completion_tokens": 124,
+      "completion_time": 0.371255913,
+      "total_tokens": 408,
+      "total_time": 0.385339324
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_3272ea2d91",
+    "x_groq": {
+      "id": "req_01kzaemv7per0vg3cgps9yq7k0",
+      "seed": 809241951
+    },
+    "service_tier": "on_demand"
+  }
+}

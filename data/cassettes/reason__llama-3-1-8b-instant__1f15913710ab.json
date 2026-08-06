@@ -1,0 +1,83 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:c4aae1467b3d9a58",
+          "role": "system"
+        },
+        {
+          "content": "What rules are active and why?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:bc4dae0ba8e3c948",
+          "role": "assistant"
+        },
+        {
+          "content": "Has this vehicle been seen at another site?",
+          "role": "user"
+        },
+        {
+          "content": "I have no information about the vehicle's presence at another site. The tool \"get_entity\" returned an error due to missing arguments [get_entity].",
+          "role": "assistant"
+        },
+        {
+          "content": "Has any vehicle been seen at more than one site?",
+          "role": "user"
+        },
+        {
+          "content": "I could not reach the model that selects tools, so I have not answered rather than guessing.\n\nCause: `ProviderError: all text providers failed → groq/llama-3.3-70b-versatile: HTTP 429: retry-after 426s exceeds the 5s interactive budget, failing over | nvidia/meta/llama-3.1-70b-instruct: ReadTimeout: `\n\nIn replay mode this means the question has no recorded response yet. The rest of the system is unaffected.",
+          "role": "assistant"
+        },
+        {
+          "content": "Was anyone here at 4am on the 3rd?",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.1-8b-instant",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-1c647411-c5a3-4cb8-a68c-c28da3573650",
+    "object": "chat.completion",
+    "created": 1786080121,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[{\"name\":\"search_frames\",\"arguments\":{\"site_id\":\"plant-01\",\"time\":1643723400,\"zone_ids\":[\"main-gate\",\"loading-dock\",\"yard\",\"warehouse-a\",\"warehouse-b\",\"substation\",\"parking\",\"access-road\",\"fence-line\",\"restricted-core\"],\"entities\":[\"person\",\"vehicle\"]}}]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.051588894,
+      "prompt_tokens": 1523,
+      "prompt_time": 0.113433015,
+      "completion_tokens": 68,
+      "completion_time": 0.096143061,
+      "total_tokens": 1591,
+      "total_time": 0.209576076
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4387d3edbb",
+    "x_groq": {
+      "id": "req_01kzdaqmqne0cb920hrhf5j6vk",
+      "seed": 1561207233
+    },
+    "service_tier": "on_demand"
+  }
+}

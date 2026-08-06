@@ -1,0 +1,63 @@
+{
+  "request": {
+    "provider": "nvidia",
+    "endpoint": "/chat/completions",
+    "stage": "perceive",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": [
+            {
+              "text": "sha256:875f87e85c1b5100",
+              "type": "text"
+            },
+            {
+              "image_url": {
+                "url": "data:image/jpeg;sha256:f55dbff284ecae37"
+              },
+              "type": "image_url"
+            }
+          ],
+          "role": "user"
+        }
+      ],
+      "model": "meta/llama-3.2-11b-vision-instruct",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-a851a655b21f430ba5258361f2681391",
+    "object": "chat.completion",
+    "created": 1785982829,
+    "model": "meta/llama-3.2-11b-vision-instruct",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The image shows a large, open room with white pillars and a concrete floor. The room is empty except for a few objects in the background.\n\n*   The floor is made of concrete and has a rough texture.\n*   There are several white pillars scattered throughout the room, which appear to be supporting the ceiling.\n*   In the background, there is a blue bin and some wooden crates or boxes.\n*   The walls of the room are white and appear to be made of drywall or another type of paneling.\n*   The overall atmosphere of the room is one of emptiness and abandonment.\n\n**Objects:**\n\n*   1x cardboard box (detected by the detector)\n*   1x blue bin (visible in the background)\n*   1x wooden crate or box (visible in the background)\n\n**Activities:**\n\n*   None\n\n**Lighting:**\n\n*   Night\n\n**Weather:**\n\n*   Unknown\n\n**Visibility:**\n\n*   Clear\n\n**Anomalies:**\n\n*   None\n\n**Confidence:**\n\n*   0.8 (based on the clarity of the image and the accuracy of the detections)\n\nOverall, the image suggests that the room is empty and unused, with only a few objects present in the background. The lighting is dim, and the visibility is clear. There are no anomalies or unusual activities present in the image.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning_content": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 3667,
+      "total_tokens": 3950,
+      "completion_tokens": 283,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "kv_transfer_params": null
+  }
+}
