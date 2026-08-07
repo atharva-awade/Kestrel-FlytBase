@@ -49,9 +49,13 @@ app = FastAPI(
     description="Autonomous drone security analyst",
     version="0.1.0",
 )
+cors_origins = settings.cors_list
+allow_all = "*" in cors_origins
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.cors_list,
+    allow_origins=[] if allow_all else cors_origins,
+    allow_origin_regex=r"^https?://.*" if allow_all else None,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -94,6 +98,7 @@ def root() -> dict[str, Any]:
     }
 
 
+@app.get("/health")
 @app.get("/api/health")
 def health() -> dict[str, Any]:
     from kestrel.clients.models import get_client

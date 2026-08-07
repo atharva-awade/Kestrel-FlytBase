@@ -61,9 +61,9 @@ COPY data/seed/kestrel.db ./data/kestrel.db
 # rather than hidden.
 RUN mkdir -p data/uploads
 
-EXPOSE 8000
+EXPOSE 8000 10000
 
 HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
-    CMD python -c "import httpx,sys; sys.exit(0 if httpx.get('http://127.0.0.1:8000/api/health',timeout=4).status_code==200 else 1)"
+    CMD python -c "import os,httpx,sys; p=os.environ.get('PORT','8000'); sys.exit(0 if httpx.get(f'http://127.0.0.1:{p}/api/health',timeout=4).status_code==200 else 1)"
 
-CMD ["uvicorn", "kestrel.api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["sh", "-c", "uvicorn kestrel.api.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
