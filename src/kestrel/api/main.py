@@ -83,6 +83,17 @@ def fleet():
 # ═══════════════════════════════════════════════════════════════════════════════
 # System
 # ═══════════════════════════════════════════════════════════════════════════════
+@app.get("/")
+def root() -> dict[str, Any]:
+    return {
+        "service": "KESTREL API — Autonomous Drone Security Analyst",
+        "status": "online",
+        "mode": settings.mode.value,
+        "docs": "/docs",
+        "health": "/api/health",
+    }
+
+
 @app.get("/api/health")
 def health() -> dict[str, Any]:
     from kestrel.clients.models import get_client
