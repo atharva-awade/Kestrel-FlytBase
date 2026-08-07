@@ -1,0 +1,67 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 420,
+      "messages": [
+        {
+          "content": "sha256:71bd50932bb5b66e",
+          "role": "system"
+        },
+        {
+          "content": "Compile this into a rule and backtest it, but do not enable it: \"Alert if an unauthorized person lingers near gate b for more than 30 seconds\"",
+          "role": "user"
+        },
+        {
+          "content": "Called: describe_architecture, compile_rule_from_text",
+          "role": "assistant"
+        },
+        {
+          "content": "sha256:d698f28a052e7923",
+          "role": "user"
+        },
+        {
+          "content": "sha256:5f018d65a268fd3b",
+          "role": "user"
+        }
+      ],
+      "model": "llama-3.3-70b-versatile",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-e1279678-71cb-4585-9d3c-367a93758a9c",
+    "object": "chat.completion",
+    "created": 1786092070,
+    "model": "llama-3.3-70b-versatile",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"calls\":[]}"
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.162431475,
+      "prompt_tokens": 1722,
+      "prompt_time": 0.189794183,
+      "completion_tokens": 5,
+      "completion_time": 0.024158863,
+      "total_tokens": 1727,
+      "total_time": 0.213953046
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_3272ea2d91",
+    "x_groq": {
+      "id": "req_01kzdp4959ef6vs03j2ks2kcxx",
+      "seed": 1926913569
+    },
+    "service_tier": "on_demand"
+  }
+}

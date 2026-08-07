@@ -29,7 +29,7 @@
 
 **KESTREL** is an autonomous, multi-modal drone security analyst agent engineered to transform raw high-throughput aerial video and telemetry into real-time threat perception, spatial-temporal entity memory, and automated tactical dispatch.
 
-> **The Perception Economy:** A patrol drone produces 57,600 frames per shift. Captioning every frame with Vision-Language Models isn't just expensive — it's *arithmetically impossible*. KESTREL solves this with a **five-tier perception cascade**: its core focus isn't just model capability, but **intelligent frame admission**, ensuring only high-value events reach expensive models.
+> **The Perception Economy:** A patrol drone produces 57,600 frames per shift. Captioning every frame with Vision-Language Models isn't just expensive, it's *arithmetically impossible*. KESTREL solves this with a **five-tier perception cascade**: its core focus isn't just model capability, but **intelligent frame admission**, ensuring only high-value events reach expensive models.
 
 <div align="left">
 
@@ -215,6 +215,37 @@ actionable and "226 m, 43° NE" is.
 <p align="center">
   <img src="docs/screenshots/site-map.png" width="100%" alt="Site map with zones, alerts and dispatch positions"/>
 </p>
+
+### Deploy the drone, and watch it stop and ask
+
+A critical alert is not the end of the job, it is the start of a decision. Click **Deploy drone** on one and
+KESTREL plans the response: it takes the alert's projected ground position, works out bearing, distance, ETA and
+a safe altitude, checks the flight against battery reserve, geofence, wind and daylight, flies it on screen,
+and then holds.
+
+<p align="center">
+  <img src="docs/screenshots/deploy-transit.png" width="100%" alt="The drone in flight to the alert position, with a live HUD"/>
+</p>
+
+Then the part that matters. Everything above was the system reasoning. This is where it runs out of authority:
+
+<p align="center">
+  <img src="docs/screenshots/deploy-approval.png" width="100%" alt="The flight held at AWAITING APPROVAL, with approve and decline"/>
+</p>
+
+> **This flight needs your authorisation.** KESTREL planned this response and checked it against battery reserve,
+> geofence, wind and daylight. **It cannot launch it.** Approval and refusal are both written to the
+> tamper-evident ledger.
+
+The wow moment is also the argument. `SPIN-UP → CLIMB → TRANSIT → ON STATION → AWAITING APPROVAL` is a sequence
+that **cannot complete on its own**, and that boundary is enforced in the tool registry rather than in a prompt:
+`approve_mission` is a CONFIRM tool, the agent's own loop has no way to pass the approval flag, and a test reads
+the source to assert `approved=True` never appears in it. Declining is written to the ledger just as firmly as
+approving, because a refusal you cannot prove is not a control.
+
+Note the last line of that screenshot: *"Telemetry is simulated: there is no aircraft. The coordinates, bearing
+and ETA are computed from the alert's geo-projection."* The coordinates are real arithmetic on a real alert. The
+aircraft is not, and the overlay says so rather than letting the cinematics imply otherwise.
 
 ### The portfolio: one drone is the assignment, sixteen sites is the argument
 
