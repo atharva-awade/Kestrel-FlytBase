@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 900" width="1160" height="900"
+     font-family="Inter, ui-sans-serif, -apple-system, 'Segoe UI', sans-serif" role="img"
+     aria-labelledby="t d">
+  <title id="t">Frame to dispatch — sequence</title>
+  <desc id="d">Sequence diagram tracing one frame from arrival through the cascade,
+    memory, rules and triage to a mission proposal awaiting human approval, and the
+    feedback loop that follows.</desc>
+
+  <style>
+    .bg { fill: #f7f9fc; }
+    .ink { fill: #0d1526; } .ink2 { fill: #43526b; } .ink3 { fill: #6b7c96; }
+    .acc { fill: #0369a1; }
+    .lane { fill: #ffffff; stroke: #e0e8f2; stroke-width: 1.2; }
+    .lane-acc { fill: #e6f5fe; stroke: #0ea5e9; stroke-width: 1.3; }
+    .lane-warn { fill: #fff5e6; stroke: #f59e0b; stroke-width: 1.3; }
+    .lifeline { stroke: #cfdcea; stroke-width: 1.2; stroke-dasharray: 4 4; }
+    .msg { stroke: #6b7c96; stroke-width: 1.5; fill: none; }
+    .msg-acc { stroke: #0ea5e9; stroke-width: 1.8; fill: none; }
+    .msg-back { stroke: #10a37f; stroke-width: 1.6; fill: none; stroke-dasharray: 5 3; }
+    .box { fill: #ffffff; stroke: #e0e8f2; stroke-width: 1; }
+    .box-skip { fill: #f2f6fb; stroke: #cfdcea; stroke-width: 1; }
+    .t-lane { font-size: 11px; font-weight: 700; }
+    .t-msg { font-size: 10px; }
+    .t-note { font-size: 9px; }
+    .t-head { font-size: 10px; font-weight: 800; letter-spacing: 0.1em; }
+
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #070b14; }
+      .ink { fill: #eef4fc; } .ink2 { fill: #b3c2d8; } .ink3 { fill: #7d8da8; }
+      .acc { fill: #7dd3fc; }
+      .lane { fill: #0e1524; stroke: #1e2a41; }
+      .lane-acc { fill: #0c2c42; stroke: #38bdf8; }
+      .lane-warn { fill: #2e2410; stroke: #fbbf24; }
+      .lifeline { stroke: #2b3a56; }
+      .msg { stroke: #7d8da8; } .msg-acc { stroke: #38bdf8; } .msg-back { stroke: #34d399; }
+      .box { fill: #0e1524; stroke: #1e2a41; }
+      .box-skip { fill: #141d30; stroke: #2b3a56; }
+    }
+  </style>
+
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7c96" />
+    </marker>
+    <marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0ea5e9" />
+    </marker>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10a37f" />
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1160" height="900" />
+
+  <text x="36" y="34" class="ink" font-size="17" font-weight="800">One frame, end to end</text>
+  <text x="36" y="52" class="ink3" font-size="11">
+    Latencies are measured. The two orderings that matter are marked — getting either wrong silently breaks the system.
+  </text>
+
+  <!-- lanes -->
+  <g>
+    <rect x="36" y="70" width="118" height="34" rx="8" class="lane" />
+    <text x="95" y="91" class="ink t-lane" text-anchor="middle">Ingest</text>
+
+    <rect x="176" y="70" width="118" height="34" rx="8" class="lane-warn" />
+    <text x="235" y="91" class="ink t-lane" text-anchor="middle">Gate (T0)</text>
+
+    <rect x="316" y="70" width="130" height="34" rx="8" class="lane" />
+    <text x="381" y="91" class="ink t-lane" text-anchor="middle">Detect + Track</text>
+
+    <rect x="468" y="70" width="118" height="34" rx="8" class="lane" />
+    <text x="527" y="91" class="ink t-lane" text-anchor="middle">VLM (T3)</text>
+
+    <rect x="608" y="70" width="118" height="34" rx="8" class="lane" />
+    <text x="667" y="91" class="ink t-lane" text-anchor="middle">Memory</text>
+
+    <rect x="748" y="70" width="118" height="34" rx="8" class="lane" />
+    <text x="807" y="91" class="ink t-lane" text-anchor="middle">Rules</text>
+
+    <rect x="888" y="70" width="118" height="34" rx="8" class="lane" />
+    <text x="947" y="91" class="ink t-lane" text-anchor="middle">Mission</text>
+
+    <rect x="1028" y="70" width="100" height="34" rx="8" class="lane-acc" />
+    <text x="1078" y="91" class="acc t-lane" text-anchor="middle">Operator</text>
+  </g>
+
+  <!-- lifelines -->
+  <g class="lifeline">
+    <line x1="95" y1="104" x2="95" y2="820" />
+    <line x1="235" y1="104" x2="235" y2="820" />
+    <line x1="381" y1="104" x2="381" y2="820" />
+    <line x1="527" y1="104" x2="527" y2="820" />
+    <line x1="667" y1="104" x2="667" y2="820" />
+    <line x1="807" y1="104" x2="807" y2="820" />
+    <line x1="947" y1="104" x2="947" y2="820" />
+    <line x1="1078" y1="104" x2="1078" y2="820" />
+  </g>
+
+  <!-- 1 -->
+  <text x="36" y="132" class="ink3 t-head">1</text>
+  <path d="M95 140 L228 140" class="msg" marker-end="url(#a)" />
+  <text x="104" y="134" class="ink2 t-msg">frame + telemetry</text>
+
+  <!-- skip branch -->
+  <rect x="176" y="152" width="230" height="46" rx="7" class="box-skip" />
+  <text x="188" y="168" class="ink2 t-msg" font-weight="700">→ SKIP (the common case)</text>
+  <text x="188" y="181" class="ink3 t-note">record the decision, spend $0, stop here</text>
+  <text x="188" y="192" class="ink3 t-note">38.9% real footage · 96.7% idle patrol</text>
+
+  <!-- 2 -->
+  <text x="36" y="230" class="ink3 t-head">2</text>
+  <path d="M235 238 L374 238" class="msg" marker-end="url(#a)" />
+  <text x="244" y="232" class="ink2 t-msg">analyse — phash Δ exceeded</text>
+  <rect x="316" y="248" width="150" height="30" rx="6" class="box" />
+  <text x="328" y="262" class="ink3 t-note">YOLO11 on CUDA ~12 ms</text>
+  <text x="328" y="273" class="ink3 t-note">ByteTrack → stable track id</text>
+
+  <!-- 3 -->
+  <text x="36" y="308" class="ink3 t-head">3</text>
+  <path d="M381 316 L520 316" class="msg" marker-end="url(#a)" />
+  <text x="390" y="310" class="ink2 t-msg">boxes + detector context</text>
+  <rect x="468" y="326" width="164" height="42" rx="6" class="box" />
+  <text x="480" y="340" class="ink3 t-note">scene graph, not prose · ~1.3 s</text>
+  <text x="480" y="352" class="ink3 t-note">detector counts injected to</text>
+  <text x="480" y="363" class="ink3 t-note">anchor the model, reduce invention</text>
+
+  <!-- async escalation -->
+  <path d="M527 380 C600 396, 600 396, 527 412" class="msg" marker-end="url(#a)" stroke-dasharray="4 3" />
+  <text x="546" y="400" class="ink3 t-note">T4 escalation queued — 57–84 s, ASYNC, upgrades the record later</text>
+
+  <!-- 4 -->
+  <text x="36" y="440" class="ink3 t-head">4</text>
+  <path d="M527 448 L660 448" class="msg-acc" marker-end="url(#aa)" />
+  <text x="536" y="442" class="acc t-msg" font-weight="700">detections + scene</text>
+  <rect x="608" y="458" width="176" height="54" rx="6" class="box" />
+  <text x="620" y="472" class="acc t-note" font-weight="700">ORDER MATTERS ①</text>
+  <text x="620" y="484" class="ink3 t-note">entity resolution BEFORE rules —</text>
+  <text x="620" y="495" class="ink3 t-note">dwell is a property of an entity, so</text>
+  <text x="620" y="506" class="ink3 t-note">rules first means it can never fire</text>
+
+  <!-- 5 -->
+  <text x="36" y="540" class="ink3 t-head">5</text>
+  <path d="M667 548 L800 548" class="msg" marker-end="url(#a)" />
+  <text x="676" y="542" class="ink2 t-msg">observation + entity id</text>
+  <rect x="748" y="558" width="182" height="42" rx="6" class="box" />
+  <text x="760" y="572" class="ink3 t-note">dwell 148 s ≥ 120 s ✓ · zone ✓</text>
+  <text x="760" y="583" class="ink3 t-note">hour 02 in [22,05) ✓ · conf ✓</text>
+  <text x="760" y="594" class="ink3 t-note">→ fires, then triage decides</text>
+
+  <!-- baseline ordering -->
+  <path d="M807 610 L672 610" class="msg-acc" marker-end="url(#aa)" />
+  <text x="700" y="604" class="acc t-msg" font-weight="700">observe into baseline</text>
+  <rect x="608" y="620" width="200" height="34" rx="6" class="box" />
+  <text x="620" y="634" class="acc t-note" font-weight="700">ORDER MATTERS ②</text>
+  <text x="620" y="646" class="ink3 t-note">AFTER judging — else the frame joins the normal it is measured against</text>
+
+  <!-- 6 -->
+  <text x="36" y="682" class="ink3 t-head">6</text>
+  <path d="M807 690 L940 690" class="msg" marker-end="url(#a)" />
+  <text x="816" y="684" class="ink2 t-msg">alert + dispatch coordinates</text>
+  <rect x="888" y="700" width="188" height="46" rx="6" class="box" />
+  <text x="900" y="714" class="ink3 t-note">plan LAUNCH→GOTO→ORBIT→TRACK→RTD</text>
+  <text x="900" y="726" class="ink3 t-note">check battery reserve, geofence,</text>
+  <text x="900" y="737" class="ink3 t-note">wind, altitude ceiling, daylight</text>
+
+  <!-- 7 -->
+  <text x="36" y="770" class="ink3 t-head">7</text>
+  <path d="M947 778 L1071 778" class="msg-acc" marker-end="url(#aa)" />
+  <text x="956" y="772" class="acc t-msg" font-weight="700">awaiting approval</text>
+
+  <!-- 8 feedback -->
+  <path d="M1078 800 C1078 840, 300 850, 235 828" class="msg-back" marker-end="url(#ab)" />
+  <text x="470" y="864" class="ink2 t-msg" font-weight="700">
+    ↺ approved → drone flies → closer vantage produces a better frame → re-enters at Tier 0 → confidence delta recorded against the mission
+  </text>
+
+  <!-- gate note -->
+  <rect x="1010" y="120" width="140" height="76" rx="8" class="lane-warn" />
+  <text x="1022" y="138" class="ink t-msg" font-weight="700">The security gate</text>
+  <text x="1022" y="153" class="ink3 t-note">The agent CANNOT</text>
+  <text x="1022" y="164" class="ink3 t-note">execute step 7. Proposal</text>
+  <text x="1022" y="175" class="ink3 t-note">and approval are separate</text>
+  <text x="1022" y="186" class="ink3 t-note">code paths, asserted by test.</text>
+</svg>

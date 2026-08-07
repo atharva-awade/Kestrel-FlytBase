@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 640" width="1060" height="640"
+     font-family="Inter, ui-sans-serif, -apple-system, 'Segoe UI', sans-serif" role="img"
+     aria-labelledby="t d">
+  <title id="t">Temporal memory pyramid</title>
+  <desc id="d">Hierarchical compression from individual frames to a daily summary,
+    with salience-weighted retention and bidirectional navigation.</desc>
+
+  <style>
+    .bg { fill: #f7f9fc; }
+    .ink { fill: #0d1526; } .ink2 { fill: #43526b; } .ink3 { fill: #6b7c96; }
+    .acc { fill: #0369a1; }
+    .l0 { fill: #f2f6fb; stroke: #cfdcea; stroke-width: 1.2; }
+    .l1 { fill: #e6f5fe; stroke: #7dd3fc; stroke-width: 1.2; }
+    .l2 { fill: #d6edfd; stroke: #38bdf8; stroke-width: 1.2; }
+    .l3 { fill: #bfe4fc; stroke: #0ea5e9; stroke-width: 1.3; }
+    .l4 { fill: #a5d8fb; stroke: #0369a1; stroke-width: 1.4; }
+    .card { fill: #ffffff; stroke: #e0e8f2; stroke-width: 1.1; }
+    .hot { fill: #fdeef1; stroke: #e11d48; stroke-width: 1.2; }
+    .line { stroke: #9aa8bd; stroke-width: 1.4; fill: none; }
+    .line-acc { stroke: #0ea5e9; stroke-width: 1.6; fill: none; }
+    .t-l { font-size: 12px; font-weight: 700; }
+    .t-s { font-size: 10px; }
+    .t-x { font-size: 8.5px; }
+    .t-h { font-size: 10px; font-weight: 800; letter-spacing: 0.1em; }
+    .mono { font-family: ui-monospace, Consolas, monospace; font-size: 9px; }
+
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #070b14; }
+      .ink { fill: #eef4fc; } .ink2 { fill: #b3c2d8; } .ink3 { fill: #7d8da8; }
+      .acc { fill: #7dd3fc; }
+      .l0 { fill: #141d30; stroke: #2b3a56; }
+      .l1 { fill: #0c2c42; stroke: #1e6a92; }
+      .l2 { fill: #0d3a55; stroke: #2b8cba; }
+      .l3 { fill: #0e4767; stroke: #38bdf8; }
+      .l4 { fill: #10557c; stroke: #7dd3fc; }
+      .card { fill: #0e1524; stroke: #1e2a41; }
+      .hot { fill: #331520; stroke: #fb5c7d; }
+      .line { stroke: #55637c; } .line-acc { stroke: #38bdf8; }
+    }
+  </style>
+
+  <defs>
+    <marker id="up" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0ea5e9" />
+    </marker>
+    <marker id="dn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9aa8bd" />
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1060" height="640" />
+
+  <text x="36" y="36" class="ink" font-size="17" font-weight="800">Temporal memory pyramid</text>
+  <text x="36" y="55" class="ink3" font-size="11">
+    An eight-hour shift is ~1.7M tokens of raw observation. An operator asking “what happened last night” expects an answer grounded in all of it.
+  </text>
+
+  <!-- levels -->
+  <g>
+    <rect x="330" y="86" width="400" height="52" rx="10" class="l4" />
+    <text x="530" y="108" class="ink t-l" text-anchor="middle">L4 · DAY</text>
+    <text x="530" y="125" class="ink2 t-s" text-anchor="middle">patterns, recurring entities, notable deviations · ~400 tokens</text>
+
+    <rect x="250" y="152" width="560" height="52" rx="10" class="l3" />
+    <text x="530" y="174" class="ink t-l" text-anchor="middle">L3 · SHIFT</text>
+    <text x="530" y="191" class="ink2 t-s" text-anchor="middle">what happened, who was involved, anything unusual · ~250 tokens</text>
+
+    <rect x="180" y="218" width="700" height="52" rx="10" class="l2" />
+    <text x="530" y="240" class="ink t-l" text-anchor="middle">L2 · EVENT</text>
+    <text x="530" y="257" class="ink2 t-s" text-anchor="middle">a bounded episode of one entity’s presence · ~90 tokens</text>
+
+    <rect x="110" y="284" width="840" height="52" rx="10" class="l1" />
+    <text x="530" y="306" class="ink t-l" text-anchor="middle">L1 · CLIP</text>
+    <text x="530" y="323" class="ink2 t-s" text-anchor="middle">~30 seconds of frames, compressed to one factual sentence · ~60 tokens</text>
+
+    <rect x="36" y="350" width="988" height="52" rx="10" class="l0" />
+    <text x="530" y="372" class="ink t-l" text-anchor="middle">L0 · FRAME</text>
+    <text x="530" y="389" class="ink2 t-s" text-anchor="middle">one observation: caption, labels, zones, entity ids · ~30 tokens each</text>
+  </g>
+
+  <!-- arrows -->
+  <path d="M530 350 L530 340" class="line-acc" marker-end="url(#up)" />
+  <path d="M530 284 L530 274" class="line-acc" marker-end="url(#up)" />
+  <path d="M530 218 L530 208" class="line-acc" marker-end="url(#up)" />
+  <path d="M530 152 L530 142" class="line-acc" marker-end="url(#up)" />
+
+  <text x="548" y="345" class="acc t-x">compress</text>
+  <text x="548" y="279" class="acc t-x">compress</text>
+  <text x="548" y="213" class="acc t-x">compress</text>
+  <text x="548" y="147" class="acc t-x">compress</text>
+
+  <!-- drill-down -->
+  <path d="M760 110 C830 110, 830 376, 780 376" class="line" marker-end="url(#dn)" stroke-dasharray="4 3" />
+  <text x="838" y="245" class="ink3 t-x" text-anchor="middle">every node keeps</text>
+  <text x="838" y="257" class="ink3 t-x" text-anchor="middle">its children —</text>
+  <text x="838" y="269" class="ink3 t-x" text-anchor="middle">any summary can</text>
+  <text x="838" y="281" class="ink3 t-x" text-anchor="middle">be expanded to the</text>
+  <text x="838" y="293" class="ink3 t-x" text-anchor="middle">frames behind it</text>
+
+  <!-- salience -->
+  <text x="36" y="446" class="ink3 t-h">SALIENCE-WEIGHTED — COMPRESSION IS NOT UNIFORM</text>
+
+  <rect x="36" y="458" width="480" height="76" rx="10" class="card" />
+  <text x="50" y="478" class="ink t-l">A quiet shift</text>
+  <text x="50" y="496" class="ink3 t-s">1,240 frames · nothing happened</text>
+  <text x="50" y="514" class="mono acc">→ one sentence</text>
+  <text x="50" y="528" class="ink3 t-x">“Perimeter quiet 22:00–06:00; two authorised vehicles at the gate.”</text>
+
+  <rect x="532" y="458" width="492" height="76" rx="10" class="hot" />
+  <text x="546" y="478" class="ink t-l">Four minutes around an intrusion</text>
+  <text x="546" y="496" class="ink3 t-s">48 frames · a person at the fence line</text>
+  <text x="546" y="514" class="mono acc">→ frame-level detail retained</text>
+  <text x="546" y="528" class="ink3 t-x">Uniform summarisation would discard precisely the material an investigation needs.</text>
+
+  <!-- salience inputs -->
+  <text x="36" y="570" class="ink3 t-h">WHAT RAISES SALIENCE</text>
+  <g>
+    <rect x="36" y="580" width="150" height="34" rx="8" class="card" />
+    <text x="111" y="595" class="ink2 t-s" text-anchor="middle">a person present</text>
+    <text x="111" y="607" class="ink3 t-x" text-anchor="middle">+0.25</text>
+
+    <rect x="196" y="580" width="180" height="34" rx="8" class="card" />
+    <text x="286" y="595" class="ink2 t-s" text-anchor="middle">high-priority zone</text>
+    <text x="286" y="607" class="ink3 t-x" text-anchor="middle">+0.30</text>
+
+    <rect x="386" y="580" width="150" height="34" rx="8" class="card" />
+    <text x="461" y="595" class="ink2 t-s" text-anchor="middle">night hours</text>
+    <text x="461" y="607" class="ink3 t-x" text-anchor="middle">+0.15</text>
+
+    <rect x="546" y="580" width="170" height="34" rx="8" class="card" />
+    <text x="631" y="595" class="ink2 t-s" text-anchor="middle">three or more objects</text>
+    <text x="631" y="607" class="ink3 t-x" text-anchor="middle">+0.10</text>
+
+    <rect x="726" y="580" width="298" height="34" rx="8" class="card" />
+    <text x="875" y="595" class="ink2 t-s" text-anchor="middle">Ordering by salience means truncation drops</text>
+    <text x="875" y="607" class="ink3 t-x" text-anchor="middle">the least important material, not the most recent.</text>
+  </g>
+</svg>
