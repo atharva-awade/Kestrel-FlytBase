@@ -97,7 +97,7 @@ class Settings(BaseSettings):
         default="meta/llama-3.3-70b-instruct", alias="KESTREL_LLM_FALLBACK"
     )
     # Cheap router model — classifies intent so the 70B is only woken when needed.
-    llm_router: str = Field(default="llama-3.1-8b-instant", alias="KESTREL_LLM_ROUTER")
+    llm_router: str = Field(default="openai/gpt-oss-20b", alias="KESTREL_LLM_ROUTER")
 
     # No hosted cross-encoder is available, so fuse with RRF and optionally
     # rerank the top-k with the LLM above.

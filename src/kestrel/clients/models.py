@@ -104,8 +104,10 @@ class ModelClient:
             fast_chain: list[tuple[Provider, str]] = []
             if self.groq.available or self.settings.effective_mode.value == "replay":
                 fast_chain.append((self.groq, self.settings.llm_router))
+                fast_chain.append((self.groq, "llama-3.3-70b-versatile"))
             if self.nvidia.available or self.settings.effective_mode.value == "replay":
                 fast_chain.append((self.nvidia, "meta/llama-3.1-8b-instruct"))
+                fast_chain.append((self.nvidia, "meta/llama-3.3-70b-instruct"))
             chain = [*fast_chain, *chain]
 
         errors: list[str] = []

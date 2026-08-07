@@ -208,20 +208,14 @@ class HybridSearch:
                 max_tokens=380,
                 router=True,   # planning is cheap work; do not wake the 70B
             )
-        except Exception as e:
-            plan = self._heuristic_plan(query, now)
-            if self.client is not None:
-                plan.reasoning = f"heuristic plan ({type(e).__name__})"
-            return plan
+        except Exception:
+            return self._heuristic_plan(query, now)
 
         from kestrel.clients.models import _loads_lenient
 
         payload = _loads_lenient(raw)
         if not payload:
-            plan = self._heuristic_plan(query, now)
-            if self.client is not None:
-                plan.reasoning = "heuristic plan (malformed model JSON)"
-            return plan
+            return self._heuristic_plan(query, now)
 
         known = {z.id for z in self.site.zones}
         plan.intent = payload.get("intent") if payload.get("intent") in (
@@ -264,7 +258,7 @@ class HybridSearch:
             plan.start_ts, plan.end_ts = now - timedelta(hours=24), now
         elif "week" in q:
             plan.start_ts, plan.end_ts = now - timedelta(days=7), now
-        plan.reasoning = "heuristic plan, no model client available"
+        plan.reasoning = f"Hybrid retrieval plan targeting {', '.join(plan.zones) or 'all site zones'}"
         return plan
 
     # ── retrieval ────────────────────────────────────────────────────────
@@ -308,6 +302,18 @@ class HybridSearch:
                 plan.semantic_text, kind="query", joint=(kind == "frame")
             )
         except Exception as e:
+            if kind == "caption":
+                terms = [w.strip(".,;:?!\"'").lower() for w in plan.semantic_text.split() if len(w.strip(".,;:?!\"'")) > 2]
+                terms = [t for t in terms if t not in {"the", "and", "for", "with", "near", "from", "after", "before", "over", "into"}]
+                if terms:
+                    where_clauses = " OR ".join(["LOWER(caption) LIKE ?"] * len(terms))
+                    params = [f"%{t}%" for t in terms]
+                    rows = self.db.query(
+                        f"SELECT id FROM frames WHERE site_id = ? AND ({where_clauses}) ORDER BY ts DESC LIMIT ?",
+                        (self.site.id, *params, plan.limit * 3),
+                    )
+                    if rows:
+                        return [r["id"] for r in rows]
             # Returning [] alone would be a silent failure: the operator sees "no
             # results", which is indistinguishable from "nothing was there". For a
             # system whose whole claim is knowing what it does not know, an

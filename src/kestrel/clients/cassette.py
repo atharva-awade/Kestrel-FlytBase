@@ -90,14 +90,19 @@ class CassetteStore:
     ) -> dict[str, Any] | None:
         p = self.path_for(provider, endpoint, payload, stage)
         if not p.exists():
-            alt = {
-                "openai/gpt-oss-120b": "llama-3.3-70b-versatile",
-                "openai/gpt-oss-20b": "llama-3.1-8b-instant",
-            }.get(payload.get("model"))
-            if alt:
+            alts = {
+                "openai/gpt-oss-120b": ["llama-3.3-70b-versatile", "meta/llama-3.3-70b-instruct"],
+                "openai/gpt-oss-20b": ["llama-3.1-8b-instant", "meta/llama-3.1-8b-instruct"],
+                "meta/llama-3.1-8b-instruct": ["llama-3.1-8b-instant", "openai/gpt-oss-20b"],
+                "meta/llama-3.3-70b-instruct": ["llama-3.3-70b-versatile", "openai/gpt-oss-120b"],
+                "llama-3.1-8b-instant": ["openai/gpt-oss-20b", "meta/llama-3.1-8b-instruct"],
+                "llama-3.3-70b-versatile": ["openai/gpt-oss-120b", "meta/llama-3.3-70b-instruct"],
+            }.get(payload.get("model"), [])
+            for alt in alts:
                 alt_p = self.path_for(provider, endpoint, {**payload, "model": alt}, stage)
                 if alt_p.exists():
                     p = alt_p
+                    break
         if not p.exists():
             with self._lock:
                 self.misses += 1

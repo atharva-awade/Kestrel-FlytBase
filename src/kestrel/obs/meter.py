@@ -53,6 +53,9 @@ REFERENCE_RATES: dict[str, tuple[float, float]] = {
     "meta/llama-3.3-70b-instruct": (0.60, 0.70),
     "llama-3.3-70b-versatile": (0.59, 0.79),
     "llama-3.1-8b-instant": (0.05, 0.08),
+    "openai/gpt-oss-120b": (0.59, 0.79),
+    "openai/gpt-oss-20b": (0.05, 0.08),
+    "meta/llama-3.1-8b-instruct": (0.05, 0.08),
     "nvidia/llama-nemotron-embed-vl-1b-v2": (0.02, 0.0),
     "nvidia/nv-embedqa-e5-v5": (0.02, 0.0),
 }
