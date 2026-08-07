@@ -3,6 +3,12 @@
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0b3a5e,100:0ea5e9&height=230&section=header&text=KESTREL&fontSize=82&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=The%20drone%20security%20analyst%20that%20never%20blinks&descAlignY=60&descSize=18" width="100%"/>
 
 <p>
+  <a href="https://kestrel-flyt-base-3kcq-roan.vercel.app/" target="_blank">
+    <img src="https://img.shields.io/badge/🌐%20Live%20Demo-Vercel%20Production-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo on Vercel" />
+  </a>
+  <a href="https://kestrel-flytbase.onrender.com/api/health" target="_blank">
+    <img src="https://img.shields.io/badge/⚡%20Backend%20API-Render%20Live-46E3B7?style=for-the-badge&logo=render&logoColor=white" alt="Backend API on Render" />
+  </a>
   <img src="https://img.shields.io/badge/Atharva%20Awade-0369A1?style=for-the-badge&logo=github&logoColor=white" />
   <img src="https://img.shields.io/badge/FlytBase-AI%20Engineer%20Assignment-0b3a5e?style=for-the-badge" />
   <img src="https://img.shields.io/badge/125%20checks-0%20failing-0F766E?style=for-the-badge&logo=checkmarx&logoColor=white" />
@@ -26,6 +32,9 @@
 <br/>
 
 ### 🦅 Autonomous Drone Security & Tactical Threat Intelligence Platform
+
+> 🚀 **Live Production App:** [https://kestrel-flyt-base-3kcq-roan.vercel.app/](https://kestrel-flyt-base-3kcq-roan.vercel.app/)  
+> 📡 **Hosted Cloud Backend:** [https://kestrel-flytbase.onrender.com](https://kestrel-flytbase.onrender.com)
 
 **KESTREL** is an autonomous, multi-modal drone security analyst agent engineered to transform raw high-throughput aerial video and telemetry into real-time threat perception, spatial-temporal entity memory, and automated tactical dispatch.
 
@@ -53,6 +62,7 @@
 
 ## Table of Contents
 
+- [Live Deployment](#live-deployment)
 - [The Problem](#the-problem)
 - [What I Built](#what-i-built)
 - [Run It Locally](#run-it-locally)
@@ -68,6 +78,17 @@
 - [Honesty Constraints, Enforced in Code](#honesty-constraints-enforced-in-code)
 - [Project Structure](#project-structure)
 - [Author](#author)
+
+---
+
+## Live Deployment
+
+| Component | Platform | Endpoint / Link | Capabilities |
+| :--- | :--- | :--- | :--- |
+| **Console Web App** | **Vercel** | [https://kestrel-flyt-base-3kcq-roan.vercel.app/](https://kestrel-flyt-base-3kcq-roan.vercel.app/) | Next.js 15, MapLibre 3D tactical radar, real-time alert triage, natural-language query |
+| **Inference Backend** | **Render** | [https://kestrel-flytbase.onrender.com](https://kestrel-flytbase.onrender.com) | FastAPI cloud worker, live SQLite-vec index, Groq & NVIDIA NIM integration |
+| **System Health** | **Render** | [https://kestrel-flytbase.onrender.com/api/health](https://kestrel-flytbase.onrender.com/api/health) | Live telemetry, provider availability status, cassette statistics |
+| **Interactive Docs** | **Render** | [https://kestrel-flytbase.onrender.com/docs](https://kestrel-flytbase.onrender.com/docs) | OpenAPI / Swagger interactive endpoint specification |
 
 ---
 

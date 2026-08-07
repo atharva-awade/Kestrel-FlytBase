@@ -4,7 +4,10 @@ version = "0.1.0"
 description = "KESTREL — autonomous drone security analyst agent"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
-license = { text = "MIT" }
+[project.urls]
+"Live Demo" = "https://kestrel-flyt-base-3kcq-roan.vercel.app/"
+"Backend API" = "https://kestrel-flytbase.onrender.com"
+"Repository" = "https://github.com/atharva-awade/Kestrel-FlytBase"
 
 dependencies = [
     # ── API surface ──────────────────────────────────────────────────────

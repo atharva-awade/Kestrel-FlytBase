@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "KESTREL console \u2014 autonomous drone security analyst",
+  "homepage": "https://kestrel-flyt-base-3kcq-roan.vercel.app/",
   "type": "module",
   "scripts": {
     "dev": "next dev",
