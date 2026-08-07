@@ -4,10 +4,7 @@ version = "0.1.0"
 description = "KESTREL — autonomous drone security analyst agent"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
-[project.urls]
-"Live Demo" = "https://kestrel-flyt-base-3kcq-roan.vercel.app/"
-"Backend API" = "https://kestrel-flytbase.onrender.com"
-"Repository" = "https://github.com/atharva-awade/Kestrel-FlytBase"
+license = { text = "MIT" }
 
 dependencies = [
     # ── API surface ──────────────────────────────────────────────────────
@@ -38,6 +35,11 @@ dependencies = [
     "rich>=13.9",
     "typer>=0.13",
 ]
+
+[project.urls]
+"Live Demo" = "https://kestrel-flyt-base-3kcq-roan.vercel.app/"
+"Backend API" = "https://kestrel-flytbase.onrender.com"
+"Repository" = "https://github.com/atharva-awade/Kestrel-FlytBase"
 
 [project.optional-dependencies]
 # Local CUDA detector. Install with: uv sync --extra local-gpu
@@ -144,3 +146,6 @@ filterwarnings = ["ignore::DeprecationWarning"]
 python_version = "3.12"
 plugins = ["pydantic.mypy"]
 ignore_missing_imports = true
+
+[tool.vercel]
+entrypoint = "src.kestrel.api.main:app"
