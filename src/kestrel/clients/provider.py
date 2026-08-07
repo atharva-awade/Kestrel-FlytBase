@@ -179,24 +179,28 @@ class Provider:
         if mode is Mode.REPLAY:
             hit = self.cassettes.get(self.name, endpoint, payload, stage.value)
             ms = (time.perf_counter() - t0) * 1000
-            if hit is None:
+            if hit is not None:
+                u = hit.get("usage") or {}
+                METER.record(
+                    Call(
+                        stage, model, ms, ok=True, cached=True,
+                        tokens_in=int(u.get("prompt_tokens", 0) or 0),
+                        tokens_out=int(u.get("completion_tokens", 0) or 0),
+                    )
+                )
+                return hit
+
+            # If cassette is missing but an API key is provided, gracefully fall through
+            # to the live provider rather than crashing the user session.
+            if not (self.available and not self.breaker.is_open):
                 METER.record(
                     Call(stage, model, ms, ok=False, error="cassette miss")
                 )
                 raise CassetteMiss(
                     f"No cassette for {self.name}{endpoint} model={model}. "
-                    f"Record one with KESTREL_MODE=record, or check that the request "
-                    f"is byte-identical to what was recorded."
+                    f"Record one with KESTREL_MODE=record, or configure a {self.name.upper()}_API_KEY "
+                    f"to enable live model fallback."
                 )
-            u = hit.get("usage") or {}
-            METER.record(
-                Call(
-                    stage, model, ms, ok=True, cached=True,
-                    tokens_in=int(u.get("prompt_tokens", 0) or 0),
-                    tokens_out=int(u.get("completion_tokens", 0) or 0),
-                )
-            )
-            return hit
 
         # ── live / record ────────────────────────────────────────────────
         if not self.available:
