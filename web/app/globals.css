@@ -1,0 +1,403 @@
+@import "tailwindcss";
+/* MapLibre's stylesheet is imported here rather than in the component: a dynamic
+   CSS import inside an effect has no types and Next cannot statically hoist it. */
+@import "maplibre-gl/dist/maplibre-gl.css";
+
+/*
+ * KESTREL design system.
+ *
+ * Light is the primary theme: white surfaces, sky-blue accent, slate ink. Dark is
+ * a separately designed palette rather than an inversion, because inverted light themes
+ * read as grey mush, and an operator working a night shift is the person most
+ * likely to be using it.
+ *
+ * Colour is load-bearing here, not decorative. Severity has a fixed scale used
+ * identically on the globe, the map, the alert stack and the charts, so a colour
+ * means the same thing everywhere.
+ */
+
+@theme {
+  --font-sans: "InterVariable", ui-sans-serif, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Consolas, monospace;
+}
+
+:root {
+  color-scheme: light;
+
+  /* surfaces */
+  --bg: #f7f9fc;
+  --surface: #ffffff;
+  --surface-2: #f2f6fb;
+  --surface-3: #e8eff7;
+  --overlay: rgba(255, 255, 255, 0.78);
+
+  /* ink */
+  --ink: #0d1526;
+  --ink-2: #43526b;
+  --ink-3: #6b7c96;
+  --ink-4: #9aa8bd;
+
+  /* lines */
+  --line: #e0e8f2;
+  --line-2: #cfdcea;
+
+  /* accent: sky */
+  --accent: #0ea5e9;
+  --accent-2: #38bdf8;
+  --accent-3: #7dd3fc;
+  --accent-soft: #e6f5fe;
+  --accent-ink: #0369a1;
+
+  /* severity: one scale, used everywhere */
+  --sev-info: #64748b;
+  --sev-low: #0ea5e9;
+  --sev-medium: #f59e0b;
+  --sev-high: #f0682f;
+  --sev-critical: #e11d48;
+  --ok: #10a37f;
+
+  /* elevation: layered, low-opacity, tinted toward the accent */
+  --shadow-sm: 0 1px 2px rgba(13, 21, 38, 0.05), 0 1px 1px rgba(13, 21, 38, 0.03);
+  --shadow: 0 2px 4px rgba(13, 21, 38, 0.04), 0 6px 16px -6px rgba(13, 21, 38, 0.09);
+  --shadow-lg: 0 4px 8px rgba(13, 21, 38, 0.05), 0 20px 44px -16px rgba(13, 21, 38, 0.16);
+  --shadow-accent: 0 8px 28px -10px rgba(14, 165, 233, 0.4);
+
+  --radius: 12px;
+  --radius-lg: 16px;
+}
+
+:root[data-theme="dark"],
+:root.dark {
+  color-scheme: dark;
+
+  --bg: #070b14;
+  --surface: #0e1524;
+  --surface-2: #141d30;
+  --surface-3: #1c283f;
+  --overlay: rgba(14, 21, 36, 0.82);
+
+  --ink: #eef4fc;
+  --ink-2: #b3c2d8;
+  --ink-3: #7d8da8;
+  --ink-4: #55637c;
+
+  --line: #1e2a41;
+  --line-2: #2b3a56;
+
+  --accent: #38bdf8;
+  --accent-2: #7dd3fc;
+  --accent-3: #bae6fd;
+  --accent-soft: #0c2c42;
+  --accent-ink: #7dd3fc;
+
+  --sev-info: #94a3b8;
+  --sev-low: #38bdf8;
+  --sev-medium: #fbbf24;
+  --sev-high: #fb8a4c;
+  --sev-critical: #fb5c7d;
+  --ok: #34d399;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow: 0 2px 6px rgba(0, 0, 0, 0.45), 0 10px 26px -10px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 6px 14px rgba(0, 0, 0, 0.5), 0 28px 56px -20px rgba(0, 0, 0, 0.72);
+  --shadow-accent: 0 8px 30px -10px rgba(56, 189, 248, 0.34);
+}
+
+* {
+  box-sizing: border-box;
+  border-color: var(--line);
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* The theme toggle should feel like a light coming on, not a repaint. */
+  transition: background-color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Numbers that change in place must not reflow the layout around them. */
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-variant-ligatures: none;
+}
+
+/* ── surfaces ─────────────────────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-lift {
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.28s ease;
+}
+.card-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--line-2);
+}
+
+.glass {
+  background: var(--overlay);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border: 1px solid var(--line);
+}
+
+/* A very low-contrast grain over large flat fills. Stops big gradients
+   banding on cheap panels and adds the texture that reads as "designed". */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.aurora {
+  background:
+    radial-gradient(60rem 30rem at 12% -10%, var(--accent-soft) 0%, transparent 60%),
+    radial-gradient(46rem 26rem at 88% 6%, rgba(125, 211, 252, 0.24) 0%, transparent 62%),
+    radial-gradient(38rem 22rem at 50% 108%, rgba(14, 165, 233, 0.13) 0%, transparent 60%);
+}
+
+.hairline-grid {
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(70% 60% at 50% 40%, #000 30%, transparent 100%);
+}
+
+/* ── type ─────────────────────────────────────────────────────────────── */
+.eyebrow {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+.display {
+  font-weight: 780;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+}
+
+/* ── severity ─────────────────────────────────────────────────────────── */
+.sev-info { --sev: var(--sev-info); }
+.sev-low { --sev: var(--sev-low); }
+.sev-medium { --sev: var(--sev-medium); }
+.sev-high { --sev: var(--sev-high); }
+.sev-critical { --sev: var(--sev-critical); }
+
+.sev-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--sev, var(--ink-4));
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--sev, var(--ink-4)) 20%, transparent);
+}
+
+.sev-bar {
+  border-left: 2.5px solid var(--sev, var(--line-2));
+}
+
+.sev-chip {
+  background: color-mix(in oklab, var(--sev, var(--ink-4)) 12%, transparent);
+  color: var(--sev, var(--ink-3));
+  border: 1px solid color-mix(in oklab, var(--sev, var(--ink-4)) 26%, transparent);
+}
+
+/* ── motion ───────────────────────────────────────────────────────────── */
+@keyframes pulse-ring {
+  0% { transform: scale(0.72); opacity: 0.85; }
+  75%, 100% { transform: scale(2.4); opacity: 0; }
+}
+.pulse-ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--sev, var(--accent));
+  animation: pulse-ring 2.4s cubic-bezier(0.24, 0.6, 0.36, 1) infinite;
+}
+
+@keyframes sweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.radar-sweep { animation: sweep 4.5s linear infinite; transform-origin: center; }
+
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, var(--surface-3), transparent);
+  animation: shimmer 1.6s infinite;
+}
+
+@keyframes live-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--ok);
+  animation: live-blink 1.8s ease-in-out infinite;
+}
+
+
+/* ── motion polish ────────────────────────────────────────────────────── */
+/* One easing curve across the whole system. Mixing curves is what makes an
+   interface feel assembled from parts rather than designed. */
+:root {
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+/* Buttons should acknowledge a press. Without it every click feels like it may
+   not have registered, which is exactly when an operator clicks twice. */
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]) {
+  transition: transform 0.14s var(--ease), filter 0.18s var(--ease),
+    background-color 0.18s var(--ease), border-color 0.18s var(--ease);
+}
+button:not(:disabled):active,
+[role="button"]:not([aria-disabled="true"]):active {
+  transform: scale(0.975);
+}
+button:not(:disabled):hover,
+[role="button"]:not([aria-disabled="true"]):hover {
+  filter: brightness(1.04);
+}
+
+/* Cards settle rather than snap, and lift slightly toward the pointer. */
+.card {
+  transition: border-color 0.28s var(--ease), box-shadow 0.28s var(--ease),
+    transform 0.28s var(--ease);
+}
+
+/* A soft sheen that travels once when a panel first appears. Used sparingly:
+   on the stat rows and hero cards, never on dense lists. */
+@keyframes sheen {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(220%); }
+}
+.sheen {
+  position: relative;
+  overflow: hidden;
+}
+.sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    transparent 20%,
+    color-mix(in oklab, var(--accent) 12%, transparent) 45%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  animation: sheen 1.5s var(--ease) 0.25s 1;
+}
+
+/* Focus that reads as intentional rather than a browser default. */
+:focus-visible {
+  transition: outline-offset 0.12s var(--ease);
+}
+
+/* Scrollbars that match the surface instead of interrupting it. */
+* {
+  scrollbar-width: thin;
+}
+
+/* Someone with vestibular sensitivity should not have to endure a spinning
+   globe and a sweeping radar to read a security alert. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* A press-scale is a transform, not a transition, so zeroing durations above
+     does not remove it. Vestibular sensitivity is triggered by movement, not by
+     how long the movement is declared to take. */
+  button:active,
+  [role="button"]:active,
+  .card-lift:hover {
+    transform: none !important;
+  }
+  .sheen::after {
+    display: none;
+  }
+}
+
+/* ── scrollbars ───────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--line-2);
+  border-radius: 999px;
+  border: 3px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--ink-4); }
+
+/* ── focus ────────────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* ── maplibre, themed to match ────────────────────────────────────────── */
+.maplibregl-ctrl-attrib,
+.maplibregl-ctrl-group {
+  background: var(--overlay) !important;
+  color: var(--ink-3) !important;
+  border-radius: 8px !important;
+  font-size: 10px !important;
+}
+.maplibregl-ctrl-group button + button { border-top-color: var(--line) !important; }
+.maplibregl-popup-content {
+  background: var(--surface) !important;
+  color: var(--ink) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: var(--shadow-lg) !important;
+  padding: 10px 12px !important;
+}
+.maplibregl-popup-tip { border-top-color: var(--surface) !important; }
