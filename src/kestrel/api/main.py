@@ -488,12 +488,10 @@ async def upload_video(
     }
 
     def save_job() -> None:
-        try:
+        with contextlib.suppress(Exception):
             (UPLOAD_DIR / f"{job_id}.json").write_text(
                 json.dumps(_UPLOAD_JOBS[job_id], separators=(",", ":")), encoding="utf-8"
             )
-        except Exception:
-            pass
 
     save_job()
     task = asyncio.create_task(_index_upload(job_id, dest))
@@ -507,12 +505,10 @@ async def _index_upload(job_id: str, path: Path) -> None:
     job = _UPLOAD_JOBS[job_id]
 
     def save_job() -> None:
-        try:
+        with contextlib.suppress(Exception):
             (UPLOAD_DIR / f"{job_id}.json").write_text(
                 json.dumps(job, separators=(",", ":")), encoding="utf-8"
             )
-        except Exception:
-            pass
 
     try:
         # Playability first, indexing second. The detector and the browser accept
@@ -574,12 +570,10 @@ def upload_progress(job_id: str) -> dict[str, Any]:
     # Check disk cache in case container restarted
     p = UPLOAD_DIR / f"{job_id}.json"
     if p.exists():
-        try:
+        with contextlib.suppress(Exception):
             cached = json.loads(p.read_text(encoding="utf-8"))
             _UPLOAD_JOBS[job_id] = cached
             return cached
-        except Exception:
-            pass
     raise HTTPException(404, "unknown upload job")
 
 
