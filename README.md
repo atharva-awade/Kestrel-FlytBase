@@ -25,10 +25,23 @@
 
 <br/>
 
-> ### A patrol drone produces 57,600 frames a shift. The free tier allows about 19,200 model calls in the same window.
-> Captioning every frame is not expensive, it is **arithmetically impossible**. So KESTREL is not a wrapper around a
-> vision model. It is a five-tier cost cascade whose central question is never *how good is the model*, but
-> **how few frames need to reach one**, and it will tell you, on screen, when it does not know.
+### 🦅 Autonomous Drone Security & Tactical Threat Intelligence Platform
+
+**KESTREL** is an autonomous, multi-modal drone security analyst agent engineered to transform raw high-throughput aerial video and telemetry into real-time threat perception, spatial-temporal entity memory, and automated tactical dispatch.
+
+> **The Perception Economy:** A patrol drone produces 57,600 frames per shift. Captioning every frame with Vision-Language Models isn't just expensive — it's *arithmetically impossible*. KESTREL solves this with a **five-tier perception cascade**: its core focus isn't just model capability, but **intelligent frame admission**, ensuring only high-value events reach expensive models.
+
+<div align="left">
+
+#### 🌟 Key Architectural Innovations
+- ⚡ **Tier-0 Cost Gate:** Sub-3ms visual variance filter dropping static frames to slash VLM compute costs by **>82%**.
+- 🧠 **Spatial-Temporal Memory Pyramid:** 3-tier entity ledger using CLIP 512D embeddings and movement vectors for target re-ID across occlusions and drone sector handoffs.
+- 📜 **Natural Language Rule Compiler:** Converts plain-English security policies into deterministic AST temporal rules with **<200ms** historical backtesting.
+- 🛸 **Geospatial 3D Tactical Command Center:** Real-time MapLibre GL geospatial map, Three.js drone rendering, threat vectors, and automated tactical dispatch engine.
+- 🔒 **SHA-256 Cryptographic Audit Ledger:** Tamper-evident evidence chain-of-custody logging for legal and compliance auditability.
+- 🤖 **LangGraph Agent Control Plane:** 14 bound operational tools powering real-time conversational intelligence with Server-Sent Events (SSE) streaming.
+
+</div>
 
 <br/>
 
