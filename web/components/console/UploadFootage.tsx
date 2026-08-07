@@ -108,12 +108,22 @@ export function UploadFootage({ onIndexed }: { onIndexed: (slug: string) => void
     // Indexing runs server-side; poll rather than hold a socket open for it.
     setStatus("analysing");
     const started = Date.now();
+    let misses = 0;
     while (Date.now() - started < 15 * 60 * 1000) {
       await new Promise((r) => setTimeout(r, 900));
       const p = await fetch(`${apiOrigin}/api/upload/${job.job_id}/progress`)
         .then((r) => (r.ok ? r.json() : null))
         .catch(() => null);
-      if (!p) continue;
+      if (!p) {
+        misses++;
+        if (misses >= 5) {
+          setError("Upload job was interrupted (server restarted or connection lost). Please try again.");
+          setBusy(false);
+          return;
+        }
+        continue;
+      }
+      misses = 0;
       setProgress(p.progress ?? 0);
       setStatus(p.message ?? p.state);
       if (p.state === "ready") {

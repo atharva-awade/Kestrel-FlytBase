@@ -19,6 +19,7 @@ resolution the frame was stored at.
 
 from __future__ import annotations
 
+import asyncio
 import time
 from collections.abc import Callable
 from datetime import datetime, timedelta
@@ -31,6 +32,7 @@ from typing import Any
 KEEP = {
     "person", "bicycle", "car", "motorcycle", "bus", "truck", "train",
     "backpack", "handbag", "suitcase", "dog", "cat", "bird", "boat",
+    "moving-object", "moving-object(person?)",
 }
 MIN_CONF = 0.35
 
@@ -176,6 +178,9 @@ async def build_index(
             idx += 1
             continue
 
+        # Yield execution to the event loop so HTTP requests/healthchecks are never blocked
+        await asyncio.sleep(0)
+
         video_t = idx / native_fps
         ts = start + timedelta(seconds=video_t)
         telemetry = telemetry_sim.at(ts)
@@ -302,6 +307,7 @@ async def build_upload_index(
     label: str,
     lat: float,
     lon: float,
+    fps_cap: float = 2.0,
     on_progress: ProgressFn | None = None,
 ) -> dict[str, Any]:
     """Index an operator's own footage against a real location."""
@@ -311,6 +317,7 @@ async def build_upload_index(
         slug=slug,
         title=label or "Uploaded footage",
         site=site,
+        fps_cap=fps_cap,
         uploaded=True,
         location={"lat": lat, "lon": lon},
         on_progress=on_progress,

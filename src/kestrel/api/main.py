@@ -487,6 +487,15 @@ async def upload_video(
         "fps": round(fps, 3), "duration_s": round(duration, 2), "frames": frames,
     }
 
+    def save_job() -> None:
+        try:
+            (UPLOAD_DIR / f"{job_id}.json").write_text(
+                json.dumps(_UPLOAD_JOBS[job_id], separators=(",", ":")), encoding="utf-8"
+            )
+        except Exception:
+            pass
+
+    save_job()
     task = asyncio.create_task(_index_upload(job_id, dest))
     _UPLOAD_TASKS.add(task)
     task.add_done_callback(_UPLOAD_TASKS.discard)
@@ -496,6 +505,15 @@ async def upload_video(
 async def _index_upload(job_id: str, path: Path) -> None:
     """Run the dense index over an uploaded clip, reporting progress as it goes."""
     job = _UPLOAD_JOBS[job_id]
+
+    def save_job() -> None:
+        try:
+            (UPLOAD_DIR / f"{job_id}.json").write_text(
+                json.dumps(job, separators=(",", ":")), encoding="utf-8"
+            )
+        except Exception:
+            pass
+
     try:
         # Playability first, indexing second. The detector and the browser accept
         # different things -- OpenCV reads MPEG-4 Part 2 that no browser can play
@@ -506,22 +524,26 @@ async def _index_upload(job_id: str, path: Path) -> None:
 
         job["state"] = "converting"
         job["message"] = "preparing for playback"
+        save_job()
         conversion = await ensure_browser_playable(
             path, on_progress=lambda f: job.update(progress=round(f, 3))
         )
         job["conversion"] = conversion
         if conversion["action"] != "kept":
             job["message"] = str(conversion["reason"])
+        save_job()
 
         job["state"] = "indexing"
         job["progress"] = 0.0
         job["message"] = "detecting objects"
+        save_job()
 
         from kestrel.playback import build_upload_index
 
         def report(done: int, total: int) -> None:
             job["progress"] = round(done / total, 3) if total else 0.0
             job["message"] = f"{done} of {total} frames"
+            save_job()
 
         index = await build_upload_index(
             path=path, slug=job["slug"], label=job["label"],
@@ -538,16 +560,27 @@ async def _index_upload(job_id: str, path: Path) -> None:
                     f"{len(index['alerts'])} alerts",
             alerts=len(index["alerts"]),
         )
+        save_job()
     except Exception as e:
         job.update(state="failed", message=f"{type(e).__name__}: {e}"[:200])
+        save_job()
 
 
 @app.get("/api/upload/{job_id}/progress")
 def upload_progress(job_id: str) -> dict[str, Any]:
     job = _UPLOAD_JOBS.get(job_id)
-    if job is None:
-        raise HTTPException(404, "unknown upload job")
-    return job
+    if job is not None:
+        return job
+    # Check disk cache in case container restarted
+    p = UPLOAD_DIR / f"{job_id}.json"
+    if p.exists():
+        try:
+            cached = json.loads(p.read_text(encoding="utf-8"))
+            _UPLOAD_JOBS[job_id] = cached
+            return cached
+        except Exception:
+            pass
+    raise HTTPException(404, "unknown upload job")
 
 
 @app.get("/api/alerts")
