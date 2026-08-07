@@ -97,6 +97,8 @@ class CassetteStore:
                 "meta/llama-3.3-70b-instruct": ["llama-3.3-70b-versatile", "openai/gpt-oss-120b"],
                 "llama-3.1-8b-instant": ["openai/gpt-oss-20b", "meta/llama-3.1-8b-instruct"],
                 "llama-3.3-70b-versatile": ["openai/gpt-oss-120b", "meta/llama-3.3-70b-instruct"],
+                "nvidia/nemotron-3-embed-1b": ["nvidia/nv-embedqa-e5-v5"],
+                "nvidia/nv-embedqa-e5-v5": ["nvidia/nemotron-3-embed-1b"],
             }.get(payload.get("model"), [])
             for alt in alts:
                 alt_p = self.path_for(provider, endpoint, {**payload, "model": alt}, stage)

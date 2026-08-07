@@ -559,7 +559,11 @@ class Database:
 
         mat = np.vstack([np.frombuffer(r["vec"], dtype=np.float32) for r in rows])
         if mat.shape[1] != q.shape[0]:
-            return []
+            if mat.shape[1] < q.shape[0]:
+                q = q[:mat.shape[1]]
+                qn = np.linalg.norm(q)
+            else:
+                return []
         sims = (mat @ q) / (np.linalg.norm(mat, axis=1) * qn + 1e-9)
         order = np.argsort(-sims)[:k]
         return [(rows[i]["ref_id"], float(sims[i])) for i in order]

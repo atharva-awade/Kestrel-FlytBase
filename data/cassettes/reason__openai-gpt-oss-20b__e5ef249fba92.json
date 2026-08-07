@@ -1,0 +1,55 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "reason",
+    "payload": {
+      "max_tokens": 1024,
+      "messages": [
+        {
+          "content": "respond with only the word pong",
+          "role": "user"
+        }
+      ],
+      "model": "openai/gpt-oss-20b",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-52163c26-a3a3-42db-b13e-a034f8f564d3",
+    "object": "chat.completion",
+    "created": 1788511255,
+    "model": "openai/gpt-oss-20b",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "pong",
+          "reasoning": "The user says: \"respond with only the word pong\". So we should output \"pong\" only. No other text."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.332542491,
+      "prompt_tokens": 77,
+      "prompt_time": 0.003669628,
+      "completion_tokens": 36,
+      "completion_time": 0.051713059,
+      "total_tokens": 113,
+      "total_time": 0.055382687,
+      "completion_tokens_details": {
+        "reasoning_tokens": 26
+      }
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_84bb35977d",
+    "x_groq": {
+      "id": "req_01m1ns7ycmemq91qvhrmw3ftjt",
+      "seed": 256695251
+    },
+    "service_tier": "on_demand"
+  }
+}

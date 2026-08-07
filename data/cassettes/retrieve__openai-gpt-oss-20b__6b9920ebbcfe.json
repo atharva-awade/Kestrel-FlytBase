@@ -1,0 +1,59 @@
+{
+  "request": {
+    "provider": "groq",
+    "endpoint": "/chat/completions",
+    "stage": "retrieve",
+    "payload": {
+      "max_tokens": 380,
+      "messages": [
+        {
+          "content": "sha256:8709b4502f3e577a",
+          "role": "system"
+        },
+        {
+          "content": "Current time: 2026-09-04T14:11:00.895023\nAvailable zone ids: \"main-gate\", \"loading-dock\", \"yard\", \"warehouse-a\", \"warehouse-b\", \"substation\", \"parking\", \"access-road\", \"fence-line\", \"restricted-core\"\n\nQuestion: \"anyone near the substation after midnight\"",
+          "role": "user"
+        }
+      ],
+      "model": "openai/gpt-oss-20b",
+      "temperature": 0.0
+    }
+  },
+  "response": {
+    "id": "chatcmpl-cafe66f7-0d60-4001-9a54-7755e0883193",
+    "object": "chat.completion",
+    "created": 1788511261,
+    "model": "openai/gpt-oss-20b",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "reasoning": "We need to parse the query: \"anyone near the substation after midnight\". The operator wants to find people near the substation after midnight. So we need to produce JSON with fields.\n\nIntent: It's a filter: \"anyone near the substation after midnight\". It's a structured query: filter by zone substation, time after midnight. There's no mention of visual description. So intent \"structured\".\n\nLabels: \"person\" because \"anyone\" refers to people. Possibly also \"truck\"? No. So labels: [\"person\"].\n\nZones: [\"substation\"].\n\nEntity_ids: none.\n\nrelative_hours: \"after midnight\" relative to current time? The current time is 2026-09-04 14:11. After midnight refers to midnight of the same day? Actually midnight of the same day would be 2026-09-04 00:00. But \"after midnight\" could mean after midnight of the same day? Usually \"after midnight\" means after midnight of the same day, i.e., after 00:00. But the current time is 14:11, so after midnight refers to the period from 00:00 to now? But the query is \"anyone near the substation after midnight\". That likely means after midnight of the same day, i.e., from 00:00 to now. So relative_hours: 14.11 hours? But relative_hours expects a number or null. We can compute relative_hours as 14.11? But relative_hours is used for relative time windows. \"after midnight\" is a relative time from midnight to now. But we can approximate relative_hours as 14.11? But the guidance says \"last night\" is roughly relative_hours 12; \"today\" 24; \"this week\" 168. \"after midnight\" is not a standard"
+        },
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.310216917,
+      "prompt_tokens": 413,
+      "prompt_time": 0.024762877,
+      "completion_tokens": 380,
+      "completion_time": 0.500791785,
+      "total_tokens": 793,
+      "total_time": 0.525554662,
+      "completion_tokens_details": {
+        "reasoning_tokens": 378
+      }
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_e594c51153",
+    "x_groq": {
+      "id": "req_01m1ns843ref7vdqrwzp4jnd6s",
+      "seed": 1567626681
+    },
+    "service_tier": "on_demand"
+  }
+}

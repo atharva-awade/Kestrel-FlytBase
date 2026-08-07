@@ -279,7 +279,10 @@ class ModelClient:
             stage=Stage.EMBED,
             timeout=timeout or 25.0,
         )
-        return body["data"][0]["embedding"]
+        vec = body["data"][0]["embedding"]
+        if not joint and len(vec) > self.settings.text_embed_dim:
+            vec = vec[:self.settings.text_embed_dim]
+        return vec
 
     async def embed_batch(
         self, texts: list[str], *, kind: Literal["query", "passage"] = "passage",

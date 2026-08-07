@@ -83,13 +83,13 @@ class Settings(BaseSettings):
         default="nvidia/llama-nemotron-embed-vl-1b-v2", alias="KESTREL_VL_EMBED"
     )
     vl_embed_dim: int = Field(default=2048, alias="KESTREL_VL_EMBED_DIM")
-    text_embed: str = Field(default="nvidia/nv-embedqa-e5-v5", alias="KESTREL_EMBED")
+    text_embed: str = Field(default="nvidia/nemotron-3-embed-1b", alias="KESTREL_EMBED")
     text_embed_dim: int = Field(default=1024, alias="KESTREL_EMBED_DIM")
 
     # ── reasoning ─────────────────────────────────────────────────────────
     # Groq is primary on measured latency: 227ms vs 83s for the same model class
     # on NIM, which additionally rate-limits near 40 RPM.
-    llm: str = Field(default="llama-3.3-70b-versatile", alias="KESTREL_LLM")
+    llm: str = Field(default="openai/gpt-oss-120b", alias="KESTREL_LLM")
     llm_provider: Literal["groq", "nvidia"] = Field(
         default="groq", alias="KESTREL_LLM_PROVIDER"
     )
