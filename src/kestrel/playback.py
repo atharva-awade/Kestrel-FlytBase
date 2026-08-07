@@ -113,7 +113,7 @@ async def build_index(
 
     from kestrel.config import get_settings
     from kestrel.gate.gate import CostGate
-    from kestrel.perception.detect import YoloBackend
+    from kestrel.perception.detect import Detector, YoloBackend
     from kestrel.perception.project import GroundProjector
     from kestrel.perception.track import Tracker
     from kestrel.rules.engine import Observation, RuleEngine
@@ -138,15 +138,13 @@ async def build_index(
 
     settings = get_settings()
 
-    # YOLO11 is pinned here, deliberately. The configured default is Grounding
-    # DINO, which is the better detector for open-vocabulary rules and the wrong
-    # one for a dense sweep on both counts: it measures ~540 ms/frame against
-    # YOLO11's ~15 ms, and its box threshold sits at 0.55 because it grounds
-    # spurious phrases in the 0.35-0.50 band. That threshold protects precision
-    # on a promptable query and destroys recall here, on one 377-frame clip it
-    # found three cars. YOLO11 is closed-set COCO, which is the vocabulary a
-    # security console actually needs.
-    detector = YoloBackend(threshold=MIN_CONF)
+    # YOLO11 is preferred for dense sweeps. If ultralytics or weights are absent
+    # (e.g. in a lightweight cloud CPU container), fall back gracefully to the
+    # configured detector rather than raising an unhandled ModuleNotFoundError.
+    try:
+        detector = YoloBackend(threshold=MIN_CONF)
+    except Exception:
+        detector = Detector(settings=settings).backend
 
     # ByteTrack's lost-track buffer is counted in frames, so the tracker has to be
     # told the real rate. At 12 fps a buffer sized for 2 fps silently shrinks from

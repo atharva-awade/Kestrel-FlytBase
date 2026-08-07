@@ -49,8 +49,9 @@ data/runs/
 data/exports/
 data/frames/
 
-# Large media: footage is fetched by scripts/fetch_footage.py, not committed.
-data/footage/*
+# Demo footage: committed so the deployed console has clips to play
+!data/footage/manifest.json
+!data/footage/*.mp4
 !data/footage/SOURCES.md
 !data/footage/.gitkeep
 
