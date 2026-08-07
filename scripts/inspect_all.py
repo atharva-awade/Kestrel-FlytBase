@@ -25,12 +25,12 @@ import json
 import os
 import re
 import subprocess
-import time
 import sys
+import time
 import urllib.error
 import urllib.request
 from pathlib import Path
-from typing import Any
+from typing import Any, ClassVar
 
 API = "http://127.0.0.1:8000"
 WEB = "http://localhost:3000"
@@ -167,7 +167,7 @@ def runtime() -> dict[str, Any]:
     if rows:
         sid = rows[0].get("id") or rows[0].get("site_id")
         st, _ = get(f"{API}/api/sites/{sid}")
-        check(f"GET /api/sites/{{id}}", st == 200, f"HTTP {st}")
+        check("GET /api/sites/{id}", st == 200, f"HTTP {st}")
 
     _, ents = get(f"{API}/api/entities?limit=1")
     rows = (ents or {}).get("entities", []) if isinstance(ents, dict) else (ents or [])
@@ -323,12 +323,12 @@ def integrity(health: dict) -> None:
     section("4. INTEGRITY  — the properties that would discredit everything else")
 
     if health:
-        st, led = get(f"{API}/api/ledger")
+        _, led = get(f"{API}/api/ledger")
         v = (led or {}).get("verification", {}) if isinstance(led, dict) else {}
         check("audit ledger hash chain verifies", v.get("valid") is True,
               f"{v.get('entries')} entries, valid={v.get('valid')}")
 
-        st, fleet = get(f"{API}/api/fleet")
+        _, fleet = get(f"{API}/api/fleet")
         sites = (fleet or {}).get("sites", []) if isinstance(fleet, dict) else (fleet or [])
         unflagged = [s for s in sites if "simulated" not in s]
         live = [s for s in sites if s.get("simulated") is False]
@@ -580,7 +580,9 @@ def claims() -> None:
     from kestrel.agent.registry import _reconcile_enums
 
     class _T:
-        parameters = {"properties": {"status": {"enum": ["open", "resolved"]}}}
+        parameters: ClassVar[dict[str, Any]] = {
+            "properties": {"status": {"enum": ["open", "resolved"]}}
+        }
 
     check("out-of-enum tool arguments cannot reach a query",
           _reconcile_enums(_T, {"status": "all"}) == {}
@@ -643,7 +645,7 @@ def modalities(health: dict) -> None:
 
     # The map key lives in the repo-root .env; Next only reads its own directory,
     # so it has to be lifted explicitly or the basemap silently never loads.
-    st, page = get(f"{WEB}/site/plant-01", timeout=90)
+    st, _page = get(f"{WEB}/site/plant-01", timeout=90)
     if st != 200:
         record(SKIP, "site map page", "web server not running")
     else:

@@ -28,9 +28,9 @@ from __future__ import annotations
 import asyncio
 import re
 import shutil
+from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Callable
 
 # Codecs every current browser can decode from an MP4 container.
 #
@@ -70,7 +70,7 @@ def ffmpeg_exe() -> str:
         import imageio_ffmpeg
 
         return imageio_ffmpeg.get_ffmpeg_exe()
-    except Exception:  # noqa: BLE001 - fall back to a system install
+    except Exception:
         found = shutil.which("ffmpeg")
         if not found:
             raise MediaError(
@@ -126,9 +126,10 @@ async def _run(args: list[str], total_s: float,
     )
     assert proc.stdout is not None
     while line := await proc.stdout.readline():
-        if on_progress and total_s > 0:
-            if m := _OUT_TIME.search(line.decode("utf-8", "replace")):
-                on_progress(min(1.0, int(m.group(1)) / 1e6 / total_s))
+        if on_progress and total_s > 0 and (
+            m := _OUT_TIME.search(line.decode("utf-8", "replace"))
+        ):
+            on_progress(min(1.0, int(m.group(1)) / 1e6 / total_s))
     err = (await proc.stderr.read()).decode("utf-8", "replace") if proc.stderr else ""
     if await proc.wait() != 0:
         tail = " / ".join(ln.strip() for ln in err.strip().splitlines()[-3:])
@@ -171,7 +172,7 @@ async def ensure_browser_playable(
 
     tmp = path.with_suffix(".converting.mp4")
     try:
-        await _run(args + ["-movflags", "+faststart", "-f", "mp4", str(tmp)],
+        await _run([*args, "-movflags", "+faststart", "-f", "mp4", str(tmp)],
                    before.duration_s, on_progress)
         after = await probe(tmp)
         if not after.playable:

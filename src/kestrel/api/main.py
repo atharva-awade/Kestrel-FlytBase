@@ -21,7 +21,12 @@ from pathlib import Path
 from typing import Any
 
 from fastapi import (
-    FastAPI, File, Form, HTTPException, Query, UploadFile,
+    FastAPI,
+    File,
+    Form,
+    HTTPException,
+    Query,
+    UploadFile,
 )
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, StreamingResponse
@@ -384,6 +389,15 @@ MAX_UPLOAD_SECONDS = 600
 #: session that made it, and a restart legitimately forgets it.
 _UPLOAD_JOBS: dict[str, dict[str, Any]] = {}
 
+#: Strong references to in-flight indexing tasks.
+#:
+#: The event loop holds only a *weak* reference to a task, so a bare
+#: `asyncio.create_task(...)` whose result nobody keeps can be garbage collected
+#: while it is still running. Indexing a clip takes minutes, which is a wide
+#: window for that to happen, and the symptom would be an upload that stops
+#: partway with no error anywhere: the job record simply never leaves "indexing".
+_UPLOAD_TASKS: set[asyncio.Task[None]] = set()
+
 
 @app.post("/api/upload/video")
 async def upload_video(
@@ -457,7 +471,9 @@ async def upload_video(
         "fps": round(fps, 3), "duration_s": round(duration, 2), "frames": frames,
     }
 
-    asyncio.create_task(_index_upload(job_id, dest))
+    task = asyncio.create_task(_index_upload(job_id, dest))
+    _UPLOAD_TASKS.add(task)
+    task.add_done_callback(_UPLOAD_TASKS.discard)
     return {"ok": True, **_UPLOAD_JOBS[job_id]}
 
 
@@ -506,7 +522,7 @@ async def _index_upload(job_id: str, path: Path) -> None:
                     f"{len(index['alerts'])} alerts",
             alerts=len(index["alerts"]),
         )
-    except Exception as e:  # noqa: BLE001 - reported to the operator verbatim
+    except Exception as e:
         job.update(state="failed", message=f"{type(e).__name__}: {e}"[:200])
 
 

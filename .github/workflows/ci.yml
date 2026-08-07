@@ -48,6 +48,11 @@ jobs:
         uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Point at the config explicitly rather than trusting auto-discovery.
+          # The allowlist for vendored WASM libraries lives there, and if the
+          # action ever resolves its own default instead, the scan silently
+          # reverts to failing on Draco's compiled decoder.
+          GITLEAKS_CONFIG: ${{ github.workspace }}/.gitleaks.toml
 
   web:
     name: Web — typecheck and build

@@ -359,7 +359,7 @@ class AskKestrel:
         try:
             rows = self.ctx.db.query("SELECT MAX(ts) AS t FROM frames")
             latest = rows[0]["t"] if rows else None
-        except Exception:  # noqa: BLE001 - an empty or missing table is not fatal
+        except Exception:
             latest = None
         if not latest:
             # Nothing indexed yet: there is no observation clock to use, so fall
@@ -613,7 +613,7 @@ class AskKestrel:
                 max_tokens=420,
                 router=(intent == "LOOKUP"),
             )
-        except Exception as e:  # noqa: BLE001 - recorded, not swallowed
+        except Exception as e:
             # A planner that cannot be reached is not the same thing as a planner
             # that considered the question and chose nothing, but both used to
             # return [] and surface as "I could not find a tool that answers
@@ -805,7 +805,7 @@ class AskKestrel:
 
         try:
             full = await task
-        except Exception as e:                       # noqa: BLE001 - surfaced to the client
+        except Exception as e:
             yield {"type": "error", "error": f"{type(e).__name__}: {e}"[:200]}
             return
 

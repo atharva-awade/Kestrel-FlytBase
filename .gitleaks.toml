@@ -28,12 +28,28 @@ regex = '''(?i)maptiler[_-]?key\s*[:=]\s*["']?[A-Za-z0-9]{16,}'''
 tags = ["key", "maptiler"]
 
 [allowlist]
-description = "Placeholders and documentation are not leaks"
+description = "Placeholders, documentation and vendored libraries are not leaks"
 paths = [
   '''\.env\.example$''',
   '''\.gitleaks\.toml$''',
   '''docs/.*\.md$''',
   '''README\.md$''',
+
+  # Third-party libraries vendored verbatim into web/public so they are served
+  # from our own origin. Both are Emscripten or bundler output: single-line
+  # minified JavaScript wrapping a compiled WASM payload, which is exactly the
+  # shape gitleaks' generic-api-key entropy rule is built to catch.
+  #
+  # It fired on draco_decoder.js line 21, an 89 KB line of compiled decoder. The
+  # match is a base64 fragment of the WASM binary, not a credential, and nothing
+  # in these files is ours to leak. Scanning them can only ever produce noise,
+  # and a scanner that cries wolf gets switched off, which is the failure this
+  # whole repository argues against.
+  #
+  # Narrow on purpose: these two directories, not all of web/public, so a real
+  # key committed anywhere else in the tree is still caught.
+  '''web/public/draco/.*''',
+  '''web/public/maplibre/.*''',
 ]
 regexes = [
   '''nvapi-x{10,}''',

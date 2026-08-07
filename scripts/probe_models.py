@@ -394,7 +394,9 @@ def _vl_crossmodal(p: Probe) -> None:
     i = _vl_embed(IMG_DATA_URI, "image", "passage")
     if len(t) != len(i):
         raise RuntimeError(f"dimension mismatch: text {len(t)} vs image {len(i)}")
-    dot = sum(a * b for a, b in zip(t, i))
+    # strict=True: the length guard above already rejects a mismatch, and a
+    # silently truncated zip would compute a cosine over a prefix.
+    dot = sum(a * b for a, b in zip(t, i, strict=True))
     norm = math.sqrt(sum(a * a for a in t)) * math.sqrt(sum(b * b for b in i))
     cos = dot / norm if norm else 0.0
     if not (-1.001 <= cos <= 1.001) or cos == 0.0:

@@ -110,6 +110,20 @@ ignore = [
 "report/*" = ["E402", "E702"]
 # Tests bind values purely to assert on construction succeeding.
 "tests/*" = ["F841", "RUF059"]
+# SIM905 wants `"a b c".split()` written as a list literal. The agent's scope
+# vocabularies are twenty-line prose blocks of domain words, and rewriting them
+# as quoted-and-comma'd lists would make the one thing a reader needs to scan
+# unreadable. The idiom is deliberate and the cost is one split at import.
+"src/kestrel/agent/agent.py" = ["SIM905"]
+# B008 forbids function calls in argument defaults. `file: UploadFile = File(...)`
+# is not a mutable-default bug, it is FastAPI's dependency-injection syntax, and
+# the endpoint cannot be written without it.
+# ASYNC240 fires on `Path.mkdir` and `Path.write_text` for local disk. Both are
+# brief, one runs inside a background task rather than the request path, and
+# taking an anyio dependency to await a stat call would be the larger mistake.
+"src/kestrel/api/main.py" = ["B008", "ASYNC240"]
+# ASYNC240 again: a single `Path.exists()` guard before a long video decode.
+"src/kestrel/playback.py" = ["ASYNC240"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

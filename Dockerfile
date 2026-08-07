@@ -51,11 +51,10 @@ COPY data/footage ./data/footage
 COPY data/playback ./data/playback
 COPY data/seed/kestrel.db ./data/kestrel.db
 
-# Uploaded clips are transcoded to browser-playable H.264 on ingest, which needs
-# ffmpeg. Without it the upload feature refuses with a clear reason instead of
-# accepting a file no browser can play.
-RUN apt-get update && apt-get install -y --no-install-recommends ffmpeg \
-    && rm -rf /var/lib/apt/lists/*
+# No apt ffmpeg here on purpose. Uploaded clips are transcoded to browser-safe
+# H.264 on ingest, and the `imageio-ffmpeg` base dependency already ships a
+# binary that kestrel.media prefers over anything on PATH, so installing the
+# system package would add roughly 200 MB to the image for a second copy.
 
 # Uploads are written at runtime. On a host with no persistent disk this is
 # ephemeral and resets on redeploy, which is acceptable for a demo and stated

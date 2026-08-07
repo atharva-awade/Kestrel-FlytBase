@@ -17,7 +17,7 @@
       "alerts_suppressed": 0,
       "missions_proposed": 0,
       "frames": 10,
-      "seconds": 0.6,
+      "seconds": 0.2,
       "pass": true
     },
     {
@@ -45,7 +45,7 @@
       "alerts_suppressed": 0,
       "missions_proposed": 2,
       "frames": 10,
-      "seconds": 0.5,
+      "seconds": 0.1,
       "pass": true
     },
     {
@@ -80,7 +80,7 @@
       "alerts_suppressed": 0,
       "missions_proposed": 5,
       "frames": 10,
-      "seconds": 0.6,
+      "seconds": 0.1,
       "pass": true
     },
     {
@@ -111,7 +111,7 @@
       "alerts_suppressed": 0,
       "missions_proposed": 4,
       "frames": 22,
-      "seconds": 49.0,
+      "seconds": 0.3,
       "pass": true
     },
     {
@@ -131,7 +131,7 @@
       "alerts_suppressed": 0,
       "missions_proposed": 0,
       "frames": 6,
-      "seconds": 11.6,
+      "seconds": 0.1,
       "pass": true
     },
     {
@@ -158,7 +158,7 @@
       "alerts_suppressed": 0,
       "missions_proposed": 1,
       "frames": 9,
-      "seconds": 18.1,
+      "seconds": 0.1,
       "pass": true
     },
     {
@@ -178,7 +178,7 @@
       "alerts_suppressed": 0,
       "missions_proposed": 0,
       "frames": 12,
-      "seconds": 24.1,
+      "seconds": 0.1,
       "pass": true
     },
     {
@@ -208,7 +208,7 @@
       "alerts_suppressed": 0,
       "missions_proposed": 4,
       "frames": 7,
-      "seconds": 14.1,
+      "seconds": 0.1,
       "pass": true
     }
   ],
@@ -222,5 +222,5 @@
   "recall": 1.0,
   "f1": 1.0,
   "note": "True-negative scenarios (routine delivery, wildlife at the fence, shift change) are weighted equally in this suite. A security system that cries wolf is switched off, and then protects nothing.",
-  "generated_at": "2026-08-06T09:35:19.090860"
+  "generated_at": "2026-08-07T13:44:02.896434"
 }
