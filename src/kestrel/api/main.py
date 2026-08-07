@@ -32,7 +32,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, StreamingResponse
 from pydantic import BaseModel
 
-from kestrel.config import get_settings
+from kestrel.config import REPO_ROOT, get_settings
 from kestrel.obs.meter import METER
 from kestrel.storage.db import get_db
 from kestrel.storage.ledger import Ledger
@@ -247,11 +247,21 @@ def frame_image(frame_id: str):
     rows = db.query("SELECT path FROM frames WHERE id = ?", (frame_id,))
     if not rows or not rows[0]["path"]:
         raise HTTPException(404, "no image for that frame")
-    p = Path(rows[0]["path"])
+    raw = rows[0]["path"].replace("\\", "/")
+    p = Path(raw)
     if not p.is_absolute():
-        p = settings.frame_dir.parent.parent / p
+        p = REPO_ROOT / raw
     if not p.exists():
-        raise HTTPException(404, "image file missing")
+        filename = Path(raw).name
+        candidates = [
+            settings.frame_dir / filename,
+            settings.frame_dir / "plant-01" / filename,
+            *list(settings.frame_dir.glob(f"**/{filename}")),
+        ]
+        found = next((c for c in candidates if c.exists()), None)
+        if found is None:
+            raise HTTPException(404, "image file missing")
+        p = found
     return FileResponse(p, media_type="image/jpeg")
 
 

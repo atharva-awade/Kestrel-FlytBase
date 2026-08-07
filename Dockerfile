@@ -48,6 +48,7 @@ COPY data/eval ./data/eval
 #             data/kestrel.db is gitignored and a build cannot regenerate it
 #             without a detector this image deliberately does not carry.
 COPY data/footage ./data/footage
+COPY data/frames ./data/frames
 COPY data/playback ./data/playback
 COPY data/seed/kestrel.db ./data/kestrel.db
 
