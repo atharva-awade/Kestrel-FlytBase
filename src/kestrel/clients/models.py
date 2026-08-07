@@ -101,7 +101,12 @@ class ModelClient:
         if model:
             chain = [(self.groq if self.settings.llm_provider == "groq" else self.nvidia, model)]
         elif router:
-            chain = [(self.groq, self.settings.llm_router), *chain]
+            fast_chain: list[tuple[Provider, str]] = []
+            if self.groq.available or self.settings.effective_mode.value == "replay":
+                fast_chain.append((self.groq, self.settings.llm_router))
+            if self.nvidia.available or self.settings.effective_mode.value == "replay":
+                fast_chain.append((self.nvidia, "meta/llama-3.1-8b-instruct"))
+            chain = [*fast_chain, *chain]
 
         errors: list[str] = []
         for provider, model_id in chain:
@@ -249,7 +254,8 @@ class ModelClient:
         return body["data"][0]["embedding"]
 
     async def embed_text(
-        self, text: str, *, kind: Literal["query", "passage"] = "query", joint: bool = True
+        self, text: str, *, kind: Literal["query", "passage"] = "query", joint: bool = True,
+        timeout: float | None = None,
     ) -> list[float]:
         """Embed text.
 
@@ -269,6 +275,7 @@ class ModelClient:
                 "truncate": "NONE",
             },
             stage=Stage.EMBED,
+            timeout=timeout or 25.0,
         )
         return body["data"][0]["embedding"]
 

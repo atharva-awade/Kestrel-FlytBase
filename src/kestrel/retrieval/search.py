@@ -208,14 +208,20 @@ class HybridSearch:
                 max_tokens=380,
                 router=True,   # planning is cheap work; do not wake the 70B
             )
-        except Exception:
-            return self._heuristic_plan(query, now)
+        except Exception as e:
+            plan = self._heuristic_plan(query, now)
+            if self.client is not None:
+                plan.reasoning = f"heuristic plan ({type(e).__name__})"
+            return plan
 
         from kestrel.clients.models import _loads_lenient
 
         payload = _loads_lenient(raw)
         if not payload:
-            return self._heuristic_plan(query, now)
+            plan = self._heuristic_plan(query, now)
+            if self.client is not None:
+                plan.reasoning = "heuristic plan (malformed model JSON)"
+            return plan
 
         known = {z.id for z in self.site.zones}
         plan.intent = payload.get("intent") if payload.get("intent") in (
@@ -306,7 +312,7 @@ class HybridSearch:
             # results", which is indistinguishable from "nothing was there". For a
             # system whose whole claim is knowing what it does not know, an
             # unavailable retriever has to be reported, not hidden.
-            self._degraded[kind] = f"embedding provider unavailable ({type(e).__name__})"
+            self._degraded[kind] = f"embedding provider unavailable ({type(e).__name__}: {e})"
             return []
         hits = self.db.vector_search(vec, kind=kind, site_id=self.site.id, k=plan.limit * 3)
         return [ref for ref, _ in hits]
